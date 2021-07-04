@@ -1,0 +1,987 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pgsFileManagement.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pgsFileManagement.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 197</value>
+  </data>
+  <data name="pgsFileManagement.Size" type="System.Drawing.Size, System.Drawing">
+    <value>745, 29</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pgsFileManagement.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pgsFileManagement.Name" xml:space="preserve">
+    <value>pgsFileManagement</value>
+  </data>
+  <data name="&gt;&gt;pgsFileManagement.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pgsFileManagement.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pgsFileManagement.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtLogProcess.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt, style=Bold</value>
+  </data>
+  <data name="txtLogProcess.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 232</value>
+  </data>
+  <data name="txtLogProcess.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtLogProcess.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Both</value>
+  </data>
+  <data name="txtLogProcess.Size" type="System.Drawing.Size, System.Drawing">
+    <value>794, 207</value>
+  </data>
+  <data name="txtLogProcess.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtLogProcess.Name" xml:space="preserve">
+    <value>txtLogProcess</value>
+  </data>
+  <data name="&gt;&gt;txtLogProcess.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtLogProcess.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtLogProcess.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblProgressPercent.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblProgressPercent.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblProgressPercent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblProgressPercent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>767, 204</value>
+  </data>
+  <data name="lblProgressPercent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 16</value>
+  </data>
+  <data name="lblProgressPercent.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblProgressPercent.Text" xml:space="preserve">
+    <value>100%</value>
+  </data>
+  <data name="&gt;&gt;lblProgressPercent.Name" xml:space="preserve">
+    <value>lblProgressPercent</value>
+  </data>
+  <data name="&gt;&gt;lblProgressPercent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblProgressPercent.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblProgressPercent.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblFromMoveFiles.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblFromMoveFiles.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="lblFromMoveFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblFromMoveFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 29</value>
+  </data>
+  <data name="lblFromMoveFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 16</value>
+  </data>
+  <data name="lblFromMoveFiles.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblFromMoveFiles.Text" xml:space="preserve">
+    <value>From Folder:</value>
+  </data>
+  <data name="&gt;&gt;lblFromMoveFiles.Name" xml:space="preserve">
+    <value>lblFromMoveFiles</value>
+  </data>
+  <data name="&gt;&gt;lblFromMoveFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFromMoveFiles.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;lblFromMoveFiles.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtFromFolder.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="txtFromFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 27</value>
+  </data>
+  <data name="txtFromFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>649, 22</value>
+  </data>
+  <data name="txtFromFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtFromFolder.Name" xml:space="preserve">
+    <value>txtFromFolder</value>
+  </data>
+  <data name="&gt;&gt;txtFromFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtFromFolder.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;txtFromFolder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnFromBrowser.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnFromBrowser.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="btnFromBrowser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnFromBrowser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>747, 24</value>
+  </data>
+  <data name="btnFromBrowser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 27</value>
+  </data>
+  <data name="btnFromBrowser.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnFromBrowser.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;btnFromBrowser.Name" xml:space="preserve">
+    <value>btnFromBrowser</value>
+  </data>
+  <data name="&gt;&gt;btnFromBrowser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnFromBrowser.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;btnFromBrowser.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblToMoveFiles.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblToMoveFiles.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="lblToMoveFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblToMoveFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 61</value>
+  </data>
+  <data name="lblToMoveFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 16</value>
+  </data>
+  <data name="lblToMoveFiles.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblToMoveFiles.Text" xml:space="preserve">
+    <value>To Folder:</value>
+  </data>
+  <data name="&gt;&gt;lblToMoveFiles.Name" xml:space="preserve">
+    <value>lblToMoveFiles</value>
+  </data>
+  <data name="&gt;&gt;lblToMoveFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblToMoveFiles.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;lblToMoveFiles.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txtToFolder.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="txtToFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 59</value>
+  </data>
+  <data name="txtToFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>649, 22</value>
+  </data>
+  <data name="txtToFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtToFolder.Name" xml:space="preserve">
+    <value>txtToFolder</value>
+  </data>
+  <data name="&gt;&gt;txtToFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtToFolder.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;txtToFolder.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnToBrowser.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnToBrowser.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="btnToBrowser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnToBrowser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>747, 56</value>
+  </data>
+  <data name="btnToBrowser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 27</value>
+  </data>
+  <data name="btnToBrowser.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnToBrowser.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;btnToBrowser.Name" xml:space="preserve">
+    <value>btnToBrowser</value>
+  </data>
+  <data name="&gt;&gt;btnToBrowser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnToBrowser.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;btnToBrowser.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblOrderBy.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblOrderBy.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="lblOrderBy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblOrderBy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 93</value>
+  </data>
+  <data name="lblOrderBy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 16</value>
+  </data>
+  <data name="lblOrderBy.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lblOrderBy.Text" xml:space="preserve">
+    <value>Order By:</value>
+  </data>
+  <data name="&gt;&gt;lblOrderBy.Name" xml:space="preserve">
+    <value>lblOrderBy</value>
+  </data>
+  <data name="&gt;&gt;lblOrderBy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblOrderBy.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;lblOrderBy.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="cboOrderBy.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cboOrderBy.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="cboOrderBy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cboOrderBy.Items" xml:space="preserve">
+    <value>Ascending</value>
+  </data>
+  <data name="cboOrderBy.Items1" xml:space="preserve">
+    <value>Descending</value>
+  </data>
+  <data name="cboOrderBy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>220, 91</value>
+  </data>
+  <data name="cboOrderBy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 24</value>
+  </data>
+  <data name="cboOrderBy.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;cboOrderBy.Name" xml:space="preserve">
+    <value>cboOrderBy</value>
+  </data>
+  <data name="&gt;&gt;cboOrderBy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cboOrderBy.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;cboOrderBy.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="cboOrderField.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cboOrderField.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="cboOrderField.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cboOrderField.Items" xml:space="preserve">
+    <value>Creation Time</value>
+  </data>
+  <data name="cboOrderField.Items1" xml:space="preserve">
+    <value>Filename</value>
+  </data>
+  <data name="cboOrderField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 91</value>
+  </data>
+  <data name="cboOrderField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 24</value>
+  </data>
+  <data name="cboOrderField.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;cboOrderField.Name" xml:space="preserve">
+    <value>cboOrderField</value>
+  </data>
+  <data name="&gt;&gt;cboOrderField.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cboOrderField.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;cboOrderField.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblFileExtension.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblFileExtension.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="lblFileExtension.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblFileExtension.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 125</value>
+  </data>
+  <data name="lblFileExtension.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 16</value>
+  </data>
+  <data name="lblFileExtension.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblFileExtension.Text" xml:space="preserve">
+    <value>Filtered By:
+</value>
+  </data>
+  <data name="&gt;&gt;lblFileExtension.Name" xml:space="preserve">
+    <value>lblFileExtension</value>
+  </data>
+  <data name="&gt;&gt;lblFileExtension.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFileExtension.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;lblFileExtension.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="cboFileExtension.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cboFileExtension.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="cboFileExtension.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cboFileExtension.Items" xml:space="preserve">
+    <value>All Extensions</value>
+  </data>
+  <data name="cboFileExtension.Items1" xml:space="preserve">
+    <value>TID</value>
+  </data>
+  <data name="cboFileExtension.Items2" xml:space="preserve">
+    <value>*.dll or *.exe</value>
+  </data>
+  <data name="cboFileExtension.Items3" xml:space="preserve">
+    <value>*.dll</value>
+  </data>
+  <data name="cboFileExtension.Items4" xml:space="preserve">
+    <value>*.exe </value>
+  </data>
+  <data name="cboFileExtension.Items5" xml:space="preserve">
+    <value>*.tps</value>
+  </data>
+  <data name="cboFileExtension.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 123</value>
+  </data>
+  <data name="cboFileExtension.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 24</value>
+  </data>
+  <data name="cboFileExtension.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;cboFileExtension.Name" xml:space="preserve">
+    <value>cboFileExtension</value>
+  </data>
+  <data name="&gt;&gt;cboFileExtension.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cboFileExtension.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;cboFileExtension.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="chkSubFolders.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkSubFolders.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="chkSubFolders.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkSubFolders.Location" type="System.Drawing.Point, System.Drawing">
+    <value>223, 124</value>
+  </data>
+  <data name="chkSubFolders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 20</value>
+  </data>
+  <data name="chkSubFolders.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="chkSubFolders.Text" xml:space="preserve">
+    <value>Check Subfolders</value>
+  </data>
+  <data name="&gt;&gt;chkSubFolders.Name" xml:space="preserve">
+    <value>chkSubFolders</value>
+  </data>
+  <data name="&gt;&gt;chkSubFolders.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkSubFolders.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;chkSubFolders.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="btnCopyFiles.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnCopyFiles.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="btnCopyFiles.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnCopyFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCopyFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>645, 91</value>
+  </data>
+  <data name="btnCopyFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 51</value>
+  </data>
+  <data name="btnCopyFiles.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="btnCopyFiles.Text" xml:space="preserve">
+    <value>Copy Files</value>
+  </data>
+  <data name="btnCopyFiles.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnCopyFiles.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;btnCopyFiles.Name" xml:space="preserve">
+    <value>btnCopyFiles</value>
+  </data>
+  <data name="&gt;&gt;btnCopyFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCopyFiles.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;btnCopyFiles.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="btnDeleteDuplicate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnDeleteDuplicate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="btnDeleteDuplicate.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnDeleteDuplicate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDeleteDuplicate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>367, 91</value>
+  </data>
+  <data name="btnDeleteDuplicate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 51</value>
+  </data>
+  <data name="btnDeleteDuplicate.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="btnDeleteDuplicate.Text" xml:space="preserve">
+    <value>Delete Duplicate Files</value>
+  </data>
+  <data name="btnDeleteDuplicate.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnDeleteDuplicate.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteDuplicate.Name" xml:space="preserve">
+    <value>btnDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteDuplicate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteDuplicate.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteDuplicate.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="BtnMoveFiles.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="BtnMoveFiles.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="BtnMoveFiles.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="BtnMoveFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BtnMoveFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>506, 91</value>
+  </data>
+  <data name="BtnMoveFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 51</value>
+  </data>
+  <data name="BtnMoveFiles.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="BtnMoveFiles.Text" xml:space="preserve">
+    <value>Move Files</value>
+  </data>
+  <data name="BtnMoveFiles.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="BtnMoveFiles.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;BtnMoveFiles.Name" xml:space="preserve">
+    <value>BtnMoveFiles</value>
+  </data>
+  <data name="&gt;&gt;BtnMoveFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnMoveFiles.Parent" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;BtnMoveFiles.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="grpDeleteDuplicate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="grpDeleteDuplicate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 31</value>
+  </data>
+  <data name="grpDeleteDuplicate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>794, 160</value>
+  </data>
+  <data name="grpDeleteDuplicate.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grpDeleteDuplicate.Text" xml:space="preserve">
+    <value>File Management</value>
+  </data>
+  <data name="&gt;&gt;grpDeleteDuplicate.Name" xml:space="preserve">
+    <value>grpDeleteDuplicate</value>
+  </data>
+  <data name="&gt;&gt;grpDeleteDuplicate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpDeleteDuplicate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grpDeleteDuplicate.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="mnsMenuBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="mnsMenuBar.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="mnuClarionDateTime.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="mnuClarionDateTime.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Black</value>
+  </data>
+  <data name="mnuClarionDateTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 22</value>
+  </data>
+  <data name="mnuClarionDateTime.Text" xml:space="preserve">
+    <value>Clarion Date/Time</value>
+  </data>
+  <data name="mnuClarionDateTime.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="mnuCodeToClipoard.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="mnuCodeToClipoard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="mnuCodeToClipoard.Text" xml:space="preserve">
+    <value>Code to Clipoard</value>
+  </data>
+  <data name="mnuCodeToClipoard.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="mnuScriptWriter.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="mnuScriptWriter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
+  </data>
+  <data name="mnuScriptWriter.Text" xml:space="preserve">
+    <value>Script Writer</value>
+  </data>
+  <data name="mnuScriptWriter.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="mnuNotes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="mnuNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 22</value>
+  </data>
+  <data name="mnuNotes.Text" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="mnsMenuBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="mnsMenuBar.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 3, 0, 3</value>
+  </data>
+  <data name="mnsMenuBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>818, 28</value>
+  </data>
+  <data name="mnsMenuBar.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="mnsMenuBar.Text" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="&gt;&gt;mnsMenuBar.Name" xml:space="preserve">
+    <value>mnsMenuBar</value>
+  </data>
+  <data name="&gt;&gt;mnsMenuBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnsMenuBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;mnsMenuBar.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>818, 451</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAIAEBAAAAEAIABoBAAAJgAAACAgAAABACAAqBAAAI4EAAAoAAAAEAAAACAAAAABACAAAAAAADAE
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIt9YLKLfGDRjHtfPgAAAAAAAAAAAAAAAAAA
+        AAAAAAAAALn/CwfB/8EIwf/zBsL/VAAAAAAAAAAAAAAAAAAAAACLfWDXi31hbIt9YO+OfWAtAAAAAAAA
+        AAAAAAAAAAAAAAbA/58Hwf//B8H//wnB/+sAAAAAAAAAAAAAAAAAAAAAiX5eQYt9X/OLfWD/i31g54p8
+        YCUAAAAAAAAAAAjC/1wHwf//B8H//wfB//8Hwf+tAAAAAAAAAAAAAAAAAAAAAAAAAACNfl9Di31f84t9
+        YP+KfWDdiYBiGgXD/zMKwf73B8H//wfB//8GwP+jAL//DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIt9
+        YTeLfWDti31g/2yNhd0Nwf3zB8H//wvB/voGwf9aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAjn1gLR2c4foGtP7/B8H//xDB+/UJw/83AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAOpPnsAJn//we0/v9qjoXWh4BgIIx9XzOJgGQcAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAADGvrFiw76w/RGl+e4Ynub1i31g/4t9YP+LfWD/i31g+Yt+XlEAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAADEv7Bkxb6w/cS+sH4AAAAAi4BeLot9YP+LfWD/i31g8Ip9YN2LfWDaAAAAAAAA
+        AAAAAAAAAAAAAL+/qgzGv6+Txb6w/sa9r3AAAAAAAAAAAI1+X0OLfWD/i31g7YqAYBiId2YPin1gugAA
+        AAAAAAAAAAAAAAAAAADGvrCOxb6w/8W+r40AAAAAAAAAAAAAAACKfGAli31g+ot9YNqHeFoRAAAAAICA
+        gAQAAAAAAAAAAAAAAAAAAAAAxb+wvsW9sIS/v78IAAAAAAAAAAAAAAAAAAAAAIt+YU+LfWDXi31gt5Jt
+        bQcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAD//wAAz+cAANfDAADjwwAA8YcAAPgfAAD8PwAA/D8AAPwH
+        AAD7gwAA55sAAMefAADPzwAA//8AAP//AAAoAAAAIAAAAEAAAAABACAAAAAAAIAQAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        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
+        x//4f8P/8P/h//P/8P//////////////////////
+</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Utilities TID</value>
+  </data>
+  <data name="&gt;&gt;mnuClarionDateTime.Name" xml:space="preserve">
+    <value>mnuClarionDateTime</value>
+  </data>
+  <data name="&gt;&gt;mnuClarionDateTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuCodeToClipoard.Name" xml:space="preserve">
+    <value>mnuCodeToClipoard</value>
+  </data>
+  <data name="&gt;&gt;mnuCodeToClipoard.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuScriptWriter.Name" xml:space="preserve">
+    <value>mnuScriptWriter</value>
+  </data>
+  <data name="&gt;&gt;mnuScriptWriter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuNotes.Name" xml:space="preserve">
+    <value>mnuNotes</value>
+  </data>
+  <data name="&gt;&gt;mnuNotes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
