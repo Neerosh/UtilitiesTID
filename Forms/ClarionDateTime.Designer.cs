@@ -65,7 +65,7 @@ namespace Utilities
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Arial", 9.5F);
-            this.lblTime.Location = new System.Drawing.Point(65, 26);
+            this.lblTime.Location = new System.Drawing.Point(21, 26);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(40, 16);
             this.lblTime.TabIndex = 0;
@@ -118,7 +118,7 @@ namespace Utilities
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Arial", 9.5F);
-            this.lblDate.Location = new System.Drawing.Point(263, 26);
+            this.lblDate.Location = new System.Drawing.Point(219, 26);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(39, 16);
             this.lblDate.TabIndex = 4;

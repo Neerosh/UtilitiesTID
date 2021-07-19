@@ -51,7 +51,7 @@ namespace Utilities
             this.grpClipboardCode.Size = new System.Drawing.Size(793, 377);
             this.grpClipboardCode.TabIndex = 0;
             this.grpClipboardCode.TabStop = false;
-            this.grpClipboardCode.Text = "Clipboard";
+            this.grpClipboardCode.Text = "Code to Clipboard";
             // 
             // txtCodePreview
             // 
@@ -77,9 +77,9 @@ namespace Utilities
             this.lblCodeClipboard.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblCodeClipboard.Location = new System.Drawing.Point(19, 32);
             this.lblCodeClipboard.Name = "lblCodeClipboard";
-            this.lblCodeClipboard.Size = new System.Drawing.Size(42, 16);
+            this.lblCodeClipboard.Size = new System.Drawing.Size(52, 16);
             this.lblCodeClipboard.TabIndex = 0;
-            this.lblCodeClipboard.Text = "Code:";
+            this.lblCodeClipboard.Text = "Clarion:";
             // 
             // cboCodeClipboard
             // 
@@ -90,8 +90,11 @@ namespace Utilities
             this.cboCodeClipboard.ForeColor = System.Drawing.Color.White;
             this.cboCodeClipboard.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cboCodeClipboard.Items.AddRange(new object[] {
+            "Acronym (Default Test)",
+            "APP (Allow only one Instance)",
             "Column (Width Change)",
             "Column Group (Width Change)",
+            "Directory (Create)",
             "Message (Error)",
             "Message (Warning)",
             "Message Case (Yes/No)",
@@ -105,7 +108,7 @@ namespace Utilities
             "TabelaSQL (Select)",
             "TabelaSQL (Update)",
             "Window (Force Refresh)"});
-            this.cboCodeClipboard.Location = new System.Drawing.Point(71, 29);
+            this.cboCodeClipboard.Location = new System.Drawing.Point(77, 29);
             this.cboCodeClipboard.Name = "cboCodeClipboard";
             this.cboCodeClipboard.Size = new System.Drawing.Size(262, 24);
             this.cboCodeClipboard.Sorted = true;

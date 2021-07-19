@@ -104,6 +104,36 @@ namespace Utilities
                 case "Column Group (Width Change)":
                     text = "?Browse:1{PropList:Width + PropList:Group,3} = 0";
                     break;
+                case "Directory (Create)":
+                    text = "! ADD TO GLOBAL EMBEDS > INSIDE GLOBAL MAP:" +
+                           "\r\n! INCLUDE('CLIB.CLW')" +
+                           "\r\nIF NOT EXISTS('\\TIDSCI\\EXETPS\\EMP' & FORMAT(GLO: Empresa, @n02) & '\\NFE\\EXPORT')" +
+                           "\r\n   LOC:Diretorio = '\\TIDSCI\\EXETPS\\EMP' & FORMAT(GLO: Empresa, @n02) & '\\NFE\\EXPORT'" +
+                           "\r\n   MKDIR(LOC: Diretorio)" +
+                           "\r\nEND";
+                    break;
+                case "APP (Allow only one Instance)":
+                    text = "! ADD TO GLOBAL EMBEDS > INSIDE GLOBAL MAP:" +
+                            "\r\n! INCLUDE('CWUTIL.INC'),ONCE" +
+                            "\r\nIF NOT BeginUnique('HISTFCLI.EXE')" +
+                            "\r\n   YIELD()" +
+                            "\r\n   CASE MESSAGE('O Histórico Financeiro já está aberto ...','Atenção',ICON: Asterisk,BUTTON: OK,BUTTON: OK,0)" +
+                            "\r\n   OF BUTTON:OK" +
+                            "\r\n      HALT()" +
+                            "\r\n   END" +
+                            "\r\nEND";
+                    break;
+                case "Acronym (Default Test)":
+                    text = "CON1:Matricula = GLO:Matricula"+
+                            "\r\nCON11:CodigoSistema = 'TEI'" +
+                            "\r\nGET(ContrAcesso, CON1: OrdemMatriculaSistema)" +
+                            "\r\nIF ERRORCODE()" +
+                            "\r\n   MESSAGE('ATENÇÃO: Acesso Não Permitido!',| " +
+                            "\r\n          'Sigla de Acesso: ' & CON1:CodigoSistema, '\\TIDSCI\\FIGURAS\\SEMACESS.ICO', Button: OK, Button: OK, 1)" +
+                            "\r\n   DO ProcedureReturn" +
+                            "\r\nEND" +
+                            "\r\nSourceGravaDetalheSistema('BCR', 393, 'Baixa Carga Entregue', 'Exp.>Contr.Entregas>Mov.>Romaneio Entregas>', 'EXPEDICA.APP')";
+                    break;
             }
             return text;
         }
