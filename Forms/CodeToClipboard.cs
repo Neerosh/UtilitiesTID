@@ -10,10 +10,21 @@ namespace Utilities
             InitializeComponent();
         }
 
-        private string ClipboardText()
+        private string ClipboardCmdText() {//add print line detail for a multi line text field
+            string text = "";
+            switch (cboCmdCode.Text) {
+                case "List Owner (.ap~)":
+                    text = "dir S:\\TIDSCI\\APLICS\\*.ap~ /s /Q";
+                    break;
+                
+            }
+            return text;
+        }
+
+        private string ClipboardClarionText()
         {//add print line detail for a multi line text field
             string text="";
-            switch (cboCodeClipboard.Text)
+            switch (cboClarionCode.Text)
             {
                 case "Print (Multiline String Manually) ":
                     text = "SETTARGET(REPORT)" +
@@ -126,26 +137,42 @@ namespace Utilities
                 case "Acronym (Default Test)":
                     text = "CON1:Matricula = GLO:Matricula"+
                             "\r\nCON11:CodigoSistema = 'TEI'" +
-                            "\r\nGET(ContrAcesso, CON1: OrdemMatriculaSistema)" +
+                            "\r\nGET(ContrAcesso,CON1:OrdemMatriculaSistema)" +
                             "\r\nIF ERRORCODE()" +
                             "\r\n   MESSAGE('ATENÇÃO: Acesso Não Permitido!',| " +
-                            "\r\n          'Sigla de Acesso: ' & CON1:CodigoSistema, '\\TIDSCI\\FIGURAS\\SEMACESS.ICO', Button: OK, Button: OK, 1)" +
+                            "\r\n          'Sigla de Acesso: '& CON1:CodigoSistema,'\\TIDSCI\\FIGURAS\\SEMACESS.ICO',Button:OK,Button:OK,1)" +
                             "\r\n   DO ProcedureReturn" +
                             "\r\nEND" +
-                            "\r\nSourceGravaDetalheSistema('BCR', 393, 'Baixa Carga Entregue', 'Exp.>Contr.Entregas>Mov.>Romaneio Entregas>', 'EXPEDICA.APP')";
+                            "\r\nSourceGravaDetalheSistema('BCR',393,'Baixa Carga Entregue','Exp.>Contr.Entregas>Mov.>Romaneio Entregas>','EXPEDICA.APP')";
                     break;
             }
             return text;
         }
 
-        private void BtnCopyClipboard_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(ClipboardText());
-            txtCodePreview.Text = cboCodeClipboard.Text + "\r\nCopied to clipboard successfully.";
+        private void BtnCopyClipboard_Click(object sender, EventArgs e){
+            if (cboClarionCode.SelectedItem != null) {
+                Clipboard.SetText(ClipboardClarionText());
+                txtCodePreview.Text = cboClarionCode.Text + "\r\nCopied to clipboard successfully.";
+            }
+            if (cboCmdCode.SelectedItem != null) {
+                Clipboard.SetText(ClipboardCmdText());
+                txtCodePreview.Text = cboCmdCode.Text + "\r\nCopied to clipboard successfully.";
+            }
+            
         }
-        private void ComboCodeClipboard_SelectedValueChanged(object sender, EventArgs e)
-        {
-            txtCodePreview.Text = "Preview:"+"\r\n"+"\r\n"+ ClipboardText();
+
+        private void ComboCodeClipboard_SelectedValueChanged(object sender, EventArgs e) {
+            if (cboClarionCode.SelectedItem != null && cboCmdCode.SelectedItem != null) {
+                cboCmdCode.SelectedItem = null;
+            }
+            txtCodePreview.Text = "Preview:" + "\r\n" + "\r\n" + ClipboardClarionText();
+        }
+
+        private void cboCmdCode_SelectedValueChanged(object sender, EventArgs e){
+            if (cboClarionCode.SelectedItem != null && cboCmdCode.SelectedItem != null) {
+                cboClarionCode.SelectedItem = null;
+            }
+            txtCodePreview.Text = "Preview:" + "\r\n" + "\r\n" + ClipboardCmdText();
         }
     }
 }

@@ -31,125 +31,115 @@ namespace Utilities
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeToClipboard));
             this.grpClipboardCode = new System.Windows.Forms.GroupBox();
+            this.cboCmdCode = new System.Windows.Forms.ComboBox();
+            this.lblCmd = new System.Windows.Forms.Label();
             this.txtCodePreview = new System.Windows.Forms.TextBox();
-            this.lblCodeClipboard = new System.Windows.Forms.Label();
-            this.cboCodeClipboard = new System.Windows.Forms.ComboBox();
+            this.lblClarion = new System.Windows.Forms.Label();
+            this.cboClarionCode = new System.Windows.Forms.ComboBox();
             this.btnCopyClipboard = new System.Windows.Forms.Button();
             this.grpClipboardCode.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpClipboardCode
             // 
+            resources.ApplyResources(this.grpClipboardCode, "grpClipboardCode");
+            this.grpClipboardCode.Controls.Add(this.cboCmdCode);
+            this.grpClipboardCode.Controls.Add(this.lblCmd);
             this.grpClipboardCode.Controls.Add(this.txtCodePreview);
-            this.grpClipboardCode.Controls.Add(this.lblCodeClipboard);
-            this.grpClipboardCode.Controls.Add(this.cboCodeClipboard);
+            this.grpClipboardCode.Controls.Add(this.lblClarion);
+            this.grpClipboardCode.Controls.Add(this.cboClarionCode);
             this.grpClipboardCode.Controls.Add(this.btnCopyClipboard);
-            this.grpClipboardCode.Font = new System.Drawing.Font("Arial", 10F);
             this.grpClipboardCode.ForeColor = System.Drawing.Color.White;
-            this.grpClipboardCode.Location = new System.Drawing.Point(14, 15);
             this.grpClipboardCode.Name = "grpClipboardCode";
-            this.grpClipboardCode.Size = new System.Drawing.Size(793, 377);
-            this.grpClipboardCode.TabIndex = 0;
             this.grpClipboardCode.TabStop = false;
-            this.grpClipboardCode.Text = "Code to Clipboard";
+            // 
+            // cboCmdCode
+            // 
+            resources.ApplyResources(this.cboCmdCode, "cboCmdCode");
+            this.cboCmdCode.AutoCompleteCustomSource.AddRange(new string[] {
+            resources.GetString("cboCmdCode.AutoCompleteCustomSource")});
+            this.cboCmdCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cboCmdCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCmdCode.ForeColor = System.Drawing.Color.White;
+            this.cboCmdCode.Items.AddRange(new object[] {
+            resources.GetString("cboCmdCode.Items")});
+            this.cboCmdCode.Name = "cboCmdCode";
+            this.cboCmdCode.Sorted = true;
+            this.cboCmdCode.SelectedValueChanged += new System.EventHandler(this.cboCmdCode_SelectedValueChanged);
+            // 
+            // lblCmd
+            // 
+            resources.ApplyResources(this.lblCmd, "lblCmd");
+            this.lblCmd.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCmd.Name = "lblCmd";
             // 
             // txtCodePreview
             // 
+            resources.ApplyResources(this.txtCodePreview, "txtCodePreview");
             this.txtCodePreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtCodePreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCodePreview.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtCodePreview.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodePreview.ForeColor = System.Drawing.Color.Lime;
-            this.txtCodePreview.Location = new System.Drawing.Point(17, 79);
-            this.txtCodePreview.Multiline = true;
             this.txtCodePreview.Name = "txtCodePreview";
             this.txtCodePreview.ReadOnly = true;
-            this.txtCodePreview.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtCodePreview.Size = new System.Drawing.Size(758, 283);
-            this.txtCodePreview.TabIndex = 3;
             this.txtCodePreview.TabStop = false;
             // 
-            // lblCodeClipboard
+            // lblClarion
             // 
-            this.lblCodeClipboard.AutoSize = true;
-            this.lblCodeClipboard.Font = new System.Drawing.Font("Arial", 9.5F);
-            this.lblCodeClipboard.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCodeClipboard.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblCodeClipboard.Location = new System.Drawing.Point(19, 32);
-            this.lblCodeClipboard.Name = "lblCodeClipboard";
-            this.lblCodeClipboard.Size = new System.Drawing.Size(52, 16);
-            this.lblCodeClipboard.TabIndex = 0;
-            this.lblCodeClipboard.Text = "Clarion:";
+            resources.ApplyResources(this.lblClarion, "lblClarion");
+            this.lblClarion.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblClarion.Name = "lblClarion";
             // 
-            // cboCodeClipboard
+            // cboClarionCode
             // 
-            this.cboCodeClipboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cboCodeClipboard.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCodeClipboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboCodeClipboard.Font = new System.Drawing.Font("Arial", 9.5F);
-            this.cboCodeClipboard.ForeColor = System.Drawing.Color.White;
-            this.cboCodeClipboard.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cboCodeClipboard.Items.AddRange(new object[] {
-            "Acronym (Default Test)",
-            "APP (Allow only one Instance)",
-            "Column (Width Change)",
-            "Column Group (Width Change)",
-            "Directory (Create)",
-            "Message (Error)",
-            "Message (Warning)",
-            "Message Case (Yes/No)",
-            "Message TID (Error)",
-            "Message TID (Warning)",
-            "Owner Database (Get)",
-            "Print (Multiline String Manually) ",
-            "Process Label (Change Text Down)",
-            "Process Label (Change Text Up)",
-            "Queue (Add Record)",
-            "TabelaSQL (Select)",
-            "TabelaSQL (Update)",
-            "Window (Force Refresh)"});
-            this.cboCodeClipboard.Location = new System.Drawing.Point(77, 29);
-            this.cboCodeClipboard.Name = "cboCodeClipboard";
-            this.cboCodeClipboard.Size = new System.Drawing.Size(262, 24);
-            this.cboCodeClipboard.Sorted = true;
-            this.cboCodeClipboard.TabIndex = 1;
-            this.cboCodeClipboard.SelectedValueChanged += new System.EventHandler(this.ComboCodeClipboard_SelectedValueChanged);
+            resources.ApplyResources(this.cboClarionCode, "cboClarionCode");
+            this.cboClarionCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cboClarionCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboClarionCode.ForeColor = System.Drawing.Color.White;
+            this.cboClarionCode.Items.AddRange(new object[] {
+            resources.GetString("cboClarionCode.Items"),
+            resources.GetString("cboClarionCode.Items1"),
+            resources.GetString("cboClarionCode.Items2"),
+            resources.GetString("cboClarionCode.Items3"),
+            resources.GetString("cboClarionCode.Items4"),
+            resources.GetString("cboClarionCode.Items5"),
+            resources.GetString("cboClarionCode.Items6"),
+            resources.GetString("cboClarionCode.Items7"),
+            resources.GetString("cboClarionCode.Items8"),
+            resources.GetString("cboClarionCode.Items9"),
+            resources.GetString("cboClarionCode.Items10"),
+            resources.GetString("cboClarionCode.Items11"),
+            resources.GetString("cboClarionCode.Items12"),
+            resources.GetString("cboClarionCode.Items13"),
+            resources.GetString("cboClarionCode.Items14"),
+            resources.GetString("cboClarionCode.Items15"),
+            resources.GetString("cboClarionCode.Items16"),
+            resources.GetString("cboClarionCode.Items17")});
+            this.cboClarionCode.Name = "cboClarionCode";
+            this.cboClarionCode.Sorted = true;
+            this.cboClarionCode.SelectedValueChanged += new System.EventHandler(this.ComboCodeClipboard_SelectedValueChanged);
             // 
             // btnCopyClipboard
             // 
+            resources.ApplyResources(this.btnCopyClipboard, "btnCopyClipboard");
             this.btnCopyClipboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCopyClipboard.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnCopyClipboard.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnCopyClipboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopyClipboard.Font = new System.Drawing.Font("Arial", 9.5F);
             this.btnCopyClipboard.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCopyClipboard.Image = global::Utilities.Properties.Resources.icons8_copy_32;
-            this.btnCopyClipboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopyClipboard.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCopyClipboard.Location = new System.Drawing.Point(606, 22);
             this.btnCopyClipboard.Name = "btnCopyClipboard";
-            this.btnCopyClipboard.Size = new System.Drawing.Size(169, 47);
-            this.btnCopyClipboard.TabIndex = 2;
-            this.btnCopyClipboard.Text = "Copy to Clipboard";
-            this.btnCopyClipboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopyClipboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopyClipboard.UseVisualStyleBackColor = false;
             this.btnCopyClipboard.Click += new System.EventHandler(this.BtnCopyClipboard_Click);
             // 
             // CodeToClipboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(820, 402);
             this.Controls.Add(this.grpClipboardCode);
-            this.Font = new System.Drawing.Font("Arial", 10F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "CodeToClipboard";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Code to Clipboard";
             this.grpClipboardCode.ResumeLayout(false);
             this.grpClipboardCode.PerformLayout();
             this.ResumeLayout(false);
@@ -159,9 +149,11 @@ namespace Utilities
         #endregion
 
         private System.Windows.Forms.GroupBox grpClipboardCode;
-        private System.Windows.Forms.Label lblCodeClipboard;
-        private System.Windows.Forms.ComboBox cboCodeClipboard;
+        private System.Windows.Forms.Label lblClarion;
+        private System.Windows.Forms.ComboBox cboClarionCode;
         private System.Windows.Forms.Button btnCopyClipboard;
         private System.Windows.Forms.TextBox txtCodePreview;
+        private System.Windows.Forms.Label lblCmd;
+        private System.Windows.Forms.ComboBox cboCmdCode;
     }
 }
