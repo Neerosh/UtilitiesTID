@@ -202,6 +202,7 @@ namespace Utilities.Forms {
             if (database.Equals("TID_TEMP") || database.Equals("TIDDF") || database.Equals("TID_ATUALIZACAO")) {
                 //CREATE
                 fileText = "\r\n IF @detach = 0 AND (@mdfExist = 0 AND @ldfExist = 0) AND @bakExist = 0" +
+                            "\r\n BEGIN" +
                             "\r\n    IF NOT EXISTS (SELECT name FROM master.sys.databases WHERE name = N'" + database + "')" +
                             "\r\n    BEGIN" +
                             "\r\n       SET @create = 1;" +
@@ -238,6 +239,7 @@ namespace Utilities.Forms {
                                     "\r\n AS BEGIN " +
                                     "\r\n SET NOCOUNT ON" +
                                     "\r\n DECLARE @detach int ," +
+                                    "\r\n @create int ," +
                                     "\r\n @mdfExist int ," +
                                     "\r\n @ldfExist int ," +
                                     "\r\n @bakExist int ;"; ;
@@ -326,6 +328,25 @@ namespace Utilities.Forms {
                                 "\r\n   BEGIN" +
                                 "\r\n       PRINT 'Database " + database + " attached'" +
                                 "\r\n   END";
+                    if (database.Equals("TID_TEMP") || database.Equals("TIDDF") || database.Equals("TID_ATUALIZACAO")) {
+                        fileText += "\r\n   SET @create = 0;" +
+                                    "\r\n   IF @mdfExist = 0 AND @ldfExist = 0" +
+                                    "\r\n   BEGIN" +
+                                    "\r\n      IF NOT EXISTS (SELECT name FROM master.sys.databases WHERE name = N'" + database + "')" +
+                                    "\r\n      BEGIN" +
+                                    "\r\n         SET @create = 1;" +
+                                    "\r\n         CREATE DATABASE  [" + database + "] ON  PRIMARY " +
+                                    "\r\n         (NAME = N'" + database + "', FILENAME = N'" + folderSQL + "\\" + database + ".mdf')" +
+                                    "\r\n         LOG ON" +
+                                    "\r\n         (NAME = N'" + database + "_log', FILENAME = N'" + folderSQL + "\\" + database + ".ldf')" +
+                                    "\r\n      END" +
+                                    "\r\n      IF @create = 1" +
+                                    "\r\n      BEGIN" +
+                                    "\r\n         PRINT 'Database " + database + " created'" +
+                                    "\r\n      END" +
+                                    "\r\n   END";
+
+                    }
                     break;
                 case "Restore":
                     fileText =  "\r\n   SET @bakExist = 0;" +
@@ -344,29 +365,29 @@ namespace Utilities.Forms {
                                 "\r\n   BEGIN" +
                                 "\r\n       PRINT 'Database " + database + " restored'" +
                                 "\r\n   END";
+                    if (database.Equals("TID_TEMP") || database.Equals("TIDDF") || database.Equals("TID_ATUALIZACAO")) {
+                        fileText += "\r\n   SET @create = 0;" +
+                                    "\r\n   IF @bakExist = 0" +
+                                    "\r\n   BEGIN" +
+                                    "\r\n      IF NOT EXISTS (SELECT name FROM master.sys.databases WHERE name = N'" + database + "')" +
+                                    "\r\n      BEGIN" +
+                                    "\r\n         SET @create = 1;" +
+                                    "\r\n         CREATE DATABASE  [" + database + "] ON  PRIMARY " +
+                                    "\r\n         (NAME = N'" + database + "', FILENAME = N'" + folderSQL + "\\" + database + ".mdf')" +
+                                    "\r\n         LOG ON" +
+                                    "\r\n         (NAME = N'" + database + "_log', FILENAME = N'" + folderSQL + "\\" + database + ".ldf')" +
+                                    "\r\n      END" +
+                                    "\r\n      IF @create = 1" +
+                                    "\r\n      BEGIN" +
+                                    "\r\n         PRINT 'Database " + database + " created'" +
+                                    "\r\n      END"+
+                                    "\r\n   END";
+                    }
+
                     break;
             }
             line = new UTF8Encoding(true).GetBytes(fileText);
             fileStream.Write(line, 0, line.Length);
-
-            if ((database.Equals("TID_TEMP") || database.Equals("TIDDF") || database.Equals("TID_ATUALIZACAO")) &&
-                (action.Equals("Attach") || action.Equals("Restore"))) {
-                fileText = "\r\n   SET @create = 0;" +
-                            "\r\n   IF NOT EXISTS (SELECT name FROM master.sys.databases WHERE name = N'" + database + "')" +
-                            "\r\n   BEGIN" +
-                            "\r\n       SET @create = 1;" +
-                            "\r\n       CREATE DATABASE  [" + database + "] ON  PRIMARY " +
-                            "\r\n       (NAME = N'" + database + "', FILENAME = N'" + folderSQL + "\\" + database + ".mdf')" +
-                            "\r\n       LOG ON" +
-                            "\r\n       (NAME = N'" + database + "_log', FILENAME = N'" + folderSQL + "\\" + database + ".ldf')" +
-                            "\r\n   END" +
-                            "\r\n   IF @create = 1" +
-                            "\r\n   BEGIN" +
-                            "\r\n      PRINT 'Database " + database + " created'" +
-                            "\r\n   END";
-                line = new UTF8Encoding(true).GetBytes(fileText);
-                fileStream.Write(line, 0, line.Length);
-            }
 
         }
         #endregion Script Generator
