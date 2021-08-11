@@ -20,7 +20,7 @@ namespace Utilities {
                             "\r\n"+
                             "\r\nSQL Scripts:" +
                             "\r\n   Unified Script:" +
-                            "\r\n       Generate an sql script that check and execute the suitable operation. Operation order detach>attach>restore. " +
+                            "\r\n       Generate an sql script that check and execute the suitable operation. Operation order detach>attach>restore. Also includes a create for these databases TID_TEMP,TIDDF,TID_ATUALIZACAO " +
                             "\r\n   Regular Script:" +
                             "\r\n       Generate an sql script it contains 3 procedures (DetachTID, AttachTID and RestoreTID) that check and execute the determined operation. " +
                             "\r\n" +
