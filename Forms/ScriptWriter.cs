@@ -75,6 +75,7 @@ namespace Utilities.Forms {
                                 "\r\n AS BEGIN " +
                                 "\r\n SET NOCOUNT ON" +
                                 "\r\n DECLARE @detach int ," +
+                                "\r\n @create int ," +
                                 "\r\n @mdfExist int ," +
                                 "\r\n @ldfExist int ," +
                                 "\r\n @bakExist int ;";
@@ -92,6 +93,7 @@ namespace Utilities.Forms {
 
                 WriteUnifiedCode("PORTALVENDAS", fileStream, folderSQL);
                 WriteUnifiedCode("TID_AUDITORIA", fileStream, folderSQL);
+                WriteUnifiedCode("TID_ATUALIZACAO", fileStream, folderSQL);
                 WriteUnifiedCode("TID_ECOMMERCE", fileStream, folderSQL);
                 WriteUnifiedCode("TID_EXETPS", fileStream, folderSQL);
                 WriteUnifiedCode("TID_NUVEMSHOP", fileStream, folderSQL);
@@ -118,19 +120,11 @@ namespace Utilities.Forms {
         private void WriteUnifiedCode(string database, FileStream fileStream, string folderSQL) {
             string fileText;
             Byte[] line;
-            if (database == "TID_TEMP") {
-                fileText = "\r\n IF NOT EXISTS (SELECT name FROM master.sys.databases WHERE name = N'" + database + "')" +
-                           "\r\n BEGIN" +
-                           "\r\n    CREATE DATABASE " + database + "" +
-                           "\r\n END";
-                line = new UTF8Encoding(true).GetBytes(fileText);
-                fileStream.Write(line, 0, line.Length);
-                return;
-            }
             fileText = "\r\n SET @detach = 0;" +
                         "\r\n SET @mdfExist = 0;" +
                         "\r\n SET @ldfExist = 0;" +
                         "\r\n SET @bakExist = 0;" +
+                        "\r\n SET @create = 0;" +
                         "\r\n IF EXISTS (SELECT name FROM master.sys.databases WHERE name = N'" + database + "')" +
                         "\r\n BEGIN" +
                         "\r\n    EXEC master.dbo.sp_detach_db @dbname = N'" + database + "' " +
@@ -188,7 +182,7 @@ namespace Utilities.Forms {
                         "\r\n       END" +
                         "\r\n    END" +
                         "\r\n END" +
-                        //RESULT
+                        //RESULTS
                         "\r\n" +
                         "\r\n IF @detach = 1" +
                         "\r\n BEGIN" +
@@ -204,6 +198,26 @@ namespace Utilities.Forms {
                         "\r\n END";
             line = new UTF8Encoding(true).GetBytes(fileText);
             fileStream.Write(line, 0, line.Length);
+
+            if (database.Equals("TID_TEMP") || database.Equals("TIDDF") || database.Equals("TID_ATUALIZACAO")) {
+                //CREATE
+                fileText = "\r\n IF @detach = 0 AND (@mdfExist = 0 AND @ldfExist = 0) AND @bakExist = 0" +
+                            "\r\n    IF NOT EXISTS (SELECT name FROM master.sys.databases WHERE name = N'" + database + "')" +
+                            "\r\n    BEGIN" +
+                            "\r\n       SET @create = 1;" +
+                            "\r\n       CREATE DATABASE  [" + database + "] ON  PRIMARY " +
+                            "\r\n       (NAME = N'" + database + "', FILENAME = N'" + folderSQL + "\\" + database + ".mdf')" +
+                            "\r\n       LOG ON" +
+                            "\r\n       (NAME = N'" + database + "_log', FILENAME = N'" + folderSQL + "\\" + database + ".ldf')" +
+                            "\r\n    END" +
+                            "\r\n END" +
+                            "\r\n IF @create = 1" +
+                            "\r\n BEGIN" +
+                            "\r\n     PRINT 'Database " + database + " created'" +
+                            "\r\n END";
+                line = new UTF8Encoding(true).GetBytes(fileText);
+                fileStream.Write(line, 0, line.Length);
+            }
         }
         private void GenerateRegularScript(string folderSQL, string folderScript) {
             Byte[] line;
@@ -245,6 +259,7 @@ namespace Utilities.Forms {
                     procedures[i] = procedures[i].Substring(0, procedures[i].Length - 3);
 
                     WriteRegularCode("PORTALVENDAS", folderSQL, fileStream, procedures[i]);
+                    WriteRegularCode("TID_ATUALIZACAO", folderSQL, fileStream, procedures[i]);
                     WriteRegularCode("TID_AUDITORIA", folderSQL, fileStream, procedures[i]);
                     WriteRegularCode("TID_ECOMMERCE", folderSQL, fileStream, procedures[i]);
                     WriteRegularCode("TID_EXETPS", folderSQL, fileStream, procedures[i]);
@@ -279,15 +294,6 @@ namespace Utilities.Forms {
         private void WriteRegularCode(string database, string folderSQL, FileStream fileStream, string action) {
             string fileText = "";
             Byte[] line;
-            if (database == "TID_TEMP") {
-                fileText = "\r\n    IF NOT EXISTS (SELECT name FROM master.sys.databases WHERE name = N'" + database + "')" +
-                           "\r\n    BEGIN" +
-                           "\r\n        CREATE DATABASE " + database + "" +
-                           "\r\n    END";
-                line = new UTF8Encoding(true).GetBytes(fileText);
-                fileStream.Write(line, 0, line.Length);
-                return;
-            }
             switch (action) {
                 case "Detach":
                     fileText = "\r\n   SET @detach = 0;" +
@@ -322,7 +328,7 @@ namespace Utilities.Forms {
                                 "\r\n   END";
                     break;
                 case "Restore":
-                    fileText = "\r\n   SET @bakExist = 0;" +
+                    fileText =  "\r\n   SET @bakExist = 0;" +
                                 "\r\n   Exec master..xp_fileexist'" + folderSQL + "\\" + database + ".bak',@bakExist OUT" +
                                 "\r\n   IF @bakExist = 1" +
                                 "\r\n   BEGIN" +
@@ -342,6 +348,26 @@ namespace Utilities.Forms {
             }
             line = new UTF8Encoding(true).GetBytes(fileText);
             fileStream.Write(line, 0, line.Length);
+
+            if ((database.Equals("TID_TEMP") || database.Equals("TIDDF") || database.Equals("TID_ATUALIZACAO")) &&
+                (action.Equals("Attach") || action.Equals("Restore"))) {
+                fileText = "\r\n   SET @create = 0;" +
+                            "\r\n   IF NOT EXISTS (SELECT name FROM master.sys.databases WHERE name = N'" + database + "')" +
+                            "\r\n   BEGIN" +
+                            "\r\n       SET @create = 1;" +
+                            "\r\n       CREATE DATABASE  [" + database + "] ON  PRIMARY " +
+                            "\r\n       (NAME = N'" + database + "', FILENAME = N'" + folderSQL + "\\" + database + ".mdf')" +
+                            "\r\n       LOG ON" +
+                            "\r\n       (NAME = N'" + database + "_log', FILENAME = N'" + folderSQL + "\\" + database + ".ldf')" +
+                            "\r\n   END" +
+                            "\r\n   IF @create = 1" +
+                            "\r\n   BEGIN" +
+                            "\r\n      PRINT 'Database " + database + " created'" +
+                            "\r\n   END";
+                line = new UTF8Encoding(true).GetBytes(fileText);
+                fileStream.Write(line, 0, line.Length);
+            }
+
         }
         #endregion Script Generator
 
