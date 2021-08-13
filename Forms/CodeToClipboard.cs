@@ -65,7 +65,7 @@ namespace Utilities
                     break;
                 case "Message Case (Yes/No)":
                     text = "Case Message('Confirma gravação?','Mensagem',|" +
-                           "\r\n             'Icon:Question','&Sim|&Não',1,0)"+
+                           "\r\n             Icon:Question,'&Sim|&Não',1,0)"+
                            "\r\nOF 1"+
                            "\r\nOF 2"+
                            "\r\n    DO ProcedureReturn"+
@@ -144,6 +144,17 @@ namespace Utilities
                             "\r\n   DO ProcedureReturn" +
                             "\r\nEND" +
                             "\r\nSourceGravaDetalheSistema('BCR',393,'Baixa Carga Entregue','Exp.>Contr.Entregas>Mov.>Romaneio Entregas>','EXPEDICA.APP')";
+                    break;
+                case "Record (Delete Child Record)":
+                    text = "!End of Procedure Before closing Files" +
+                            "\r\nIF (LocalRequest = DeleteRecord AND LocalResponse = RequestCompleted) OR |" +
+                            "\r\n   (LocalRequest = InsertRecord AND LocalResponse = RequestCancelled)"+
+                            "\r\n   TabelaProdSQL{ Prop: SQL} = 'DELETE FROM LoteFichaProducaoGenericaItens WHERE SequenciaLote = ' & LFPG:SequenciaLote" +
+                            "\r\n   IF ERRORCODE()" +
+                            "\r\n      SourceMensagemTID('Erro na instrução SQL !!!||' & FILEERRORCODE() & ': ' & FILEERROR(),|" +
+                            "\r\n                        'ERRO: ' & ERRORCODE(), 'Icon:Hand', '1', '1', 1, 'Mensagem', 'PRODGEN', 1, 135)" +
+                            "\r\n   END" +
+                            "\r\nEND";
                     break;
             }
             return text;

@@ -42,24 +42,24 @@ namespace Utilities
             // 
             // grpClipboardCode
             // 
-            resources.ApplyResources(this.grpClipboardCode, "grpClipboardCode");
             this.grpClipboardCode.Controls.Add(this.cboCmdCode);
             this.grpClipboardCode.Controls.Add(this.lblCmd);
             this.grpClipboardCode.Controls.Add(this.txtCodePreview);
             this.grpClipboardCode.Controls.Add(this.lblClarion);
             this.grpClipboardCode.Controls.Add(this.cboClarionCode);
             this.grpClipboardCode.Controls.Add(this.btnCopyClipboard);
+            resources.ApplyResources(this.grpClipboardCode, "grpClipboardCode");
             this.grpClipboardCode.ForeColor = System.Drawing.Color.White;
             this.grpClipboardCode.Name = "grpClipboardCode";
             this.grpClipboardCode.TabStop = false;
             // 
             // cboCmdCode
             // 
-            resources.ApplyResources(this.cboCmdCode, "cboCmdCode");
             this.cboCmdCode.AutoCompleteCustomSource.AddRange(new string[] {
             resources.GetString("cboCmdCode.AutoCompleteCustomSource")});
             this.cboCmdCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboCmdCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cboCmdCode, "cboCmdCode");
             this.cboCmdCode.ForeColor = System.Drawing.Color.White;
             this.cboCmdCode.Items.AddRange(new object[] {
             resources.GetString("cboCmdCode.Items")});
@@ -75,10 +75,10 @@ namespace Utilities
             // 
             // txtCodePreview
             // 
-            resources.ApplyResources(this.txtCodePreview, "txtCodePreview");
             this.txtCodePreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtCodePreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCodePreview.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.txtCodePreview, "txtCodePreview");
             this.txtCodePreview.ForeColor = System.Drawing.Color.Lime;
             this.txtCodePreview.Name = "txtCodePreview";
             this.txtCodePreview.ReadOnly = true;
@@ -92,9 +92,9 @@ namespace Utilities
             // 
             // cboClarionCode
             // 
-            resources.ApplyResources(this.cboClarionCode, "cboClarionCode");
             this.cboClarionCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboClarionCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cboClarionCode, "cboClarionCode");
             this.cboClarionCode.ForeColor = System.Drawing.Color.White;
             this.cboClarionCode.Items.AddRange(new object[] {
             resources.GetString("cboClarionCode.Items"),
@@ -114,17 +114,18 @@ namespace Utilities
             resources.GetString("cboClarionCode.Items14"),
             resources.GetString("cboClarionCode.Items15"),
             resources.GetString("cboClarionCode.Items16"),
-            resources.GetString("cboClarionCode.Items17")});
+            resources.GetString("cboClarionCode.Items17"),
+            resources.GetString("cboClarionCode.Items18")});
             this.cboClarionCode.Name = "cboClarionCode";
             this.cboClarionCode.Sorted = true;
             this.cboClarionCode.SelectedValueChanged += new System.EventHandler(this.ComboCodeClipboard_SelectedValueChanged);
             // 
             // btnCopyClipboard
             // 
-            resources.ApplyResources(this.btnCopyClipboard, "btnCopyClipboard");
             this.btnCopyClipboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCopyClipboard.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnCopyClipboard.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            resources.ApplyResources(this.btnCopyClipboard, "btnCopyClipboard");
             this.btnCopyClipboard.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCopyClipboard.Image = global::Utilities.Properties.Resources.icons8_copy_32;
             this.btnCopyClipboard.Name = "btnCopyClipboard";
