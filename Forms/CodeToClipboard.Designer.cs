@@ -115,7 +115,8 @@ namespace Utilities
             resources.GetString("cboClarionCode.Items15"),
             resources.GetString("cboClarionCode.Items16"),
             resources.GetString("cboClarionCode.Items17"),
-            resources.GetString("cboClarionCode.Items18")});
+            resources.GetString("cboClarionCode.Items18"),
+            resources.GetString("cboClarionCode.Items19")});
             this.cboClarionCode.Name = "cboClarionCode";
             this.cboClarionCode.Sorted = true;
             this.cboClarionCode.SelectedValueChanged += new System.EventHandler(this.ComboCodeClipboard_SelectedValueChanged);

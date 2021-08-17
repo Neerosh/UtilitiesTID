@@ -268,54 +268,57 @@
     <value>APP (Allow only one Instance)</value>
   </data>
   <data name="cboClarionCode.Items2" xml:space="preserve">
-    <value>Column (Width Change)</value>
+    <value>Browse (Refresh)</value>
   </data>
   <data name="cboClarionCode.Items3" xml:space="preserve">
-    <value>Column Group (Width Change)</value>
+    <value>Column (Width Change)</value>
   </data>
   <data name="cboClarionCode.Items4" xml:space="preserve">
-    <value>Directory (Create)</value>
+    <value>Column Group (Width Change)</value>
   </data>
   <data name="cboClarionCode.Items5" xml:space="preserve">
-    <value>Message (Error)</value>
+    <value>Directory (Create)</value>
   </data>
   <data name="cboClarionCode.Items6" xml:space="preserve">
-    <value>Message (Warning)</value>
+    <value>Message (Error)</value>
   </data>
   <data name="cboClarionCode.Items7" xml:space="preserve">
-    <value>Message Case (Yes/No)</value>
+    <value>Message (Warning)</value>
   </data>
   <data name="cboClarionCode.Items8" xml:space="preserve">
-    <value>Message TID (Error)</value>
+    <value>Message Case (Yes/No)</value>
   </data>
   <data name="cboClarionCode.Items9" xml:space="preserve">
-    <value>Message TID (Warning)</value>
+    <value>Message TID (Error)</value>
   </data>
   <data name="cboClarionCode.Items10" xml:space="preserve">
-    <value>Owner Database (Get)</value>
+    <value>Message TID (Warning)</value>
   </data>
   <data name="cboClarionCode.Items11" xml:space="preserve">
-    <value>Print (Multiline String Manually) </value>
+    <value>Owner Database (Get)</value>
   </data>
   <data name="cboClarionCode.Items12" xml:space="preserve">
-    <value>Process Label (Change Text Down)</value>
+    <value>Print (Multiline String Manually) </value>
   </data>
   <data name="cboClarionCode.Items13" xml:space="preserve">
-    <value>Process Label (Change Text Up)</value>
+    <value>Process Label (Change Text Down)</value>
   </data>
   <data name="cboClarionCode.Items14" xml:space="preserve">
-    <value>Queue (Add Record)</value>
+    <value>Process Label (Change Text Up)</value>
   </data>
   <data name="cboClarionCode.Items15" xml:space="preserve">
-    <value>Record (Delete Child Record)</value>
+    <value>Queue (Add Record)</value>
   </data>
   <data name="cboClarionCode.Items16" xml:space="preserve">
-    <value>TabelaSQL (Select)</value>
+    <value>Record (Delete Child Record)</value>
   </data>
   <data name="cboClarionCode.Items17" xml:space="preserve">
-    <value>TabelaSQL (Update)</value>
+    <value>TabelaSQL (Select)</value>
   </data>
   <data name="cboClarionCode.Items18" xml:space="preserve">
+    <value>TabelaSQL (Update)</value>
+  </data>
+  <data name="cboClarionCode.Items19" xml:space="preserve">
     <value>Window (Force Refresh)</value>
   </data>
   <data name="cboClarionCode.Location" type="System.Drawing.Point, System.Drawing">

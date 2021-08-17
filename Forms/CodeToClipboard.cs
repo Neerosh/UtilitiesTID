@@ -56,7 +56,7 @@ namespace Utilities
                             "\r\nEND";
                     break;
                 case "Message TID (Warning)":
-                    text =  "SourceMensagemTID('Mensagem de exemplo','Mensagem',|" +
+                    text =  "SourceMensagemTID('Mensagem de exemplo','Atenção',|" +
                             "\r\n                   'Icon:Exclamation','1','1',1,'Mensagem','PEDVENDA',1,02)";
                     break;
                 case "Message TID (Error)":
@@ -120,7 +120,7 @@ namespace Utilities
                            "\r\n! INCLUDE('CLIB.CLW')" +
                            "\r\nIF NOT EXISTS('\\TIDSCI\\EXETPS\\EMP' & FORMAT(GLO: Empresa, @n02) & '\\NFE\\EXPORT')" +
                            "\r\n   LOC:Diretorio = '\\TIDSCI\\EXETPS\\EMP' & FORMAT(GLO: Empresa, @n02) & '\\NFE\\EXPORT'" +
-                           "\r\n   MKDIR(LOC: Diretorio)" +
+                           "\r\n   MKDIR(LOC:Diretorio)" +
                            "\r\nEND";
                     break;
                 case "APP (Allow only one Instance)":
@@ -149,12 +149,15 @@ namespace Utilities
                     text = "!End of Procedure Before closing Files" +
                             "\r\nIF (LocalRequest = DeleteRecord AND LocalResponse = RequestCompleted) OR |" +
                             "\r\n   (LocalRequest = InsertRecord AND LocalResponse = RequestCancelled)"+
-                            "\r\n   TabelaProdSQL{ Prop: SQL} = 'DELETE FROM LoteFichaProducaoGenericaItens WHERE SequenciaLote = ' & LFPG:SequenciaLote" +
+                            "\r\n   TabelaProdSQL{Prop:SQL} = 'DELETE FROM LoteFichaProducaoGenericaItens WHERE SequenciaLote = ' & LFPG:SequenciaLote" +
                             "\r\n   IF ERRORCODE()" +
                             "\r\n      SourceMensagemTID('Erro na instrução SQL !!!||' & FILEERRORCODE() & ': ' & FILEERROR(),|" +
-                            "\r\n                        'ERRO: ' & ERRORCODE(), 'Icon:Hand', '1', '1', 1, 'Mensagem', 'PRODGEN', 1, 135)" +
+                            "\r\n                        'ERRO: '& ERRORCODE(),'Icon:Hand','1','1', 1,'Mensagem','PRODGEN',1,135)" +
                             "\r\n   END" +
                             "\r\nEND";
+                    break;
+                case "Browse (Refresh)":
+                    text = "DO BRW1::SelectSort";
                     break;
             }
             return text;
