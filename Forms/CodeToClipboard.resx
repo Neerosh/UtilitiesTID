@@ -310,15 +310,18 @@
     <value>Queue (Add Record)</value>
   </data>
   <data name="cboClarionCode.Items16" xml:space="preserve">
-    <value>Record (Delete Child Record)</value>
+    <value>Queue (Read All Records)</value>
   </data>
   <data name="cboClarionCode.Items17" xml:space="preserve">
-    <value>TabelaSQL (Select)</value>
+    <value>Record (Delete Child Record)</value>
   </data>
   <data name="cboClarionCode.Items18" xml:space="preserve">
-    <value>TabelaSQL (Update)</value>
+    <value>TabelaSQL (Select)</value>
   </data>
   <data name="cboClarionCode.Items19" xml:space="preserve">
+    <value>TabelaSQL (Update)</value>
+  </data>
+  <data name="cboClarionCode.Items20" xml:space="preserve">
     <value>Window (Force Refresh)</value>
   </data>
   <data name="cboClarionCode.Location" type="System.Drawing.Point, System.Drawing">

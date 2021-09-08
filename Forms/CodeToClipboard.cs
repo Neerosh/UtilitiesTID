@@ -159,6 +159,13 @@ namespace Utilities
                 case "Browse (Refresh)":
                     text = "DO BRW1::SelectSort";
                     break;
+                case "Queue (Read All Records)":
+                    text = "LOOP I# = 1 TO RECORDS(QUE:PedidosGerados)"+
+                           "\r\n   GET(QUE:PedidosGerados,I#)"+
+                           "\r\n   IF ERRORCODE() THEN BREAK END"+
+                           "\r\n   "+
+                           "\r\nEND";
+                    break;
             }
             return text;
         }

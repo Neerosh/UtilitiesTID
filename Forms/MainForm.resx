@@ -662,16 +662,16 @@
     <value>NoControl</value>
   </data>
   <data name="btnDeleteDuplicate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>367, 91</value>
+    <value>360, 91</value>
   </data>
   <data name="btnDeleteDuplicate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 51</value>
+    <value>140, 51</value>
   </data>
   <data name="btnDeleteDuplicate.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="btnDeleteDuplicate.Text" xml:space="preserve">
-    <value>Delete Duplicate Files</value>
+    <value>Delete Duplicated Files</value>
   </data>
   <data name="btnDeleteDuplicate.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
