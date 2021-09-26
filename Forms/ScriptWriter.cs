@@ -127,6 +127,7 @@ namespace Utilities.Forms {
                         "\r\n SET @create = 0;" +
                         "\r\n IF EXISTS (SELECT name FROM master.sys.databases WHERE name = N'" + database + "')" +
                         "\r\n BEGIN" +
+                        "\r\n    ALTER DATABASE [" + database + "] SET OFFLINE" +
                         "\r\n    EXEC master.dbo.sp_detach_db @dbname = N'" + database + "' " +
                         "\r\n    SET @detach = 1;" +
                         "\r\n END" +
@@ -301,6 +302,7 @@ namespace Utilities.Forms {
                     fileText = "\r\n   SET @detach = 0;" +
                                 "\r\n   IF EXISTS (SELECT name FROM master.sys.databases WHERE name = N'" + database + "')" +
                                 "\r\n   BEGIN" +
+                                "\r\n       ALTER DATABASE [" + database + "] SET OFFLINE" +
                                 "\r\n       EXEC master.dbo.sp_detach_db @dbname = N'" + database + "' " +
                                 "\r\n       SET @detach = 1;" +
                                 "\r\n   END" +
