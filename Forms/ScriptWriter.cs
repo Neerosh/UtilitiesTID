@@ -163,6 +163,7 @@ namespace Utilities.Forms {
                         "\r\n             ( FILENAME = N'" + folderSQL + "\\" + database + ".mdf' )," +
                         "\r\n             ( FILENAME = N'" + folderSQL + "\\" + database + ".ldf' )" +
                         "\r\n             FOR ATTACH" +
+                        "\r\n             ALTER DATABASE [" + database + "] SET ONLINE" +
                         "\r\n          END" +
                         "\r\n       END" +
                         //BACKUP
@@ -179,6 +180,7 @@ namespace Utilities.Forms {
                         "\r\n             MOVE N'" + database + "_log'" +
                         "\r\n             TO N'" + folderSQL + "\\" + database + ".ldf'," +
                         "\r\n             NOUNLOAD, REPLACE, STATS = 100" +
+                        "\r\n             ALTER DATABASE [" + database + "] SET ONLINE" +
                         "\r\n          END" +
                         "\r\n       END" +
                         "\r\n    END" +
@@ -211,6 +213,7 @@ namespace Utilities.Forms {
                             "\r\n       (NAME = N'" + database + "', FILENAME = N'" + folderSQL + "\\" + database + ".mdf')" +
                             "\r\n       LOG ON" +
                             "\r\n       (NAME = N'" + database + "_log', FILENAME = N'" + folderSQL + "\\" + database + ".ldf')" +
+                            "\r\n       ALTER DATABASE [" + database + "] SET ONLINE" +
                             "\r\n    END" +
                             "\r\n END" +
                             "\r\n IF @create = 1" +
@@ -324,6 +327,7 @@ namespace Utilities.Forms {
                                 "\r\n           ( FILENAME = N'" + folderSQL + "\\" + database + ".mdf' )," +
                                 "\r\n           ( FILENAME = N'" + folderSQL + "\\" + database + ".ldf' )" +
                                 "\r\n           FOR ATTACH" +
+                                "\r\n           ALTER DATABASE [" + database + "] SET ONLINE" +
                                 "\r\n       END" +
                                 "\r\n   END" +
                                 "\r\n   IF @mdfExist = 1 AND @ldfExist = 1" +
@@ -341,6 +345,7 @@ namespace Utilities.Forms {
                                     "\r\n         (NAME = N'" + database + "', FILENAME = N'" + folderSQL + "\\" + database + ".mdf')" +
                                     "\r\n         LOG ON" +
                                     "\r\n         (NAME = N'" + database + "_log', FILENAME = N'" + folderSQL + "\\" + database + ".ldf')" +
+                                    "\r\n         ALTER DATABASE [" + database + "] SET ONLINE" +
                                     "\r\n      END" +
                                     "\r\n      IF @create = 1" +
                                     "\r\n      BEGIN" +
@@ -362,6 +367,7 @@ namespace Utilities.Forms {
                                 "\r\n       MOVE N'" + database + "_log'" +
                                 "\r\n       TO N'" + folderSQL + "\\" + database + ".ldf'," +
                                 "\r\n       NOUNLOAD, REPLACE, STATS = 10" +
+                                "\r\n       ALTER DATABASE [" + database + "] SET ONLINE" +
                                 "\r\n   END" +
                                 "\r\n   IF @bakExist = 1" +
                                 "\r\n   BEGIN" +
@@ -378,6 +384,7 @@ namespace Utilities.Forms {
                                     "\r\n         (NAME = N'" + database + "', FILENAME = N'" + folderSQL + "\\" + database + ".mdf')" +
                                     "\r\n         LOG ON" +
                                     "\r\n         (NAME = N'" + database + "_log', FILENAME = N'" + folderSQL + "\\" + database + ".ldf')" +
+                                    "\r\n         ALTER DATABASE [" + database + "] SET ONLINE" +
                                     "\r\n      END" +
                                     "\r\n      IF @create = 1" +
                                     "\r\n      BEGIN" +

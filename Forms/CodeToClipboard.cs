@@ -116,7 +116,8 @@ namespace Utilities
                     text = "?Browse:1{PropList:Width + PropList:Group,3} = 0";
                     break;
                 case "Directory (Create)":
-                    text = "! ADD TO GLOBAL EMBEDS > INSIDE GLOBAL MAP:" +
+                    text = "! COPY FILE CLIB.CLW TO APP FOLDER THEN ADD TO PROJECT" +
+                           "\r\n! ADD TO GLOBAL EMBEDS > INSIDE GLOBAL MAP:" +
                            "\r\n! INCLUDE('CLIB.CLW')" +
                            "\r\nIF NOT EXISTS('\\TIDSCI\\EXETPS\\EMP' & FORMAT(GLO: Empresa, @n02) & '\\NFE\\EXPORT')" +
                            "\r\n   LOC:Diretorio = '\\TIDSCI\\EXETPS\\EMP' & FORMAT(GLO: Empresa, @n02) & '\\NFE\\EXPORT'" +
@@ -124,7 +125,8 @@ namespace Utilities
                            "\r\nEND";
                     break;
                 case "APP (Allow only one Instance)":
-                    text = "! ADD TO GLOBAL EMBEDS > INSIDE GLOBAL MAP:" +
+                    text = "! COPY FILE CWUTIL.INC TO APP FOLDER THEN ADD TO PROJECT" +
+                            "\r\n! ADD TO GLOBAL EMBEDS > INSIDE GLOBAL MAP:" +
                             "\r\n! INCLUDE('CWUTIL.INC'),ONCE" +
                             "\r\nIF NOT BeginUnique('HISTFCLI.EXE')" +
                             "\r\n   YIELD()" +
