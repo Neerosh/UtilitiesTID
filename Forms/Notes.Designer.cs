@@ -29,8 +29,11 @@ namespace Utilities {
             this.grpFuctionality = new System.Windows.Forms.GroupBox();
             this.grpInitials = new System.Windows.Forms.GroupBox();
             this.txtInitials = new System.Windows.Forms.TextBox();
+            this.grpSqlServerInstall = new System.Windows.Forms.GroupBox();
+            this.txtSqlServerInstall = new System.Windows.Forms.TextBox();
             this.grpFuctionality.SuspendLayout();
             this.grpInitials.SuspendLayout();
+            this.grpSqlServerInstall.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtFunctionality
@@ -89,12 +92,41 @@ namespace Utilities {
             this.txtInitials.TabIndex = 0;
             this.txtInitials.TabStop = false;
             // 
+            // grpSqlServerInstall
+            // 
+            this.grpSqlServerInstall.Controls.Add(this.txtSqlServerInstall);
+            this.grpSqlServerInstall.Font = new System.Drawing.Font("Arial", 10F);
+            this.grpSqlServerInstall.ForeColor = System.Drawing.Color.White;
+            this.grpSqlServerInstall.Location = new System.Drawing.Point(705, 13);
+            this.grpSqlServerInstall.Name = "grpSqlServerInstall";
+            this.grpSqlServerInstall.Size = new System.Drawing.Size(409, 434);
+            this.grpSqlServerInstall.TabIndex = 2;
+            this.grpSqlServerInstall.TabStop = false;
+            this.grpSqlServerInstall.Text = "Sql Server Intall Guide";
+            // 
+            // txtSqlServerInstall
+            // 
+            this.txtSqlServerInstall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSqlServerInstall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSqlServerInstall.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txtSqlServerInstall.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
+            this.txtSqlServerInstall.ForeColor = System.Drawing.Color.Lime;
+            this.txtSqlServerInstall.Location = new System.Drawing.Point(12, 26);
+            this.txtSqlServerInstall.Multiline = true;
+            this.txtSqlServerInstall.Name = "txtSqlServerInstall";
+            this.txtSqlServerInstall.ReadOnly = true;
+            this.txtSqlServerInstall.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtSqlServerInstall.Size = new System.Drawing.Size(385, 393);
+            this.txtSqlServerInstall.TabIndex = 0;
+            this.txtSqlServerInstall.TabStop = false;
+            // 
             // Notes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(711, 459);
+            this.ClientSize = new System.Drawing.Size(1126, 459);
+            this.Controls.Add(this.grpSqlServerInstall);
             this.Controls.Add(this.grpFuctionality);
             this.Controls.Add(this.grpInitials);
             this.Font = new System.Drawing.Font("Arial", 10F);
@@ -110,6 +142,8 @@ namespace Utilities {
             this.grpFuctionality.PerformLayout();
             this.grpInitials.ResumeLayout(false);
             this.grpInitials.PerformLayout();
+            this.grpSqlServerInstall.ResumeLayout(false);
+            this.grpSqlServerInstall.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -120,5 +154,7 @@ namespace Utilities {
         private System.Windows.Forms.GroupBox grpFuctionality;
         private System.Windows.Forms.GroupBox grpInitials;
         private System.Windows.Forms.TextBox txtInitials;
+        private System.Windows.Forms.GroupBox grpSqlServerInstall;
+        private System.Windows.Forms.TextBox txtSqlServerInstall;
     }
 }
