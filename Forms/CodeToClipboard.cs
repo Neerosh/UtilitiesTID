@@ -5,8 +5,7 @@ namespace Utilities
 {
     public partial class CodeToClipboard : Form
     {
-        public CodeToClipboard()
-        {
+        public CodeToClipboard() {
             InitializeComponent();
         }
 
@@ -16,16 +15,14 @@ namespace Utilities
                 case "List Owner (.ap~)":
                     text = "dir S:\\TIDSCI\\APLICS\\*.ap~ /s /Q";
                     break;
-                
+
             }
             return text;
         }
 
-        private string ClipboardClarionText()
-        {//add print line detail for a multi line text field
-            string text="";
-            switch (cboClarionCode.Text)
-            {
+        private string ClipboardClarionText() {//add print line detail for a multi line text field
+            string text = "";
+            switch (cboClarionCode.Text) {
                 case "Print (Multiline String Manually) ":
                     text = "SETTARGET(REPORT)" +
                            "\r\n?LOC:Observacao {PROP:Text} = LOC:Observacao" +
@@ -37,7 +34,7 @@ namespace Utilities
                            "\r\nSETTARGET";
                     break;
                 case "TabelaSQL (Select)":
-                    text =  "TabelaSQL{Prop:SQLRowSet} = 'SELECT FROM WHERE'" +
+                    text = "TabelaSQL{Prop:SQLRowSet} = 'SELECT FROM WHERE'" +
                             "\r\nIF ERRORCODE()" +
                             "\r\n   SourceMensagemTID('Erro na instrução SQL !!!||'& FILEERRORCODE() &': '&FILEERROR(),|" +
                             "\r\n                     'ERRO: '& ERRORCODE(),'Icon:Hand','1','1',1,'Mensagem','PEDVENDA',1,2)" +
@@ -56,7 +53,7 @@ namespace Utilities
                             "\r\nEND";
                     break;
                 case "Message TID (Warning)":
-                    text =  "SourceMensagemTID('Mensagem de exemplo','Atenção',|" +
+                    text = "SourceMensagemTID('Mensagem de exemplo','Atenção',|" +
                             "\r\n                   'Icon:Exclamation','1','1',1,'Mensagem','PEDVENDA',1,02)";
                     break;
                 case "Message TID (Error)":
@@ -65,10 +62,10 @@ namespace Utilities
                     break;
                 case "Message Case (Yes/No)":
                     text = "Case Message('Confirma gravação?','Mensagem',|" +
-                           "\r\n             Icon:Question,'&Sim|&Não',1,0)"+
-                           "\r\nOF 1"+
-                           "\r\nOF 2"+
-                           "\r\n    DO ProcedureReturn"+
+                           "\r\n             Icon:Question,'&Sim|&Não',1,0)" +
+                           "\r\nOF 1" +
+                           "\r\nOF 2" +
+                           "\r\n    DO ProcedureReturn" +
                            "\r\nEND";
                     break;
                 case "Message (Warning)":
@@ -85,7 +82,7 @@ namespace Utilities
                            "\r\nDO RefreshWindow";
                     break;
                 case "Process Label (Change Text Up)":
-                    text = "(?Progress:UserString) {PROP:TEXT} = 'Carregando Ped.Nr.: '& FORMAT(LOC:NrPedido,@n7.`0)"+
+                    text = "(?Progress:UserString) {PROP:TEXT} = 'Carregando Ped.Nr.: '& FORMAT(LOC:NrPedido,@n7.`0)" +
                            "\r\nDISPLAY";
                     break;
                 case "Process Label (Change Text Down)":
@@ -110,7 +107,7 @@ namespace Utilities
                            "\r\nEND";
                     break;
                 case "Column (Width Change)":
-                    text ="?Browse:1{PropList:Width,13} = 0";
+                    text = "?Browse:1{PropList:Width,13} = 0";
                     break;
                 case "Column Group (Width Change)":
                     text = "?Browse:1{PropList:Width + PropList:Group,3} = 0";
@@ -137,7 +134,7 @@ namespace Utilities
                             "\r\nEND";
                     break;
                 case "Acronym (Default Test)":
-                    text = "CON1:Matricula = GLO:Matricula"+
+                    text = "CON1:Matricula = GLO:Matricula" +
                             "\r\nCON11:CodigoSistema = 'TEI'" +
                             "\r\nGET(ContrAcesso,CON1:OrdemMatriculaSistema)" +
                             "\r\nIF ERRORCODE()" +
@@ -150,7 +147,7 @@ namespace Utilities
                 case "Record (Delete Child Record)":
                     text = "!End of Procedure Before closing Files" +
                             "\r\nIF (LocalRequest = DeleteRecord AND LocalResponse = RequestCompleted) OR |" +
-                            "\r\n   (LocalRequest = InsertRecord AND LocalResponse = RequestCancelled)"+
+                            "\r\n   (LocalRequest = InsertRecord AND LocalResponse = RequestCancelled)" +
                             "\r\n   TabelaProdSQL{Prop:SQL} = 'DELETE FROM LoteFichaProducaoGenericaItens WHERE SequenciaLote = ' & LFPG:SequenciaLote" +
                             "\r\n   IF ERRORCODE()" +
                             "\r\n      SourceMensagemTID('Erro na instrução SQL !!!||' & FILEERRORCODE() & ': ' & FILEERROR(),|" +
@@ -162,17 +159,31 @@ namespace Utilities
                     text = "DO BRW1::SelectSort";
                     break;
                 case "Queue (Read All Records)":
-                    text = "LOOP I# = 1 TO RECORDS(QUE:PedidosGerados)"+
-                           "\r\n   GET(QUE:PedidosGerados,I#)"+
-                           "\r\n   IF ERRORCODE() THEN BREAK END"+
-                           "\r\n   "+
+                    text = "LOOP I# = 1 TO RECORDS(QUE:PedidosGerados)" +
+                           "\r\n   GET(QUE:PedidosGerados,I#)" +
+                           "\r\n   IF ERRORCODE() THEN BREAK END" +
+                           "\r\n   " +
+                           "\r\nEND";
+                    break;
+                case "CLA Table (Key)":
+                    text = "LOC:Chave = FORMAT(GLO: Matricula, @n03) & ' ' & FORMAT(TODAY(), @D06b) & ' ' & FORMAT(CLOCK(), @T04b) & '_'" +
+                           "\r\nRandoms# = 30 - LEN(CLIP(LOC:Chave))" +
+                           "\r\nLOOP I# = 1 TO Randoms#" +
+                           "\r\n   CASE(RANDOM(1,3))" +
+                           "\r\n      OF 1" +
+                           "\r\n         LOC:Chave = CLIP(LOC:Chave) & RANDOM(0, 9)" +
+                           "\r\n      OF 2" +
+                           "\r\n         LOC:Chave = CLIP(LOC:Chave) & CHR(RANDOM(97, 122))" +
+                           "\r\n      OF 3" +
+                           "\r\n         LOC:Chave = CLIP(LOC:Chave) & CHR(RANDOM(65, 90))" +
+                           "\r\n   END" +
                            "\r\nEND";
                     break;
             }
             return text;
         }
 
-        private void BtnCopyClipboard_Click(object sender, EventArgs e){
+        private void BtnCopyClipboard_Click(object sender, EventArgs e) {
             if (cboClarionCode.SelectedItem != null) {
                 Clipboard.SetText(ClipboardClarionText());
                 txtCodePreview.Text = cboClarionCode.Text + "\r\nCopied to clipboard successfully.";
@@ -181,7 +192,7 @@ namespace Utilities
                 Clipboard.SetText(ClipboardCmdText());
                 txtCodePreview.Text = cboCmdCode.Text + "\r\nCopied to clipboard successfully.";
             }
-            
+
         }
 
         private void ComboCodeClipboard_SelectedValueChanged(object sender, EventArgs e) {
@@ -191,7 +202,7 @@ namespace Utilities
             txtCodePreview.Text = "Preview:" + "\r\n" + "\r\n" + ClipboardClarionText();
         }
 
-        private void cboCmdCode_SelectedValueChanged(object sender, EventArgs e){
+        private void cboCmdCode_SelectedValueChanged(object sender, EventArgs e) {
             if (cboClarionCode.SelectedItem != null && cboCmdCode.SelectedItem != null) {
                 cboClarionCode.SelectedItem = null;
             }

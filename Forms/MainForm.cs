@@ -1,5 +1,4 @@
-﻿using Microsoft.WindowsAPICodePack.Dialogs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -7,13 +6,17 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using Utilities;
+using Utilities.Classes;
 using Utilities.Forms;
 
-namespace Teste {
-    public partial class Main : Form {
-
-        private readonly CommonOpenFileDialog folderPicker = new CommonOpenFileDialog();
+namespace Teste
+{
+    public partial class Main : Form
+    {
+        private SQLite sqlite;
+        private CommonOpenFileDialog folderPicker = new CommonOpenFileDialog();
         private Task task;
         public readonly string[] arrayForbiddenCombinations = new string[] { ").", "_.", "_03.", "old.", "old--.", "copia.", "copy." };
 
@@ -429,6 +432,8 @@ namespace Teste {
             cboFileExtension.SelectedItem = "TID";
             lblProgressPercent.Text = "0%";
             folderPicker.IsFolderPicker = true;
+
+            sqlite = new SQLite();
         }
 
         private void BtnFromBrowser_Click(object sender, EventArgs e) {
