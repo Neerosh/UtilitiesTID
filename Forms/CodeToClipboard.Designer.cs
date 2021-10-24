@@ -144,6 +144,7 @@ namespace Utilities
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "CodeToClipboard";
+            this.Load += new System.EventHandler(this.CodeToClipboard_Load);
             this.grpClipboardCode.ResumeLayout(false);
             this.grpClipboardCode.PerformLayout();
             this.ResumeLayout(false);

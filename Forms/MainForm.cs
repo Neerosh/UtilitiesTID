@@ -15,7 +15,7 @@ namespace Teste
 {
     public partial class Main : Form
     {
-        private SQLite sqlite;
+        private readonly SQLite sqlite = new SQLite();
         private CommonOpenFileDialog folderPicker = new CommonOpenFileDialog();
         private Task task;
         public readonly string[] arrayForbiddenCombinations = new string[] { ").", "_.", "_03.", "old.", "old--.", "copia.", "copy." };
@@ -433,7 +433,6 @@ namespace Teste
             lblProgressPercent.Text = "0%";
             folderPicker.IsFolderPicker = true;
 
-            sqlite = new SQLite();
         }
 
         private void BtnFromBrowser_Click(object sender, EventArgs e) {
