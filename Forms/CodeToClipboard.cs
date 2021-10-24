@@ -14,7 +14,6 @@ namespace Utilities
         private void CodeToClipboard_Load(object sender, EventArgs e) {
             RefreshClarionCode();
         }
-
         private void RefreshClarionCode() {
             DataTable dt = sqlite.GetOptionsClarionCode();
             cboClarionCode.DataSource = dt;
