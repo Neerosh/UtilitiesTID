@@ -96,29 +96,6 @@ namespace Utilities
             this.cboClarionCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cboClarionCode, "cboClarionCode");
             this.cboClarionCode.ForeColor = System.Drawing.Color.White;
-            this.cboClarionCode.Items.AddRange(new object[] {
-            resources.GetString("cboClarionCode.Items"),
-            resources.GetString("cboClarionCode.Items1"),
-            resources.GetString("cboClarionCode.Items2"),
-            resources.GetString("cboClarionCode.Items3"),
-            resources.GetString("cboClarionCode.Items4"),
-            resources.GetString("cboClarionCode.Items5"),
-            resources.GetString("cboClarionCode.Items6"),
-            resources.GetString("cboClarionCode.Items7"),
-            resources.GetString("cboClarionCode.Items8"),
-            resources.GetString("cboClarionCode.Items9"),
-            resources.GetString("cboClarionCode.Items10"),
-            resources.GetString("cboClarionCode.Items11"),
-            resources.GetString("cboClarionCode.Items12"),
-            resources.GetString("cboClarionCode.Items13"),
-            resources.GetString("cboClarionCode.Items14"),
-            resources.GetString("cboClarionCode.Items15"),
-            resources.GetString("cboClarionCode.Items16"),
-            resources.GetString("cboClarionCode.Items17"),
-            resources.GetString("cboClarionCode.Items18"),
-            resources.GetString("cboClarionCode.Items19"),
-            resources.GetString("cboClarionCode.Items20"),
-            resources.GetString("cboClarionCode.Items21")});
             this.cboClarionCode.Name = "cboClarionCode";
             this.cboClarionCode.Sorted = true;
             this.cboClarionCode.SelectedValueChanged += new System.EventHandler(this.ComboCodeClipboard_SelectedValueChanged);

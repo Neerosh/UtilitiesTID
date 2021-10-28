@@ -16,17 +16,24 @@ namespace Utilities.Classes
         public SQLite() {
             if (!File.Exists("UtilitiesTID.db")) {
                 CreateDatabase();
-                AddCodeToClipboard();
+                AddDefaultOptions();
             }
         }
 
         private void CreateDatabase() {
             connection.Open();
             command.Connection = connection;
-            command.CommandText = "CREATE TABLE IF NOT EXISTS CodeToClipboard (" +
+            command.CommandText = "CREATE TABLE IF NOT EXISTS Codes (" +
                                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                                     "Name Varchar(50) NOT NULL," +
                                     "Code Varchar(2000) NOT NULL," +
+                                    "Type Varchar(30) NOT NULL," +
+                                    "UNIQUE (Name,Type)" +
+                                  ");"+
+                                  "CREATE TABLE IF NOT EXISTS Notes ("+
+                                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                    "Name Varchar(50) NOT NULL," +
+                                    "Note Varchar(2000) NOT NULL," +
                                     "Type Varchar(30) NOT NULL," +
                                     "UNIQUE (Name,Type)" +
                                   ");";
@@ -37,19 +44,26 @@ namespace Utilities.Classes
             }
             connection.Close();
         }
-        private void AddCodeToClipboard() {
+        private void AddDefaultOptions() {
             connection.Open();
             command.Connection = connection;
-            String[,] arrayClarionCode = LoadArrayClarionCode();
+            String[,] arrayClarionCode = LoadArrayDefaultOptionsClarionCode();
+            String[,] arrayClarionNotes = LoadArrayDefaultOptionsClarionNotes();
             try {
                 for (int i = 0; i < arrayClarionCode.GetLength(0); i++) {
-                    command.CommandText = "INSERT OR IGNORE INTO CodeToClipboard(Name,Code,Type) VALUES ('" + arrayClarionCode[i, 0] + "','" + arrayClarionCode[i, 1] + "','Clarion')";
+                    command.CommandText = "INSERT OR IGNORE INTO Codes(Name,Code,Type) VALUES ('" + arrayClarionCode[i, 0] + "','" + arrayClarionCode[i, 1] + "','Clarion')";
+                    command.ExecuteNonQuery();
+                }
+                for (int i = 0; i < arrayClarionNotes.GetLength(0); i++) {
+                    command.CommandText = "INSERT OR IGNORE INTO Notes(Name,Note,Type) VALUES ('" + arrayClarionNotes[i, 0] + "','" + arrayClarionNotes[i, 1] + "','Clarion')";
                     command.ExecuteNonQuery();
                 }
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
             connection.Close();
+
+
         }
         public DataTable GetOptionsClarionCode() {
             SqliteDataReader reader;
@@ -59,7 +73,7 @@ namespace Utilities.Classes
 
             connection.Open();
             command.Connection = connection;
-            command.CommandText = "SELECT Name,Code FROM CodeToClipboard WHERE Type = 'Clarion'";
+            command.CommandText = "SELECT Name,Code FROM Codes WHERE Type = 'Clarion'";
             try {
                 reader = command.ExecuteReader();
                 while (reader.Read()) { 
@@ -71,17 +85,18 @@ namespace Utilities.Classes
             connection.Close();
             return dt;
         }
-        private String[,] LoadArrayClarionCode() {
+        private String[,] LoadArrayDefaultOptionsClarionCode() {
             String[,] array = new string[,]{ {"Acronym (Default Test)",""},
                                 {"APP (Allow only one Instance)",""},
+                                {"Browse (Page Refresh)",""},
                                 {"Browse (Refresh)",""},
-                                {"CLA Table (Key)",""},
+                                {"Cla Table (Key)",""},
                                 {"Column (Width Change)",""},
                                 {"Column Group (Width Change)",""},
                                 {"Directory (Create)",""},
                                 {"Message (Error)",""},
-                                {"Message (Warning",""},
-                                {"Message Case (Yes/ No)",""},
+                                {"Message (Warning)",""},
+                                {"Message Case (Yes / No)",""},
                                 {"Message TID (Error)",""},
                                 {"Message TID (Warning)",""},
                                 {"Owner Database (Get)",""},
@@ -93,11 +108,11 @@ namespace Utilities.Classes
                                 {"Record (Delete Child Record)",""},
                                 {"TabelaSQL (Select)",""},
                                 {"TabelaSQL (Update)",""},
-                                {"Window (Force Refresh)",""} };
+                                {"Window (Force Refresh)",""}};
             String text = "";
             for (int i = 0; i < array.GetLength(0); i++) {
                 switch (array[i,0]) {
-                    case "Print (Multiline String Manually) ":
+                    case "Print (Multiline String Manually)":
                         text = "SETTARGET(REPORT)" +
                                "\r\n?LOC:Observacao {PROP:Text} = LOC:Observacao" +
                                "\r\nnTotLinha# = ?LOC:Observacao {PROP:LineCount}" +
@@ -109,15 +124,15 @@ namespace Utilities.Classes
                         break;
                     case "TabelaSQL (Select)":
                         text = "TabelaSQL{Prop:SQLRowSet} = 'SELECT FROM WHERE'" +
-                                "\r\nIF ERRORCODE()" +
-                                "\r\n   SourceMensagemTID('Erro na instrução SQL !!!||'& FILEERRORCODE() &': '&FILEERROR(),|" +
-                                "\r\n                     'ERRO: '& ERRORCODE(),'Icon:Hand','1','1',1,'Mensagem','PEDVENDA',1,2)" +
-                                "\r\nEND" +
-                                "\r\nLOOP" +
-                                "\r\n   NEXT(TabelaSQL)" +
-                                "\r\n   IF ERRORCODE() THEN BREAK END" +
-                                "\r\n   " +
-                                "\r\nEND";
+                               "\r\nIF ERRORCODE()" +
+                               "\r\n  SourceMensagemTID('Erro na instrução SQL !!!||'& FILEERRORCODE() &': '&FILEERROR(),|" +
+                               "\r\n                    'ERRO: '& ERRORCODE(),'Icon:Hand','1','1',1,'Mensagem','PEDVENDA',1,2)" +
+                               "\r\nEND" +
+                               "\r\nLOOP" +
+                               "\r\n   NEXT(TabelaSQL)" +
+                               "\r\n   IF ERRORCODE() THEN BREAK END" +
+                               "\r\n   " +
+                               "\r\nEND";
                         break;
                     case "TabelaSQL (Update)":
                         text = "TabelaSQL{Prop:SQLRowSet} = 'UPDATE SET WHERE'" +
@@ -128,15 +143,15 @@ namespace Utilities.Classes
                         break;
                     case "Message TID (Warning)":
                         text = "SourceMensagemTID('Mensagem de exemplo','Atenção',|" +
-                                "\r\n                   'Icon:Exclamation','1','1',1,'Mensagem','PEDVENDA',1,02)";
+                                "\r\n             'Icon:Exclamation','1','1',1,'Mensagem','PEDVENDA',1,02)";
                         break;
                     case "Message TID (Error)":
                         text = "SourceMensagemTID('Mensagem de exemplo','Atenção',|" +
-                               "\r\n                   'Icon:Hand','1','1',1,'Mensagem','PEDVENDA',1,02)";
+                               "\r\n              'Icon:Hand','1','1',1,'Mensagem','PEDVENDA',1,02)";
                         break;
-                    case "Message Case (Yes/No)":
+                    case "Message Case (Yes / No)":
                         text = "Case Message('Confirma gravação?','Mensagem',|" +
-                               "\r\n             Icon:Question,'&Sim|&Não',1,0)" +
+                               "\r\n         Icon:Question,'&Sim|&Não',1,0)" +
                                "\r\nOF 1" +
                                "\r\nOF 2" +
                                "\r\n    DO ProcedureReturn" +
@@ -144,11 +159,11 @@ namespace Utilities.Classes
                         break;
                     case "Message (Warning)":
                         text = "Message('Mensagem de exemplo','Atenção',|" +
-                               "\r\n             ICON:Exclamation,BUTTON:OK,BUTTON:OK,1)";
+                               "\r\n    ICON:Exclamation,BUTTON:OK,BUTTON:OK,1)";
                         break;
                     case "Message (Error)":
                         text = "Message('Mensagem de exemplo','Erro: ',|" +
-                               "\r\n             ICON:Hand,BUTTON:OK,BUTTON:OK,1)";
+                               "\r\n    ICON:Hand,BUTTON:OK,BUTTON:OK,1)";
                         break;
                     case "Window (Force Refresh)":
                         text = "ForceRefresh = True" +
@@ -201,7 +216,8 @@ namespace Utilities.Classes
                                 "\r\n! INCLUDE('CWUTIL.INC'),ONCE" +
                                 "\r\nIF NOT BeginUnique('HISTFCLI.EXE')" +
                                 "\r\n   YIELD()" +
-                                "\r\n   CASE MESSAGE('O Histórico Financeiro já está aberto ...','Atenção',ICON: Asterisk,BUTTON: OK,BUTTON: OK,0)" +
+                                "\r\n   CASE MESSAGE('O Histórico Financeiro já está aberto ...','Atenção',|" +
+                                "\r\n                ICON:Asterisk,BUTTON:OK,BUTTON:OK,0)" +
                                 "\r\n   OF BUTTON:OK" +
                                 "\r\n      HALT()" +
                                 "\r\n   END" +
@@ -213,16 +229,20 @@ namespace Utilities.Classes
                                 "\r\nGET(ContrAcesso,CON1:OrdemMatriculaSistema)" +
                                 "\r\nIF ERRORCODE()" +
                                 "\r\n   MESSAGE('ATENÇÃO: Acesso Não Permitido!',| " +
-                                "\r\n          'Sigla de Acesso: '& CON1:CodigoSistema,'\\TIDSCI\\FIGURAS\\SEMACESS.ICO',Button:OK,Button:OK,1)" +
+                                "\r\n          'Sigla de Acesso: '& CON1:CodigoSistema,'\\TIDSCI\\FIGURAS\\SEMACESS.ICO',|" +
+                                "\r\n           Button:OK,Button:OK,1)" +
                                 "\r\n   DO ProcedureReturn" +
                                 "\r\nEND" +
-                                "\r\nSourceGravaDetalheSistema('BCR',393,'Baixa Carga Entregue','Exp.>Contr.Entregas>Mov.>Romaneio Entregas>','EXPEDICA.APP')";
+                                "\r\nSourceGravaDetalheSistema('BCR',393,'Baixa Carga Entregue',|" +
+                                "\r\n                          'Exp.>Contr.Entregas>Mov.>Romaneio Entregas>','EXPEDICA.APP')";
                         break;
                     case "Record (Delete Child Record)":
                         text = "!End of Procedure Before closing Files" +
                                 "\r\nIF (LocalRequest = DeleteRecord AND LocalResponse = RequestCompleted) OR |" +
                                 "\r\n   (LocalRequest = InsertRecord AND LocalResponse = RequestCancelled)" +
-                                "\r\n   TabelaProdSQL{Prop:SQL} = 'DELETE FROM LoteFichaProducaoGenericaItens WHERE SequenciaLote = ' & LFPG:SequenciaLote" +
+                                "\r\n" +
+                                "\r\n   TabelaProdSQL{Prop:SQL} = 'DELETE FROM LoteFichaProducaoGenericaItens'&|" +
+                                "\r\n                            ' WHERE SequenciaLote = ' & LFPG:SequenciaLote" +
                                 "\r\n   IF ERRORCODE()" +
                                 "\r\n      SourceMensagemTID('Erro na instrução SQL !!!||' & FILEERRORCODE() & ': ' & FILEERROR(),|" +
                                 "\r\n                        'ERRO: '& ERRORCODE(),'Icon:Hand','1','1', 1,'Mensagem','PRODGEN',1,135)" +
@@ -239,8 +259,9 @@ namespace Utilities.Classes
                                "\r\n   " +
                                "\r\nEND";
                         break;
-                    case "CLA Table (Key)":
-                        text = "LOC:Chave = FORMAT(GLO: Matricula, @n03) & ' ' & FORMAT(TODAY(), @D06b) & ' ' & FORMAT(CLOCK(), @T04b) & '_'" +
+                    case "Cla Table (Key)":
+                        text = "LOC:Chave = FORMAT(GLO: Matricula, @n03) & ' ' & FORMAT(TODAY(), @D06b) &|" +
+                               "\r\n' ' & FORMAT(CLOCK(), @T04b) & '_'" +
                                "\r\nRandoms# = 30 - LEN(CLIP(LOC:Chave))" +
                                "\r\nLOOP I# = 1 TO Randoms#" +
                                "\r\n   CASE(RANDOM(1,3))" +
@@ -253,14 +274,33 @@ namespace Utilities.Classes
                                "\r\n   END" +
                                "\r\nEND";
                         break;
+                    case "Browse (Page Refresh)":
+                        text = "DO BRW1::RefreshPage";
+                        break;
                 }
-                text =text.Replace("'", "''");
+                text = text.Replace("'", "''");
                 array.SetValue(text,i,1);
             }
             return array;
         }
-
-
+        private String[,] LoadArrayDefaultOptionsClarionNotes() {
+            String[,] array = new string[,] { { "Fix Clarion Browser ScrollBar (Numeric Key)", "" } };
+            String text = "";
+            for (int i = 0; i < array.GetLength(0); i++) {
+                switch (array[i, 0]) {
+                    case "Fix Clarion Browser ScrollBar (Numeric Key)":
+                        text = "On Browse > Actions > Scroll Behavior" +
+                               "\r\n Set ScrollBar Type = Movable Thumb" +
+                               "\r\n Set Key Distribution = Runtime" +
+                               "\r\nThen on Runtime Distribution Parameters" +
+                               "\r\n Check the option Use Numeric Characters";
+                        break;
+                }
+                text = text.Replace("'", "''");
+                array.SetValue(text, i, 1);
+            }
+                return array;
+        }
 
     }
 }
