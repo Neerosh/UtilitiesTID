@@ -492,8 +492,8 @@ namespace Teste
             clarionDateTime.ShowDialog();
         }
         private void MenuCodeToclipoard_Click(object sender, EventArgs e) {
-            CodeToClipboard codeToClipboard = new CodeToClipboard();
-            codeToClipboard.ShowDialog();
+            //CodeToClipboard codeToClipboard = new CodeToClipboard();
+            //codeToClipboard.ShowDialog();
         }
         private void MenuScriptWriter_Click(object sender, EventArgs e) {
             ScriptWriter scriptWriter = new ScriptWriter();
@@ -502,6 +502,16 @@ namespace Teste
         private void MenuNotes_Click(object sender, EventArgs e) {
             Notes notes = new Notes(arrayForbiddenCombinations);
             notes.ShowDialog();
+        }
+
+        private void tsmCodeToClipboard_Click(object sender, EventArgs e) {
+            CodeToClipboard codeToClipboard = new CodeToClipboard();
+            codeToClipboard.ShowDialog();
+        }
+
+        private void tsmManageCode_Click(object sender, EventArgs e) {
+            CodeManage codeToClipboardMaintenance = new CodeManage();
+            codeToClipboardMaintenance.ShowDialog();
         }
     }
 }

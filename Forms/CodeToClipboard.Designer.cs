@@ -31,52 +31,31 @@ namespace Utilities
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeToClipboard));
             this.grpClipboardCode = new System.Windows.Forms.GroupBox();
-            this.cboCmdCode = new System.Windows.Forms.ComboBox();
-            this.lblCmd = new System.Windows.Forms.Label();
             this.txtCodePreview = new System.Windows.Forms.TextBox();
-            this.lblClarion = new System.Windows.Forms.Label();
-            this.cboClarionCode = new System.Windows.Forms.ComboBox();
+            this.cboCodeType = new System.Windows.Forms.ComboBox();
+            this.lblCodeType = new System.Windows.Forms.Label();
+            this.lblCodeName = new System.Windows.Forms.Label();
+            this.cboCodeName = new System.Windows.Forms.ComboBox();
             this.btnCopyClipboard = new System.Windows.Forms.Button();
             this.grpClipboardCode.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpClipboardCode
             // 
-            this.grpClipboardCode.Controls.Add(this.cboCmdCode);
-            this.grpClipboardCode.Controls.Add(this.lblCmd);
             this.grpClipboardCode.Controls.Add(this.txtCodePreview);
-            this.grpClipboardCode.Controls.Add(this.lblClarion);
-            this.grpClipboardCode.Controls.Add(this.cboClarionCode);
+            this.grpClipboardCode.Controls.Add(this.cboCodeType);
+            this.grpClipboardCode.Controls.Add(this.lblCodeType);
+            this.grpClipboardCode.Controls.Add(this.lblCodeName);
+            this.grpClipboardCode.Controls.Add(this.cboCodeName);
             this.grpClipboardCode.Controls.Add(this.btnCopyClipboard);
             resources.ApplyResources(this.grpClipboardCode, "grpClipboardCode");
             this.grpClipboardCode.ForeColor = System.Drawing.Color.White;
             this.grpClipboardCode.Name = "grpClipboardCode";
             this.grpClipboardCode.TabStop = false;
             // 
-            // cboCmdCode
-            // 
-            this.cboCmdCode.AutoCompleteCustomSource.AddRange(new string[] {
-            resources.GetString("cboCmdCode.AutoCompleteCustomSource")});
-            this.cboCmdCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cboCmdCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cboCmdCode, "cboCmdCode");
-            this.cboCmdCode.ForeColor = System.Drawing.Color.White;
-            this.cboCmdCode.Items.AddRange(new object[] {
-            resources.GetString("cboCmdCode.Items")});
-            this.cboCmdCode.Name = "cboCmdCode";
-            this.cboCmdCode.Sorted = true;
-            this.cboCmdCode.SelectedValueChanged += new System.EventHandler(this.cboCmdCode_SelectedValueChanged);
-            // 
-            // lblCmd
-            // 
-            resources.ApplyResources(this.lblCmd, "lblCmd");
-            this.lblCmd.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCmd.Name = "lblCmd";
-            // 
             // txtCodePreview
             // 
             this.txtCodePreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtCodePreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCodePreview.Cursor = System.Windows.Forms.Cursors.Default;
             resources.ApplyResources(this.txtCodePreview, "txtCodePreview");
             this.txtCodePreview.ForeColor = System.Drawing.Color.Lime;
@@ -84,21 +63,41 @@ namespace Utilities
             this.txtCodePreview.ReadOnly = true;
             this.txtCodePreview.TabStop = false;
             // 
-            // lblClarion
+            // cboCodeType
             // 
-            resources.ApplyResources(this.lblClarion, "lblClarion");
-            this.lblClarion.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblClarion.Name = "lblClarion";
+            this.cboCodeType.AutoCompleteCustomSource.AddRange(new string[] {
+            resources.GetString("cboCodeType.AutoCompleteCustomSource")});
+            this.cboCodeType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cboCodeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cboCodeType, "cboCodeType");
+            this.cboCodeType.ForeColor = System.Drawing.Color.White;
+            this.cboCodeType.Items.AddRange(new object[] {
+            resources.GetString("cboCodeType.Items")});
+            this.cboCodeType.Name = "cboCodeType";
+            this.cboCodeType.Sorted = true;
+            this.cboCodeType.SelectedValueChanged += new System.EventHandler(this.cboCodeType_SelectedValueChanged);
             // 
-            // cboClarionCode
+            // lblCodeType
             // 
-            this.cboClarionCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cboClarionCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cboClarionCode, "cboClarionCode");
-            this.cboClarionCode.ForeColor = System.Drawing.Color.White;
-            this.cboClarionCode.Name = "cboClarionCode";
-            this.cboClarionCode.Sorted = true;
-            this.cboClarionCode.SelectedValueChanged += new System.EventHandler(this.ComboCodeClipboard_SelectedValueChanged);
+            resources.ApplyResources(this.lblCodeType, "lblCodeType");
+            this.lblCodeType.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCodeType.Name = "lblCodeType";
+            // 
+            // lblCodeName
+            // 
+            resources.ApplyResources(this.lblCodeName, "lblCodeName");
+            this.lblCodeName.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCodeName.Name = "lblCodeName";
+            // 
+            // cboCodeName
+            // 
+            this.cboCodeName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cboCodeName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cboCodeName, "cboCodeName");
+            this.cboCodeName.ForeColor = System.Drawing.Color.White;
+            this.cboCodeName.Name = "cboCodeName";
+            this.cboCodeName.Sorted = true;
+            this.cboCodeName.SelectedValueChanged += new System.EventHandler(this.CboCodeName_SelectedValueChanged);
             // 
             // btnCopyClipboard
             // 
@@ -131,11 +130,11 @@ namespace Utilities
         #endregion
 
         private System.Windows.Forms.GroupBox grpClipboardCode;
-        private System.Windows.Forms.Label lblClarion;
-        private System.Windows.Forms.ComboBox cboClarionCode;
+        private System.Windows.Forms.Label lblCodeName;
+        private System.Windows.Forms.ComboBox cboCodeName;
         private System.Windows.Forms.Button btnCopyClipboard;
         private System.Windows.Forms.TextBox txtCodePreview;
-        private System.Windows.Forms.Label lblCmd;
-        private System.Windows.Forms.ComboBox cboCmdCode;
+        private System.Windows.Forms.Label lblCodeType;
+        private System.Windows.Forms.ComboBox cboCodeType;
     }
 }

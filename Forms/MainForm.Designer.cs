@@ -50,36 +50,52 @@ namespace Teste
             this.btnDeleteDuplicate = new System.Windows.Forms.Button();
             this.BtnMoveFiles = new System.Windows.Forms.Button();
             this.mnsMenuBar = new System.Windows.Forms.MenuStrip();
-            this.mnuClarionDateTime = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCodeToClipoard = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCodeToClipboard = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmManageCode = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuScriptWriter = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNotes = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuClarionDateTime = new System.Windows.Forms.ToolStripMenuItem();
             this.grpDeleteDuplicate.SuspendLayout();
             this.mnsMenuBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // pgsFileManagement
             // 
-            resources.ApplyResources(this.pgsFileManagement, "pgsFileManagement");
+            this.pgsFileManagement.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pgsFileManagement.Location = new System.Drawing.Point(12, 197);
             this.pgsFileManagement.Name = "pgsFileManagement";
+            this.pgsFileManagement.Size = new System.Drawing.Size(745, 29);
+            this.pgsFileManagement.TabIndex = 2;
             // 
             // txtLogProcess
             // 
             this.txtLogProcess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtLogProcess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLogProcess.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.txtLogProcess, "txtLogProcess");
+            this.txtLogProcess.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtLogProcess.ForeColor = System.Drawing.Color.Lime;
+            this.txtLogProcess.Location = new System.Drawing.Point(12, 232);
+            this.txtLogProcess.Multiline = true;
             this.txtLogProcess.Name = "txtLogProcess";
             this.txtLogProcess.ReadOnly = true;
+            this.txtLogProcess.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtLogProcess.Size = new System.Drawing.Size(794, 207);
+            this.txtLogProcess.TabIndex = 4;
             this.txtLogProcess.TabStop = false;
             // 
             // lblProgressPercent
             // 
-            resources.ApplyResources(this.lblProgressPercent, "lblProgressPercent");
+            this.lblProgressPercent.AutoSize = true;
             this.lblProgressPercent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblProgressPercent.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblProgressPercent.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblProgressPercent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblProgressPercent.Location = new System.Drawing.Point(767, 204);
             this.lblProgressPercent.Name = "lblProgressPercent";
+            this.lblProgressPercent.Size = new System.Drawing.Size(38, 16);
+            this.lblProgressPercent.TabIndex = 3;
+            this.lblProgressPercent.Text = "100%";
             // 
             // grpDeleteDuplicate
             // 
@@ -99,110 +115,177 @@ namespace Teste
             this.grpDeleteDuplicate.Controls.Add(this.btnDeleteDuplicate);
             this.grpDeleteDuplicate.Controls.Add(this.BtnMoveFiles);
             this.grpDeleteDuplicate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            resources.ApplyResources(this.grpDeleteDuplicate, "grpDeleteDuplicate");
+            this.grpDeleteDuplicate.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpDeleteDuplicate.ForeColor = System.Drawing.SystemColors.Control;
+            this.grpDeleteDuplicate.Location = new System.Drawing.Point(12, 31);
             this.grpDeleteDuplicate.Name = "grpDeleteDuplicate";
+            this.grpDeleteDuplicate.Size = new System.Drawing.Size(794, 160);
+            this.grpDeleteDuplicate.TabIndex = 0;
             this.grpDeleteDuplicate.TabStop = false;
+            this.grpDeleteDuplicate.Text = "File Management";
             // 
             // lblFromMoveFiles
             // 
-            resources.ApplyResources(this.lblFromMoveFiles, "lblFromMoveFiles");
+            this.lblFromMoveFiles.AutoSize = true;
+            this.lblFromMoveFiles.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFromMoveFiles.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblFromMoveFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblFromMoveFiles.Location = new System.Drawing.Point(6, 29);
             this.lblFromMoveFiles.Name = "lblFromMoveFiles";
+            this.lblFromMoveFiles.Size = new System.Drawing.Size(81, 16);
+            this.lblFromMoveFiles.TabIndex = 0;
+            this.lblFromMoveFiles.Text = "From Folder:";
             // 
             // txtFromFolder
             // 
             this.txtFromFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            resources.ApplyResources(this.txtFromFolder, "txtFromFolder");
+            this.txtFromFolder.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtFromFolder.ForeColor = System.Drawing.Color.White;
+            this.txtFromFolder.Location = new System.Drawing.Point(92, 27);
             this.txtFromFolder.Name = "txtFromFolder";
+            this.txtFromFolder.Size = new System.Drawing.Size(649, 22);
+            this.txtFromFolder.TabIndex = 1;
             // 
             // btnFromBrowser
             // 
             this.btnFromBrowser.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnFromBrowser.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            resources.ApplyResources(this.btnFromBrowser, "btnFromBrowser");
+            this.btnFromBrowser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFromBrowser.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnFromBrowser.ForeColor = System.Drawing.Color.White;
+            this.btnFromBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnFromBrowser.Location = new System.Drawing.Point(747, 24);
             this.btnFromBrowser.Name = "btnFromBrowser";
+            this.btnFromBrowser.Size = new System.Drawing.Size(31, 27);
+            this.btnFromBrowser.TabIndex = 2;
+            this.btnFromBrowser.Text = "...";
             this.btnFromBrowser.UseVisualStyleBackColor = true;
             this.btnFromBrowser.Click += new System.EventHandler(this.BtnFromBrowser_Click);
             // 
             // lblToMoveFiles
             // 
-            resources.ApplyResources(this.lblToMoveFiles, "lblToMoveFiles");
+            this.lblToMoveFiles.AutoSize = true;
+            this.lblToMoveFiles.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblToMoveFiles.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblToMoveFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblToMoveFiles.Location = new System.Drawing.Point(23, 61);
             this.lblToMoveFiles.Name = "lblToMoveFiles";
+            this.lblToMoveFiles.Size = new System.Drawing.Size(64, 16);
+            this.lblToMoveFiles.TabIndex = 3;
+            this.lblToMoveFiles.Text = "To Folder:";
             // 
             // txtToFolder
             // 
             this.txtToFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            resources.ApplyResources(this.txtToFolder, "txtToFolder");
+            this.txtToFolder.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtToFolder.ForeColor = System.Drawing.Color.White;
+            this.txtToFolder.Location = new System.Drawing.Point(92, 59);
             this.txtToFolder.Name = "txtToFolder";
+            this.txtToFolder.Size = new System.Drawing.Size(649, 22);
+            this.txtToFolder.TabIndex = 4;
             // 
             // btnToBrowser
             // 
             this.btnToBrowser.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnToBrowser.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            resources.ApplyResources(this.btnToBrowser, "btnToBrowser");
+            this.btnToBrowser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToBrowser.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnToBrowser.ForeColor = System.Drawing.Color.White;
+            this.btnToBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnToBrowser.Location = new System.Drawing.Point(747, 56);
             this.btnToBrowser.Name = "btnToBrowser";
+            this.btnToBrowser.Size = new System.Drawing.Size(31, 27);
+            this.btnToBrowser.TabIndex = 5;
+            this.btnToBrowser.Text = "...";
             this.btnToBrowser.UseVisualStyleBackColor = true;
             this.btnToBrowser.Click += new System.EventHandler(this.BtnToBrowser_Click);
             // 
             // lblOrderBy
             // 
-            resources.ApplyResources(this.lblOrderBy, "lblOrderBy");
+            this.lblOrderBy.AutoSize = true;
+            this.lblOrderBy.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblOrderBy.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblOrderBy.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblOrderBy.Location = new System.Drawing.Point(24, 93);
             this.lblOrderBy.Name = "lblOrderBy";
+            this.lblOrderBy.Size = new System.Drawing.Size(63, 16);
+            this.lblOrderBy.TabIndex = 6;
+            this.lblOrderBy.Text = "Order By:";
             // 
             // cboOrderBy
             // 
             this.cboOrderBy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboOrderBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cboOrderBy, "cboOrderBy");
+            this.cboOrderBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboOrderBy.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cboOrderBy.ForeColor = System.Drawing.Color.White;
+            this.cboOrderBy.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cboOrderBy.Items.AddRange(new object[] {
-            resources.GetString("cboOrderBy.Items"),
-            resources.GetString("cboOrderBy.Items1")});
+            "Ascending",
+            "Descending"});
+            this.cboOrderBy.Location = new System.Drawing.Point(220, 91);
             this.cboOrderBy.Name = "cboOrderBy";
+            this.cboOrderBy.Size = new System.Drawing.Size(131, 24);
+            this.cboOrderBy.TabIndex = 8;
             // 
             // cboOrderField
             // 
             this.cboOrderField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboOrderField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cboOrderField, "cboOrderField");
+            this.cboOrderField.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboOrderField.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cboOrderField.ForeColor = System.Drawing.Color.White;
+            this.cboOrderField.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cboOrderField.Items.AddRange(new object[] {
-            resources.GetString("cboOrderField.Items"),
-            resources.GetString("cboOrderField.Items1")});
+            "Creation Time",
+            "Filename"});
+            this.cboOrderField.Location = new System.Drawing.Point(92, 91);
             this.cboOrderField.Name = "cboOrderField";
+            this.cboOrderField.Size = new System.Drawing.Size(113, 24);
+            this.cboOrderField.TabIndex = 7;
             // 
             // lblFileExtension
             // 
-            resources.ApplyResources(this.lblFileExtension, "lblFileExtension");
+            this.lblFileExtension.AutoSize = true;
+            this.lblFileExtension.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFileExtension.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblFileExtension.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblFileExtension.Location = new System.Drawing.Point(13, 125);
             this.lblFileExtension.Name = "lblFileExtension";
+            this.lblFileExtension.Size = new System.Drawing.Size(74, 16);
+            this.lblFileExtension.TabIndex = 9;
+            this.lblFileExtension.Text = "Filtered By:\r\n";
             // 
             // cboFileExtension
             // 
             this.cboFileExtension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboFileExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cboFileExtension, "cboFileExtension");
+            this.cboFileExtension.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboFileExtension.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cboFileExtension.ForeColor = System.Drawing.Color.White;
+            this.cboFileExtension.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cboFileExtension.Items.AddRange(new object[] {
-            resources.GetString("cboFileExtension.Items"),
-            resources.GetString("cboFileExtension.Items1"),
-            resources.GetString("cboFileExtension.Items2"),
-            resources.GetString("cboFileExtension.Items3"),
-            resources.GetString("cboFileExtension.Items4"),
-            resources.GetString("cboFileExtension.Items5")});
+            "All Extensions",
+            "TID",
+            "*.dll or *.exe",
+            "*.dll",
+            "*.exe ",
+            "*.tps"});
+            this.cboFileExtension.Location = new System.Drawing.Point(92, 123);
             this.cboFileExtension.Name = "cboFileExtension";
+            this.cboFileExtension.Size = new System.Drawing.Size(113, 24);
+            this.cboFileExtension.TabIndex = 10;
             // 
             // chkSubFolders
             // 
-            resources.ApplyResources(this.chkSubFolders, "chkSubFolders");
+            this.chkSubFolders.AutoSize = true;
+            this.chkSubFolders.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chkSubFolders.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.chkSubFolders.Location = new System.Drawing.Point(223, 124);
             this.chkSubFolders.Name = "chkSubFolders";
+            this.chkSubFolders.Size = new System.Drawing.Size(128, 20);
+            this.chkSubFolders.TabIndex = 11;
+            this.chkSubFolders.Text = "Check Subfolders";
             this.chkSubFolders.UseVisualStyleBackColor = true;
             // 
             // btnCopyFiles
@@ -210,10 +293,19 @@ namespace Teste
             this.btnCopyFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCopyFiles.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnCopyFiles.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            resources.ApplyResources(this.btnCopyFiles, "btnCopyFiles");
+            this.btnCopyFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopyFiles.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCopyFiles.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCopyFiles.Image = global::Utilities.Properties.Resources.icons8_copy_32;
+            this.btnCopyFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopyFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnCopyFiles.Location = new System.Drawing.Point(645, 91);
             this.btnCopyFiles.Name = "btnCopyFiles";
+            this.btnCopyFiles.Size = new System.Drawing.Size(133, 51);
+            this.btnCopyFiles.TabIndex = 14;
+            this.btnCopyFiles.Text = "Copy Files";
+            this.btnCopyFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopyFiles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCopyFiles.UseVisualStyleBackColor = false;
             this.btnCopyFiles.Click += new System.EventHandler(this.BtnCopyFiles_Click);
             this.btnCopyFiles.MouseLeave += new System.EventHandler(this.BtnCopyFiles_MouseLeave);
@@ -224,10 +316,19 @@ namespace Teste
             this.btnDeleteDuplicate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnDeleteDuplicate.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnDeleteDuplicate.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            resources.ApplyResources(this.btnDeleteDuplicate, "btnDeleteDuplicate");
+            this.btnDeleteDuplicate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteDuplicate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDeleteDuplicate.ForeColor = System.Drawing.SystemColors.Control;
             this.btnDeleteDuplicate.Image = global::Utilities.Properties.Resources.icons8_delete_file2_32;
+            this.btnDeleteDuplicate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteDuplicate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnDeleteDuplicate.Location = new System.Drawing.Point(360, 91);
             this.btnDeleteDuplicate.Name = "btnDeleteDuplicate";
+            this.btnDeleteDuplicate.Size = new System.Drawing.Size(140, 51);
+            this.btnDeleteDuplicate.TabIndex = 12;
+            this.btnDeleteDuplicate.Text = "Delete Duplicated Files";
+            this.btnDeleteDuplicate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteDuplicate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteDuplicate.UseVisualStyleBackColor = false;
             this.btnDeleteDuplicate.Click += new System.EventHandler(this.BtnDeleteDuplicate_Click);
             this.btnDeleteDuplicate.MouseLeave += new System.EventHandler(this.BtnDeleteDuplicate_MouseLeave);
@@ -238,10 +339,19 @@ namespace Teste
             this.BtnMoveFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BtnMoveFiles.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.BtnMoveFiles.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            resources.ApplyResources(this.BtnMoveFiles, "BtnMoveFiles");
+            this.BtnMoveFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMoveFiles.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnMoveFiles.ForeColor = System.Drawing.SystemColors.Control;
             this.BtnMoveFiles.Image = global::Utilities.Properties.Resources.icons8_send_file_32;
+            this.BtnMoveFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnMoveFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.BtnMoveFiles.Location = new System.Drawing.Point(506, 91);
             this.BtnMoveFiles.Name = "BtnMoveFiles";
+            this.BtnMoveFiles.Size = new System.Drawing.Size(133, 51);
+            this.BtnMoveFiles.TabIndex = 13;
+            this.BtnMoveFiles.Text = "Move Files";
+            this.BtnMoveFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnMoveFiles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnMoveFiles.UseVisualStyleBackColor = false;
             this.BtnMoveFiles.Click += new System.EventHandler(this.BtnMoveFiles_Click);
             this.BtnMoveFiles.MouseLeave += new System.EventHandler(this.BtnMoveFiles_MouseLeave);
@@ -250,68 +360,114 @@ namespace Teste
             // mnsMenuBar
             // 
             this.mnsMenuBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            resources.ApplyResources(this.mnsMenuBar, "mnsMenuBar");
+            this.mnsMenuBar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnsMenuBar.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.mnsMenuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuClarionDateTime,
             this.mnuCodeToClipoard,
             this.mnuScriptWriter,
-            this.mnuNotes});
+            this.mnuNotes,
+            this.mnuClarionDateTime});
+            this.mnsMenuBar.Location = new System.Drawing.Point(0, 0);
             this.mnsMenuBar.Name = "mnsMenuBar";
+            this.mnsMenuBar.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.mnsMenuBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            // 
-            // mnuClarionDateTime
-            // 
-            this.mnuClarionDateTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            resources.ApplyResources(this.mnuClarionDateTime, "mnuClarionDateTime");
-            this.mnuClarionDateTime.ForeColor = System.Drawing.Color.White;
-            this.mnuClarionDateTime.Image = global::Utilities.Properties.Resources.icons8_clock_32;
-            this.mnuClarionDateTime.MergeIndex = 0;
-            this.mnuClarionDateTime.Name = "mnuClarionDateTime";
-            this.mnuClarionDateTime.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.mnuClarionDateTime.Click += new System.EventHandler(this.MenuClarionDateTime_Click);
+            this.mnsMenuBar.Size = new System.Drawing.Size(818, 28);
+            this.mnsMenuBar.TabIndex = 1;
+            this.mnsMenuBar.Text = "Menu";
             // 
             // mnuCodeToClipoard
             // 
-            resources.ApplyResources(this.mnuCodeToClipoard, "mnuCodeToClipoard");
+            this.mnuCodeToClipoard.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmCodeToClipboard,
+            this.tsmManageCode});
+            this.mnuCodeToClipoard.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuCodeToClipoard.ForeColor = System.Drawing.Color.White;
             this.mnuCodeToClipoard.Image = global::Utilities.Properties.Resources.icons8_data_32;
             this.mnuCodeToClipoard.Name = "mnuCodeToClipoard";
             this.mnuCodeToClipoard.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.mnuCodeToClipoard.Click += new System.EventHandler(this.MenuCodeToclipoard_Click);
+            this.mnuCodeToClipoard.Size = new System.Drawing.Size(128, 22);
+            this.mnuCodeToClipoard.Text = "Clipboard Codes";
+            this.mnuCodeToClipoard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tsmCodeToClipboard
+            // 
+            this.tsmCodeToClipboard.ForeColor = System.Drawing.Color.White;
+            this.tsmCodeToClipboard.Image = global::Utilities.Properties.Resources.icons8_copy_to_clipboard_32;
+            this.tsmCodeToClipboard.Name = "tsmCodeToClipboard";
+            this.tsmCodeToClipboard.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.tsmCodeToClipboard.Size = new System.Drawing.Size(186, 24);
+            this.tsmCodeToClipboard.Text = "Copy";
+            this.tsmCodeToClipboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tsmCodeToClipboard.Click += new System.EventHandler(this.tsmCodeToClipboard_Click);
+            // 
+            // tsmManageCode
+            // 
+            this.tsmManageCode.ForeColor = System.Drawing.Color.White;
+            this.tsmManageCode.Image = global::Utilities.Properties.Resources.icons8_manage_clipboard_32;
+            this.tsmManageCode.Name = "tsmManageCode";
+            this.tsmManageCode.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.tsmManageCode.Size = new System.Drawing.Size(186, 24);
+            this.tsmManageCode.Text = "Manage";
+            this.tsmManageCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tsmManageCode.Click += new System.EventHandler(this.tsmManageCode_Click);
             // 
             // mnuScriptWriter
             // 
-            resources.ApplyResources(this.mnuScriptWriter, "mnuScriptWriter");
+            this.mnuScriptWriter.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuScriptWriter.ForeColor = System.Drawing.Color.White;
             this.mnuScriptWriter.Image = global::Utilities.Properties.Resources.icons8_scroll_32;
             this.mnuScriptWriter.Name = "mnuScriptWriter";
             this.mnuScriptWriter.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.mnuScriptWriter.Size = new System.Drawing.Size(106, 22);
+            this.mnuScriptWriter.Text = "Script Writer";
+            this.mnuScriptWriter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mnuScriptWriter.Click += new System.EventHandler(this.MenuScriptWriter_Click);
             // 
             // mnuNotes
             // 
             this.mnuNotes.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            resources.ApplyResources(this.mnuNotes, "mnuNotes");
+            this.mnuNotes.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuNotes.ForeColor = System.Drawing.Color.White;
             this.mnuNotes.Image = global::Utilities.Properties.Resources.icons8_info_squared_32;
             this.mnuNotes.Name = "mnuNotes";
             this.mnuNotes.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.mnuNotes.Size = new System.Drawing.Size(67, 22);
+            this.mnuNotes.Text = "Notes";
             this.mnuNotes.Click += new System.EventHandler(this.MenuNotes_Click);
+            // 
+            // mnuClarionDateTime
+            // 
+            this.mnuClarionDateTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.mnuClarionDateTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mnuClarionDateTime.ForeColor = System.Drawing.Color.White;
+            this.mnuClarionDateTime.Image = global::Utilities.Properties.Resources.icons8_clock_32;
+            this.mnuClarionDateTime.ImageTransparentColor = System.Drawing.Color.Black;
+            this.mnuClarionDateTime.MergeIndex = 0;
+            this.mnuClarionDateTime.Name = "mnuClarionDateTime";
+            this.mnuClarionDateTime.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.mnuClarionDateTime.Size = new System.Drawing.Size(136, 22);
+            this.mnuClarionDateTime.Text = "Clarion Date/Time";
+            this.mnuClarionDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.mnuClarionDateTime.Click += new System.EventHandler(this.MenuClarionDateTime_Click);
             // 
             // Main
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(818, 451);
             this.Controls.Add(this.mnsMenuBar);
             this.Controls.Add(this.grpDeleteDuplicate);
             this.Controls.Add(this.pgsFileManagement);
             this.Controls.Add(this.lblProgressPercent);
             this.Controls.Add(this.txtLogProcess);
+            this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Utilities TID";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.grpDeleteDuplicate.ResumeLayout(false);
             this.grpDeleteDuplicate.PerformLayout();
@@ -348,6 +504,8 @@ namespace Teste
         private System.Windows.Forms.ToolStripMenuItem mnuNotes;
         private System.Windows.Forms.TextBox txtFromFolder;
         private System.Windows.Forms.ToolStripMenuItem mnuScriptWriter;
+        private System.Windows.Forms.ToolStripMenuItem tsmCodeToClipboard;
+        private System.Windows.Forms.ToolStripMenuItem tsmManageCode;
     }
 }
 

@@ -20,6 +20,111 @@ namespace Utilities.Classes
             }
         }
 
+        public void InsertCode(Code code) {
+            if (code == null) { return; }
+            connection.Open();
+            command.Connection = connection;
+            try {
+                command.CommandText = "INSERT INTO Codes(Name,Code,Type) VALUES ('" + code.Name + "','" + code.CodeText + "','" + code.Type + "')";
+                command.ExecuteNonQuery();
+
+            } catch (Exception ex) {
+                MessageBox.Show("Error registering:\n" + ex.Message,"Error");
+                connection.Close();
+                return;
+            }
+            connection.Close();
+            MessageBox.Show("Code sucessfuly registred.", "Sucess");
+        }
+        public void UpdateCode(Code code) {
+            if (code == null) { return; }
+            connection.Open();
+            command.Connection = connection;
+            try {
+                command.CommandText = "UPDATE Codes SET Name = '" + code.Name + "',Code = '" + code.CodeText + "', Type = '" + code.Type + "'" +
+                                      " WHERE ID  = " + code.ID;
+                command.ExecuteNonQuery();
+            } catch (Exception ex) {
+                MessageBox.Show("Error updating:\n" + ex.Message, "Error");
+                connection.Close();
+                return;
+            }
+            connection.Close();
+            MessageBox.Show("Code sucessfuly updated.", "Sucess");
+
+        }
+        public void DeleteCode(Code code) {
+            if (code == null) { return; }
+            connection.Open();
+            command.Connection = connection;
+            try {
+                command.CommandText = "DELETE FROM Codes WHERE Name = '" + code.Name + "' AND Type = '" + code.Type + "'";
+                Clipboard.SetText(command.CommandText);
+                command.ExecuteNonQuery();
+
+            } catch (Exception ex) {
+                MessageBox.Show("Error deleting:\n" + ex.Message, "Error");
+                connection.Close();
+                return;
+            }
+            connection.Close();
+            MessageBox.Show("Code sucessfuly deleted.", "Sucess");
+        }
+
+        public DataTable SelectAllCodes(string filterType) {
+            SqliteDataReader reader;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Type");
+            dt.Columns.Add("Code");
+
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "SELECT Id,Name,Type,Code FROM Codes";
+
+            if (!filterType.Equals("")) {
+                command.CommandText = command.CommandText + " WHERE Type = '" + filterType + "'";
+            }
+
+            try {
+                reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    dt.Rows.Add(reader.GetString(0),
+                                reader.GetString(1),
+                                reader.GetString(2),
+                                reader.GetString(3));
+                }
+                reader.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            connection.Close();
+
+            return dt;
+        }
+        public DataTable SelectAllCodeTypes() {
+            SqliteDataReader reader;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Type");
+
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "SELECT DISTINCT Type FROM Codes";
+            try {
+                reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    dt.Rows.Add(reader.GetString(0));
+                }
+                reader.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            connection.Close();
+
+            return dt;
+        }
+
         private void CreateDatabase() {
             connection.Open();
             command.Connection = connection;
@@ -29,13 +134,13 @@ namespace Utilities.Classes
                                     "Code Varchar(2000) NOT NULL," +
                                     "Type Varchar(30) NOT NULL," +
                                     "UNIQUE (Name,Type)" +
-                                  ");"+
-                                  "CREATE TABLE IF NOT EXISTS Notes ("+
-                                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                                    "Name Varchar(50) NOT NULL," +
-                                    "Note Varchar(2000) NOT NULL," +
-                                    "Type Varchar(30) NOT NULL," +
-                                    "UNIQUE (Name,Type)" +
+                                  //");"+
+                                  //"CREATE TABLE IF NOT EXISTS Notes ("+
+                                  //  "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                  //  "Name Varchar(50) NOT NULL," +
+                                  //  "Note Varchar(2000) NOT NULL," +
+                                  //  "Type Varchar(30) NOT NULL," +
+                                  //  "UNIQUE (Name,Type)" +
                                   ");";
             try {
                 command.ExecuteNonQuery();
@@ -47,71 +152,55 @@ namespace Utilities.Classes
         private void AddDefaultOptions() {
             connection.Open();
             command.Connection = connection;
-            String[,] arrayClarionCode = LoadArrayDefaultOptionsClarionCode();
+            List<Code> listCodes = LoadDefaultOptionsCode();
             String[,] arrayClarionNotes = LoadArrayDefaultOptionsClarionNotes();
             try {
-                for (int i = 0; i < arrayClarionCode.GetLength(0); i++) {
-                    command.CommandText = "INSERT OR IGNORE INTO Codes(Name,Code,Type) VALUES ('" + arrayClarionCode[i, 0] + "','" + arrayClarionCode[i, 1] + "','Clarion')";
+                for (int i = 0; i < listCodes.Count; i++) {
+                    command.CommandText = "INSERT OR IGNORE INTO Codes(Name,Code,Type) VALUES ('" + listCodes[i].Name + "','" + listCodes[i].CodeText + "','"+ listCodes[i].Type + "')";
                     command.ExecuteNonQuery();
                 }
-                for (int i = 0; i < arrayClarionNotes.GetLength(0); i++) {
-                    command.CommandText = "INSERT OR IGNORE INTO Notes(Name,Note,Type) VALUES ('" + arrayClarionNotes[i, 0] + "','" + arrayClarionNotes[i, 1] + "','Clarion')";
-                    command.ExecuteNonQuery();
-                }
+                //for (int i = 0; i < arrayClarionNotes.GetLength(0); i++) {
+                //    command.CommandText = "INSERT OR IGNORE INTO Notes(Name,Note,Type) VALUES ('" + arrayClarionNotes[i, 0] + "','" + arrayClarionNotes[i, 1] + "','Clarion')";
+                //    command.ExecuteNonQuery();
+                //}
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
             connection.Close();
-
-
         }
-        public DataTable GetOptionsClarionCode() {
-            SqliteDataReader reader;
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Name");
-            dt.Columns.Add("Code");
+        private List<Code> LoadDefaultOptionsCode() {
+            List<Code> listCodes = new List<Code>();
+            listCodes.Add(new Code("Acronym (Default Test)"));
+            listCodes.Add(new Code("APP (Allow only one Instance)"));
+            listCodes.Add(new Code("Browse (Page Refresh)"));
+            listCodes.Add(new Code("Browse (Refresh)"));
+            listCodes.Add(new Code("Cla Table (Key)"));
+            listCodes.Add(new Code("Column (Width Change)"));
+            listCodes.Add(new Code("Column Group (Width Change)"));
+            listCodes.Add(new Code("Directory (Create)"));
+            listCodes.Add(new Code("Message (Error)"));
+            listCodes.Add(new Code("Message (Warning)"));
+            listCodes.Add(new Code("Message Case (Yes / No)"));
+            listCodes.Add(new Code("Message TID (Error)"));
+            listCodes.Add(new Code("Message TID (Warning)"));
+            listCodes.Add(new Code("Owner Database (Get)"));
+            listCodes.Add(new Code("Print (Multiline String Manually)"));
+            listCodes.Add(new Code("Process Label (Change Text Down)"));
+            listCodes.Add(new Code("Process Label (Change Text Up)"));
+            listCodes.Add(new Code("Queue (Add Record)"));
+            listCodes.Add(new Code("Queue (Read All Records)"));
+            listCodes.Add(new Code("Record (Delete Child Record)"));
+            listCodes.Add(new Code("TabelaSQL (Select)"));
+            listCodes.Add(new Code("TabelaSQL (Update)"));
+            listCodes.Add(new Code("Window (Force Refresh)"));
+            listCodes.Add(new Code("Process Label (Change Text Down)"));
+            listCodes.Add(new Code("List Owner (.ap~)"));
 
-            connection.Open();
-            command.Connection = connection;
-            command.CommandText = "SELECT Name,Code FROM Codes WHERE Type = 'Clarion'";
-            try {
-                reader = command.ExecuteReader();
-                while (reader.Read()) { 
-                    dt.Rows.Add(reader.GetString(0), reader.GetString(1));
-                }
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
-            connection.Close();
-            return dt;
-        }
-        private String[,] LoadArrayDefaultOptionsClarionCode() {
-            String[,] array = new string[,]{ {"Acronym (Default Test)",""},
-                                {"APP (Allow only one Instance)",""},
-                                {"Browse (Page Refresh)",""},
-                                {"Browse (Refresh)",""},
-                                {"Cla Table (Key)",""},
-                                {"Column (Width Change)",""},
-                                {"Column Group (Width Change)",""},
-                                {"Directory (Create)",""},
-                                {"Message (Error)",""},
-                                {"Message (Warning)",""},
-                                {"Message Case (Yes / No)",""},
-                                {"Message TID (Error)",""},
-                                {"Message TID (Warning)",""},
-                                {"Owner Database (Get)",""},
-                                {"Print (Multiline String Manually)",""},
-                                {"Process Label (Change Text Down)",""},
-                                {"Process Label (Change Text Up)",""},
-                                {"Queue (Add Record)",""},
-                                {"Queue (Read All Records)",""},
-                                {"Record (Delete Child Record)",""},
-                                {"TabelaSQL (Select)",""},
-                                {"TabelaSQL (Update)",""},
-                                {"Window (Force Refresh)",""}};
             String text = "";
-            for (int i = 0; i < array.GetLength(0); i++) {
-                switch (array[i,0]) {
+            for (int i = 0; i < listCodes.Count; i++) {
+                text = "";
+                //switch clarion codes
+                switch (listCodes[i].Name) {
                     case "Print (Multiline String Manually)":
                         text = "SETTARGET(REPORT)" +
                                "\r\n?LOC:Observacao {PROP:Text} = LOC:Observacao" +
@@ -278,10 +367,29 @@ namespace Utilities.Classes
                         text = "DO BRW1::RefreshPage";
                         break;
                 }
-                text = text.Replace("'", "''");
-                array.SetValue(text,i,1);
+                
+                
+                if (!text.Equals(""))
+                {
+                    text = text.Replace("'", "''");
+                    listCodes[i].setType("Clarion");
+                    listCodes[i].setCodeText(text);
+                    continue;
+                }
+
+                switch (listCodes[i].Name) {
+                    case "List Owner (.ap~)":
+                        text = "dir S:\\TIDSCI\\APLICS\\*.ap~ /s /Q";
+                        break;
+                }
+                if (!text.Equals("")) {
+                    text = text.Replace("'", "''");
+                    listCodes[i].setType("Command Line");
+                    listCodes[i].setCodeText(text);
+                    continue;
+                }
             }
-            return array;
+            return listCodes;
         }
         private String[,] LoadArrayDefaultOptionsClarionNotes() {
             String[,] array = new string[,] { { "Fix Clarion Browser ScrollBar (Numeric Key)", "" } };

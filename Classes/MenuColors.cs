@@ -24,9 +24,9 @@ namespace Utilities
         { get { return Color.FromArgb(20, 20, 20); } }
 
         public override Color MenuItemSelectedGradientBegin
-        { get { return Color.FromArgb(20, 20, 20); } }
+        { get { return Color.FromArgb(54, 54, 54); } }
         public override Color MenuItemSelectedGradientEnd
-        { get { return Color.FromArgb(20, 20, 20); } }
+        { get { return Color.FromArgb(54, 54, 54); } }
 
         public override Color ImageMarginGradientBegin
         { get { return Color.FromArgb(20, 20, 20); } }

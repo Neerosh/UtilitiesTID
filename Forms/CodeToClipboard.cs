@@ -12,47 +12,49 @@ namespace Utilities
             InitializeComponent();
         }
         private void CodeToClipboard_Load(object sender, EventArgs e) {
-            RefreshClarionCode();
+            RefreshCodeTypes();
+            RefreshCodeNames();
         }
-        private void RefreshClarionCode() {
-            DataTable dt = sqlite.GetOptionsClarionCode();
-            cboClarionCode.DataSource = dt;
-            cboClarionCode.DisplayMember = "Name";
-            cboClarionCode.ValueMember = "Code";
-            cboClarionCode.Refresh();
-        }
-        private string ClipboardCmdText() {//add print line detail for a multi line text field
-            string text = "";
-            switch (cboCmdCode.Text) {
-                case "List Owner (.ap~)":
-                    text = "dir S:\\TIDSCI\\APLICS\\*.ap~ /s /Q";
-                    break;
-
+        private void RefreshCodeNames() {
+            DataTable dt;
+            if (cboCodeType.SelectedItem != null) {
+                dt = sqlite.SelectAllCodes(cboCodeType.SelectedValue.ToString());
+            } else {
+                dt = sqlite.SelectAllCodes("");
             }
-            return text;
+            cboCodeName.DataSource = dt;
+            cboCodeName.DisplayMember = "Name";
+            cboCodeName.ValueMember = "Code";
+            cboCodeName.Refresh();
+            
+        }
+        private void RefreshCodeTypes() {
+            DataTable dt = sqlite.SelectAllCodeTypes();
+            dt.Rows.Add("");
+            cboCodeType.DataSource = dt;
+            cboCodeType.DisplayMember = "Type";
+            cboCodeType.ValueMember = "Type";
+            cboCodeType.Refresh();
+            cboCodeType.SelectedItem = null;
         }
 
         private void BtnCopyClipboard_Click(object sender, EventArgs e) {
-            if (cboClarionCode.SelectedItem != null) {
-                Clipboard.SetText(cboClarionCode.SelectedValue.ToString());
-                txtCodePreview.Text = cboClarionCode.Text + "\r\nCopied to clipboard successfully.";
+            if (cboCodeName.SelectedItem != null) {
+                Clipboard.SetText(cboCodeName.SelectedValue.ToString());
+                txtCodePreview.Text = cboCodeName.Text + "\r\nCopied to clipboard successfully.";
             }
-            if (cboCmdCode.SelectedItem != null) {
-                Clipboard.SetText(ClipboardCmdText());
-                txtCodePreview.Text = cboCmdCode.Text + "\r\nCopied to clipboard successfully.";
-            }
-
         }
 
-        private void ComboCodeClipboard_SelectedValueChanged(object sender, EventArgs e) {
-            txtCodePreview.Text = "Preview:" + "\r\n" + "\r\n" + cboClarionCode.SelectedValue.ToString();
+        private void CboCodeName_SelectedValueChanged(object sender, EventArgs e) {
+            if (cboCodeName.SelectedItem != null) {
+                txtCodePreview.Text = "Preview: \r\n" + cboCodeName.SelectedValue.ToString();
+            }
         }
 
-        private void cboCmdCode_SelectedValueChanged(object sender, EventArgs e) {
-            if (cboClarionCode.SelectedItem != null && cboCmdCode.SelectedItem != null) {
-                cboClarionCode.SelectedItem = null;
+        private void cboCodeType_SelectedValueChanged(object sender, EventArgs e) {
+            if (cboCodeType.SelectedItem != null) {
+                RefreshCodeNames();
             }
-            txtCodePreview.Text = "Preview:" + "\r\n" + "\r\n" + ClipboardCmdText();
         }
 
 

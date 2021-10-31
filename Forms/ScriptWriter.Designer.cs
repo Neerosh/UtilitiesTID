@@ -55,7 +55,7 @@ namespace Utilities.Forms {
             this.grpSQLScripts.Controls.Add(this.lblSQLFolder);
             this.grpSQLScripts.Controls.Add(this.txtFolderSQL);
             this.grpSQLScripts.Controls.Add(this.btnScriptUnified);
-            this.grpSQLScripts.Font = new System.Drawing.Font("Arial", 10F);
+            this.grpSQLScripts.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpSQLScripts.ForeColor = System.Drawing.SystemColors.Control;
             this.grpSQLScripts.Location = new System.Drawing.Point(12, 12);
             this.grpSQLScripts.Name = "grpSQLScripts";
@@ -70,7 +70,7 @@ namespace Utilities.Forms {
             this.btnScriptRegular.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnScriptRegular.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnScriptRegular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnScriptRegular.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnScriptRegular.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnScriptRegular.ForeColor = System.Drawing.SystemColors.Control;
             this.btnScriptRegular.Image = global::Utilities.Properties.Resources.icons8_inscription_32;
             this.btnScriptRegular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -90,7 +90,7 @@ namespace Utilities.Forms {
             // txtProcedureName
             // 
             this.txtProcedureName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtProcedureName.Font = new System.Drawing.Font("Arial", 9.5F);
+            this.txtProcedureName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtProcedureName.ForeColor = System.Drawing.Color.White;
             this.txtProcedureName.Location = new System.Drawing.Point(116, 122);
             this.txtProcedureName.MaxLength = 20;
@@ -101,19 +101,19 @@ namespace Utilities.Forms {
             // lblProcedureName
             // 
             this.lblProcedureName.AutoSize = true;
-            this.lblProcedureName.Font = new System.Drawing.Font("Arial", 9.5F);
+            this.lblProcedureName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblProcedureName.ForeColor = System.Drawing.SystemColors.Control;
             this.lblProcedureName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblProcedureName.Location = new System.Drawing.Point(5, 125);
             this.lblProcedureName.Name = "lblProcedureName";
-            this.lblProcedureName.Size = new System.Drawing.Size(109, 16);
+            this.lblProcedureName.Size = new System.Drawing.Size(108, 16);
             this.lblProcedureName.TabIndex = 15;
             this.lblProcedureName.Text = "Procedure Name:";
             // 
             // txtScriptName
             // 
             this.txtScriptName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtScriptName.Font = new System.Drawing.Font("Arial", 9.5F);
+            this.txtScriptName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtScriptName.ForeColor = System.Drawing.Color.White;
             this.txtScriptName.Location = new System.Drawing.Point(102, 91);
             this.txtScriptName.MaxLength = 20;
@@ -124,12 +124,12 @@ namespace Utilities.Forms {
             // lblScriptName
             // 
             this.lblScriptName.AutoSize = true;
-            this.lblScriptName.Font = new System.Drawing.Font("Arial", 9.5F);
+            this.lblScriptName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblScriptName.ForeColor = System.Drawing.SystemColors.Control;
             this.lblScriptName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblScriptName.Location = new System.Drawing.Point(12, 94);
             this.lblScriptName.Name = "lblScriptName";
-            this.lblScriptName.Size = new System.Drawing.Size(84, 16);
+            this.lblScriptName.Size = new System.Drawing.Size(83, 16);
             this.lblScriptName.TabIndex = 13;
             this.lblScriptName.Text = "Script Name:";
             // 
@@ -138,7 +138,7 @@ namespace Utilities.Forms {
             this.btnScriptFolderBrowser.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnScriptFolderBrowser.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnScriptFolderBrowser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnScriptFolderBrowser.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnScriptFolderBrowser.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnScriptFolderBrowser.ForeColor = System.Drawing.Color.White;
             this.btnScriptFolderBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnScriptFolderBrowser.Location = new System.Drawing.Point(532, 57);
@@ -154,7 +154,7 @@ namespace Utilities.Forms {
             this.btnFolderSQLBrowser.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnFolderSQLBrowser.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnFolderSQLBrowser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFolderSQLBrowser.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnFolderSQLBrowser.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnFolderSQLBrowser.ForeColor = System.Drawing.Color.White;
             this.btnFolderSQLBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnFolderSQLBrowser.Location = new System.Drawing.Point(532, 25);
@@ -168,19 +168,19 @@ namespace Utilities.Forms {
             // lblScriptFolder
             // 
             this.lblScriptFolder.AutoSize = true;
-            this.lblScriptFolder.Font = new System.Drawing.Font("Arial", 9.5F);
+            this.lblScriptFolder.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblScriptFolder.ForeColor = System.Drawing.SystemColors.Control;
             this.lblScriptFolder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblScriptFolder.Location = new System.Drawing.Point(10, 62);
             this.lblScriptFolder.Name = "lblScriptFolder";
-            this.lblScriptFolder.Size = new System.Drawing.Size(86, 16);
+            this.lblScriptFolder.Size = new System.Drawing.Size(85, 16);
             this.lblScriptFolder.TabIndex = 9;
             this.lblScriptFolder.Text = "Script Folder:";
             // 
             // txtScriptFolder
             // 
             this.txtScriptFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtScriptFolder.Font = new System.Drawing.Font("Arial", 9.5F);
+            this.txtScriptFolder.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtScriptFolder.ForeColor = System.Drawing.Color.White;
             this.txtScriptFolder.Location = new System.Drawing.Point(102, 59);
             this.txtScriptFolder.Name = "txtScriptFolder";
@@ -190,19 +190,19 @@ namespace Utilities.Forms {
             // lblSQLFolder
             // 
             this.lblSQLFolder.AutoSize = true;
-            this.lblSQLFolder.Font = new System.Drawing.Font("Arial", 9.5F);
+            this.lblSQLFolder.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSQLFolder.ForeColor = System.Drawing.SystemColors.Control;
             this.lblSQLFolder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblSQLFolder.Location = new System.Drawing.Point(18, 30);
             this.lblSQLFolder.Name = "lblSQLFolder";
-            this.lblSQLFolder.Size = new System.Drawing.Size(78, 16);
+            this.lblSQLFolder.Size = new System.Drawing.Size(77, 16);
             this.lblSQLFolder.TabIndex = 7;
             this.lblSQLFolder.Text = "SQL Folder:";
             // 
             // txtFolderSQL
             // 
             this.txtFolderSQL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtFolderSQL.Font = new System.Drawing.Font("Arial", 9.5F);
+            this.txtFolderSQL.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtFolderSQL.ForeColor = System.Drawing.Color.White;
             this.txtFolderSQL.Location = new System.Drawing.Point(102, 27);
             this.txtFolderSQL.Name = "txtFolderSQL";
@@ -215,7 +215,7 @@ namespace Utilities.Forms {
             this.btnScriptUnified.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnScriptUnified.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnScriptUnified.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnScriptUnified.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnScriptUnified.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnScriptUnified.ForeColor = System.Drawing.SystemColors.Control;
             this.btnScriptUnified.Image = global::Utilities.Properties.Resources.icons8_compose_32;
             this.btnScriptUnified.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -237,8 +237,9 @@ namespace Utilities.Forms {
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(603, 182);
             this.Controls.Add(this.grpSQLScripts);
-            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
