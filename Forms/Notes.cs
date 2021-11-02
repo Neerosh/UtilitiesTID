@@ -4,6 +4,7 @@ using System.Windows.Forms;
 namespace Utilities {
     public partial class Notes : Form {
         private readonly string[] arrayDeleteDuplicates;
+
         public Notes() {
             InitializeComponent();
         }

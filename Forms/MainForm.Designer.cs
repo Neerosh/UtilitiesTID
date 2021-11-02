@@ -90,7 +90,7 @@ namespace Teste
             this.txtLogProcess.ReadOnly = true;
             this.txtLogProcess.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtLogProcess.Size = new System.Drawing.Size(794, 207);
-            this.txtLogProcess.TabIndex = 4;
+            this.txtLogProcess.TabIndex = 3;
             this.txtLogProcess.TabStop = false;
             // 
             // lblProgressPercent
@@ -103,7 +103,7 @@ namespace Teste
             this.lblProgressPercent.Location = new System.Drawing.Point(767, 271);
             this.lblProgressPercent.Name = "lblProgressPercent";
             this.lblProgressPercent.Size = new System.Drawing.Size(38, 16);
-            this.lblProgressPercent.TabIndex = 3;
+            this.lblProgressPercent.TabIndex = 4;
             this.lblProgressPercent.Text = "100%";
             // 
             // grpDeleteDuplicate
@@ -129,7 +129,7 @@ namespace Teste
             this.grpDeleteDuplicate.Location = new System.Drawing.Point(12, 98);
             this.grpDeleteDuplicate.Name = "grpDeleteDuplicate";
             this.grpDeleteDuplicate.Size = new System.Drawing.Size(794, 160);
-            this.grpDeleteDuplicate.TabIndex = 0;
+            this.grpDeleteDuplicate.TabIndex = 1;
             this.grpDeleteDuplicate.TabStop = false;
             this.grpDeleteDuplicate.Text = "File Management";
             // 
@@ -403,7 +403,7 @@ namespace Teste
             this.tsmCodeToClipboard.Image = global::Utilities.Properties.Resources.icons8_copy_to_clipboard_32;
             this.tsmCodeToClipboard.Name = "tsmCodeToClipboard";
             this.tsmCodeToClipboard.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.tsmCodeToClipboard.Size = new System.Drawing.Size(186, 24);
+            this.tsmCodeToClipboard.Size = new System.Drawing.Size(124, 22);
             this.tsmCodeToClipboard.Text = "Copy";
             this.tsmCodeToClipboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.tsmCodeToClipboard.Click += new System.EventHandler(this.MenuItemCodeToClipboard_Click);
@@ -414,7 +414,7 @@ namespace Teste
             this.tsmManageCode.Image = global::Utilities.Properties.Resources.icons8_manage_clipboard_32;
             this.tsmManageCode.Name = "tsmManageCode";
             this.tsmManageCode.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.tsmManageCode.Size = new System.Drawing.Size(186, 24);
+            this.tsmManageCode.Size = new System.Drawing.Size(124, 22);
             this.tsmManageCode.Text = "Manage";
             this.tsmManageCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.tsmManageCode.Click += new System.EventHandler(this.MenuItemManageCode_Click);
@@ -458,7 +458,7 @@ namespace Teste
             this.grpClarionDateTime.Location = new System.Drawing.Point(12, 34);
             this.grpClarionDateTime.Name = "grpClarionDateTime";
             this.grpClarionDateTime.Size = new System.Drawing.Size(794, 58);
-            this.grpClarionDateTime.TabIndex = 5;
+            this.grpClarionDateTime.TabIndex = 0;
             this.grpClarionDateTime.TabStop = false;
             this.grpClarionDateTime.Text = "Clarion Date / Time Conversion";
             // 
@@ -491,7 +491,7 @@ namespace Teste
             // 
             this.lblClarionTime.AutoSize = true;
             this.lblClarionTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblClarionTime.Location = new System.Drawing.Point(167, 26);
+            this.lblClarionTime.Location = new System.Drawing.Point(158, 26);
             this.lblClarionTime.Name = "lblClarionTime";
             this.lblClarionTime.Size = new System.Drawing.Size(83, 16);
             this.lblClarionTime.TabIndex = 2;
@@ -502,7 +502,7 @@ namespace Teste
             this.txtClarionTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtClarionTime.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtClarionTime.ForeColor = System.Drawing.Color.White;
-            this.txtClarionTime.Location = new System.Drawing.Point(256, 23);
+            this.txtClarionTime.Location = new System.Drawing.Point(247, 23);
             this.txtClarionTime.Mask = "0000000";
             this.txtClarionTime.Name = "txtClarionTime";
             this.txtClarionTime.PromptChar = ' ';

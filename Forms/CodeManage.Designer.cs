@@ -25,9 +25,9 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeManage));
             this.lblCodeName = new System.Windows.Forms.Label();
             this.grpForm = new System.Windows.Forms.GroupBox();
@@ -61,22 +61,22 @@
             // 
             // grpForm
             // 
-            this.grpForm.Controls.Add(this.btnDelete);
-            this.grpForm.Controls.Add(this.btnUpdate);
+            this.grpForm.Controls.Add(this.lblName);
+            this.grpForm.Controls.Add(this.txtName);
+            this.grpForm.Controls.Add(this.lblCodeName);
+            this.grpForm.Controls.Add(this.txtCodeText);
+            this.grpForm.Controls.Add(this.lblType);
+            this.grpForm.Controls.Add(this.txtType);
             this.grpForm.Controls.Add(this.btnClearFields);
             this.grpForm.Controls.Add(this.btnInsert);
-            this.grpForm.Controls.Add(this.txtCodeText);
-            this.grpForm.Controls.Add(this.txtType);
-            this.grpForm.Controls.Add(this.txtName);
-            this.grpForm.Controls.Add(this.lblName);
-            this.grpForm.Controls.Add(this.lblType);
-            this.grpForm.Controls.Add(this.lblCodeName);
+            this.grpForm.Controls.Add(this.btnUpdate);
+            this.grpForm.Controls.Add(this.btnDelete);
             this.grpForm.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpForm.ForeColor = System.Drawing.Color.White;
-            this.grpForm.Location = new System.Drawing.Point(12, 258);
+            this.grpForm.Location = new System.Drawing.Point(12, 12);
             this.grpForm.Name = "grpForm";
             this.grpForm.Size = new System.Drawing.Size(962, 291);
-            this.grpForm.TabIndex = 2;
+            this.grpForm.TabIndex = 0;
             this.grpForm.TabStop = false;
             this.grpForm.Text = "Form";
             // 
@@ -99,7 +99,7 @@
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -120,7 +120,7 @@
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnClearFields
             // 
@@ -141,7 +141,7 @@
             this.btnClearFields.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClearFields.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClearFields.UseVisualStyleBackColor = false;
-            this.btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
+            this.btnClearFields.Click += new System.EventHandler(this.BtnClearFields_Click);
             // 
             // btnInsert
             // 
@@ -162,7 +162,7 @@
             this.btnInsert.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsert.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInsert.UseVisualStyleBackColor = false;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            this.btnInsert.Click += new System.EventHandler(this.BtnInsert_Click);
             // 
             // txtCodeText
             // 
@@ -227,10 +227,10 @@
             this.grpMaintenance.Controls.Add(this.dgvCodes);
             this.grpMaintenance.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpMaintenance.ForeColor = System.Drawing.Color.White;
-            this.grpMaintenance.Location = new System.Drawing.Point(12, 12);
+            this.grpMaintenance.Location = new System.Drawing.Point(12, 309);
             this.grpMaintenance.Name = "grpMaintenance";
             this.grpMaintenance.Size = new System.Drawing.Size(962, 240);
-            this.grpMaintenance.TabIndex = 7;
+            this.grpMaintenance.TabIndex = 1;
             this.grpMaintenance.TabStop = false;
             this.grpMaintenance.Text = "Selection";
             // 
@@ -241,21 +241,21 @@
             this.dgvCodes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
             this.dgvCodes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvCodes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCodes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCodes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCodes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCodes.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCodes.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCodes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCodes.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvCodes.Location = new System.Drawing.Point(15, 22);
@@ -263,14 +263,14 @@
             this.dgvCodes.Name = "dgvCodes";
             this.dgvCodes.ReadOnly = true;
             this.dgvCodes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCodes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCodes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCodes.RowHeadersVisible = false;
             this.dgvCodes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCodes.RowTemplate.Height = 25;
@@ -279,7 +279,7 @@
             this.dgvCodes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCodes.Size = new System.Drawing.Size(934, 207);
             this.dgvCodes.TabIndex = 0;
-            this.dgvCodes.SelectionChanged += new System.EventHandler(this.dgvCodes_SelectionChanged);
+            this.dgvCodes.SelectionChanged += new System.EventHandler(this.DgvCodes_SelectionChanged);
             // 
             // CodeManage
             // 
@@ -287,8 +287,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(986, 561);
-            this.Controls.Add(this.grpMaintenance);
             this.Controls.Add(this.grpForm);
+            this.Controls.Add(this.grpMaintenance);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -296,7 +296,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Codes";
-            this.Load += new System.EventHandler(this.CodeToClipboardMaintenance_Load);
+            this.Load += new System.EventHandler(this.CodeManage_Load);
             this.grpForm.ResumeLayout(false);
             this.grpForm.PerformLayout();
             this.grpMaintenance.ResumeLayout(false);

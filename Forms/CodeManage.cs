@@ -14,11 +14,16 @@ namespace Utilities.Forms
     public partial class CodeManage : Form
     {
         private readonly SQLite sqlite = new SQLite();
+
         public CodeManage() {
             InitializeComponent();
         }
+        private void CodeManage_Load(object sender, EventArgs e) {
+            RefreshCodes();
+            BtnClearFields_Click(sender, e);
+        }
 
-        private void dgvCodesRefresh() {
+        private void RefreshCodes() {
             DataTable dtCodes = sqlite.SelectAllCodes("");
             dgvCodes.DataSource = dtCodes;
             dgvCodes.Columns[0].Visible = false;//ID
@@ -35,54 +40,47 @@ namespace Utilities.Forms
                 }
             }
         }
-        private bool ShowConfirmationDialog(string title,string message) {
+
+        private bool ShowConfirmationDialog(string title, string message) {
             DialogResult dr = MessageBox.Show(message, title, MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes) {
                 return true;
-            } else { 
+            } else {
                 return false;
             }
         }
 
-        private void CodeToClipboardMaintenance_Load(object sender, EventArgs e) {
-            dgvCodesRefresh();
-            btnClearFields_Click(sender, e);
-        }
-
-        private void dgvCodes_SelectionChanged(object sender, EventArgs e) {
+        private void DgvCodes_SelectionChanged(object sender, EventArgs e) {
             if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
 
             txtName.Text = dgvCodes.SelectedRows[0].Cells[1].Value.ToString();
             txtType.Text = dgvCodes.SelectedRows[0].Cells[2].Value.ToString();
             txtCodeText.Text = dgvCodes.SelectedRows[0].Cells[3].Value.ToString();
         }
-
-        private void btnClearFields_Click(object sender, EventArgs e) {
+        private void BtnClearFields_Click(object sender, EventArgs e) {
             txtName.Text = "";
             txtCodeText.Text = "";
             txtType.Text = "";
         }
-
-        private void btnInsert_Click(object sender, EventArgs e) {
+        private void BtnInsert_Click(object sender, EventArgs e) {
             int id;
             id = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
             Code code = new Code(id, txtName.Text,txtType.Text,txtCodeText.Text);
             sqlite.InsertCode(code);
-            dgvCodesRefresh();
+            RefreshCodes();
             SelectCorrectRow(code);
         }
-        private void btnUpdate_Click(object sender, EventArgs e) {
+        private void BtnUpdate_Click(object sender, EventArgs e) {
             int id;
             id = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
             Code code = new Code(id, txtName.Text, txtType.Text, txtCodeText.Text);
             if (ShowConfirmationDialog("Update Code", "Update selected code?") == false) { return; }
 
             sqlite.UpdateCode(code);
-            dgvCodesRefresh();
+            RefreshCodes();
             SelectCorrectRow(code);
         }
-
-        private void btnDelete_Click(object sender, EventArgs e) {
+        private void BtnDelete_Click(object sender, EventArgs e) {
             if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
             if (ShowConfirmationDialog("Delete Code","Delete selected code?") == false) { return; }
 
@@ -97,7 +95,7 @@ namespace Utilities.Forms
             Code code = new Code(id, name, type, codeText);
             sqlite.DeleteCode(code);
             dgvCodes.Rows.RemoveAt(selectedRow);
-            btnClearFields_Click(sender, e);
+            BtnClearFields_Click(sender, e);
         }
 
     }

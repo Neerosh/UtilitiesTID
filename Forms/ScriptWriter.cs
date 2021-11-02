@@ -16,6 +16,35 @@ namespace Utilities.Forms
         public ScriptWriter() {
             InitializeComponent();
         }
+        private void ScriptWriter_Load(object sender, EventArgs e) {
+            folderPickerWriter.IsFolderPicker = true;
+        }
+
+        #region Mouse Hover
+        private void MouseHoverDynamicFields(string button, string action) {
+            List<Control> controlList = new List<Control>();
+            switch (button) {
+                case "Generate Regular Script":
+                    controlList.Add(lblProcedureName);
+                    controlList.Add(txtProcedureName);
+                    break;
+            }
+            foreach (Control c in controlList) {
+                if (action.Equals("Hide")) {
+                    c.Hide();
+                    continue;
+                }
+                c.Show();
+
+            }
+        }
+        private void BtnScriptRegular_MouseHover(object sender, EventArgs e) {
+            MouseHoverDynamicFields("Generate Regular Script", "Hide");
+        }
+        private void BtnScriptRegular_MouseLeave(object sender, EventArgs e) {
+            MouseHoverDynamicFields("Generate Regular Script", "Show");
+        }
+        #endregion
 
         #region Script Writer
         private async Task TaskGenerateSQL(string scriptType) {
@@ -400,29 +429,6 @@ namespace Utilities.Forms
             fileStream.Write(line, 0, line.Length);
 
         }
-        #endregion Script Generator
-
-        private void MouseHoverDynamicFields(string button, string action) {
-            List<Control> controlList = new List<Control>();
-            switch (button) {
-                case "Generate Regular Script":
-                    controlList.Add(lblProcedureName);
-                    controlList.Add(txtProcedureName);
-                    break;
-            }
-            foreach (Control c in controlList) {
-                if (action.Equals("Hide")) {
-                    c.Hide();
-                    continue;
-                }
-                c.Show();
-
-            }
-        }
-
-        private void ScriptWriter_Load(object sender, EventArgs e) {
-            folderPickerWriter.IsFolderPicker = true;
-        }
 
         private void BtnPathFolderSQLBrowser_Click(object sender, EventArgs e) {
             if (folderPickerWriter.ShowDialog() == CommonFileDialogResult.Ok) {
@@ -448,12 +454,7 @@ namespace Utilities.Forms
                 await task;
             }
         }
+        #endregion Script Generator
 
-        private void BtnScriptRegular_MouseHover(object sender, EventArgs e) {
-            MouseHoverDynamicFields("Generate Regular Script", "Hide");
-        }
-        private void BtnScriptRegular_MouseLeave(object sender, EventArgs e) {
-            MouseHoverDynamicFields("Generate Regular Script", "Show");
-        }
     }
 }
