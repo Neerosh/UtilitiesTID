@@ -55,15 +55,24 @@ namespace Teste
             this.tsmManageCode = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuScriptWriter = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNotes = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuClarionDateTime = new System.Windows.Forms.ToolStripMenuItem();
+            this.grpClarionDateTime = new System.Windows.Forms.GroupBox();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.txtTime = new System.Windows.Forms.MaskedTextBox();
+            this.lblClarionTime = new System.Windows.Forms.Label();
+            this.txtClarionTime = new System.Windows.Forms.MaskedTextBox();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.txtDate = new System.Windows.Forms.MaskedTextBox();
+            this.lblClarionDate = new System.Windows.Forms.Label();
+            this.txtClarionDate = new System.Windows.Forms.MaskedTextBox();
             this.grpDeleteDuplicate.SuspendLayout();
             this.mnsMenuBar.SuspendLayout();
+            this.grpClarionDateTime.SuspendLayout();
             this.SuspendLayout();
             // 
             // pgsFileManagement
             // 
             this.pgsFileManagement.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pgsFileManagement.Location = new System.Drawing.Point(12, 197);
+            this.pgsFileManagement.Location = new System.Drawing.Point(12, 264);
             this.pgsFileManagement.Name = "pgsFileManagement";
             this.pgsFileManagement.Size = new System.Drawing.Size(745, 29);
             this.pgsFileManagement.TabIndex = 2;
@@ -75,7 +84,7 @@ namespace Teste
             this.txtLogProcess.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtLogProcess.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtLogProcess.ForeColor = System.Drawing.Color.Lime;
-            this.txtLogProcess.Location = new System.Drawing.Point(12, 232);
+            this.txtLogProcess.Location = new System.Drawing.Point(12, 299);
             this.txtLogProcess.Multiline = true;
             this.txtLogProcess.Name = "txtLogProcess";
             this.txtLogProcess.ReadOnly = true;
@@ -91,7 +100,7 @@ namespace Teste
             this.lblProgressPercent.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblProgressPercent.ForeColor = System.Drawing.SystemColors.Control;
             this.lblProgressPercent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblProgressPercent.Location = new System.Drawing.Point(767, 204);
+            this.lblProgressPercent.Location = new System.Drawing.Point(767, 271);
             this.lblProgressPercent.Name = "lblProgressPercent";
             this.lblProgressPercent.Size = new System.Drawing.Size(38, 16);
             this.lblProgressPercent.TabIndex = 3;
@@ -117,7 +126,7 @@ namespace Teste
             this.grpDeleteDuplicate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grpDeleteDuplicate.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpDeleteDuplicate.ForeColor = System.Drawing.SystemColors.Control;
-            this.grpDeleteDuplicate.Location = new System.Drawing.Point(12, 31);
+            this.grpDeleteDuplicate.Location = new System.Drawing.Point(12, 98);
             this.grpDeleteDuplicate.Name = "grpDeleteDuplicate";
             this.grpDeleteDuplicate.Size = new System.Drawing.Size(794, 160);
             this.grpDeleteDuplicate.TabIndex = 0;
@@ -365,8 +374,7 @@ namespace Teste
             this.mnsMenuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuCodeToClipoard,
             this.mnuScriptWriter,
-            this.mnuNotes,
-            this.mnuClarionDateTime});
+            this.mnuNotes});
             this.mnsMenuBar.Location = new System.Drawing.Point(0, 0);
             this.mnsMenuBar.Name = "mnsMenuBar";
             this.mnsMenuBar.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
@@ -398,7 +406,7 @@ namespace Teste
             this.tsmCodeToClipboard.Size = new System.Drawing.Size(186, 24);
             this.tsmCodeToClipboard.Text = "Copy";
             this.tsmCodeToClipboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tsmCodeToClipboard.Click += new System.EventHandler(this.tsmCodeToClipboard_Click);
+            this.tsmCodeToClipboard.Click += new System.EventHandler(this.MenuItemCodeToClipboard_Click);
             // 
             // tsmManageCode
             // 
@@ -409,7 +417,7 @@ namespace Teste
             this.tsmManageCode.Size = new System.Drawing.Size(186, 24);
             this.tsmManageCode.Text = "Manage";
             this.tsmManageCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tsmManageCode.Click += new System.EventHandler(this.tsmManageCode_Click);
+            this.tsmManageCode.Click += new System.EventHandler(this.MenuItemManageCode_Click);
             // 
             // mnuScriptWriter
             // 
@@ -435,27 +443,133 @@ namespace Teste
             this.mnuNotes.Text = "Notes";
             this.mnuNotes.Click += new System.EventHandler(this.MenuNotes_Click);
             // 
-            // mnuClarionDateTime
+            // grpClarionDateTime
             // 
-            this.mnuClarionDateTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.mnuClarionDateTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mnuClarionDateTime.ForeColor = System.Drawing.Color.White;
-            this.mnuClarionDateTime.Image = global::Utilities.Properties.Resources.icons8_clock_32;
-            this.mnuClarionDateTime.ImageTransparentColor = System.Drawing.Color.Black;
-            this.mnuClarionDateTime.MergeIndex = 0;
-            this.mnuClarionDateTime.Name = "mnuClarionDateTime";
-            this.mnuClarionDateTime.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.mnuClarionDateTime.Size = new System.Drawing.Size(136, 22);
-            this.mnuClarionDateTime.Text = "Clarion Date/Time";
-            this.mnuClarionDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mnuClarionDateTime.Click += new System.EventHandler(this.MenuClarionDateTime_Click);
+            this.grpClarionDateTime.Controls.Add(this.lblTime);
+            this.grpClarionDateTime.Controls.Add(this.txtTime);
+            this.grpClarionDateTime.Controls.Add(this.lblClarionTime);
+            this.grpClarionDateTime.Controls.Add(this.txtClarionTime);
+            this.grpClarionDateTime.Controls.Add(this.lblDate);
+            this.grpClarionDateTime.Controls.Add(this.txtDate);
+            this.grpClarionDateTime.Controls.Add(this.lblClarionDate);
+            this.grpClarionDateTime.Controls.Add(this.txtClarionDate);
+            this.grpClarionDateTime.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grpClarionDateTime.ForeColor = System.Drawing.Color.White;
+            this.grpClarionDateTime.Location = new System.Drawing.Point(12, 34);
+            this.grpClarionDateTime.Name = "grpClarionDateTime";
+            this.grpClarionDateTime.Size = new System.Drawing.Size(794, 58);
+            this.grpClarionDateTime.TabIndex = 5;
+            this.grpClarionDateTime.TabStop = false;
+            this.grpClarionDateTime.Text = "Clarion Date / Time Conversion";
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTime.Location = new System.Drawing.Point(21, 26);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(39, 16);
+            this.lblTime.TabIndex = 0;
+            this.lblTime.Text = "Time:";
+            // 
+            // txtTime
+            // 
+            this.txtTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtTime.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtTime.ForeColor = System.Drawing.Color.White;
+            this.txtTime.Location = new System.Drawing.Point(66, 23);
+            this.txtTime.Mask = "00:00";
+            this.txtTime.Name = "txtTime";
+            this.txtTime.PromptChar = ' ';
+            this.txtTime.Size = new System.Drawing.Size(80, 23);
+            this.txtTime.TabIndex = 1;
+            this.txtTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTime.ValidatingType = typeof(System.DateTime);
+            this.txtTime.Validated += new System.EventHandler(this.TxtTime_Validated);
+            // 
+            // lblClarionTime
+            // 
+            this.lblClarionTime.AutoSize = true;
+            this.lblClarionTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblClarionTime.Location = new System.Drawing.Point(167, 26);
+            this.lblClarionTime.Name = "lblClarionTime";
+            this.lblClarionTime.Size = new System.Drawing.Size(83, 16);
+            this.lblClarionTime.TabIndex = 2;
+            this.lblClarionTime.Text = "Clarion Time:";
+            // 
+            // txtClarionTime
+            // 
+            this.txtClarionTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtClarionTime.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtClarionTime.ForeColor = System.Drawing.Color.White;
+            this.txtClarionTime.Location = new System.Drawing.Point(256, 23);
+            this.txtClarionTime.Mask = "0000000";
+            this.txtClarionTime.Name = "txtClarionTime";
+            this.txtClarionTime.PromptChar = ' ';
+            this.txtClarionTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtClarionTime.Size = new System.Drawing.Size(80, 23);
+            this.txtClarionTime.TabIndex = 3;
+            this.txtClarionTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtClarionTime.ValidatingType = typeof(int);
+            this.txtClarionTime.Validated += new System.EventHandler(this.TxtClarionTime_Validated);
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDate.Location = new System.Drawing.Point(474, 26);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(38, 16);
+            this.lblDate.TabIndex = 4;
+            this.lblDate.Text = "Date:";
+            // 
+            // txtDate
+            // 
+            this.txtDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtDate.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtDate.ForeColor = System.Drawing.Color.White;
+            this.txtDate.Location = new System.Drawing.Point(518, 23);
+            this.txtDate.Mask = "00/00/0000";
+            this.txtDate.Name = "txtDate";
+            this.txtDate.PromptChar = ' ';
+            this.txtDate.Size = new System.Drawing.Size(80, 23);
+            this.txtDate.TabIndex = 5;
+            this.txtDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDate.ValidatingType = typeof(System.DateTime);
+            this.txtDate.Validated += new System.EventHandler(this.TxtDate_Validated);
+            // 
+            // lblClarionDate
+            // 
+            this.lblClarionDate.AutoSize = true;
+            this.lblClarionDate.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblClarionDate.Location = new System.Drawing.Point(610, 26);
+            this.lblClarionDate.Name = "lblClarionDate";
+            this.lblClarionDate.Size = new System.Drawing.Size(82, 16);
+            this.lblClarionDate.TabIndex = 6;
+            this.lblClarionDate.Text = "Clarion Date:";
+            // 
+            // txtClarionDate
+            // 
+            this.txtClarionDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtClarionDate.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtClarionDate.ForeColor = System.Drawing.Color.White;
+            this.txtClarionDate.Location = new System.Drawing.Point(698, 23);
+            this.txtClarionDate.Mask = "0000000";
+            this.txtClarionDate.Name = "txtClarionDate";
+            this.txtClarionDate.PromptChar = ' ';
+            this.txtClarionDate.Size = new System.Drawing.Size(80, 23);
+            this.txtClarionDate.TabIndex = 7;
+            this.txtClarionDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtClarionDate.ValidatingType = typeof(int);
+            this.txtClarionDate.Validated += new System.EventHandler(this.TxtClarionDate_Validated);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(818, 451);
+            this.ClientSize = new System.Drawing.Size(818, 523);
+            this.Controls.Add(this.grpClarionDateTime);
             this.Controls.Add(this.mnsMenuBar);
             this.Controls.Add(this.grpDeleteDuplicate);
             this.Controls.Add(this.pgsFileManagement);
@@ -473,6 +587,8 @@ namespace Teste
             this.grpDeleteDuplicate.PerformLayout();
             this.mnsMenuBar.ResumeLayout(false);
             this.mnsMenuBar.PerformLayout();
+            this.grpClarionDateTime.ResumeLayout(false);
+            this.grpClarionDateTime.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,13 +615,21 @@ namespace Teste
         private System.Windows.Forms.Button btnCopyFiles;
         private System.Windows.Forms.CheckBox chkSubFolders;
         private System.Windows.Forms.MenuStrip mnsMenuBar;
-        private System.Windows.Forms.ToolStripMenuItem mnuClarionDateTime;
         private System.Windows.Forms.ToolStripMenuItem mnuCodeToClipoard;
         private System.Windows.Forms.ToolStripMenuItem mnuNotes;
         private System.Windows.Forms.TextBox txtFromFolder;
         private System.Windows.Forms.ToolStripMenuItem mnuScriptWriter;
         private System.Windows.Forms.ToolStripMenuItem tsmCodeToClipboard;
         private System.Windows.Forms.ToolStripMenuItem tsmManageCode;
+        private System.Windows.Forms.GroupBox grpClarionDateTime;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.MaskedTextBox txtTime;
+        private System.Windows.Forms.Label lblClarionTime;
+        private System.Windows.Forms.MaskedTextBox txtClarionTime;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.MaskedTextBox txtDate;
+        private System.Windows.Forms.Label lblClarionDate;
+        private System.Windows.Forms.MaskedTextBox txtClarionDate;
     }
 }
 
