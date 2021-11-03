@@ -102,6 +102,8 @@ namespace Teste
                 if (!timeFormat.Equals("0000")) {
                     timeMinutes = (Int32.Parse(timeFormat.Substring(0, 2))) * 60 + Int32.Parse(timeFormat.Substring(2, 2));
                     timeValueClarion += (timeMinutes * 6000) + 1;
+                } else {
+                    timeValueClarion = 4;
                 }
 
                 txtClarionTime.Text = timeValueClarion.ToString();
@@ -113,8 +115,13 @@ namespace Teste
                 timeFormat = "00:00";
                 timeValueClarion = Int32.Parse(txtClarionTime.Text);
 
-                if (timeValueClarion <= 1) {
+                if (timeValueClarion <= 4) {
                     txtTime.Text = timeFormat;
+                    timeValueClarion = 4;
+                    txtClarionTime.Text = timeValueClarion.ToString();
+                    while (!txtClarionTime.MaskCompleted) {
+                        txtClarionTime.Text = "0" + txtClarionTime.Text;
+                    }
                     return;
                 }
 

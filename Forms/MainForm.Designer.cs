@@ -503,7 +503,7 @@ namespace Teste
             this.txtClarionTime.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtClarionTime.ForeColor = System.Drawing.Color.White;
             this.txtClarionTime.Location = new System.Drawing.Point(247, 23);
-            this.txtClarionTime.Mask = "0000000";
+            this.txtClarionTime.Mask = "000000000";
             this.txtClarionTime.Name = "txtClarionTime";
             this.txtClarionTime.PromptChar = ' ';
             this.txtClarionTime.RightToLeft = System.Windows.Forms.RightToLeft.No;

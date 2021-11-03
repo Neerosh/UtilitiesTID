@@ -90,10 +90,10 @@ namespace Utilities.Classes
             try {
                 reader = command.ExecuteReader();
                 while (reader.Read()) {
-                    dt.Rows.Add(reader.GetString(0),
-                                reader.GetString(1),
-                                reader.GetString(2),
-                                reader.GetString(3));
+                    Code code = new Code(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
+                    code.DeformatStrings();
+
+                    dt.Rows.Add(code.ID,code.Name,code.Type,code.CodeText);
                 }
                 reader.Close();
             } catch (Exception ex) {
@@ -156,6 +156,7 @@ namespace Utilities.Classes
             String[,] arrayClarionNotes = LoadArrayDefaultOptionsClarionNotes();
             try {
                 for (int i = 0; i < listCodes.Count; i++) {
+                    listCodes[i].FormatStrings();
                     command.CommandText = "INSERT OR IGNORE INTO Codes(Name,Code,Type) VALUES ('" + listCodes[i].Name + "','" + listCodes[i].CodeText + "','"+ listCodes[i].Type + "')";
                     command.ExecuteNonQuery();
                 }
@@ -372,8 +373,8 @@ namespace Utilities.Classes
                 if (!text.Equals(""))
                 {
                     text = text.Replace("'", "''");
-                    listCodes[i].setType("Clarion");
-                    listCodes[i].setCodeText(text);
+                    listCodes[i].Type = "Clarion";
+                    listCodes[i].CodeText = text;
                     continue;
                 }
 
@@ -384,8 +385,8 @@ namespace Utilities.Classes
                 }
                 if (!text.Equals("")) {
                     text = text.Replace("'", "''");
-                    listCodes[i].setType("Command Line");
-                    listCodes[i].setCodeText(text);
+                    listCodes[i].Type = "Command Line";
+                    listCodes[i].CodeText = text;
                     continue;
                 }
             }

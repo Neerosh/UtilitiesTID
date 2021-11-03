@@ -66,16 +66,18 @@ namespace Utilities.Forms
             int id;
             id = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
             Code code = new Code(id, txtName.Text,txtType.Text,txtCodeText.Text);
+            code.FormatStrings();
             sqlite.InsertCode(code);
             RefreshCodes();
             SelectCorrectRow(code);
         }
         private void BtnUpdate_Click(object sender, EventArgs e) {
+            if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
+            if (ShowConfirmationDialog("Update Code", "Update selected code?") == false) { return; }
             int id;
             id = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
             Code code = new Code(id, txtName.Text, txtType.Text, txtCodeText.Text);
-            if (ShowConfirmationDialog("Update Code", "Update selected code?") == false) { return; }
-
+            code.FormatStrings();
             sqlite.UpdateCode(code);
             RefreshCodes();
             SelectCorrectRow(code);
@@ -93,6 +95,7 @@ namespace Utilities.Forms
             selectedRow = dgvCodes.SelectedRows[0].Index;
 
             Code code = new Code(id, name, type, codeText);
+            code.FormatStrings();
             sqlite.DeleteCode(code);
             dgvCodes.Rows.RemoveAt(selectedRow);
             BtnClearFields_Click(sender, e);

@@ -32,12 +32,10 @@ namespace Utilities
         }
         private void RefreshCodeTypes() {
             DataTable dt = sqlite.SelectAllCodeTypes();
-            dt.Rows.Add("");
             cboCodeType.DataSource = dt;
             cboCodeType.DisplayMember = "Type";
             cboCodeType.ValueMember = "Type";
             cboCodeType.Refresh();
-            cboCodeType.SelectedItem = null;
         }
 
         private void BtnCopyClipboard_Click(object sender, EventArgs e) {
