@@ -16,6 +16,7 @@ namespace Teste
 {
     public partial class Main : Form
     {
+        private readonly CultureInfo culture = new CultureInfo("en-US");
         private readonly SQLite sqlite = new SQLite();
         private CommonOpenFileDialog folderPicker = new CommonOpenFileDialog();
         private Task task;
@@ -32,7 +33,8 @@ namespace Teste
             cboFileExtension.SelectedItem = "TID";
             lblProgressPercent.Text = "0%";
             folderPicker.IsFolderPicker = true;
-
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
         }
 
         #region Menu
@@ -177,6 +179,7 @@ namespace Teste
                 txtClarionDate.Text = fieldText;
             }
             ConvertDate("Date");
+
         }
         #endregion
 

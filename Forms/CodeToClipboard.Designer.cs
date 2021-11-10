@@ -58,7 +58,7 @@ namespace Utilities
             this.txtCodePreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtCodePreview.Cursor = System.Windows.Forms.Cursors.Default;
             resources.ApplyResources(this.txtCodePreview, "txtCodePreview");
-            this.txtCodePreview.ForeColor = System.Drawing.Color.Lime;
+            this.txtCodePreview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
             this.txtCodePreview.Name = "txtCodePreview";
             this.txtCodePreview.ReadOnly = true;
             this.txtCodePreview.TabStop = false;

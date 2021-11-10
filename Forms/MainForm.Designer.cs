@@ -31,7 +31,6 @@ namespace Teste
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.pgsFileManagement = new System.Windows.Forms.ProgressBar();
-            this.txtLogProcess = new System.Windows.Forms.TextBox();
             this.lblProgressPercent = new System.Windows.Forms.Label();
             this.grpDeleteDuplicate = new System.Windows.Forms.GroupBox();
             this.lblFromMoveFiles = new System.Windows.Forms.Label();
@@ -64,6 +63,7 @@ namespace Teste
             this.txtDate = new System.Windows.Forms.MaskedTextBox();
             this.lblClarionDate = new System.Windows.Forms.Label();
             this.txtClarionDate = new System.Windows.Forms.MaskedTextBox();
+            this.txtLogProcess = new System.Windows.Forms.TextBox();
             this.grpDeleteDuplicate.SuspendLayout();
             this.mnsMenuBar.SuspendLayout();
             this.grpClarionDateTime.SuspendLayout();
@@ -74,35 +74,19 @@ namespace Teste
             this.pgsFileManagement.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pgsFileManagement.Location = new System.Drawing.Point(12, 264);
             this.pgsFileManagement.Name = "pgsFileManagement";
-            this.pgsFileManagement.Size = new System.Drawing.Size(745, 29);
+            this.pgsFileManagement.Size = new System.Drawing.Size(766, 29);
             this.pgsFileManagement.TabIndex = 2;
-            // 
-            // txtLogProcess
-            // 
-            this.txtLogProcess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtLogProcess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLogProcess.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtLogProcess.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtLogProcess.ForeColor = System.Drawing.Color.Lime;
-            this.txtLogProcess.Location = new System.Drawing.Point(12, 299);
-            this.txtLogProcess.Multiline = true;
-            this.txtLogProcess.Name = "txtLogProcess";
-            this.txtLogProcess.ReadOnly = true;
-            this.txtLogProcess.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLogProcess.Size = new System.Drawing.Size(794, 207);
-            this.txtLogProcess.TabIndex = 3;
-            this.txtLogProcess.TabStop = false;
             // 
             // lblProgressPercent
             // 
             this.lblProgressPercent.AutoSize = true;
             this.lblProgressPercent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblProgressPercent.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblProgressPercent.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblProgressPercent.ForeColor = System.Drawing.SystemColors.Control;
             this.lblProgressPercent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblProgressPercent.Location = new System.Drawing.Point(767, 271);
+            this.lblProgressPercent.Location = new System.Drawing.Point(784, 270);
             this.lblProgressPercent.Name = "lblProgressPercent";
-            this.lblProgressPercent.Size = new System.Drawing.Size(38, 16);
+            this.lblProgressPercent.Size = new System.Drawing.Size(39, 15);
             this.lblProgressPercent.TabIndex = 4;
             this.lblProgressPercent.Text = "100%";
             // 
@@ -128,7 +112,7 @@ namespace Teste
             this.grpDeleteDuplicate.ForeColor = System.Drawing.SystemColors.Control;
             this.grpDeleteDuplicate.Location = new System.Drawing.Point(12, 98);
             this.grpDeleteDuplicate.Name = "grpDeleteDuplicate";
-            this.grpDeleteDuplicate.Size = new System.Drawing.Size(794, 160);
+            this.grpDeleteDuplicate.Size = new System.Drawing.Size(813, 160);
             this.grpDeleteDuplicate.TabIndex = 1;
             this.grpDeleteDuplicate.TabStop = false;
             this.grpDeleteDuplicate.Text = "File Management";
@@ -152,7 +136,7 @@ namespace Teste
             this.txtFromFolder.ForeColor = System.Drawing.Color.White;
             this.txtFromFolder.Location = new System.Drawing.Point(92, 27);
             this.txtFromFolder.Name = "txtFromFolder";
-            this.txtFromFolder.Size = new System.Drawing.Size(649, 22);
+            this.txtFromFolder.Size = new System.Drawing.Size(664, 22);
             this.txtFromFolder.TabIndex = 1;
             // 
             // btnFromBrowser
@@ -163,7 +147,7 @@ namespace Teste
             this.btnFromBrowser.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnFromBrowser.ForeColor = System.Drawing.Color.White;
             this.btnFromBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnFromBrowser.Location = new System.Drawing.Point(747, 24);
+            this.btnFromBrowser.Location = new System.Drawing.Point(762, 24);
             this.btnFromBrowser.Name = "btnFromBrowser";
             this.btnFromBrowser.Size = new System.Drawing.Size(31, 27);
             this.btnFromBrowser.TabIndex = 2;
@@ -190,7 +174,7 @@ namespace Teste
             this.txtToFolder.ForeColor = System.Drawing.Color.White;
             this.txtToFolder.Location = new System.Drawing.Point(92, 59);
             this.txtToFolder.Name = "txtToFolder";
-            this.txtToFolder.Size = new System.Drawing.Size(649, 22);
+            this.txtToFolder.Size = new System.Drawing.Size(664, 22);
             this.txtToFolder.TabIndex = 4;
             // 
             // btnToBrowser
@@ -201,7 +185,7 @@ namespace Teste
             this.btnToBrowser.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnToBrowser.ForeColor = System.Drawing.Color.White;
             this.btnToBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnToBrowser.Location = new System.Drawing.Point(747, 56);
+            this.btnToBrowser.Location = new System.Drawing.Point(762, 56);
             this.btnToBrowser.Name = "btnToBrowser";
             this.btnToBrowser.Size = new System.Drawing.Size(31, 27);
             this.btnToBrowser.TabIndex = 5;
@@ -232,9 +216,9 @@ namespace Teste
             this.cboOrderBy.Items.AddRange(new object[] {
             "Ascending",
             "Descending"});
-            this.cboOrderBy.Location = new System.Drawing.Point(220, 91);
+            this.cboOrderBy.Location = new System.Drawing.Point(229, 90);
             this.cboOrderBy.Name = "cboOrderBy";
-            this.cboOrderBy.Size = new System.Drawing.Size(131, 24);
+            this.cboOrderBy.Size = new System.Drawing.Size(141, 24);
             this.cboOrderBy.TabIndex = 8;
             // 
             // cboOrderField
@@ -248,9 +232,9 @@ namespace Teste
             this.cboOrderField.Items.AddRange(new object[] {
             "Creation Time",
             "Filename"});
-            this.cboOrderField.Location = new System.Drawing.Point(92, 91);
+            this.cboOrderField.Location = new System.Drawing.Point(92, 90);
             this.cboOrderField.Name = "cboOrderField";
-            this.cboOrderField.Size = new System.Drawing.Size(113, 24);
+            this.cboOrderField.Size = new System.Drawing.Size(123, 24);
             this.cboOrderField.TabIndex = 7;
             // 
             // lblFileExtension
@@ -280,9 +264,9 @@ namespace Teste
             "*.dll",
             "*.exe ",
             "*.tps"});
-            this.cboFileExtension.Location = new System.Drawing.Point(92, 123);
+            this.cboFileExtension.Location = new System.Drawing.Point(92, 122);
             this.cboFileExtension.Name = "cboFileExtension";
-            this.cboFileExtension.Size = new System.Drawing.Size(113, 24);
+            this.cboFileExtension.Size = new System.Drawing.Size(123, 24);
             this.cboFileExtension.TabIndex = 10;
             // 
             // chkSubFolders
@@ -290,7 +274,7 @@ namespace Teste
             this.chkSubFolders.AutoSize = true;
             this.chkSubFolders.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkSubFolders.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkSubFolders.Location = new System.Drawing.Point(223, 124);
+            this.chkSubFolders.Location = new System.Drawing.Point(228, 124);
             this.chkSubFolders.Name = "chkSubFolders";
             this.chkSubFolders.Size = new System.Drawing.Size(128, 20);
             this.chkSubFolders.TabIndex = 11;
@@ -308,9 +292,9 @@ namespace Teste
             this.btnCopyFiles.Image = global::Utilities.Properties.Resources.icons8_copy_32;
             this.btnCopyFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCopyFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCopyFiles.Location = new System.Drawing.Point(645, 91);
+            this.btnCopyFiles.Location = new System.Drawing.Point(661, 90);
             this.btnCopyFiles.Name = "btnCopyFiles";
-            this.btnCopyFiles.Size = new System.Drawing.Size(133, 51);
+            this.btnCopyFiles.Size = new System.Drawing.Size(133, 56);
             this.btnCopyFiles.TabIndex = 14;
             this.btnCopyFiles.Text = "Copy Files";
             this.btnCopyFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -331,9 +315,9 @@ namespace Teste
             this.btnDeleteDuplicate.Image = global::Utilities.Properties.Resources.icons8_delete_file2_32;
             this.btnDeleteDuplicate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteDuplicate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteDuplicate.Location = new System.Drawing.Point(360, 91);
+            this.btnDeleteDuplicate.Location = new System.Drawing.Point(376, 90);
             this.btnDeleteDuplicate.Name = "btnDeleteDuplicate";
-            this.btnDeleteDuplicate.Size = new System.Drawing.Size(140, 51);
+            this.btnDeleteDuplicate.Size = new System.Drawing.Size(140, 56);
             this.btnDeleteDuplicate.TabIndex = 12;
             this.btnDeleteDuplicate.Text = "Delete Duplicated Files";
             this.btnDeleteDuplicate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -354,9 +338,9 @@ namespace Teste
             this.BtnMoveFiles.Image = global::Utilities.Properties.Resources.icons8_send_file_32;
             this.BtnMoveFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnMoveFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnMoveFiles.Location = new System.Drawing.Point(506, 91);
+            this.BtnMoveFiles.Location = new System.Drawing.Point(522, 90);
             this.BtnMoveFiles.Name = "BtnMoveFiles";
-            this.BtnMoveFiles.Size = new System.Drawing.Size(133, 51);
+            this.BtnMoveFiles.Size = new System.Drawing.Size(133, 56);
             this.BtnMoveFiles.TabIndex = 13;
             this.BtnMoveFiles.Text = "Move Files";
             this.BtnMoveFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -379,7 +363,7 @@ namespace Teste
             this.mnsMenuBar.Name = "mnsMenuBar";
             this.mnsMenuBar.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.mnsMenuBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.mnsMenuBar.Size = new System.Drawing.Size(818, 28);
+            this.mnsMenuBar.Size = new System.Drawing.Size(837, 28);
             this.mnsMenuBar.TabIndex = 1;
             this.mnsMenuBar.Text = "Menu";
             // 
@@ -457,7 +441,7 @@ namespace Teste
             this.grpClarionDateTime.ForeColor = System.Drawing.Color.White;
             this.grpClarionDateTime.Location = new System.Drawing.Point(12, 34);
             this.grpClarionDateTime.Name = "grpClarionDateTime";
-            this.grpClarionDateTime.Size = new System.Drawing.Size(794, 58);
+            this.grpClarionDateTime.Size = new System.Drawing.Size(813, 58);
             this.grpClarionDateTime.TabIndex = 0;
             this.grpClarionDateTime.TabStop = false;
             this.grpClarionDateTime.Text = "Clarion Date / Time Conversion";
@@ -475,13 +459,13 @@ namespace Teste
             // txtTime
             // 
             this.txtTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtTime.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtTime.ForeColor = System.Drawing.Color.White;
             this.txtTime.Location = new System.Drawing.Point(66, 23);
             this.txtTime.Mask = "00:00";
             this.txtTime.Name = "txtTime";
             this.txtTime.PromptChar = ' ';
-            this.txtTime.Size = new System.Drawing.Size(80, 23);
+            this.txtTime.Size = new System.Drawing.Size(80, 22);
             this.txtTime.TabIndex = 1;
             this.txtTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTime.ValidatingType = typeof(System.DateTime);
@@ -500,14 +484,14 @@ namespace Teste
             // txtClarionTime
             // 
             this.txtClarionTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtClarionTime.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtClarionTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtClarionTime.ForeColor = System.Drawing.Color.White;
             this.txtClarionTime.Location = new System.Drawing.Point(247, 23);
             this.txtClarionTime.Mask = "000000000";
             this.txtClarionTime.Name = "txtClarionTime";
             this.txtClarionTime.PromptChar = ' ';
             this.txtClarionTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtClarionTime.Size = new System.Drawing.Size(80, 23);
+            this.txtClarionTime.Size = new System.Drawing.Size(80, 22);
             this.txtClarionTime.TabIndex = 3;
             this.txtClarionTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtClarionTime.ValidatingType = typeof(int);
@@ -517,7 +501,7 @@ namespace Teste
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDate.Location = new System.Drawing.Point(474, 26);
+            this.lblDate.Location = new System.Drawing.Point(489, 26);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(38, 16);
             this.lblDate.TabIndex = 4;
@@ -526,13 +510,13 @@ namespace Teste
             // txtDate
             // 
             this.txtDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtDate.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtDate.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDate.ForeColor = System.Drawing.Color.White;
-            this.txtDate.Location = new System.Drawing.Point(518, 23);
+            this.txtDate.Location = new System.Drawing.Point(533, 23);
             this.txtDate.Mask = "00/00/0000";
             this.txtDate.Name = "txtDate";
             this.txtDate.PromptChar = ' ';
-            this.txtDate.Size = new System.Drawing.Size(80, 23);
+            this.txtDate.Size = new System.Drawing.Size(80, 22);
             this.txtDate.TabIndex = 5;
             this.txtDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDate.ValidatingType = typeof(System.DateTime);
@@ -542,7 +526,7 @@ namespace Teste
             // 
             this.lblClarionDate.AutoSize = true;
             this.lblClarionDate.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblClarionDate.Location = new System.Drawing.Point(610, 26);
+            this.lblClarionDate.Location = new System.Drawing.Point(625, 26);
             this.lblClarionDate.Name = "lblClarionDate";
             this.lblClarionDate.Size = new System.Drawing.Size(82, 16);
             this.lblClarionDate.TabIndex = 6;
@@ -551,30 +535,43 @@ namespace Teste
             // txtClarionDate
             // 
             this.txtClarionDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtClarionDate.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtClarionDate.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtClarionDate.ForeColor = System.Drawing.Color.White;
-            this.txtClarionDate.Location = new System.Drawing.Point(698, 23);
+            this.txtClarionDate.Location = new System.Drawing.Point(713, 23);
             this.txtClarionDate.Mask = "0000000";
             this.txtClarionDate.Name = "txtClarionDate";
             this.txtClarionDate.PromptChar = ' ';
-            this.txtClarionDate.Size = new System.Drawing.Size(80, 23);
+            this.txtClarionDate.Size = new System.Drawing.Size(80, 22);
             this.txtClarionDate.TabIndex = 7;
             this.txtClarionDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtClarionDate.ValidatingType = typeof(int);
             this.txtClarionDate.Validated += new System.EventHandler(this.TxtClarionDate_Validated);
+            // 
+            // txtLogProcess
+            // 
+            this.txtLogProcess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtLogProcess.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtLogProcess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
+            this.txtLogProcess.Location = new System.Drawing.Point(12, 299);
+            this.txtLogProcess.Multiline = true;
+            this.txtLogProcess.Name = "txtLogProcess";
+            this.txtLogProcess.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtLogProcess.Size = new System.Drawing.Size(813, 212);
+            this.txtLogProcess.TabIndex = 5;
+            this.txtLogProcess.TabStop = false;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(818, 523);
+            this.ClientSize = new System.Drawing.Size(837, 523);
+            this.Controls.Add(this.txtLogProcess);
             this.Controls.Add(this.grpClarionDateTime);
             this.Controls.Add(this.mnsMenuBar);
             this.Controls.Add(this.grpDeleteDuplicate);
             this.Controls.Add(this.pgsFileManagement);
             this.Controls.Add(this.lblProgressPercent);
-            this.Controls.Add(this.txtLogProcess);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -598,7 +595,6 @@ namespace Teste
 
         private System.Windows.Forms.Button btnDeleteDuplicate;
         private System.Windows.Forms.ProgressBar pgsFileManagement;
-        private System.Windows.Forms.TextBox txtLogProcess;
         private System.Windows.Forms.Label lblProgressPercent;
         private System.Windows.Forms.GroupBox grpDeleteDuplicate;
         private System.Windows.Forms.ComboBox cboOrderBy;
@@ -630,6 +626,7 @@ namespace Teste
         private System.Windows.Forms.MaskedTextBox txtDate;
         private System.Windows.Forms.Label lblClarionDate;
         private System.Windows.Forms.MaskedTextBox txtClarionDate;
+        private System.Windows.Forms.TextBox txtLogProcess;
     }
 }
 
