@@ -16,7 +16,6 @@ namespace Teste
 {
     public partial class Main : Form
     {
-        private readonly CultureInfo culture = new CultureInfo("en-US");
         private readonly SQLite sqlite = new SQLite();
         private CommonOpenFileDialog folderPicker = new CommonOpenFileDialog();
         private Task task;
@@ -33,8 +32,7 @@ namespace Teste
             cboFileExtension.SelectedItem = "TID";
             lblProgressPercent.Text = "0%";
             folderPicker.IsFolderPicker = true;
-            CultureInfo.DefaultThreadCurrentCulture = culture;
-            CultureInfo.DefaultThreadCurrentUICulture = culture;
+
         }
 
         #region Menu
@@ -237,7 +235,7 @@ namespace Teste
         private void WriteLog(string text) {
             txtLogProcess.Invoke(new MethodInvoker(delegate {
                 if (txtLogProcess.Text.Equals("")) {
-                    txtLogProcess.ForeColor = Color.Lime;
+                    txtLogProcess.ForeColor = Color.FromArgb(146, 57, 255);
                     txtLogProcess.AppendText(text);
                     return;
                 }

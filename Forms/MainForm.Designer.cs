@@ -92,6 +92,7 @@ namespace Teste
             // 
             // grpDeleteDuplicate
             // 
+            this.grpDeleteDuplicate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.grpDeleteDuplicate.Controls.Add(this.lblFromMoveFiles);
             this.grpDeleteDuplicate.Controls.Add(this.txtFromFolder);
             this.grpDeleteDuplicate.Controls.Add(this.btnFromBrowser);
@@ -131,7 +132,7 @@ namespace Teste
             // 
             // txtFromFolder
             // 
-            this.txtFromFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtFromFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtFromFolder.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtFromFolder.ForeColor = System.Drawing.Color.White;
             this.txtFromFolder.Location = new System.Drawing.Point(92, 27);
@@ -141,6 +142,7 @@ namespace Teste
             // 
             // btnFromBrowser
             // 
+            this.btnFromBrowser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnFromBrowser.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnFromBrowser.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnFromBrowser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -152,7 +154,7 @@ namespace Teste
             this.btnFromBrowser.Size = new System.Drawing.Size(31, 27);
             this.btnFromBrowser.TabIndex = 2;
             this.btnFromBrowser.Text = "...";
-            this.btnFromBrowser.UseVisualStyleBackColor = true;
+            this.btnFromBrowser.UseVisualStyleBackColor = false;
             this.btnFromBrowser.Click += new System.EventHandler(this.BtnFromBrowser_Click);
             // 
             // lblToMoveFiles
@@ -169,7 +171,7 @@ namespace Teste
             // 
             // txtToFolder
             // 
-            this.txtToFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtToFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtToFolder.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtToFolder.ForeColor = System.Drawing.Color.White;
             this.txtToFolder.Location = new System.Drawing.Point(92, 59);
@@ -179,6 +181,7 @@ namespace Teste
             // 
             // btnToBrowser
             // 
+            this.btnToBrowser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnToBrowser.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnToBrowser.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnToBrowser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -190,7 +193,7 @@ namespace Teste
             this.btnToBrowser.Size = new System.Drawing.Size(31, 27);
             this.btnToBrowser.TabIndex = 5;
             this.btnToBrowser.Text = "...";
-            this.btnToBrowser.UseVisualStyleBackColor = true;
+            this.btnToBrowser.UseVisualStyleBackColor = false;
             this.btnToBrowser.Click += new System.EventHandler(this.BtnToBrowser_Click);
             // 
             // lblOrderBy
@@ -207,7 +210,7 @@ namespace Teste
             // 
             // cboOrderBy
             // 
-            this.cboOrderBy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cboOrderBy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.cboOrderBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboOrderBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboOrderBy.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -223,7 +226,7 @@ namespace Teste
             // 
             // cboOrderField
             // 
-            this.cboOrderField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cboOrderField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.cboOrderField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboOrderField.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboOrderField.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -251,7 +254,7 @@ namespace Teste
             // 
             // cboFileExtension
             // 
-            this.cboFileExtension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cboFileExtension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.cboFileExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFileExtension.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboFileExtension.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -283,9 +286,9 @@ namespace Teste
             // 
             // btnCopyFiles
             // 
-            this.btnCopyFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCopyFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnCopyFiles.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnCopyFiles.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCopyFiles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.btnCopyFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopyFiles.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCopyFiles.ForeColor = System.Drawing.SystemColors.Control;
@@ -306,9 +309,9 @@ namespace Teste
             // 
             // btnDeleteDuplicate
             // 
-            this.btnDeleteDuplicate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnDeleteDuplicate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnDeleteDuplicate.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnDeleteDuplicate.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnDeleteDuplicate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.btnDeleteDuplicate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteDuplicate.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDeleteDuplicate.ForeColor = System.Drawing.SystemColors.Control;
@@ -329,9 +332,9 @@ namespace Teste
             // 
             // BtnMoveFiles
             // 
-            this.BtnMoveFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnMoveFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.BtnMoveFiles.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.BtnMoveFiles.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnMoveFiles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.BtnMoveFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMoveFiles.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnMoveFiles.ForeColor = System.Drawing.SystemColors.Control;
@@ -429,6 +432,7 @@ namespace Teste
             // 
             // grpClarionDateTime
             // 
+            this.grpClarionDateTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.grpClarionDateTime.Controls.Add(this.lblTime);
             this.grpClarionDateTime.Controls.Add(this.txtTime);
             this.grpClarionDateTime.Controls.Add(this.lblClarionTime);
@@ -458,7 +462,7 @@ namespace Teste
             // 
             // txtTime
             // 
-            this.txtTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtTime.ForeColor = System.Drawing.Color.White;
             this.txtTime.Location = new System.Drawing.Point(66, 23);
@@ -483,7 +487,7 @@ namespace Teste
             // 
             // txtClarionTime
             // 
-            this.txtClarionTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtClarionTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtClarionTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtClarionTime.ForeColor = System.Drawing.Color.White;
             this.txtClarionTime.Location = new System.Drawing.Point(247, 23);
@@ -509,7 +513,7 @@ namespace Teste
             // 
             // txtDate
             // 
-            this.txtDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtDate.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDate.ForeColor = System.Drawing.Color.White;
             this.txtDate.Location = new System.Drawing.Point(533, 23);
@@ -534,7 +538,7 @@ namespace Teste
             // 
             // txtClarionDate
             // 
-            this.txtClarionDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtClarionDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtClarionDate.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtClarionDate.ForeColor = System.Drawing.Color.White;
             this.txtClarionDate.Location = new System.Drawing.Point(713, 23);
@@ -549,9 +553,9 @@ namespace Teste
             // 
             // txtLogProcess
             // 
-            this.txtLogProcess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtLogProcess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtLogProcess.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtLogProcess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
+            this.txtLogProcess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(57)))), ((int)(((byte)(255)))));
             this.txtLogProcess.Location = new System.Drawing.Point(12, 299);
             this.txtLogProcess.Multiline = true;
             this.txtLogProcess.Name = "txtLogProcess";
@@ -564,7 +568,7 @@ namespace Teste
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.ClientSize = new System.Drawing.Size(837, 523);
             this.Controls.Add(this.txtLogProcess);
             this.Controls.Add(this.grpClarionDateTime);

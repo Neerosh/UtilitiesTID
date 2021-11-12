@@ -38,11 +38,11 @@ namespace Utilities {
             // 
             // txtFunctionality
             // 
-            this.txtFunctionality.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtFunctionality.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtFunctionality.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFunctionality.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtFunctionality.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
-            this.txtFunctionality.ForeColor = System.Drawing.Color.Lime;
+            this.txtFunctionality.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtFunctionality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(57)))), ((int)(((byte)(255)))));
             this.txtFunctionality.Location = new System.Drawing.Point(12, 26);
             this.txtFunctionality.Multiline = true;
             this.txtFunctionality.Name = "txtFunctionality";
@@ -54,8 +54,9 @@ namespace Utilities {
             // 
             // grpFuctionality
             // 
+            this.grpFuctionality.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.grpFuctionality.Controls.Add(this.txtFunctionality);
-            this.grpFuctionality.Font = new System.Drawing.Font("Arial", 10F);
+            this.grpFuctionality.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpFuctionality.ForeColor = System.Drawing.Color.White;
             this.grpFuctionality.Location = new System.Drawing.Point(12, 13);
             this.grpFuctionality.Name = "grpFuctionality";
@@ -66,8 +67,9 @@ namespace Utilities {
             // 
             // grpInitials
             // 
+            this.grpInitials.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.grpInitials.Controls.Add(this.txtInitials);
-            this.grpInitials.Font = new System.Drawing.Font("Arial", 10F);
+            this.grpInitials.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpInitials.ForeColor = System.Drawing.Color.White;
             this.grpInitials.Location = new System.Drawing.Point(12, 363);
             this.grpInitials.Name = "grpInitials";
@@ -78,11 +80,11 @@ namespace Utilities {
             // 
             // txtInitials
             // 
-            this.txtInitials.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtInitials.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtInitials.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtInitials.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtInitials.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
-            this.txtInitials.ForeColor = System.Drawing.Color.Lime;
+            this.txtInitials.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtInitials.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(57)))), ((int)(((byte)(255)))));
             this.txtInitials.Location = new System.Drawing.Point(12, 26);
             this.txtInitials.Multiline = true;
             this.txtInitials.Name = "txtInitials";
@@ -94,8 +96,9 @@ namespace Utilities {
             // 
             // grpSqlServerInstall
             // 
+            this.grpSqlServerInstall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.grpSqlServerInstall.Controls.Add(this.txtSqlServerInstall);
-            this.grpSqlServerInstall.Font = new System.Drawing.Font("Arial", 10F);
+            this.grpSqlServerInstall.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpSqlServerInstall.ForeColor = System.Drawing.Color.White;
             this.grpSqlServerInstall.Location = new System.Drawing.Point(705, 13);
             this.grpSqlServerInstall.Name = "grpSqlServerInstall";
@@ -106,11 +109,11 @@ namespace Utilities {
             // 
             // txtSqlServerInstall
             // 
-            this.txtSqlServerInstall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSqlServerInstall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtSqlServerInstall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSqlServerInstall.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtSqlServerInstall.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
-            this.txtSqlServerInstall.ForeColor = System.Drawing.Color.Lime;
+            this.txtSqlServerInstall.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtSqlServerInstall.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(57)))), ((int)(((byte)(255)))));
             this.txtSqlServerInstall.Location = new System.Drawing.Point(12, 26);
             this.txtSqlServerInstall.Multiline = true;
             this.txtSqlServerInstall.Name = "txtSqlServerInstall";
@@ -124,12 +127,12 @@ namespace Utilities {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.ClientSize = new System.Drawing.Size(1126, 459);
             this.Controls.Add(this.grpSqlServerInstall);
             this.Controls.Add(this.grpFuctionality);
             this.Controls.Add(this.grpInitials);
-            this.Font = new System.Drawing.Font("Arial", 10F);
+            this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

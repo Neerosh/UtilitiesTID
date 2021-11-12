@@ -55,5 +55,12 @@ namespace Utilities
             }
         }
 
+        private void cboCodeName_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
+
+        private void grpClipboardCode_Enter(object sender, EventArgs e) {
+
+        }
     }
 }
