@@ -42,7 +42,6 @@
             this.BtnMoveFiles = new System.Windows.Forms.Button();
             this.pgsFileManagement = new System.Windows.Forms.ProgressBar();
             this.lblProgressPercent = new System.Windows.Forms.Label();
-            this.close = new System.Windows.Forms.Button();
             this.txtLogProcess = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
@@ -324,28 +323,6 @@
             this.lblProgressPercent.TabIndex = 8;
             this.lblProgressPercent.Text = "100%";
             // 
-            // close
-            // 
-            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.close.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.close.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.close.ForeColor = System.Drawing.SystemColors.Control;
-            this.close.Image = global::Utilities.Properties.Resources.icons8_send_file_32;
-            this.close.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.close.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.close.Location = new System.Drawing.Point(385, 77);
-            this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(142, 40);
-            this.close.TabIndex = 15;
-            this.close.Text = "close";
-            this.close.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.close.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.close.UseVisualStyleBackColor = false;
-            this.close.Click += new System.EventHandler(this.close_Click);
-            // 
             // txtLogProcess
             // 
             this.txtLogProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -370,7 +347,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
             this.Controls.Add(this.txtLogProcess);
-            this.Controls.Add(this.close);
             this.Controls.Add(this.lblFromMoveFiles);
             this.Controls.Add(this.txtFromFolder);
             this.Controls.Add(this.btnFromBrowser);
@@ -416,7 +392,6 @@
         private System.Windows.Forms.Button BtnMoveFiles;
         private System.Windows.Forms.ProgressBar pgsFileManagement;
         private System.Windows.Forms.Label lblProgressPercent;
-        private System.Windows.Forms.Button close;
         private System.Windows.Forms.RichTextBox txtLogProcess;
     }
 }
