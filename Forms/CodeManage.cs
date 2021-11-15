@@ -101,5 +101,8 @@ namespace Utilities.Forms
             BtnClearFields_Click(sender, e);
         }
 
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e) {
+
+        }
     }
 }

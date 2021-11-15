@@ -30,40 +30,13 @@ namespace Utilities
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeToClipboard));
-            this.grpClipboardCode = new System.Windows.Forms.GroupBox();
-            this.txtCodePreview = new System.Windows.Forms.TextBox();
             this.cboCodeType = new System.Windows.Forms.ComboBox();
             this.lblCodeType = new System.Windows.Forms.Label();
             this.lblCodeName = new System.Windows.Forms.Label();
             this.cboCodeName = new System.Windows.Forms.ComboBox();
             this.btnCopyClipboard = new System.Windows.Forms.Button();
-            this.grpClipboardCode.SuspendLayout();
+            this.txtCodePreview = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
-            // 
-            // grpClipboardCode
-            // 
-            this.grpClipboardCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.grpClipboardCode.Controls.Add(this.txtCodePreview);
-            this.grpClipboardCode.Controls.Add(this.cboCodeType);
-            this.grpClipboardCode.Controls.Add(this.lblCodeType);
-            this.grpClipboardCode.Controls.Add(this.lblCodeName);
-            this.grpClipboardCode.Controls.Add(this.cboCodeName);
-            this.grpClipboardCode.Controls.Add(this.btnCopyClipboard);
-            resources.ApplyResources(this.grpClipboardCode, "grpClipboardCode");
-            this.grpClipboardCode.ForeColor = System.Drawing.Color.White;
-            this.grpClipboardCode.Name = "grpClipboardCode";
-            this.grpClipboardCode.TabStop = false;
-            this.grpClipboardCode.Enter += new System.EventHandler(this.grpClipboardCode_Enter);
-            // 
-            // txtCodePreview
-            // 
-            this.txtCodePreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.txtCodePreview.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.txtCodePreview, "txtCodePreview");
-            this.txtCodePreview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(57)))), ((int)(((byte)(255)))));
-            this.txtCodePreview.Name = "txtCodePreview";
-            this.txtCodePreview.ReadOnly = true;
-            this.txtCodePreview.TabStop = false;
             // 
             // cboCodeType
             // 
@@ -104,40 +77,53 @@ namespace Utilities
             // 
             // btnCopyClipboard
             // 
+            resources.ApplyResources(this.btnCopyClipboard, "btnCopyClipboard");
             this.btnCopyClipboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnCopyClipboard.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnCopyClipboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            resources.ApplyResources(this.btnCopyClipboard, "btnCopyClipboard");
             this.btnCopyClipboard.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCopyClipboard.Image = global::Utilities.Properties.Resources.icons8_copy_32;
             this.btnCopyClipboard.Name = "btnCopyClipboard";
             this.btnCopyClipboard.UseVisualStyleBackColor = false;
             this.btnCopyClipboard.Click += new System.EventHandler(this.BtnCopyClipboard_Click);
             // 
+            // txtCodePreview
+            // 
+            resources.ApplyResources(this.txtCodePreview, "txtCodePreview");
+            this.txtCodePreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.txtCodePreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCodePreview.ForeColor = System.Drawing.Color.White;
+            this.txtCodePreview.Name = "txtCodePreview";
+            this.txtCodePreview.ReadOnly = true;
+            // 
             // CodeToClipboard
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.Controls.Add(this.grpClipboardCode);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Controls.Add(this.txtCodePreview);
+            this.Controls.Add(this.cboCodeType);
+            this.Controls.Add(this.lblCodeName);
+            this.Controls.Add(this.lblCodeType);
+            this.Controls.Add(this.btnCopyClipboard);
+            this.Controls.Add(this.cboCodeName);
+            this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "CodeToClipboard";
             this.Load += new System.EventHandler(this.CodeToClipboard_Load);
-            this.grpClipboardCode.ResumeLayout(false);
-            this.grpClipboardCode.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox grpClipboardCode;
         private System.Windows.Forms.Label lblCodeName;
         private System.Windows.Forms.ComboBox cboCodeName;
         private System.Windows.Forms.Button btnCopyClipboard;
-        private System.Windows.Forms.TextBox txtCodePreview;
         private System.Windows.Forms.Label lblCodeType;
         private System.Windows.Forms.ComboBox cboCodeType;
+        private System.Windows.Forms.RichTextBox txtCodePreview;
     }
 }

@@ -95,20 +95,40 @@ namespace Utilities.Forms
             using (FileStream fileStream = File.Create(folderScript)) {
 
                 scriptText = "\r\n IF EXISTS (SELECT 1 FROM sys.procedures WHERE name = '" + procedureName + "')" +
-                                "\r\n BEGIN" +
-                                "\r\n    DROP PROCEDURE [" + procedureName + "]" +
-                                "\r\n END" +
-                                "\r\n" +
-                                "\r\n USE [master]" +
-                                "\r\n GO" +
-                                "\r\n CREATE PROCEDURE [dbo].[" + procedureName + "]" +
-                                "\r\n AS BEGIN " +
-                                "\r\n SET NOCOUNT ON" +
-                                "\r\n DECLARE @detach int ," +
-                                "\r\n @create int ," +
-                                "\r\n @mdfExist int ," +
-                                "\r\n @ldfExist int ," +
-                                "\r\n @bakExist int ;";
+                            "\r\n BEGIN" +
+                            "\r\n    DROP PROCEDURE [" + procedureName + "]" +
+                            "\r\n END" +
+                            "\r\n" +
+                            "\r\n USE [master]" +
+                            "\r\n GO" +
+                            "\r\n CREATE PROCEDURE [dbo].[" + procedureName + "]" +
+                            "\r\n AS BEGIN " +
+                            "\r\n SET NOCOUNT ON" +
+                            "\r\n DECLARE @detach int ," +
+                            "\r\n @create int ," +
+                            "\r\n @mdfExist int ," +
+                            "\r\n @ldfExist int ," +
+                            "\r\n @bakExist int ;";
+
+                line = new UTF8Encoding(true).GetBytes(scriptText);
+                fileStream.Write(line, 0, line.Length);
+
+
+                scriptText = "\r\n IF EXISTS (SELECT 1 FROM sys.procedures WHERE name = '" + procedureName + "')" +
+                            "\r\n BEGIN" +
+                            "\r\n    DROP PROCEDURE [" + procedureName + "]" +
+                            "\r\n END" +
+                            "\r\n" +
+                            "\r\n USE [master]" +
+                            "\r\n GO" +
+                            "\r\n CREATE PROCEDURE [dbo].[" + procedureName + "]" +
+                            "\r\n AS BEGIN " +
+                            "\r\n SET NOCOUNT ON" +
+                            "\r\n DECLARE @detach int ," +
+                            "\r\n @create int ," +
+                            "\r\n @mdfExist int ," +
+                            "\r\n @ldfExist int ," +
+                            "\r\n @bakExist int ;";
 
                 line = new UTF8Encoding(true).GetBytes(scriptText);
                 fileStream.Write(line, 0, line.Length);
@@ -254,6 +274,185 @@ namespace Utilities.Forms
                 fileStream.Write(line, 0, line.Length);
             }
         }
+
+        private void GenerateUnifiedScript_test(string folderSQL, string folderScript, string procedureName) {
+            Byte[] line;
+            string scriptText;
+
+            using (FileStream fileStream = File.Create(folderScript)) {
+
+                WriteUnifiedSubProcedure(fileStream, folderSQL, procedureName);
+
+                scriptText = "\r\n IF EXISTS (SELECT 1 FROM sys.procedures WHERE name = '" + procedureName + "')" +
+                            "\r\n BEGIN" +
+                            "\r\n    DROP PROCEDURE [" + procedureName + "]" +
+                            "\r\n END" +
+                            "\r\n" +
+                            "\r\n USE [master]" +
+                            "\r\n GO" +
+                            "\r\n CREATE PROCEDURE [dbo].[" + procedureName + "]" +
+                            "\r\n AS BEGIN "+
+                            "\r\n DECLARE @out int;";
+
+                line = new UTF8Encoding(true).GetBytes(scriptText);
+                fileStream.Write(line, 0, line.Length);
+
+                for (int c = 1; c <= 30; c++) {
+                    if (c < 10) {
+                        WriteUnifiedScript_test(fileStream, procedureName,"TID_EMP0" + c);
+                        continue;
+                    }
+                    WriteUnifiedScript_test(fileStream, procedureName, "TID_EMP" + c);
+                }
+
+                WriteUnifiedScript_test(fileStream, procedureName, "PORTALVENDAS");
+                WriteUnifiedScript_test(fileStream, procedureName, "TID_AUDITORIA");
+                WriteUnifiedScript_test(fileStream, procedureName, "TID_ATUALIZACAO");
+                WriteUnifiedScript_test(fileStream, procedureName, "TID_ECOMMERCE");
+                WriteUnifiedScript_test(fileStream, procedureName, "TID_EXETPS");
+                WriteUnifiedScript_test(fileStream, procedureName, "TID_NUVEMSHOP");
+                WriteUnifiedScript_test(fileStream, procedureName, "TID_WEB");
+                WriteUnifiedScript_test(fileStream, procedureName, "TID_TEMP");
+                WriteUnifiedScript_test(fileStream, procedureName, "TIDDF");
+                WriteUnifiedScript_test(fileStream, procedureName, "TIDMOBILE");
+                WriteUnifiedScript_test(fileStream, procedureName, "TIDMOBILE_DEACO");
+                WriteUnifiedScript_test(fileStream, procedureName, "TIDVENDAS");
+                WriteUnifiedScript_test(fileStream, procedureName, "TIDWEB");
+                WriteUnifiedScript_test(fileStream, procedureName, "WEBCENTER");
+                WriteUnifiedScript_test(fileStream, procedureName, "WEBCENTER_BRUTAL");
+
+                scriptText = "\r\n SET NOCOUNT OFF" +
+                            "\r\n END" +
+                            "\r\n GO";
+                line = new UTF8Encoding(true).GetBytes(scriptText);
+                fileStream.Write(line, 0, line.Length);
+
+            }
+            MessageBox.Show("Script generated: " + folderScript);
+
+        }
+        private void WriteUnifiedScript_test(FileStream fileStream, string procedureName, string database) {
+            Byte[] line;
+            string scriptText;
+
+                scriptText = "\r\n EXEC " + procedureName + "Sub @database ='"+database+ "' @output = @out OUTPUT" +
+                             "\r\n";
+
+                line = new UTF8Encoding(true).GetBytes(scriptText);
+                fileStream.Write(line, 0, line.Length);
+            }
+        private void WriteUnifiedSubProcedure(FileStream fileStream, string folderSQL, string procedureName) {
+            Byte[] line;
+            string scriptText;
+            procedureName = procedureName+"Sub";
+
+            scriptText = "\r\n IF EXISTS (SELECT 1 FROM sys.procedures WHERE name = '" + procedureName +"')" +
+                        "\r\n BEGIN" +
+                        "\r\n    DROP PROCEDURE [" + procedureName + "]" +
+                        "\r\n END" +
+                        "\r\n" +
+                        "\r\n USE [master]" +
+                        "\r\n GO" +
+                        "\r\n CREATE PROCEDURE [dbo].[" + procedureName + "]  @dbname nvarchar(100), @output int OUTPUT" +
+                        "\r\n AS BEGIN " +
+                        "\r\n SET NOCOUNT ON" +
+                        "\r\n" +
+                        "\r\n DECLARE @detach int ," +
+                        "\r\n @mdfExist int ," +
+                        "\r\n @ldfExist int ," +
+                        "\r\n @bakExist int ;" +
+                        "\r\n" +
+                        "\r\n DECLARE @sql nvarchar(1000)," +
+                        "\r\n @fileMDF nvarchar(1000)," +
+                        "\r\n @fileLDF nvarchar(1000)," +
+                        "\r\n @fileBAK nvarchar(1000);" +
+                        "\r\n" +
+                        "\r\n SET @fileMDF = N'" + folderSQL + "\\'+@dbname+'_log.mdf' ;" +
+                        "\r\n SET @fileLDF = N'" + folderSQL + "\\'+@dbname+'_log.ldf' ;" +
+                        "\r\n SET @fileBAK = N'" + folderSQL + "\\'+@dbname+'.bak';" +
+                        "\r\n" +
+                        "\r\n IF EXISTS(SELECT name FROM master.sys.databases WHERE name = @dbname)" +
+                        "\r\n BEGIN" +
+                        "\r\n    SET @sql = 'ALTER DATABASE [' + @dbname + '] SET OFFLINE'" +
+                        "\r\n    EXEC(@sql)" +
+                        "\r\n    SET @sql = 'EXEC master.dbo.sp_detach_db @dbname = ' + @dbname" +
+                        "\r\n    EXEC(@sql)" +
+                        "\r\n    SET @detach = 1;" +
+                        "\r\n END" +
+                        "\r\n ELSE" +
+                        "\r\n BEGIN" +
+                        "\r\n    Exec master..xp_fileexist @fileMDF,@mdfExist OUT" +
+                        "\r\n    IF @mdfExist = 1" +
+                        "\r\n    BEGIN" +
+                        "\r\n       PRINT 'Rename the file: ' + @fileMDF" +
+                        "\r\n       PRINT 'and execute the procedure again'" +
+                        "\r\n       SET @mdfExist = 0;" +
+                        "\r\n    END" +
+                        "\r\n    Exec master..xp_fileexist @fileLDF,@ldfExist OUT" +
+                        "\r\n    IF @ldfExist = 1" +
+                        "\r\n    BEGIN" +
+                        "\r\n       PRINT 'Rename the file: ' + @fileLDF" +
+                        "\r\n       PRINT 'and execute the procedure again'" +
+                        "\r\n       SET @ldfExist = 0;" +
+                        "\r\n    END" +
+                        "\r\n    ELSE" +
+                        "\r\n    BEGIN" +
+                        "\r\n       SET @fileMDF = N'" + folderSQL + "\\'+@dbname+'.mdf' ;" +
+                        "\r\n       SET @fileLDF = N'" + folderSQL + "\\'+@dbname+'.ldf' ;" +
+                        "\r\n" +
+                        "\r\n       Exec master..xp_fileexist @fileMDF,@mdfExist OUT" +
+                        "\r\n       IF @mdfExist = 1" +
+                        "\r\n       BEGIN" +
+                        "\r\n          Exec master..xp_fileexist @fileLDF,@ldfExist OUT" +
+                        "\r\n          IF @ldfExist = 1" +
+                        "\r\n          BEGIN" +
+                        "\r\n          SET @sql = N'CREATE DATABASE [' + @dbname + '] ON' +" +
+                        "\r\n            '  ( FILENAME = N''' + @fileMDF + '''),' +" +
+                        "\r\n            '  ( FILENAME = N''' + @fileLDF + ''')' +" +
+                        "\r\n            '  FOR ATTACH';" +
+                        "\r\n          EXEC(@sql)" +
+                        "\r\n          SET @sql = 'ALTER DATABASE [' + @dbname + '] SET ONLINE';" +
+                        "\r\n          EXEC(@sql)" +
+                        "\r\n          END" +
+                        "\r\n       END" +
+                        "\r\n       ELSE" +
+                        "\r\n       BEGIN" +
+                        "\r\n          Exec master..xp_fileexist @fileBAK,@bakExist OUT" +
+                        "\r\n          IF @bakExist = 1" +
+                        "\r\n          BEGIN" +
+                        "\r\n             SET @sql = 'RESTORE DATABASE [' + @dbname + '] FROM ' +" +
+                        "\r\n               '  DISK = N''' + @fileBAK + ''' WITH FILE = 1,' +" +
+                        "\r\n               '  MOVE ' + @dbname + '' +" +
+                        "\r\n               '  TO N''' + @fileMDF + ''',' +" +
+                        "\r\n               '  MOVE N''' + @dbname + '_log'' ' +" +
+                        "\r\n               '  TO N''' + @fileLDF + ''',' +" +
+                        "\r\n               '  NOUNLOAD, REPLACE, STATS = 100';" +
+                        "\r\n             EXEC(@sql)" +
+                        "\r\n             SET @sql = 'ALTER DATABASE [' + @dbname + '] SET ONLINE';" +
+                        "\r\n             EXEC(@sql)" +
+                        "\r\n          END" +
+                        "\r\n       END" +
+                        "\r\n    END" +
+                        "\r\n END" +
+                        "\r\n SET NOCOUNT OFF" +
+                        "\r\n IF @detach = 1" +
+                        "\r\n BEGIN" +
+                        "\r\n     PRINT 'Database ' + @dbname + ' detached'" +
+                        "\r\n END" +
+                        "\r\n IF @bakExist = 1" +
+                        "\r\n BEGIN" +
+                        "\r\n     PRINT 'Database ' + @dbname + ' restored'" +
+                        "\r\n END" +
+                        "\r\n IF @mdfExist = 1 AND @ldfExist = 1" +
+                        "\r\n BEGIN" +
+                        "\r\n     PRINT 'Database ' + @dbname + ' attached'" +
+                        "\r\n END";
+
+            line = new UTF8Encoding(true).GetBytes(scriptText);
+            fileStream.Write(line, 0, line.Length);
+
+        }
+
         private void GenerateRegularScript(string folderSQL, string folderScript) {
             Byte[] line;
             String[] procedures = { "AttachTID", "DetachTID", "RestoreTID" };
@@ -456,5 +655,22 @@ namespace Utilities.Forms
         }
         #endregion Script Generator
 
+        private void button1_Click(object sender, EventArgs e) {
+            string procedureName, folderScript, folderSQL;
+
+            procedureName = txtProcedureName.Text;
+            folderScript = txtScriptFolder.Text + "\\" + txtScriptName.Text + ".sql";
+            folderSQL = txtFolderSQL.Text;
+
+            string directoryScript = folderScript.Substring(0, folderScript.LastIndexOf('\\'));
+
+            if (Directory.Exists(directoryScript) == false) {
+                Directory.CreateDirectory(directoryScript);
+            }
+            if (File.Exists(folderScript)) {
+                File.Delete(folderScript);
+            }
+            GenerateUnifiedScript_test(folderSQL, folderScript, procedureName);
+        }
     }
 }

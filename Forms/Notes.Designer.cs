@@ -25,139 +25,68 @@ namespace Utilities {
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Notes));
-            this.txtFunctionality = new System.Windows.Forms.TextBox();
-            this.grpFuctionality = new System.Windows.Forms.GroupBox();
-            this.grpInitials = new System.Windows.Forms.GroupBox();
-            this.txtInitials = new System.Windows.Forms.TextBox();
-            this.grpSqlServerInstall = new System.Windows.Forms.GroupBox();
-            this.txtSqlServerInstall = new System.Windows.Forms.TextBox();
-            this.grpFuctionality.SuspendLayout();
-            this.grpInitials.SuspendLayout();
-            this.grpSqlServerInstall.SuspendLayout();
+            this.txtFunctionality = new System.Windows.Forms.RichTextBox();
+            this.txtSqlServerInstall = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // txtFunctionality
             // 
+            this.txtFunctionality.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.txtFunctionality.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtFunctionality.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFunctionality.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtFunctionality.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtFunctionality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(57)))), ((int)(((byte)(255)))));
-            this.txtFunctionality.Location = new System.Drawing.Point(12, 26);
-            this.txtFunctionality.Multiline = true;
+            this.txtFunctionality.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtFunctionality.ForeColor = System.Drawing.Color.White;
+            this.txtFunctionality.Location = new System.Drawing.Point(20, 20);
             this.txtFunctionality.Name = "txtFunctionality";
             this.txtFunctionality.ReadOnly = true;
-            this.txtFunctionality.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtFunctionality.Size = new System.Drawing.Size(660, 299);
-            this.txtFunctionality.TabIndex = 0;
-            this.txtFunctionality.TabStop = false;
-            // 
-            // grpFuctionality
-            // 
-            this.grpFuctionality.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.grpFuctionality.Controls.Add(this.txtFunctionality);
-            this.grpFuctionality.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpFuctionality.ForeColor = System.Drawing.Color.White;
-            this.grpFuctionality.Location = new System.Drawing.Point(12, 13);
-            this.grpFuctionality.Name = "grpFuctionality";
-            this.grpFuctionality.Size = new System.Drawing.Size(687, 342);
-            this.grpFuctionality.TabIndex = 0;
-            this.grpFuctionality.TabStop = false;
-            this.grpFuctionality.Text = "Functionality";
-            // 
-            // grpInitials
-            // 
-            this.grpInitials.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.grpInitials.Controls.Add(this.txtInitials);
-            this.grpInitials.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpInitials.ForeColor = System.Drawing.Color.White;
-            this.grpInitials.Location = new System.Drawing.Point(12, 363);
-            this.grpInitials.Name = "grpInitials";
-            this.grpInitials.Size = new System.Drawing.Size(687, 84);
-            this.grpInitials.TabIndex = 1;
-            this.grpInitials.TabStop = false;
-            this.grpInitials.Text = "Initials";
-            // 
-            // txtInitials
-            // 
-            this.txtInitials.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.txtInitials.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtInitials.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtInitials.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtInitials.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(57)))), ((int)(((byte)(255)))));
-            this.txtInitials.Location = new System.Drawing.Point(12, 26);
-            this.txtInitials.Multiline = true;
-            this.txtInitials.Name = "txtInitials";
-            this.txtInitials.ReadOnly = true;
-            this.txtInitials.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtInitials.Size = new System.Drawing.Size(660, 43);
-            this.txtInitials.TabIndex = 0;
-            this.txtInitials.TabStop = false;
-            // 
-            // grpSqlServerInstall
-            // 
-            this.grpSqlServerInstall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.grpSqlServerInstall.Controls.Add(this.txtSqlServerInstall);
-            this.grpSqlServerInstall.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpSqlServerInstall.ForeColor = System.Drawing.Color.White;
-            this.grpSqlServerInstall.Location = new System.Drawing.Point(705, 13);
-            this.grpSqlServerInstall.Name = "grpSqlServerInstall";
-            this.grpSqlServerInstall.Size = new System.Drawing.Size(409, 434);
-            this.grpSqlServerInstall.TabIndex = 2;
-            this.grpSqlServerInstall.TabStop = false;
-            this.grpSqlServerInstall.Text = "Sql Server Intall Guide";
+            this.txtFunctionality.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.txtFunctionality.Size = new System.Drawing.Size(390, 525);
+            this.txtFunctionality.TabIndex = 7;
+            this.txtFunctionality.Text = "";
             // 
             // txtSqlServerInstall
             // 
+            this.txtSqlServerInstall.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSqlServerInstall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtSqlServerInstall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSqlServerInstall.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtSqlServerInstall.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtSqlServerInstall.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(57)))), ((int)(((byte)(255)))));
-            this.txtSqlServerInstall.Location = new System.Drawing.Point(12, 26);
-            this.txtSqlServerInstall.Multiline = true;
+            this.txtSqlServerInstall.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtSqlServerInstall.ForeColor = System.Drawing.Color.White;
+            this.txtSqlServerInstall.Location = new System.Drawing.Point(416, 20);
             this.txtSqlServerInstall.Name = "txtSqlServerInstall";
             this.txtSqlServerInstall.ReadOnly = true;
-            this.txtSqlServerInstall.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtSqlServerInstall.Size = new System.Drawing.Size(385, 393);
-            this.txtSqlServerInstall.TabIndex = 0;
-            this.txtSqlServerInstall.TabStop = false;
+            this.txtSqlServerInstall.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.txtSqlServerInstall.Size = new System.Drawing.Size(354, 525);
+            this.txtSqlServerInstall.TabIndex = 8;
+            this.txtSqlServerInstall.Text = "";
             // 
             // Notes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.ClientSize = new System.Drawing.Size(1126, 459);
-            this.Controls.Add(this.grpSqlServerInstall);
-            this.Controls.Add(this.grpFuctionality);
-            this.Controls.Add(this.grpInitials);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ClientSize = new System.Drawing.Size(790, 570);
+            this.Controls.Add(this.txtSqlServerInstall);
+            this.Controls.Add(this.txtFunctionality);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.White;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Notes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Notes";
             this.Load += new System.EventHandler(this.Notes_Load);
-            this.grpFuctionality.ResumeLayout(false);
-            this.grpFuctionality.PerformLayout();
-            this.grpInitials.ResumeLayout(false);
-            this.grpInitials.PerformLayout();
-            this.grpSqlServerInstall.ResumeLayout(false);
-            this.grpSqlServerInstall.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtFunctionality;
-        private System.Windows.Forms.GroupBox grpFuctionality;
-        private System.Windows.Forms.GroupBox grpInitials;
-        private System.Windows.Forms.TextBox txtInitials;
-        private System.Windows.Forms.GroupBox grpSqlServerInstall;
-        private System.Windows.Forms.TextBox txtSqlServerInstall;
+        private System.Windows.Forms.RichTextBox txtFunctionality;
+        private System.Windows.Forms.RichTextBox txtSqlServerInstall;
     }
 }

@@ -57,10 +57,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="mnsMenuBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="sideMenuFileManagement.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAehJREFUWEft
+        l8suQ1EUhjuvVlqVpsqEt2GkwgMQMRETb2XgDVwaMROCRBCE4hGMkOP/9/5PU6fntnfrMuiXfGnX7lrr
+        rJzLblsY8W8J/DiFE2oxGLafF9dwSm38sb2CQGEmSg85hzV95Ift4zXAhV5voP+ZsD28BpiEvUM0leKG
+        rXcfQO97h7iF7kPYWu97IMqV0vKjwmENkLtPF9W5F0ZQm9EAfzpABc4qzI85OlD4++j4Aw2gFn49VJu7
+        GKljsKjQYBoAhQaEVVhRmIypBApTQVoRtuERHIcrcBeG7MFV2IBn8ASmD4EEg8JUkDYNue+TN73G8aHX
+        S1hXeTw2z+kSzMB3UxQET3AJ1mQL3kHCnOzvBpvrNMCGrQg6sKrlLlyDz0wAm1pORokuAxzYiqCleAE+
+        wHs4r7VlSNqMU1Fi5gBK66WkdZ6JkEet8Qb9Btdj0ec+A5S1/mJDQ0drwx8gBKnHtiJYVMxL8Ao5SHgJ
+        eGOSQ8apKNFlgC1bYX4V9z3jXIP8dUTWtZyMEtPYUaoBcRNGH8MSLMPoY9hQWTI2N5VPOKdcPmLc4Ui4
+        2cQRfsY/MNnbcV7QrA75X4CNud2uwX0YwvtjG/IscVDmpu+ErqBh35cMYoNCA0Lm9W1UP4I5OlAYQ6Hw
+        BdPkdw2rPYQgAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>53</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAIAEBAAAAEAIABoBAAAJgAAACAgAAABACAAqBAAAI4EAAAoAAAAEAAAACAAAAABACAAAAAAADAE

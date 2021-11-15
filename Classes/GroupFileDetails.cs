@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Teste {
-    class GroupFileDetails {
+namespace Utilities.Classes
+{
+    class GroupFileDetails
+    {
 
         private readonly List<FileDetails> list;
 
