@@ -1,6 +1,6 @@
 ﻿
 namespace Utilities {
-    partial class Notes {
+    partial class Help {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Utilities {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Notes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Help));
             this.txtFunctionality = new System.Windows.Forms.RichTextBox();
             this.txtSqlServerInstall = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
@@ -37,11 +37,11 @@ namespace Utilities {
             this.txtFunctionality.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFunctionality.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtFunctionality.ForeColor = System.Drawing.Color.White;
-            this.txtFunctionality.Location = new System.Drawing.Point(20, 20);
+            this.txtFunctionality.Location = new System.Drawing.Point(20, 25);
             this.txtFunctionality.Name = "txtFunctionality";
             this.txtFunctionality.ReadOnly = true;
             this.txtFunctionality.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtFunctionality.Size = new System.Drawing.Size(390, 525);
+            this.txtFunctionality.Size = new System.Drawing.Size(403, 525);
             this.txtFunctionality.TabIndex = 7;
             this.txtFunctionality.Text = "";
             // 
@@ -54,15 +54,16 @@ namespace Utilities {
             this.txtSqlServerInstall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSqlServerInstall.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtSqlServerInstall.ForeColor = System.Drawing.Color.White;
-            this.txtSqlServerInstall.Location = new System.Drawing.Point(416, 20);
+            this.txtSqlServerInstall.Location = new System.Drawing.Point(429, 25);
             this.txtSqlServerInstall.Name = "txtSqlServerInstall";
             this.txtSqlServerInstall.ReadOnly = true;
             this.txtSqlServerInstall.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtSqlServerInstall.Size = new System.Drawing.Size(354, 525);
+            this.txtSqlServerInstall.Size = new System.Drawing.Size(341, 525);
             this.txtSqlServerInstall.TabIndex = 8;
             this.txtSqlServerInstall.Text = "";
+            this.txtSqlServerInstall.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.txtSqlServerInstall_LinkClicked);
             // 
-            // Notes
+            // Help
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -76,7 +77,7 @@ namespace Utilities {
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Notes";
+            this.Name = "Help";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Notes";
             this.Load += new System.EventHandler(this.Notes_Load);

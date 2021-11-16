@@ -39,7 +39,7 @@
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTime.Location = new System.Drawing.Point(20, 20);
+            this.lblTime.Location = new System.Drawing.Point(20, 25);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(39, 16);
             this.lblTime.TabIndex = 0;
@@ -50,7 +50,7 @@
             this.txtTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtTime.ForeColor = System.Drawing.Color.White;
-            this.txtTime.Location = new System.Drawing.Point(65, 17);
+            this.txtTime.Location = new System.Drawing.Point(65, 22);
             this.txtTime.Mask = "00:00";
             this.txtTime.Name = "txtTime";
             this.txtTime.PromptChar = ' ';
@@ -64,7 +64,7 @@
             // 
             this.lblClarionTime.AutoSize = true;
             this.lblClarionTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblClarionTime.Location = new System.Drawing.Point(157, 20);
+            this.lblClarionTime.Location = new System.Drawing.Point(157, 25);
             this.lblClarionTime.Name = "lblClarionTime";
             this.lblClarionTime.Size = new System.Drawing.Size(83, 16);
             this.lblClarionTime.TabIndex = 2;
@@ -75,7 +75,7 @@
             this.txtClarionTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtClarionTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtClarionTime.ForeColor = System.Drawing.Color.White;
-            this.txtClarionTime.Location = new System.Drawing.Point(246, 17);
+            this.txtClarionTime.Location = new System.Drawing.Point(245, 22);
             this.txtClarionTime.Mask = "000000000";
             this.txtClarionTime.Name = "txtClarionTime";
             this.txtClarionTime.PromptChar = ' ';
@@ -90,7 +90,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDate.Location = new System.Drawing.Point(353, 19);
+            this.lblDate.Location = new System.Drawing.Point(21, 57);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(38, 16);
             this.lblDate.TabIndex = 4;
@@ -101,7 +101,7 @@
             this.txtDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtDate.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDate.ForeColor = System.Drawing.Color.White;
-            this.txtDate.Location = new System.Drawing.Point(397, 16);
+            this.txtDate.Location = new System.Drawing.Point(65, 54);
             this.txtDate.Mask = "00/00/0000";
             this.txtDate.Name = "txtDate";
             this.txtDate.PromptChar = ' ';
@@ -115,7 +115,7 @@
             // 
             this.lblClarionDate.AutoSize = true;
             this.lblClarionDate.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblClarionDate.Location = new System.Drawing.Point(489, 19);
+            this.lblClarionDate.Location = new System.Drawing.Point(157, 57);
             this.lblClarionDate.Name = "lblClarionDate";
             this.lblClarionDate.Size = new System.Drawing.Size(82, 16);
             this.lblClarionDate.TabIndex = 6;
@@ -126,7 +126,7 @@
             this.txtClarionDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtClarionDate.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtClarionDate.ForeColor = System.Drawing.Color.White;
-            this.txtClarionDate.Location = new System.Drawing.Point(577, 16);
+            this.txtClarionDate.Location = new System.Drawing.Point(245, 54);
             this.txtClarionDate.Mask = "0000000";
             this.txtClarionDate.Name = "txtClarionDate";
             this.txtClarionDate.PromptChar = ' ';

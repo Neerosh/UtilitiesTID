@@ -53,7 +53,7 @@
             this.lblFromMoveFiles.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFromMoveFiles.ForeColor = System.Drawing.SystemColors.Control;
             this.lblFromMoveFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblFromMoveFiles.Location = new System.Drawing.Point(20, 17);
+            this.lblFromMoveFiles.Location = new System.Drawing.Point(20, 25);
             this.lblFromMoveFiles.Name = "lblFromMoveFiles";
             this.lblFromMoveFiles.Size = new System.Drawing.Size(81, 16);
             this.lblFromMoveFiles.TabIndex = 0;
@@ -66,7 +66,7 @@
             this.txtFromFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtFromFolder.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtFromFolder.ForeColor = System.Drawing.Color.White;
-            this.txtFromFolder.Location = new System.Drawing.Point(105, 14);
+            this.txtFromFolder.Location = new System.Drawing.Point(105, 22);
             this.txtFromFolder.Name = "txtFromFolder";
             this.txtFromFolder.Size = new System.Drawing.Size(472, 22);
             this.txtFromFolder.TabIndex = 1;
@@ -81,7 +81,7 @@
             this.btnFromBrowser.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnFromBrowser.ForeColor = System.Drawing.Color.White;
             this.btnFromBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnFromBrowser.Location = new System.Drawing.Point(583, 13);
+            this.btnFromBrowser.Location = new System.Drawing.Point(583, 21);
             this.btnFromBrowser.Name = "btnFromBrowser";
             this.btnFromBrowser.Size = new System.Drawing.Size(30, 25);
             this.btnFromBrowser.TabIndex = 2;
@@ -97,7 +97,7 @@
             this.lblToMoveFiles.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblToMoveFiles.ForeColor = System.Drawing.SystemColors.Control;
             this.lblToMoveFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblToMoveFiles.Location = new System.Drawing.Point(37, 48);
+            this.lblToMoveFiles.Location = new System.Drawing.Point(37, 56);
             this.lblToMoveFiles.Name = "lblToMoveFiles";
             this.lblToMoveFiles.Size = new System.Drawing.Size(64, 16);
             this.lblToMoveFiles.TabIndex = 3;
@@ -110,7 +110,7 @@
             this.txtToFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtToFolder.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtToFolder.ForeColor = System.Drawing.Color.White;
-            this.txtToFolder.Location = new System.Drawing.Point(105, 46);
+            this.txtToFolder.Location = new System.Drawing.Point(105, 53);
             this.txtToFolder.Name = "txtToFolder";
             this.txtToFolder.Size = new System.Drawing.Size(472, 22);
             this.txtToFolder.TabIndex = 4;
@@ -125,7 +125,7 @@
             this.btnToBrowser.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnToBrowser.ForeColor = System.Drawing.Color.White;
             this.btnToBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnToBrowser.Location = new System.Drawing.Point(583, 44);
+            this.btnToBrowser.Location = new System.Drawing.Point(583, 51);
             this.btnToBrowser.Name = "btnToBrowser";
             this.btnToBrowser.Size = new System.Drawing.Size(30, 25);
             this.btnToBrowser.TabIndex = 5;
@@ -141,7 +141,7 @@
             this.lblOrderBy.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblOrderBy.ForeColor = System.Drawing.SystemColors.Control;
             this.lblOrderBy.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblOrderBy.Location = new System.Drawing.Point(38, 81);
+            this.lblOrderBy.Location = new System.Drawing.Point(38, 89);
             this.lblOrderBy.Name = "lblOrderBy";
             this.lblOrderBy.Size = new System.Drawing.Size(63, 16);
             this.lblOrderBy.TabIndex = 6;
@@ -158,7 +158,7 @@
             this.cboOrderBy.Items.AddRange(new object[] {
             "Ascending",
             "Descending"});
-            this.cboOrderBy.Location = new System.Drawing.Point(242, 77);
+            this.cboOrderBy.Location = new System.Drawing.Point(242, 86);
             this.cboOrderBy.Name = "cboOrderBy";
             this.cboOrderBy.Size = new System.Drawing.Size(124, 24);
             this.cboOrderBy.TabIndex = 8;
@@ -174,7 +174,7 @@
             this.cboOrderField.Items.AddRange(new object[] {
             "Creation Time",
             "Filename"});
-            this.cboOrderField.Location = new System.Drawing.Point(105, 77);
+            this.cboOrderField.Location = new System.Drawing.Point(105, 87);
             this.cboOrderField.Name = "cboOrderField";
             this.cboOrderField.Size = new System.Drawing.Size(123, 24);
             this.cboOrderField.TabIndex = 7;
@@ -187,7 +187,7 @@
             this.lblFileExtension.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFileExtension.ForeColor = System.Drawing.SystemColors.Control;
             this.lblFileExtension.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblFileExtension.Location = new System.Drawing.Point(27, 112);
+            this.lblFileExtension.Location = new System.Drawing.Point(27, 120);
             this.lblFileExtension.Name = "lblFileExtension";
             this.lblFileExtension.Size = new System.Drawing.Size(74, 16);
             this.lblFileExtension.TabIndex = 9;
@@ -208,7 +208,7 @@
             "*.dll",
             "*.exe ",
             "*.tps"});
-            this.cboFileExtension.Location = new System.Drawing.Point(105, 109);
+            this.cboFileExtension.Location = new System.Drawing.Point(105, 117);
             this.cboFileExtension.Name = "cboFileExtension";
             this.cboFileExtension.Size = new System.Drawing.Size(123, 24);
             this.cboFileExtension.TabIndex = 10;
@@ -219,7 +219,7 @@
             this.chkSubFolders.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkSubFolders.ForeColor = System.Drawing.Color.White;
             this.chkSubFolders.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkSubFolders.Location = new System.Drawing.Point(242, 111);
+            this.chkSubFolders.Location = new System.Drawing.Point(242, 119);
             this.chkSubFolders.Name = "chkSubFolders";
             this.chkSubFolders.Size = new System.Drawing.Size(128, 20);
             this.chkSubFolders.TabIndex = 11;

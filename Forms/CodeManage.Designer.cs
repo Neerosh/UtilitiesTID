@@ -62,7 +62,7 @@
             this.lblName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblName.ForeColor = System.Drawing.SystemColors.Control;
             this.lblName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblName.Location = new System.Drawing.Point(20, 26);
+            this.lblName.Location = new System.Drawing.Point(20, 25);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(45, 16);
             this.lblName.TabIndex = 3;
@@ -73,7 +73,7 @@
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtName.ForeColor = System.Drawing.Color.White;
-            this.txtName.Location = new System.Drawing.Point(67, 23);
+            this.txtName.Location = new System.Drawing.Point(67, 22);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(300, 22);
             this.txtName.TabIndex = 4;
@@ -84,7 +84,7 @@
             this.lblType.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblType.ForeColor = System.Drawing.SystemColors.Control;
             this.lblType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblType.Location = new System.Drawing.Point(382, 26);
+            this.lblType.Location = new System.Drawing.Point(382, 25);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(38, 16);
             this.lblType.TabIndex = 2;
@@ -95,7 +95,7 @@
             this.txtType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtType.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtType.ForeColor = System.Drawing.Color.White;
-            this.txtType.Location = new System.Drawing.Point(426, 23);
+            this.txtType.Location = new System.Drawing.Point(426, 22);
             this.txtType.Name = "txtType";
             this.txtType.Size = new System.Drawing.Size(179, 22);
             this.txtType.TabIndex = 5;
@@ -198,6 +198,8 @@
             this.dgvCodes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
             this.dgvCodes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvCodes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.dgvCodes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCodes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvCodes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCodes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

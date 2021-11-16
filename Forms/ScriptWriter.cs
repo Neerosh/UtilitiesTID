@@ -335,7 +335,7 @@ namespace Utilities.Forms
             Byte[] line;
             string scriptText;
 
-                scriptText = "\r\n EXEC " + procedureName + "Sub @database ='"+database+ "' @output = @out OUTPUT" +
+                scriptText = "\r\n EXEC " + procedureName + "Sub @database ='"+database+ "', @output = @out OUTPUT" +
                              "\r\n";
 
                 line = new UTF8Encoding(true).GetBytes(scriptText);
@@ -669,6 +669,9 @@ namespace Utilities.Forms
             }
             if (File.Exists(folderScript)) {
                 File.Delete(folderScript);
+            }
+            if (procedureName.Equals("")) {
+                procedureName = "test";
             }
             GenerateUnifiedScript_test(folderSQL, folderScript, procedureName);
         }

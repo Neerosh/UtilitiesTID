@@ -1,14 +1,15 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Utilities {
-    public partial class Notes : Form {
+    public partial class Help : Form {
         private readonly string[] arrayDeleteDuplicates;
 
-        public Notes() {
+        public Help() {
             InitializeComponent();
         }
-        public Notes(string[] arrayDeleteDuplicates) {
+        public Help(string[] arrayDeleteDuplicates) {
             InitializeComponent();
             this.arrayDeleteDuplicates = arrayDeleteDuplicates;
         }
@@ -52,6 +53,13 @@ namespace Utilities {
 
             txtFunctionality.Text = functionality;
             txtSqlServerInstall.Text = sqlInstallGuide;
+        }
+
+        private void txtSqlServerInstall_LinkClicked(object sender, LinkClickedEventArgs e) {
+            var psi = new ProcessStartInfo();
+            psi.UseShellExecute = true;
+            psi.FileName = e.LinkText;
+            Process.Start(psi);
         }
     }
 }

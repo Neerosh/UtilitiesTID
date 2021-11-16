@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -26,22 +27,22 @@ namespace Teste
             CustomizeDesign();
             //SetStyle(ControlStyles.ResizeRedraw, true);
             Padding = new Padding(2);
-            BackColor = Color.FromArgb(20, 20, 20);
+            BackColor = Color.FromArgb(50, 50, 50);
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
-            Rectangle rect = Screen.GetWorkingArea(this);
-            MaximizedBounds = Screen.GetWorkingArea(this);
         }
 
         private void btnClose_Click(object sender, EventArgs e) {
             Close();
         }
         private void btnMaximize_Click(object sender, EventArgs e) {
-            if (WindowState == FormWindowState.Maximized) {
-                WindowState = FormWindowState.Normal;
+            if (this.WindowState == FormWindowState.Normal) {
+                formSize = this.ClientSize;
+                this.WindowState = FormWindowState.Maximized;
             } else {
-                WindowState = FormWindowState.Maximized;
+                this.WindowState = FormWindowState.Normal;
+                this.Size = formSize;
             }
         }
         private void btnMinimize_Click(object sender, EventArgs e) {
@@ -204,12 +205,20 @@ namespace Teste
             OpenChildForm(new ClarionConversion());
         }
         private void sideMenuHelp_Click(object sender, EventArgs e) {
-            OpenChildForm(new Notes(arrayForbiddenCombinations));
+            OpenChildForm(new Utilities.Help(arrayForbiddenCombinations));
         }
         #endregion
 
         private void Main_Resize(object sender, EventArgs e) {
             AdjustForm();
+        }
+
+        private void linkCreator_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            var psi = new ProcessStartInfo();
+            psi.UseShellExecute = true;
+            psi.FileName = "https://github.com/Neerosh";
+            Process.Start(psi);
+            linkCreator.LinkVisited = true;
         }
     }
 }

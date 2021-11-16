@@ -69,7 +69,7 @@ namespace Utilities.Forms {
             this.txtProcedureName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtProcedureName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtProcedureName.ForeColor = System.Drawing.Color.White;
-            this.txtProcedureName.Location = new System.Drawing.Point(111, 109);
+            this.txtProcedureName.Location = new System.Drawing.Point(111, 121);
             this.txtProcedureName.MaxLength = 20;
             this.txtProcedureName.Name = "txtProcedureName";
             this.txtProcedureName.Size = new System.Drawing.Size(200, 22);
@@ -81,7 +81,7 @@ namespace Utilities.Forms {
             this.lblProcedureName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblProcedureName.ForeColor = System.Drawing.SystemColors.Control;
             this.lblProcedureName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblProcedureName.Location = new System.Drawing.Point(25, 112);
+            this.lblProcedureName.Location = new System.Drawing.Point(25, 124);
             this.lblProcedureName.Name = "lblProcedureName";
             this.lblProcedureName.Size = new System.Drawing.Size(80, 16);
             this.lblProcedureName.TabIndex = 15;
@@ -92,7 +92,7 @@ namespace Utilities.Forms {
             this.txtScriptName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtScriptName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtScriptName.ForeColor = System.Drawing.Color.White;
-            this.txtScriptName.Location = new System.Drawing.Point(111, 81);
+            this.txtScriptName.Location = new System.Drawing.Point(111, 89);
             this.txtScriptName.MaxLength = 20;
             this.txtScriptName.Name = "txtScriptName";
             this.txtScriptName.Size = new System.Drawing.Size(200, 22);
@@ -104,7 +104,7 @@ namespace Utilities.Forms {
             this.lblScriptName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblScriptName.ForeColor = System.Drawing.SystemColors.Control;
             this.lblScriptName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScriptName.Location = new System.Drawing.Point(22, 84);
+            this.lblScriptName.Location = new System.Drawing.Point(22, 92);
             this.lblScriptName.Name = "lblScriptName";
             this.lblScriptName.Size = new System.Drawing.Size(83, 16);
             this.lblScriptName.TabIndex = 13;
@@ -120,7 +120,7 @@ namespace Utilities.Forms {
             this.btnScriptFolderBrowser.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnScriptFolderBrowser.ForeColor = System.Drawing.Color.White;
             this.btnScriptFolderBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnScriptFolderBrowser.Location = new System.Drawing.Point(589, 52);
+            this.btnScriptFolderBrowser.Location = new System.Drawing.Point(589, 56);
             this.btnScriptFolderBrowser.Name = "btnScriptFolderBrowser";
             this.btnScriptFolderBrowser.Size = new System.Drawing.Size(30, 25);
             this.btnScriptFolderBrowser.TabIndex = 12;
@@ -152,7 +152,7 @@ namespace Utilities.Forms {
             this.lblScriptFolder.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblScriptFolder.ForeColor = System.Drawing.SystemColors.Control;
             this.lblScriptFolder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScriptFolder.Location = new System.Drawing.Point(20, 56);
+            this.lblScriptFolder.Location = new System.Drawing.Point(20, 60);
             this.lblScriptFolder.Name = "lblScriptFolder";
             this.lblScriptFolder.Size = new System.Drawing.Size(85, 16);
             this.lblScriptFolder.TabIndex = 9;
@@ -165,7 +165,7 @@ namespace Utilities.Forms {
             this.txtScriptFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtScriptFolder.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtScriptFolder.ForeColor = System.Drawing.Color.White;
-            this.txtScriptFolder.Location = new System.Drawing.Point(111, 53);
+            this.txtScriptFolder.Location = new System.Drawing.Point(111, 57);
             this.txtScriptFolder.Name = "txtScriptFolder";
             this.txtScriptFolder.Size = new System.Drawing.Size(472, 22);
             this.txtScriptFolder.TabIndex = 10;
