@@ -79,7 +79,7 @@ namespace Teste
             this.linkCreator.AutoSize = true;
             this.linkCreator.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.linkCreator.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(228)))), ((int)(((byte)(0)))));
-            this.linkCreator.Location = new System.Drawing.Point(10, 575);
+            this.linkCreator.Location = new System.Drawing.Point(12, 560);
             this.linkCreator.Name = "linkCreator";
             this.linkCreator.Size = new System.Drawing.Size(129, 16);
             this.linkCreator.TabIndex = 7;
@@ -91,6 +91,7 @@ namespace Teste
             // sideMenuHelp
             // 
             this.sideMenuHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.sideMenuHelp.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.sideMenuHelp.Dock = System.Windows.Forms.DockStyle.Top;
             this.sideMenuHelp.FlatAppearance.BorderSize = 0;
             this.sideMenuHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -111,6 +112,7 @@ namespace Teste
             // sideMenuConvertClarion
             // 
             this.sideMenuConvertClarion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.sideMenuConvertClarion.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.sideMenuConvertClarion.Dock = System.Windows.Forms.DockStyle.Top;
             this.sideMenuConvertClarion.FlatAppearance.BorderSize = 0;
             this.sideMenuConvertClarion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -131,6 +133,7 @@ namespace Teste
             // sideMenuScriptWriter
             // 
             this.sideMenuScriptWriter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.sideMenuScriptWriter.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.sideMenuScriptWriter.Dock = System.Windows.Forms.DockStyle.Top;
             this.sideMenuScriptWriter.FlatAppearance.BorderSize = 0;
             this.sideMenuScriptWriter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -161,6 +164,7 @@ namespace Teste
             // menuSubManageCodes
             // 
             this.menuSubManageCodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.menuSubManageCodes.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.menuSubManageCodes.Dock = System.Windows.Forms.DockStyle.Top;
             this.menuSubManageCodes.FlatAppearance.BorderSize = 0;
             this.menuSubManageCodes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
@@ -183,6 +187,7 @@ namespace Teste
             // menuSubCopyToClipboard
             // 
             this.menuSubCopyToClipboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.menuSubCopyToClipboard.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.menuSubCopyToClipboard.Dock = System.Windows.Forms.DockStyle.Top;
             this.menuSubCopyToClipboard.FlatAppearance.BorderSize = 0;
             this.menuSubCopyToClipboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
@@ -205,6 +210,7 @@ namespace Teste
             // sideMenuCodes
             // 
             this.sideMenuCodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.sideMenuCodes.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.sideMenuCodes.Dock = System.Windows.Forms.DockStyle.Top;
             this.sideMenuCodes.FlatAppearance.BorderSize = 0;
             this.sideMenuCodes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -225,6 +231,7 @@ namespace Teste
             // sideMenuFileManagement
             // 
             this.sideMenuFileManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.sideMenuFileManagement.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.sideMenuFileManagement.Dock = System.Windows.Forms.DockStyle.Top;
             this.sideMenuFileManagement.FlatAppearance.BorderSize = 0;
             this.sideMenuFileManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

@@ -220,5 +220,9 @@ namespace Teste
             Process.Start(psi);
             linkCreator.LinkVisited = true;
         }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e) {
+
+        }
     }
 }
