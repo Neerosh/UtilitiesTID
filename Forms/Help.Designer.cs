@@ -79,7 +79,7 @@ namespace Utilities {
             this.MaximizeBox = false;
             this.Name = "Help";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Notes";
+            this.Text = "Help";
             this.Load += new System.EventHandler(this.Notes_Load);
             this.ResumeLayout(false);
 

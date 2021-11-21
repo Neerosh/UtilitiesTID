@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.WindowsAPICodePack.Dialogs;
 using Utilities;
 using Utilities.Classes;
 using Utilities.Forms;
@@ -27,7 +20,7 @@ namespace Teste
             CustomizeDesign();
             //SetStyle(ControlStyles.ResizeRedraw, true);
             Padding = new Padding(2);
-            BackColor = Color.FromArgb(50, 50, 50);
+            BackColor = Color.FromArgb(60, 60, 60);
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
@@ -37,12 +30,12 @@ namespace Teste
             Close();
         }
         private void btnMaximize_Click(object sender, EventArgs e) {
-            if (this.WindowState == FormWindowState.Normal) {
-                formSize = this.ClientSize;
-                this.WindowState = FormWindowState.Maximized;
+            if (WindowState == FormWindowState.Normal) {
+                formSize = ClientSize;
+                WindowState = FormWindowState.Maximized;
             } else {
-                this.WindowState = FormWindowState.Normal;
-                this.Size = formSize;
+                WindowState = FormWindowState.Normal;
+                Size = formSize;
             }
         }
         private void btnMinimize_Click(object sender, EventArgs e) {
@@ -171,6 +164,28 @@ namespace Teste
                 subMenu.Visible = false;
             }
         }
+        private void PaintSelectedMenuItem(Button selectedButton) {
+            foreach (Control control in panelSideMenu.Controls) {
+                if (control is Panel) { 
+                    foreach (Control control1 in control.Controls) {
+                        if (control1 is Button) {
+                            if (control1 == selectedButton) {
+                                control1.BackColor = Color.FromArgb(153, 0, 0);
+                            } else {
+                                control1.BackColor = Color.FromArgb(20, 20, 20);
+                            }
+                        }
+                    }
+                } 
+                if (control is Button){ 
+                    if (control == selectedButton) {
+                            control.BackColor = Color.FromArgb(153, 0, 0);
+                    } else {
+                        control.BackColor = Color.FromArgb(35, 35, 35);
+                    }
+                }
+            }
+        }
         private void OpenChildForm(Form childForm) {
             if (activeForm != null) {
                 activeForm.Close();
@@ -183,29 +198,38 @@ namespace Teste
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+
+            lblOpenWindow.Text = childForm.Text;
         }
 
-        private void sideMenuFileManagement_Click(object sender, EventArgs e) {
+        private void BtnFileManagement_Click(object sender, EventArgs e) {
             HideSubmenu();
             OpenChildForm(new FileManagement());
+            PaintSelectedMenuItem(btnFileManagement);
         }
-        private void sideMenuCodes_Click(object sender, EventArgs e) {
+        private void BtnCodes_Click(object sender, EventArgs e) {
             ShowSubMenu(panelSubMenuCodes);
+            PaintSelectedMenuItem(btnCodes);
         }
-        private void menuSubCopyToClipboard_Click(object sender, EventArgs e) {
+        private void BtnCodesCopyToClipboard_Click(object sender, EventArgs e) {
             OpenChildForm(new CodeToClipboard());
+            PaintSelectedMenuItem(btnCodesCopyToClipboard);
         }
-        private void menuSubManageCodes_Click(object sender, EventArgs e) {
+        private void BtnCodesManage_Click(object sender, EventArgs e) {
             OpenChildForm(new CodeManage());
+            PaintSelectedMenuItem(btnCodesManage);
         }
-        private void sideMenuScriptWriter_Click(object sender, EventArgs e) {
+        private void BtnScriptWriter_Click(object sender, EventArgs e) {
             OpenChildForm(new ScriptWriter());
+            PaintSelectedMenuItem(btnScriptWriter);
         }
-        private void sideMenuConvertClarion_Click(object sender, EventArgs e) {
+        private void BtnConvertClarion_Click(object sender, EventArgs e) {
             OpenChildForm(new ClarionConversion());
+            PaintSelectedMenuItem(btnConvertClarion);
         }
-        private void sideMenuHelp_Click(object sender, EventArgs e) {
+        private void BtnHelp_Click(object sender, EventArgs e) {
             OpenChildForm(new Utilities.Help(arrayForbiddenCombinations));
+            PaintSelectedMenuItem(btnHelp);
         }
         #endregion
 
@@ -213,16 +237,14 @@ namespace Teste
             AdjustForm();
         }
 
-        private void linkCreator_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            var psi = new ProcessStartInfo();
-            psi.UseShellExecute = true;
-            psi.FileName = "https://github.com/Neerosh";
+        private void LinkCreator_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            ProcessStartInfo psi = new ProcessStartInfo {
+                UseShellExecute = true,
+                FileName = "https://github.com/Neerosh"
+            };
             Process.Start(psi);
             linkCreator.LinkVisited = true;
         }
 
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e) {
-
-        }
     }
 }

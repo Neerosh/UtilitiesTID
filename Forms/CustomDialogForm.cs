@@ -37,6 +37,9 @@ namespace Utilities.Forms
                     panelConfirmation.Visible = false;
                     break;
             }
+            if (!rtbMessage.Text.Last().Equals(".") || rtbMessage.Text.Last().Equals("?")) {
+                rtbMessage.Text = rtbMessage.Text+".";
+            }
         }
         #region Movable Window
         public const int WM_NCLBUTTONDOWN = 0xA1;

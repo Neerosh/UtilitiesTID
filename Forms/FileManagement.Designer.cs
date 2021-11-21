@@ -369,7 +369,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FileManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FileManagement";
+            this.Text = "File Management";
             this.ResumeLayout(false);
             this.PerformLayout();
 

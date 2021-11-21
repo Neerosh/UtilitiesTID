@@ -32,38 +32,42 @@ namespace Teste
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.linkCreator = new System.Windows.Forms.LinkLabel();
-            this.sideMenuHelp = new System.Windows.Forms.Button();
-            this.sideMenuConvertClarion = new System.Windows.Forms.Button();
-            this.sideMenuScriptWriter = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnConvertClarion = new System.Windows.Forms.Button();
+            this.btnScriptWriter = new System.Windows.Forms.Button();
             this.panelSubMenuCodes = new System.Windows.Forms.Panel();
-            this.menuSubManageCodes = new System.Windows.Forms.Button();
-            this.menuSubCopyToClipboard = new System.Windows.Forms.Button();
-            this.sideMenuCodes = new System.Windows.Forms.Button();
-            this.sideMenuFileManagement = new System.Windows.Forms.Button();
+            this.btnCodesManage = new System.Windows.Forms.Button();
+            this.btnCodesCopyToClipboard = new System.Windows.Forms.Button();
+            this.btnCodes = new System.Windows.Forms.Button();
+            this.btnFileManagement = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.picLogo = new System.Windows.Forms.PictureBox();
             this.lblNameLogo = new System.Windows.Forms.Label();
-            this.panelImageLogo = new System.Windows.Forms.Panel();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.panelBar = new System.Windows.Forms.Panel();
+            this.lblOpenWindow = new System.Windows.Forms.Label();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.panelBorderChildForm = new System.Windows.Forms.Panel();
             this.panelSideMenu.SuspendLayout();
             this.panelSubMenuCodes.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.panelBar.SuspendLayout();
+            this.panelBorderChildForm.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideMenu
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.panelSideMenu.Controls.Add(this.linkCreator);
-            this.panelSideMenu.Controls.Add(this.sideMenuHelp);
-            this.panelSideMenu.Controls.Add(this.sideMenuConvertClarion);
-            this.panelSideMenu.Controls.Add(this.sideMenuScriptWriter);
+            this.panelSideMenu.Controls.Add(this.btnHelp);
+            this.panelSideMenu.Controls.Add(this.btnConvertClarion);
+            this.panelSideMenu.Controls.Add(this.btnScriptWriter);
             this.panelSideMenu.Controls.Add(this.panelSubMenuCodes);
-            this.panelSideMenu.Controls.Add(this.sideMenuCodes);
-            this.panelSideMenu.Controls.Add(this.sideMenuFileManagement);
+            this.panelSideMenu.Controls.Add(this.btnCodes);
+            this.panelSideMenu.Controls.Add(this.btnFileManagement);
             this.panelSideMenu.Controls.Add(this.panelLogo);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
@@ -86,180 +90,194 @@ namespace Teste
             this.linkCreator.TabStop = true;
             this.linkCreator.Text = "Created by Nerrosh";
             this.linkCreator.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(157)))), ((int)(((byte)(0)))));
-            this.linkCreator.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCreator_LinkClicked);
+            this.linkCreator.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkCreator_LinkClicked);
             // 
-            // sideMenuHelp
+            // btnHelp
             // 
-            this.sideMenuHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.sideMenuHelp.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.sideMenuHelp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sideMenuHelp.FlatAppearance.BorderSize = 0;
-            this.sideMenuHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sideMenuHelp.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.sideMenuHelp.ForeColor = System.Drawing.Color.White;
-            this.sideMenuHelp.Image = global::Utilities.Properties.Resources.icons8_info_squared_32;
-            this.sideMenuHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sideMenuHelp.Location = new System.Drawing.Point(0, 330);
-            this.sideMenuHelp.Name = "sideMenuHelp";
-            this.sideMenuHelp.Size = new System.Drawing.Size(210, 45);
-            this.sideMenuHelp.TabIndex = 6;
-            this.sideMenuHelp.Text = "Help";
-            this.sideMenuHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sideMenuHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.sideMenuHelp.UseVisualStyleBackColor = false;
-            this.sideMenuHelp.Click += new System.EventHandler(this.sideMenuHelp_Click);
+            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnHelp.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnHelp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHelp.FlatAppearance.BorderSize = 0;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnHelp.ForeColor = System.Drawing.Color.White;
+            this.btnHelp.Image = global::Utilities.Properties.Resources.icons8_info_squared_32;
+            this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.Location = new System.Drawing.Point(0, 333);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnHelp.Size = new System.Drawing.Size(210, 45);
+            this.btnHelp.TabIndex = 6;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.BtnHelp_Click);
             // 
-            // sideMenuConvertClarion
+            // btnConvertClarion
             // 
-            this.sideMenuConvertClarion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.sideMenuConvertClarion.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.sideMenuConvertClarion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sideMenuConvertClarion.FlatAppearance.BorderSize = 0;
-            this.sideMenuConvertClarion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sideMenuConvertClarion.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.sideMenuConvertClarion.ForeColor = System.Drawing.Color.White;
-            this.sideMenuConvertClarion.Image = global::Utilities.Properties.Resources.icons8_clock_32;
-            this.sideMenuConvertClarion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sideMenuConvertClarion.Location = new System.Drawing.Point(0, 285);
-            this.sideMenuConvertClarion.Name = "sideMenuConvertClarion";
-            this.sideMenuConvertClarion.Size = new System.Drawing.Size(210, 45);
-            this.sideMenuConvertClarion.TabIndex = 5;
-            this.sideMenuConvertClarion.Text = "Clarion Conversion";
-            this.sideMenuConvertClarion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sideMenuConvertClarion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.sideMenuConvertClarion.UseVisualStyleBackColor = false;
-            this.sideMenuConvertClarion.Click += new System.EventHandler(this.sideMenuConvertClarion_Click);
+            this.btnConvertClarion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnConvertClarion.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnConvertClarion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConvertClarion.FlatAppearance.BorderSize = 0;
+            this.btnConvertClarion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConvertClarion.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnConvertClarion.ForeColor = System.Drawing.Color.White;
+            this.btnConvertClarion.Image = global::Utilities.Properties.Resources.icons8_clock_32;
+            this.btnConvertClarion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConvertClarion.Location = new System.Drawing.Point(0, 288);
+            this.btnConvertClarion.Name = "btnConvertClarion";
+            this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnConvertClarion.Size = new System.Drawing.Size(210, 45);
+            this.btnConvertClarion.TabIndex = 5;
+            this.btnConvertClarion.Text = "Clarion Conversion";
+            this.btnConvertClarion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConvertClarion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConvertClarion.UseVisualStyleBackColor = false;
+            this.btnConvertClarion.Click += new System.EventHandler(this.BtnConvertClarion_Click);
             // 
-            // sideMenuScriptWriter
+            // btnScriptWriter
             // 
-            this.sideMenuScriptWriter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.sideMenuScriptWriter.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.sideMenuScriptWriter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sideMenuScriptWriter.FlatAppearance.BorderSize = 0;
-            this.sideMenuScriptWriter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sideMenuScriptWriter.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.sideMenuScriptWriter.ForeColor = System.Drawing.Color.White;
-            this.sideMenuScriptWriter.Image = global::Utilities.Properties.Resources.icons8_scroll_32;
-            this.sideMenuScriptWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sideMenuScriptWriter.Location = new System.Drawing.Point(0, 240);
-            this.sideMenuScriptWriter.Name = "sideMenuScriptWriter";
-            this.sideMenuScriptWriter.Size = new System.Drawing.Size(210, 45);
-            this.sideMenuScriptWriter.TabIndex = 4;
-            this.sideMenuScriptWriter.Text = "Script Writer";
-            this.sideMenuScriptWriter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sideMenuScriptWriter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.sideMenuScriptWriter.UseVisualStyleBackColor = false;
-            this.sideMenuScriptWriter.Click += new System.EventHandler(this.sideMenuScriptWriter_Click);
+            this.btnScriptWriter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnScriptWriter.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnScriptWriter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnScriptWriter.FlatAppearance.BorderSize = 0;
+            this.btnScriptWriter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScriptWriter.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnScriptWriter.ForeColor = System.Drawing.Color.White;
+            this.btnScriptWriter.Image = global::Utilities.Properties.Resources.icons8_scroll_32;
+            this.btnScriptWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnScriptWriter.Location = new System.Drawing.Point(0, 243);
+            this.btnScriptWriter.Name = "btnScriptWriter";
+            this.btnScriptWriter.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnScriptWriter.Size = new System.Drawing.Size(210, 45);
+            this.btnScriptWriter.TabIndex = 4;
+            this.btnScriptWriter.Text = "Script Writer";
+            this.btnScriptWriter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnScriptWriter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnScriptWriter.UseVisualStyleBackColor = false;
+            this.btnScriptWriter.Click += new System.EventHandler(this.BtnScriptWriter_Click);
             // 
             // panelSubMenuCodes
             // 
-            this.panelSubMenuCodes.Controls.Add(this.menuSubManageCodes);
-            this.panelSubMenuCodes.Controls.Add(this.menuSubCopyToClipboard);
+            this.panelSubMenuCodes.Controls.Add(this.btnCodesManage);
+            this.panelSubMenuCodes.Controls.Add(this.btnCodesCopyToClipboard);
             this.panelSubMenuCodes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 160);
+            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 163);
             this.panelSubMenuCodes.Name = "panelSubMenuCodes";
             this.panelSubMenuCodes.Size = new System.Drawing.Size(210, 80);
             this.panelSubMenuCodes.TabIndex = 3;
             // 
-            // menuSubManageCodes
+            // btnCodesManage
             // 
-            this.menuSubManageCodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.menuSubManageCodes.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.menuSubManageCodes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menuSubManageCodes.FlatAppearance.BorderSize = 0;
-            this.menuSubManageCodes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.menuSubManageCodes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menuSubManageCodes.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.menuSubManageCodes.ForeColor = System.Drawing.Color.White;
-            this.menuSubManageCodes.Image = global::Utilities.Properties.Resources.icons8_manage_clipboard_32;
-            this.menuSubManageCodes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuSubManageCodes.Location = new System.Drawing.Point(0, 40);
-            this.menuSubManageCodes.Name = "menuSubManageCodes";
-            this.menuSubManageCodes.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.menuSubManageCodes.Size = new System.Drawing.Size(210, 40);
-            this.menuSubManageCodes.TabIndex = 1;
-            this.menuSubManageCodes.Text = "Manage";
-            this.menuSubManageCodes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuSubManageCodes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.menuSubManageCodes.UseVisualStyleBackColor = false;
-            this.menuSubManageCodes.Click += new System.EventHandler(this.menuSubManageCodes_Click);
+            this.btnCodesManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnCodesManage.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnCodesManage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCodesManage.FlatAppearance.BorderSize = 0;
+            this.btnCodesManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCodesManage.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCodesManage.ForeColor = System.Drawing.Color.White;
+            this.btnCodesManage.Image = global::Utilities.Properties.Resources.icons8_manage_clipboard_32;
+            this.btnCodesManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCodesManage.Location = new System.Drawing.Point(0, 40);
+            this.btnCodesManage.Name = "btnCodesManage";
+            this.btnCodesManage.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnCodesManage.Size = new System.Drawing.Size(210, 40);
+            this.btnCodesManage.TabIndex = 1;
+            this.btnCodesManage.Text = "Manage";
+            this.btnCodesManage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCodesManage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCodesManage.UseVisualStyleBackColor = false;
+            this.btnCodesManage.Click += new System.EventHandler(this.BtnCodesManage_Click);
             // 
-            // menuSubCopyToClipboard
+            // btnCodesCopyToClipboard
             // 
-            this.menuSubCopyToClipboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.menuSubCopyToClipboard.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.menuSubCopyToClipboard.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menuSubCopyToClipboard.FlatAppearance.BorderSize = 0;
-            this.menuSubCopyToClipboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.menuSubCopyToClipboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menuSubCopyToClipboard.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.menuSubCopyToClipboard.ForeColor = System.Drawing.Color.White;
-            this.menuSubCopyToClipboard.Image = global::Utilities.Properties.Resources.icons8_copy_to_clipboard_32;
-            this.menuSubCopyToClipboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuSubCopyToClipboard.Location = new System.Drawing.Point(0, 0);
-            this.menuSubCopyToClipboard.Name = "menuSubCopyToClipboard";
-            this.menuSubCopyToClipboard.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.menuSubCopyToClipboard.Size = new System.Drawing.Size(210, 40);
-            this.menuSubCopyToClipboard.TabIndex = 0;
-            this.menuSubCopyToClipboard.Text = "Copy To Clipboard";
-            this.menuSubCopyToClipboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuSubCopyToClipboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.menuSubCopyToClipboard.UseVisualStyleBackColor = false;
-            this.menuSubCopyToClipboard.Click += new System.EventHandler(this.menuSubCopyToClipboard_Click);
+            this.btnCodesCopyToClipboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnCodesCopyToClipboard.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnCodesCopyToClipboard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCodesCopyToClipboard.FlatAppearance.BorderSize = 0;
+            this.btnCodesCopyToClipboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCodesCopyToClipboard.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCodesCopyToClipboard.ForeColor = System.Drawing.Color.White;
+            this.btnCodesCopyToClipboard.Image = global::Utilities.Properties.Resources.icons8_copy_to_clipboard_32;
+            this.btnCodesCopyToClipboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCodesCopyToClipboard.Location = new System.Drawing.Point(0, 0);
+            this.btnCodesCopyToClipboard.Name = "btnCodesCopyToClipboard";
+            this.btnCodesCopyToClipboard.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnCodesCopyToClipboard.Size = new System.Drawing.Size(210, 40);
+            this.btnCodesCopyToClipboard.TabIndex = 0;
+            this.btnCodesCopyToClipboard.Text = "Copy To Clipboard";
+            this.btnCodesCopyToClipboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCodesCopyToClipboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCodesCopyToClipboard.UseVisualStyleBackColor = false;
+            this.btnCodesCopyToClipboard.Click += new System.EventHandler(this.BtnCodesCopyToClipboard_Click);
             // 
-            // sideMenuCodes
+            // btnCodes
             // 
-            this.sideMenuCodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.sideMenuCodes.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.sideMenuCodes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sideMenuCodes.FlatAppearance.BorderSize = 0;
-            this.sideMenuCodes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sideMenuCodes.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.sideMenuCodes.ForeColor = System.Drawing.Color.White;
-            this.sideMenuCodes.Image = global::Utilities.Properties.Resources.icons8_data_32;
-            this.sideMenuCodes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sideMenuCodes.Location = new System.Drawing.Point(0, 115);
-            this.sideMenuCodes.Name = "sideMenuCodes";
-            this.sideMenuCodes.Size = new System.Drawing.Size(210, 45);
-            this.sideMenuCodes.TabIndex = 2;
-            this.sideMenuCodes.Text = "Codes";
-            this.sideMenuCodes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sideMenuCodes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.sideMenuCodes.UseVisualStyleBackColor = false;
-            this.sideMenuCodes.Click += new System.EventHandler(this.sideMenuCodes_Click);
+            this.btnCodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnCodes.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnCodes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCodes.FlatAppearance.BorderSize = 0;
+            this.btnCodes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCodes.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCodes.ForeColor = System.Drawing.Color.White;
+            this.btnCodes.Image = global::Utilities.Properties.Resources.icons8_data_32;
+            this.btnCodes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCodes.Location = new System.Drawing.Point(0, 118);
+            this.btnCodes.Name = "btnCodes";
+            this.btnCodes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnCodes.Size = new System.Drawing.Size(210, 45);
+            this.btnCodes.TabIndex = 2;
+            this.btnCodes.Text = "Codes";
+            this.btnCodes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCodes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCodes.UseVisualStyleBackColor = false;
+            this.btnCodes.Click += new System.EventHandler(this.BtnCodes_Click);
             // 
-            // sideMenuFileManagement
+            // btnFileManagement
             // 
-            this.sideMenuFileManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.sideMenuFileManagement.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.sideMenuFileManagement.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sideMenuFileManagement.FlatAppearance.BorderSize = 0;
-            this.sideMenuFileManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sideMenuFileManagement.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.sideMenuFileManagement.ForeColor = System.Drawing.Color.White;
-            this.sideMenuFileManagement.Image = ((System.Drawing.Image)(resources.GetObject("sideMenuFileManagement.Image")));
-            this.sideMenuFileManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sideMenuFileManagement.Location = new System.Drawing.Point(0, 70);
-            this.sideMenuFileManagement.Name = "sideMenuFileManagement";
-            this.sideMenuFileManagement.Size = new System.Drawing.Size(210, 45);
-            this.sideMenuFileManagement.TabIndex = 1;
-            this.sideMenuFileManagement.Text = "Manage Files";
-            this.sideMenuFileManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sideMenuFileManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.sideMenuFileManagement.UseVisualStyleBackColor = false;
-            this.sideMenuFileManagement.Click += new System.EventHandler(this.sideMenuFileManagement_Click);
+            this.btnFileManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnFileManagement.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnFileManagement.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFileManagement.FlatAppearance.BorderSize = 0;
+            this.btnFileManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFileManagement.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnFileManagement.ForeColor = System.Drawing.Color.White;
+            this.btnFileManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnFileManagement.Image")));
+            this.btnFileManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileManagement.Location = new System.Drawing.Point(0, 73);
+            this.btnFileManagement.Name = "btnFileManagement";
+            this.btnFileManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnFileManagement.Size = new System.Drawing.Size(210, 45);
+            this.btnFileManagement.TabIndex = 1;
+            this.btnFileManagement.Text = "File Management";
+            this.btnFileManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileManagement.UseVisualStyleBackColor = false;
+            this.btnFileManagement.Click += new System.EventHandler(this.BtnFileManagement_Click);
             // 
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.panelLogo.Controls.Add(this.picLogo);
             this.panelLogo.Controls.Add(this.lblNameLogo);
-            this.panelLogo.Controls.Add(this.panelImageLogo);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(210, 70);
+            this.panelLogo.Size = new System.Drawing.Size(210, 73);
             this.panelLogo.TabIndex = 0;
             this.panelLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
+            // 
+            // picLogo
+            // 
+            this.picLogo.Image = global::Utilities.Properties.Resources.icons8_maintenance_64;
+            this.picLogo.Location = new System.Drawing.Point(12, 12);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(45, 45);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogo.TabIndex = 2;
+            this.picLogo.TabStop = false;
+            this.picLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
             // lblNameLogo
             // 
@@ -267,7 +285,7 @@ namespace Teste
             this.lblNameLogo.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNameLogo.ForeColor = System.Drawing.Color.White;
             this.lblNameLogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblNameLogo.Location = new System.Drawing.Point(66, 22);
+            this.lblNameLogo.Location = new System.Drawing.Point(63, 21);
             this.lblNameLogo.Name = "lblNameLogo";
             this.lblNameLogo.Size = new System.Drawing.Size(128, 26);
             this.lblNameLogo.TabIndex = 1;
@@ -275,30 +293,19 @@ namespace Teste
             this.lblNameLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblNameLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
-            // panelImageLogo
-            // 
-            this.panelImageLogo.BackgroundImage = global::Utilities.Properties.Resources.icons8_maintenance_64;
-            this.panelImageLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelImageLogo.Location = new System.Drawing.Point(10, 10);
-            this.panelImageLogo.Name = "panelImageLogo";
-            this.panelImageLogo.Size = new System.Drawing.Size(50, 50);
-            this.panelImageLogo.TabIndex = 0;
-            this.panelImageLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
-            // 
             // panelChildForm
             // 
-            this.panelChildForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.panelChildForm.Location = new System.Drawing.Point(210, 30);
+            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildForm.Location = new System.Drawing.Point(2, 2);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(790, 570);
+            this.panelChildForm.Size = new System.Drawing.Size(788, 568);
             this.panelChildForm.TabIndex = 8;
             // 
             // panelBar
             // 
             this.panelBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.panelBar.Controls.Add(this.lblOpenWindow);
             this.panelBar.Controls.Add(this.btnMinimize);
             this.panelBar.Controls.Add(this.btnMaximize);
             this.panelBar.Controls.Add(this.btnClose);
@@ -309,8 +316,20 @@ namespace Teste
             this.panelBar.TabIndex = 9;
             this.panelBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
+            // lblOpenWindow
+            // 
+            this.lblOpenWindow.AutoSize = true;
+            this.lblOpenWindow.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblOpenWindow.ForeColor = System.Drawing.Color.White;
+            this.lblOpenWindow.Location = new System.Drawing.Point(6, 7);
+            this.lblOpenWindow.Name = "lblOpenWindow";
+            this.lblOpenWindow.Size = new System.Drawing.Size(0, 16);
+            this.lblOpenWindow.TabIndex = 7;
+            this.lblOpenWindow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
+            // 
             // btnMinimize
             // 
+            this.btnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMinimize.FlatAppearance.BorderSize = 0;
             this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
@@ -320,11 +339,12 @@ namespace Teste
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(30, 30);
             this.btnMinimize.TabIndex = 6;
-            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // btnMaximize
             // 
+            this.btnMaximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.btnMaximize.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMaximize.FlatAppearance.BorderSize = 0;
             this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
@@ -334,11 +354,12 @@ namespace Teste
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(30, 30);
             this.btnMaximize.TabIndex = 5;
-            this.btnMaximize.UseVisualStyleBackColor = true;
+            this.btnMaximize.UseVisualStyleBackColor = false;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
             // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
@@ -348,8 +369,19 @@ namespace Teste
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(30, 30);
             this.btnClose.TabIndex = 4;
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // panelBorderChildForm
+            // 
+            this.panelBorderChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.panelBorderChildForm.Controls.Add(this.panelChildForm);
+            this.panelBorderChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBorderChildForm.Location = new System.Drawing.Point(210, 30);
+            this.panelBorderChildForm.Name = "panelBorderChildForm";
+            this.panelBorderChildForm.Padding = new System.Windows.Forms.Padding(2, 2, 0, 0);
+            this.panelBorderChildForm.Size = new System.Drawing.Size(790, 570);
+            this.panelBorderChildForm.TabIndex = 0;
             // 
             // Main
             // 
@@ -357,7 +389,7 @@ namespace Teste
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(1000, 600);
-            this.Controls.Add(this.panelChildForm);
+            this.Controls.Add(this.panelBorderChildForm);
             this.Controls.Add(this.panelBar);
             this.Controls.Add(this.panelSideMenu);
             this.DoubleBuffered = true;
@@ -376,7 +408,10 @@ namespace Teste
             this.panelSubMenuCodes.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.panelBar.ResumeLayout(false);
+            this.panelBar.PerformLayout();
+            this.panelBorderChildForm.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -384,22 +419,24 @@ namespace Teste
         #endregion
         private System.Windows.Forms.Panel panelSideMenu;
         private System.Windows.Forms.Panel panelSubMenuCodes;
-        private System.Windows.Forms.Button menuSubManageCodes;
-        private System.Windows.Forms.Button menuSubCopyToClipboard;
-        private System.Windows.Forms.Button sideMenuCodes;
-        private System.Windows.Forms.Button sideMenuFileManagement;
+        private System.Windows.Forms.Button btnCodesManage;
+        private System.Windows.Forms.Button btnCodesCopyToClipboard;
+        private System.Windows.Forms.Button btnCodes;
+        private System.Windows.Forms.Button btnFileManagement;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Button sideMenuScriptWriter;
+        private System.Windows.Forms.Button btnScriptWriter;
         private System.Windows.Forms.Panel panelChildForm;
-        private System.Windows.Forms.Button sideMenuHelp;
+        private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Label lblNameLogo;
-        private System.Windows.Forms.Panel panelImageLogo;
-        private System.Windows.Forms.Button sideMenuConvertClarion;
+        private System.Windows.Forms.Button btnConvertClarion;
         private System.Windows.Forms.Panel panelBar;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.LinkLabel linkCreator;
+        private System.Windows.Forms.PictureBox picLogo;
+        private System.Windows.Forms.Panel panelBorderChildForm;
+        private System.Windows.Forms.Label lblOpenWindow;
     }
 }
 

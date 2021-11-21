@@ -38,12 +38,14 @@
             this.btnNo = new System.Windows.Forms.Button();
             this.btnYes = new System.Windows.Forms.Button();
             this.panelOk = new System.Windows.Forms.Panel();
+            this.panelTitleBorder = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picMessage)).BeginInit();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.panelMessage.SuspendLayout();
             this.panelConfirmation.SuspendLayout();
             this.panelOk.SuspendLayout();
+            this.panelTitleBorder.SuspendLayout();
             this.SuspendLayout();
             // 
             // picMessage
@@ -60,12 +62,12 @@
             // 
             // panelTitle
             // 
-            this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.panelTitle.Controls.Add(this.picIcon);
             this.panelTitle.Controls.Add(this.lblTitle);
             this.panelTitle.Controls.Add(this.btnClose);
-            this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitle.Location = new System.Drawing.Point(0, 0);
+            this.panelTitle.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelTitle.Location = new System.Drawing.Point(0, -2);
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(450, 30);
             this.panelTitle.TabIndex = 1;
@@ -100,6 +102,7 @@
             // 
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Image = global::Utilities.Properties.Resources.icons8_close_window_32;
@@ -131,7 +134,7 @@
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnOk.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnOk.ForeColor = System.Drawing.SystemColors.Control;
@@ -173,7 +176,7 @@
             this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnNo.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNo.ForeColor = System.Drawing.SystemColors.Control;
@@ -191,7 +194,7 @@
             this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnYes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnYes.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnYes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnYes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYes.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnYes.ForeColor = System.Drawing.SystemColors.Control;
@@ -213,6 +216,17 @@
             this.panelOk.Size = new System.Drawing.Size(450, 40);
             this.panelOk.TabIndex = 4;
             // 
+            // panelTitleBorder
+            // 
+            this.panelTitleBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.panelTitleBorder.Controls.Add(this.panelTitle);
+            this.panelTitleBorder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitleBorder.Location = new System.Drawing.Point(0, 0);
+            this.panelTitleBorder.Name = "panelTitleBorder";
+            this.panelTitleBorder.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.panelTitleBorder.Size = new System.Drawing.Size(450, 30);
+            this.panelTitleBorder.TabIndex = 3;
+            // 
             // CustomDialogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -221,7 +235,7 @@
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(450, 180);
             this.Controls.Add(this.panelMessage);
-            this.Controls.Add(this.panelTitle);
+            this.Controls.Add(this.panelTitleBorder);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -239,6 +253,7 @@
             this.panelMessage.ResumeLayout(false);
             this.panelConfirmation.ResumeLayout(false);
             this.panelOk.ResumeLayout(false);
+            this.panelTitleBorder.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -257,5 +272,6 @@
         private System.Windows.Forms.Button btnNo;
         private System.Windows.Forms.Button btnYes;
         private System.Windows.Forms.Panel panelOk;
+        private System.Windows.Forms.Panel panelTitleBorder;
     }
 }

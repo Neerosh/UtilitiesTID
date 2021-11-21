@@ -340,7 +340,7 @@ namespace Utilities.Classes
                                "\r\nEND";
                         break;
                     case "Cla Table (Key)":
-                        text = "LOC:Chave = FORMAT(GLO: Matricula, @n03) & ' ' & FORMAT(TODAY(), @D06b) &|" +
+                        text = "LOC:Chave = FORMAT(GLO:Matricula, @n03) & ' ' & FORMAT(TODAY(), @D06b) &|" +
                                "\r\n' ' & FORMAT(CLOCK(), @T04b) & '_'" +
                                "\r\nRandoms# = 30 - LEN(CLIP(LOC:Chave))" +
                                "\r\nLOOP I# = 1 TO Randoms#" +

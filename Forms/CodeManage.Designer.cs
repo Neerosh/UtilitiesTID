@@ -280,7 +280,7 @@
             this.Name = "CodeManage";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Manage Codes";
+            this.Text = "Codes > Manage";
             this.Load += new System.EventHandler(this.CodeManage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCodes)).EndInit();
             this.ResumeLayout(false);

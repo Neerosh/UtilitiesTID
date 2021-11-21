@@ -155,7 +155,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ClarionConversion";
-            this.Text = "ClarionConversion";
+            this.Text = "Clarion Conversion";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -381,7 +381,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Code to Clipboard</value>
+    <value>Codes &gt; Copy to Clipboard</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>CodeToClipboard</value>
