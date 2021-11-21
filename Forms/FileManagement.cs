@@ -84,8 +84,9 @@ namespace Utilities.Forms
         private void WriteLog(string text) {
             txtLogProcess.Invoke(new MethodInvoker(delegate {
                 if (txtLogProcess.Text.Equals("")) {
-                    txtLogProcess.ForeColor = Color.FromArgb(146, 57, 255);
+                    txtLogProcess.ForeColor = Color.White;
                     txtLogProcess.AppendText(text);
+                    txtLogProcess.ScrollToCaret();
                     return;
                 }
 
@@ -99,13 +100,14 @@ namespace Utilities.Forms
 
         }
         private async Task TaskFileManagement(string action) {
-            if (!action.Equals("Move") && !action.Equals("Copy") && !action.Equals("DeleteDuplicates")) { return; }
+            if (!action.Equals("Move") && !action.Equals("Copy") && !action.Equals("DeleteDuplicated")) { return; }
 
             string orderBy, orderProperty, fromFolder, toFolder, filterExtension;
             bool checkSubDirectories;
             int maxPercent;
             FileInfo[] directoryFiles;
             List<GroupFileDetails> listGroupedFiles = new List<GroupFileDetails>();
+            DialogResult result = 0;
 
             orderBy = cboOrderBy.SelectedItem.ToString();
             orderProperty = cboOrderField.SelectedItem.ToString();
@@ -123,48 +125,69 @@ namespace Utilities.Forms
                         throw new Exception("From folder must be a valid folder path");
                     }
 
-                    if (action.Equals("Move") || action.Equals("Copy")) {
+                    switch (action) {
+                        case "Move":
+                            if (Directory.Exists(toFolder) == false) {
+                                throw new Exception("To folder must be a valid folder path");
+                            }
 
-                        if (Directory.Exists(toFolder) == false) {
-                            throw new Exception("To folder must be a valid folder path");
-                        }
+                            directoryFiles = GetDirectoryFiles(fromFolder, filterExtension, orderProperty, orderBy);
+                            if (directoryFiles.Length == 0) {
+                                WriteLog("No files to " + action);
+                                return;
+                            }
 
-                        directoryFiles = GetDirectoryFiles(fromFolder, filterExtension, orderProperty, orderBy);
-
-                        if (directoryFiles.Length == 0) {
-                            WriteLog("No files to " + action);
-                            return;
-                        }
-
-                        if (action.Equals("Move")) {
+                            result = CustomDialog.ShowCustomDialog("Moving files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "question");
+                            if (result == DialogResult.Cancel) {
+                                WriteLog("Process Aborted");
+                                return;
+                            }
                             MoveFiles(directoryFiles, toFolder);
-                            return;
-                        }
+                            break;
+                        case "Copy":
+                            if (Directory.Exists(toFolder) == false) {
+                                throw new Exception("To folder must be a valid folder path");
+                            }
 
-                        CopyFiles(directoryFiles, toFolder);
-                        return;
+                            directoryFiles = GetDirectoryFiles(fromFolder, filterExtension, orderProperty, orderBy);
+                            if (directoryFiles.Length == 0) {
+                                WriteLog("No files to " + action);
+                                return;
+                            }
+
+                            result = CustomDialog.ShowCustomDialog("Copying files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "question");
+                            if (result == DialogResult.Cancel) {
+                                WriteLog("Process Aborted");
+                                return;
+                            }
+                            CopyFiles(directoryFiles, toFolder);
+                            break;
+                        case "DeleteDuplicated":
+                            result = CustomDialog.ShowCustomDialog("Deleting duplicated files on:\n" + fromFolder + "\nAre you sure?", "Confirmation", "question");
+                            if (result == DialogResult.Cancel) {
+                                WriteLog("Process Aborted");
+                                return;
+                            }
+                            List<DirectoryInfo> directories = GetDirectories(fromFolder, checkSubDirectories);
+                            if (directories.Count == 0) {
+                                WriteLog("No files found");
+                                return;
+                            }
+
+                            for (int i = 0; i < directories.Count; i++) {
+                                WriteLog("\r\nGrouping files from: " + directories[i].FullName);
+                                maxPercent = (i + 1) * 50 / directories.Count;
+                                directoryFiles = GetDirectoryFiles(directories[i].FullName, filterExtension, orderProperty, orderBy);
+                                GroupDirectoryFilesByHash(listGroupedFiles, directoryFiles, maxPercent);
+                            }
+
+                            if (listGroupedFiles.Count == 0) {
+                                WriteLog("No files found.");
+                                return;
+                            }
+                            DeleteDuplicatedFiles(listGroupedFiles);
+                            break;
                     }
-
-                    List<DirectoryInfo> directories = GetDirectories(fromFolder, checkSubDirectories);
-                    if (directories.Count == 0) {
-                        WriteLog("No files found");
-                        return;
-                    }
-
-                    for (int i = 0; i < directories.Count; i++) {
-                        WriteLog("\r\nGrouping files from: " + directories[i].FullName);
-                        maxPercent = (i + 1) * 50 / directories.Count;
-                        directoryFiles = GetDirectoryFiles(directories[i].FullName, filterExtension, orderProperty, orderBy);
-                        GroupDirectoryFilesByHash(listGroupedFiles, directoryFiles, maxPercent);
-                    }
-
-                    if (listGroupedFiles.Count == 0) {
-                        WriteLog("No files found.");
-                        return;
-                    }
-                    //skip first file from each group then delete the rest
-                    DeleteDuplicatedFiles(listGroupedFiles);
-
                 } catch (Exception e) {
                     WriteLog("Error: " + e.Message);
                 }
@@ -183,7 +206,7 @@ namespace Utilities.Forms
             return returnList;
         }
         private FileInfo[] GetDirectoryFiles(string folder, string filterExtension, string orderProperty, string orderBy) {
-            FileInfo[] directoryFiles;
+            FileInfo[] directoryFiles = null;
             List<FileInfo> listFiles = new List<FileInfo>();
             String[] filterExtensions;
             String[] filterName;
@@ -220,7 +243,6 @@ namespace Utilities.Forms
                 case "Filename;Descending":
                     if (filterExtensions == null && filterName == null) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.Name).ToArray();
-                        listFiles.AddRange(directoryFiles);
                         break;
                     }
 
@@ -228,7 +250,6 @@ namespace Utilities.Forms
                         foreach (string extension in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.Name)
                                                 .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
-                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -236,7 +257,6 @@ namespace Utilities.Forms
                         foreach (string name in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.Name)
                                                 .Where(file => file.Name.ToLower().Equals(name)).ToArray();
-                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -245,7 +265,6 @@ namespace Utilities.Forms
                 case "Filename;Ascending":
                     if (filterExtensions == null && filterName == null) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name).ToArray();
-                        listFiles.AddRange(directoryFiles);
                         break;
                     }
 
@@ -253,7 +272,6 @@ namespace Utilities.Forms
                         foreach (string extension in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name)
                                                 .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
-                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -261,7 +279,6 @@ namespace Utilities.Forms
                         foreach (string name in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name)
                                                 .Where(file => file.Name.ToLower().Equals(name)).ToArray();
-                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -271,7 +288,6 @@ namespace Utilities.Forms
 
                     if (filterExtensions == null && filterName == null) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.CreationTime).ToArray();
-                        listFiles.AddRange(directoryFiles);
                         break;
                     }
 
@@ -279,7 +295,6 @@ namespace Utilities.Forms
                         foreach (string extension in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.CreationTime)
                                                 .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
-                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -287,7 +302,6 @@ namespace Utilities.Forms
                         foreach (string name in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.CreationTime)
                                                 .Where(file => file.Name.ToLower().Equals(name)).ToArray();
-                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -296,7 +310,6 @@ namespace Utilities.Forms
 
                     if (filterExtensions == null && filterName == null) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.CreationTime).ToArray();
-                        listFiles.AddRange(directoryFiles);
                         break;
                     }
 
@@ -304,7 +317,6 @@ namespace Utilities.Forms
                         foreach (string extension in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.CreationTime)
                                                 .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
-                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -312,7 +324,6 @@ namespace Utilities.Forms
                         foreach (string name in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.CreationTime)
                                                 .Where(file => file.Name.ToLower().Equals(name)).ToArray();
-                            listFiles.AddRange(directoryFiles);
                         }
                     }
                     break;
@@ -321,7 +332,6 @@ namespace Utilities.Forms
 
                     if (filterExtensions == null && filterName == null) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name).ToArray();
-                        listFiles.AddRange(directoryFiles);
                         break;
                     }
 
@@ -329,7 +339,6 @@ namespace Utilities.Forms
                         foreach (string extension in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name)
                                                 .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
-                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -337,14 +346,16 @@ namespace Utilities.Forms
                         foreach (string name in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name)
                                                 .Where(file => file.Name.ToLower().Equals(name)).ToArray();
-                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
                     break;
             }
-
-            return listFiles.ToArray();
+            if (directoryFiles.Length > 0) {
+                listFiles.AddRange(directoryFiles);
+                return listFiles.ToArray();
+            }
+            return new FileInfo[0];
         }
         private void GroupDirectoryFilesByHash(List<GroupFileDetails> listGroupedFiles, FileInfo[] directoryFiles, int maxPercent) {
             string fileHash;
@@ -379,7 +390,6 @@ namespace Utilities.Forms
             bool contain;
             double totalBytesDeletedFiles = 0;
             int filesDeleted = 0;
-
             WriteLog("Deleting files...");
             for (int group = 0; group < listGroupedFiles.Count; group++) {
                 for (int list = 0; list < listGroupedFiles[group].ListCount(); list++) {
@@ -453,7 +463,7 @@ namespace Utilities.Forms
 
         private async void BtnDeleteDuplicate_Click(object sender, EventArgs e) {
             if (task == null || task.IsCompleted) {
-                task = TaskFileManagement("DeleteDuplicates");
+                task = TaskFileManagement("DeleteDuplicated");
                 await task;
                 return;
             }

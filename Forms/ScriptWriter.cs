@@ -49,6 +49,14 @@ namespace Utilities.Forms
         #region Script Writer
         private async Task TaskGenerateSQL(string scriptType) {
             if (!scriptType.Equals("Unified") && !scriptType.Equals("Regular")) { return; }
+            if (txtScriptFolder.Text.Equals("")) {
+                CustomDialog.ShowCustomDialog("Script folder not selected","Error Checking folders","error");
+                return; 
+            }
+            if (txtFolderSQL.Text.Equals("")) {
+                CustomDialog.ShowCustomDialog("SQL folder not selected", "Error Checking folders", "error");
+                return;
+            }
 
             string procedureName, folderScript, folderSQL;
 
@@ -82,9 +90,8 @@ namespace Utilities.Forms
                         folderScript = txtScriptFolder.Text + "\\UnifiedScript.sql";
                     }
                     GenerateUnifiedScript(folderSQL, folderScript, procedureName);
-
                 } catch (Exception e) {
-                    MessageBox.Show("Error: " + e.Message);
+                    CustomDialog.ShowCustomDialog(e.Message,"Error","error");
                 }
             });
         }
@@ -164,7 +171,7 @@ namespace Utilities.Forms
                 fileStream.Write(line, 0, line.Length);
 
             }
-            MessageBox.Show("Script generated: " + folderScript);
+            CustomDialog.ShowCustomDialog("Unified Script generated successfully: \n" + folderScript, "Success", "success");
 
         }
         private void WriteUnifiedCode(string database, FileStream fileStream, string folderSQL) {
@@ -328,8 +335,7 @@ namespace Utilities.Forms
                 fileStream.Write(line, 0, line.Length);
 
             }
-            MessageBox.Show("Script generated: " + folderScript);
-
+            CustomDialog.ShowCustomDialog("Unified Script generated successfully: " + folderScript, "Success","success");
         }
         private void WriteUnifiedScript_test(FileStream fileStream, string procedureName, string database) {
             Byte[] line;
@@ -524,7 +530,7 @@ namespace Utilities.Forms
                     fileStream.Write(line, 0, line.Length);
                 }
             }
-            MessageBox.Show("Script generated:\n" + folderScript);
+            CustomDialog.ShowCustomDialog("Regular Script generated successfully: \n" + folderScript, "Success", "success");
         }
         private void WriteRegularCode(string database, string folderSQL, FileStream fileStream, string action) {
             string fileText = "";
@@ -664,7 +670,7 @@ namespace Utilities.Forms
 
             string directoryScript = folderScript.Substring(0, folderScript.LastIndexOf('\\'));
 
-            if (Directory.Exists(directoryScript) == false) {
+            if (Directory.Exists(directoryScript) == false && !directoryScript.Equals("")) {
                 Directory.CreateDirectory(directoryScript);
             }
             if (File.Exists(folderScript)) {

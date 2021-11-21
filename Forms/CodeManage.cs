@@ -41,15 +41,6 @@ namespace Utilities.Forms
             }
         }
 
-        private bool ShowConfirmationDialog(string title, string message) {
-            DialogResult dr = MessageBox.Show(message, title, MessageBoxButtons.YesNo);
-            if (dr == DialogResult.Yes) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
         private void DgvCodes_SelectionChanged(object sender, EventArgs e) {
             if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
 
@@ -63,6 +54,7 @@ namespace Utilities.Forms
             txtType.Text = "";
         }
         private void BtnInsert_Click(object sender, EventArgs e) {
+            if (CustomDialog.ShowCustomDialog("Insert new code?", "Confirmation", "confirmation") == DialogResult.Cancel) { return; }
             int id;
             id = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
             Code code = new Code(id, txtName.Text,txtType.Text,txtCodeText.Text);
@@ -73,9 +65,11 @@ namespace Utilities.Forms
         }
         private void BtnUpdate_Click(object sender, EventArgs e) {
             if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
-            if (ShowConfirmationDialog("Update Code", "Update selected code?") == false) { return; }
             int id;
             id = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
+
+            if (CustomDialog.ShowCustomDialog("Update selected code?\nSelected: " + txtName.Text, "Confirmation", "confirmation") == DialogResult.Cancel) { return; }
+            
             Code code = new Code(id, txtName.Text, txtType.Text, txtCodeText.Text);
             code.FormatStrings();
             sqlite.UpdateCode(code);
@@ -84,7 +78,6 @@ namespace Utilities.Forms
         }
         private void BtnDelete_Click(object sender, EventArgs e) {
             if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
-            if (ShowConfirmationDialog("Delete Code","Delete selected code?") == false) { return; }
 
             string name, type, codeText;
             int selectedRow,id;
@@ -93,6 +86,8 @@ namespace Utilities.Forms
             type = dgvCodes.SelectedRows[0].Cells[2].Value.ToString();
             codeText = dgvCodes.SelectedRows[0].Cells[3].Value.ToString();
             selectedRow = dgvCodes.SelectedRows[0].Index;
+
+            if (CustomDialog.ShowCustomDialog("Delete selected code?\nSelected: "+ name, "Confirmation", "confirmation") == DialogResult.Cancel) { return; }
 
             Code code = new Code(id, name, type, codeText);
             code.FormatStrings();

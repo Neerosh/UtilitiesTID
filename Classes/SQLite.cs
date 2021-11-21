@@ -29,12 +29,12 @@ namespace Utilities.Classes
                 command.ExecuteNonQuery();
 
             } catch (Exception ex) {
-                MessageBox.Show("Error registering:\n" + ex.Message,"Error");
+                CustomDialog.ShowCustomDialog("Error registering:\n" + ex.Message, "Error","error");
                 connection.Close();
                 return;
             }
             connection.Close();
-            MessageBox.Show("Code sucessfuly registred.", "Sucess");
+            CustomDialog.ShowCustomDialog("Code sucessfuly registred.", "Success","success");
         }
         public void UpdateCode(Code code) {
             if (code == null) { return; }
@@ -45,12 +45,12 @@ namespace Utilities.Classes
                                       " WHERE ID  = " + code.ID;
                 command.ExecuteNonQuery();
             } catch (Exception ex) {
-                MessageBox.Show("Error updating:\n" + ex.Message, "Error");
+                CustomDialog.ShowCustomDialog("Error updating:\n" + ex.Message, "Error","error");
                 connection.Close();
                 return;
             }
             connection.Close();
-            MessageBox.Show("Code sucessfuly updated.", "Sucess");
+            CustomDialog.ShowCustomDialog("Code sucessfuly updated.", "Sucess", "sucess");
 
         }
         public void DeleteCode(Code code) {
@@ -63,12 +63,12 @@ namespace Utilities.Classes
                 command.ExecuteNonQuery();
 
             } catch (Exception ex) {
-                MessageBox.Show("Error deleting:\n" + ex.Message, "Error");
+                CustomDialog.ShowCustomDialog("Error deleting:\n" + ex.Message, "Error","error");
                 connection.Close();
                 return;
             }
             connection.Close();
-            MessageBox.Show("Code sucessfuly deleted.", "Sucess");
+            CustomDialog.ShowCustomDialog("Code sucessfuly deleted.", "Sucess","success");
         }
 
         public DataTable SelectAllCodes(string filterType) {
@@ -97,7 +97,7 @@ namespace Utilities.Classes
                 }
                 reader.Close();
             } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                CustomDialog.ShowCustomDialog(ex.Message,"Error","error");
             }
             connection.Close();
 
@@ -118,7 +118,7 @@ namespace Utilities.Classes
                 }
                 reader.Close();
             } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                CustomDialog.ShowCustomDialog(ex.Message,"Error","error");
             }
             connection.Close();
 
@@ -134,18 +134,11 @@ namespace Utilities.Classes
                                     "Code Varchar(2000) NOT NULL," +
                                     "Type Varchar(30) NOT NULL," +
                                     "UNIQUE (Name,Type)" +
-                                  //");"+
-                                  //"CREATE TABLE IF NOT EXISTS Notes ("+
-                                  //  "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                                  //  "Name Varchar(50) NOT NULL," +
-                                  //  "Note Varchar(2000) NOT NULL," +
-                                  //  "Type Varchar(30) NOT NULL," +
-                                  //  "UNIQUE (Name,Type)" +
                                   ");";
             try {
                 command.ExecuteNonQuery();
             } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                CustomDialog.ShowCustomDialog(ex.Message, "Error", "error");
             }
             connection.Close();
         }
@@ -160,12 +153,9 @@ namespace Utilities.Classes
                     command.CommandText = "INSERT OR IGNORE INTO Codes(Name,Code,Type) VALUES ('" + listCodes[i].Name + "','" + listCodes[i].CodeText + "','"+ listCodes[i].Type + "')";
                     command.ExecuteNonQuery();
                 }
-                //for (int i = 0; i < arrayClarionNotes.GetLength(0); i++) {
-                //    command.CommandText = "INSERT OR IGNORE INTO Notes(Name,Note,Type) VALUES ('" + arrayClarionNotes[i, 0] + "','" + arrayClarionNotes[i, 1] + "','Clarion')";
-                //    command.ExecuteNonQuery();
-                //}
+
             } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                CustomDialog.ShowCustomDialog(ex.Message, "Error", "error");
             }
             connection.Close();
         }
