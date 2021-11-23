@@ -31,7 +31,6 @@ namespace Teste
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.linkCreator = new System.Windows.Forms.LinkLabel();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnConvertClarion = new System.Windows.Forms.Button();
             this.btnScriptWriter = new System.Windows.Forms.Button();
@@ -40,61 +39,41 @@ namespace Teste
             this.btnCodesCopyToClipboard = new System.Windows.Forms.Button();
             this.btnCodes = new System.Windows.Forms.Button();
             this.btnFileManagement = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.lblNameLogo = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.panelBar = new System.Windows.Forms.Panel();
-            this.lblOpenWindow = new System.Windows.Forms.Label();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.panelBorderChildForm = new System.Windows.Forms.Panel();
             this.panelSideMenu.SuspendLayout();
             this.panelSubMenuCodes.SuspendLayout();
-            this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.panelBar.SuspendLayout();
-            this.panelBorderChildForm.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideMenu
             // 
-            this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.panelSideMenu.Controls.Add(this.linkCreator);
+            this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panelSideMenu.Controls.Add(this.btnHelp);
             this.panelSideMenu.Controls.Add(this.btnConvertClarion);
             this.panelSideMenu.Controls.Add(this.btnScriptWriter);
             this.panelSideMenu.Controls.Add(this.panelSubMenuCodes);
             this.panelSideMenu.Controls.Add(this.btnCodes);
             this.panelSideMenu.Controls.Add(this.btnFileManagement);
-            this.panelSideMenu.Controls.Add(this.panelLogo);
+            this.panelSideMenu.Controls.Add(this.btnMenu);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelSideMenu.ForeColor = System.Drawing.Color.White;
+            this.panelSideMenu.Location = new System.Drawing.Point(0, 23);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(210, 600);
+            this.panelSideMenu.Size = new System.Drawing.Size(210, 577);
             this.panelSideMenu.TabIndex = 6;
             this.panelSideMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
-            // linkCreator
-            // 
-            this.linkCreator.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(138)))), ((int)(((byte)(0)))));
-            this.linkCreator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.linkCreator.AutoSize = true;
-            this.linkCreator.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.linkCreator.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(228)))), ((int)(((byte)(0)))));
-            this.linkCreator.Location = new System.Drawing.Point(12, 560);
-            this.linkCreator.Name = "linkCreator";
-            this.linkCreator.Size = new System.Drawing.Size(129, 16);
-            this.linkCreator.TabIndex = 7;
-            this.linkCreator.TabStop = true;
-            this.linkCreator.Text = "Created by Nerrosh";
-            this.linkCreator.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(157)))), ((int)(((byte)(0)))));
-            this.linkCreator.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkCreator_LinkClicked);
-            // 
             // btnHelp
             // 
-            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.btnHelp.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnHelp.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHelp.FlatAppearance.BorderSize = 0;
@@ -103,10 +82,10 @@ namespace Teste
             this.btnHelp.ForeColor = System.Drawing.Color.White;
             this.btnHelp.Image = global::Utilities.Properties.Resources.icons8_info_squared_32;
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 333);
+            this.btnHelp.Location = new System.Drawing.Point(0, 290);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnHelp.Size = new System.Drawing.Size(210, 45);
+            this.btnHelp.Size = new System.Drawing.Size(210, 42);
             this.btnHelp.TabIndex = 6;
             this.btnHelp.Text = "Help";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -116,7 +95,7 @@ namespace Teste
             // 
             // btnConvertClarion
             // 
-            this.btnConvertClarion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnConvertClarion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.btnConvertClarion.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnConvertClarion.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnConvertClarion.FlatAppearance.BorderSize = 0;
@@ -125,10 +104,10 @@ namespace Teste
             this.btnConvertClarion.ForeColor = System.Drawing.Color.White;
             this.btnConvertClarion.Image = global::Utilities.Properties.Resources.icons8_clock_32;
             this.btnConvertClarion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertClarion.Location = new System.Drawing.Point(0, 288);
+            this.btnConvertClarion.Location = new System.Drawing.Point(0, 248);
             this.btnConvertClarion.Name = "btnConvertClarion";
             this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnConvertClarion.Size = new System.Drawing.Size(210, 45);
+            this.btnConvertClarion.Size = new System.Drawing.Size(210, 42);
             this.btnConvertClarion.TabIndex = 5;
             this.btnConvertClarion.Text = "Clarion Conversion";
             this.btnConvertClarion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -138,7 +117,7 @@ namespace Teste
             // 
             // btnScriptWriter
             // 
-            this.btnScriptWriter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnScriptWriter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.btnScriptWriter.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnScriptWriter.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnScriptWriter.FlatAppearance.BorderSize = 0;
@@ -147,10 +126,10 @@ namespace Teste
             this.btnScriptWriter.ForeColor = System.Drawing.Color.White;
             this.btnScriptWriter.Image = global::Utilities.Properties.Resources.icons8_scroll_32;
             this.btnScriptWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnScriptWriter.Location = new System.Drawing.Point(0, 243);
+            this.btnScriptWriter.Location = new System.Drawing.Point(0, 206);
             this.btnScriptWriter.Name = "btnScriptWriter";
             this.btnScriptWriter.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnScriptWriter.Size = new System.Drawing.Size(210, 45);
+            this.btnScriptWriter.Size = new System.Drawing.Size(210, 42);
             this.btnScriptWriter.TabIndex = 4;
             this.btnScriptWriter.Text = "Script Writer";
             this.btnScriptWriter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -163,14 +142,14 @@ namespace Teste
             this.panelSubMenuCodes.Controls.Add(this.btnCodesManage);
             this.panelSubMenuCodes.Controls.Add(this.btnCodesCopyToClipboard);
             this.panelSubMenuCodes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 163);
+            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 126);
             this.panelSubMenuCodes.Name = "panelSubMenuCodes";
             this.panelSubMenuCodes.Size = new System.Drawing.Size(210, 80);
             this.panelSubMenuCodes.TabIndex = 3;
             // 
             // btnCodesManage
             // 
-            this.btnCodesManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnCodesManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.btnCodesManage.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnCodesManage.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCodesManage.FlatAppearance.BorderSize = 0;
@@ -192,7 +171,7 @@ namespace Teste
             // 
             // btnCodesCopyToClipboard
             // 
-            this.btnCodesCopyToClipboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnCodesCopyToClipboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.btnCodesCopyToClipboard.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnCodesCopyToClipboard.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCodesCopyToClipboard.FlatAppearance.BorderSize = 0;
@@ -214,7 +193,7 @@ namespace Teste
             // 
             // btnCodes
             // 
-            this.btnCodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnCodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.btnCodes.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnCodes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCodes.FlatAppearance.BorderSize = 0;
@@ -223,10 +202,10 @@ namespace Teste
             this.btnCodes.ForeColor = System.Drawing.Color.White;
             this.btnCodes.Image = global::Utilities.Properties.Resources.icons8_data_32;
             this.btnCodes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCodes.Location = new System.Drawing.Point(0, 118);
+            this.btnCodes.Location = new System.Drawing.Point(0, 84);
             this.btnCodes.Name = "btnCodes";
             this.btnCodes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnCodes.Size = new System.Drawing.Size(210, 45);
+            this.btnCodes.Size = new System.Drawing.Size(210, 42);
             this.btnCodes.TabIndex = 2;
             this.btnCodes.Text = "Codes";
             this.btnCodes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -236,7 +215,8 @@ namespace Teste
             // 
             // btnFileManagement
             // 
-            this.btnFileManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnFileManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnFileManagement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnFileManagement.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnFileManagement.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnFileManagement.FlatAppearance.BorderSize = 0;
@@ -245,10 +225,10 @@ namespace Teste
             this.btnFileManagement.ForeColor = System.Drawing.Color.White;
             this.btnFileManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnFileManagement.Image")));
             this.btnFileManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileManagement.Location = new System.Drawing.Point(0, 73);
+            this.btnFileManagement.Location = new System.Drawing.Point(0, 42);
             this.btnFileManagement.Name = "btnFileManagement";
             this.btnFileManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnFileManagement.Size = new System.Drawing.Size(210, 45);
+            this.btnFileManagement.Size = new System.Drawing.Size(210, 42);
             this.btnFileManagement.TabIndex = 1;
             this.btnFileManagement.Text = "File Management";
             this.btnFileManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -256,24 +236,35 @@ namespace Teste
             this.btnFileManagement.UseVisualStyleBackColor = false;
             this.btnFileManagement.Click += new System.EventHandler(this.BtnFileManagement_Click);
             // 
-            // panelLogo
+            // btnMenu
             // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.panelLogo.Controls.Add(this.picLogo);
-            this.panelLogo.Controls.Add(this.lblNameLogo);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(210, 73);
-            this.panelLogo.TabIndex = 0;
-            this.panelLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
+            this.btnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMenu.ForeColor = System.Drawing.Color.White;
+            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
+            this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenu.Location = new System.Drawing.Point(0, 0);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnMenu.Size = new System.Drawing.Size(210, 42);
+            this.btnMenu.TabIndex = 8;
+            this.btnMenu.Text = "Menu";
+            this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMenu.UseVisualStyleBackColor = false;
+            this.btnMenu.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
             // picLogo
             // 
+            this.picLogo.Dock = System.Windows.Forms.DockStyle.Left;
             this.picLogo.Image = global::Utilities.Properties.Resources.icons8_maintenance_64;
-            this.picLogo.Location = new System.Drawing.Point(12, 12);
+            this.picLogo.Location = new System.Drawing.Point(0, 0);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(45, 45);
+            this.picLogo.Size = new System.Drawing.Size(23, 23);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 2;
             this.picLogo.TabStop = false;
@@ -282,12 +273,12 @@ namespace Teste
             // lblNameLogo
             // 
             this.lblNameLogo.AutoSize = true;
-            this.lblNameLogo.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNameLogo.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNameLogo.ForeColor = System.Drawing.Color.White;
             this.lblNameLogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblNameLogo.Location = new System.Drawing.Point(63, 21);
+            this.lblNameLogo.Location = new System.Drawing.Point(29, 3);
             this.lblNameLogo.Name = "lblNameLogo";
-            this.lblNameLogo.Size = new System.Drawing.Size(128, 26);
+            this.lblNameLogo.Size = new System.Drawing.Size(86, 16);
             this.lblNameLogo.TabIndex = 1;
             this.lblNameLogo.Text = "Utilities TID";
             this.lblNameLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -297,35 +288,27 @@ namespace Teste
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(2, 2);
+            this.panelChildForm.Location = new System.Drawing.Point(210, 23);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(788, 568);
+            this.panelChildForm.Padding = new System.Windows.Forms.Padding(2);
+            this.panelChildForm.Size = new System.Drawing.Size(790, 577);
             this.panelChildForm.TabIndex = 8;
             // 
             // panelBar
             // 
             this.panelBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.panelBar.Controls.Add(this.lblOpenWindow);
+            this.panelBar.Controls.Add(this.lblNameLogo);
+            this.panelBar.Controls.Add(this.picLogo);
             this.panelBar.Controls.Add(this.btnMinimize);
             this.panelBar.Controls.Add(this.btnMaximize);
             this.panelBar.Controls.Add(this.btnClose);
             this.panelBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBar.Location = new System.Drawing.Point(210, 0);
+            this.panelBar.Location = new System.Drawing.Point(0, 0);
             this.panelBar.Name = "panelBar";
-            this.panelBar.Size = new System.Drawing.Size(790, 30);
+            this.panelBar.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
+            this.panelBar.Size = new System.Drawing.Size(1000, 23);
             this.panelBar.TabIndex = 9;
             this.panelBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
-            // 
-            // lblOpenWindow
-            // 
-            this.lblOpenWindow.AutoSize = true;
-            this.lblOpenWindow.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblOpenWindow.ForeColor = System.Drawing.Color.White;
-            this.lblOpenWindow.Location = new System.Drawing.Point(6, 7);
-            this.lblOpenWindow.Name = "lblOpenWindow";
-            this.lblOpenWindow.Size = new System.Drawing.Size(0, 16);
-            this.lblOpenWindow.TabIndex = 7;
-            this.lblOpenWindow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
             // btnMinimize
             // 
@@ -335,9 +318,9 @@ namespace Teste
             this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Image = global::Utilities.Properties.Resources.icons8_minimize_window_32;
-            this.btnMinimize.Location = new System.Drawing.Point(700, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(921, 0);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimize.Size = new System.Drawing.Size(26, 23);
             this.btnMinimize.TabIndex = 6;
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
@@ -350,9 +333,9 @@ namespace Teste
             this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Image = global::Utilities.Properties.Resources.icons8_maximize_window_32;
-            this.btnMaximize.Location = new System.Drawing.Point(730, 0);
+            this.btnMaximize.Location = new System.Drawing.Point(947, 0);
             this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(30, 30);
+            this.btnMaximize.Size = new System.Drawing.Size(26, 23);
             this.btnMaximize.TabIndex = 5;
             this.btnMaximize.UseVisualStyleBackColor = false;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
@@ -365,23 +348,12 @@ namespace Teste
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::Utilities.Properties.Resources.icons8_close_window_32;
-            this.btnClose.Location = new System.Drawing.Point(760, 0);
+            this.btnClose.Location = new System.Drawing.Point(973, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(30, 30);
+            this.btnClose.Size = new System.Drawing.Size(26, 23);
             this.btnClose.TabIndex = 4;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // panelBorderChildForm
-            // 
-            this.panelBorderChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panelBorderChildForm.Controls.Add(this.panelChildForm);
-            this.panelBorderChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBorderChildForm.Location = new System.Drawing.Point(210, 30);
-            this.panelBorderChildForm.Name = "panelBorderChildForm";
-            this.panelBorderChildForm.Padding = new System.Windows.Forms.Padding(2, 2, 0, 0);
-            this.panelBorderChildForm.Size = new System.Drawing.Size(790, 570);
-            this.panelBorderChildForm.TabIndex = 0;
             // 
             // Main
             // 
@@ -389,9 +361,9 @@ namespace Teste
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(1000, 600);
-            this.Controls.Add(this.panelBorderChildForm);
-            this.Controls.Add(this.panelBar);
+            this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSideMenu);
+            this.Controls.Add(this.panelBar);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -404,14 +376,10 @@ namespace Teste
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.panelSideMenu.ResumeLayout(false);
-            this.panelSideMenu.PerformLayout();
             this.panelSubMenuCodes.ResumeLayout(false);
-            this.panelLogo.ResumeLayout(false);
-            this.panelLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.panelBar.ResumeLayout(false);
             this.panelBar.PerformLayout();
-            this.panelBorderChildForm.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -423,7 +391,6 @@ namespace Teste
         private System.Windows.Forms.Button btnCodesCopyToClipboard;
         private System.Windows.Forms.Button btnCodes;
         private System.Windows.Forms.Button btnFileManagement;
-        private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Button btnScriptWriter;
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.Button btnHelp;
@@ -433,10 +400,8 @@ namespace Teste
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Button btnMaximize;
-        private System.Windows.Forms.LinkLabel linkCreator;
         private System.Windows.Forms.PictureBox picLogo;
-        private System.Windows.Forms.Panel panelBorderChildForm;
-        private System.Windows.Forms.Label lblOpenWindow;
+        private System.Windows.Forms.Button btnMenu;
     }
 }
 

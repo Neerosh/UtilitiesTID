@@ -29,7 +29,7 @@ namespace Utilities.Forms
                     panelConfirmation.Visible = false;
                     break;
                 case "confirmation":
-                    picMessage.Image = Resources.icons8_info_64;
+                    picMessage.Image = Resources.icons8_question_64;
                     panelOk.Visible = false;
                     break;
                 default:
@@ -37,7 +37,7 @@ namespace Utilities.Forms
                     panelConfirmation.Visible = false;
                     break;
             }
-            if (!rtbMessage.Text.Last().Equals(".") || rtbMessage.Text.Last().Equals("?")) {
+            if (!rtbMessage.Text.Last().Equals(".") || !rtbMessage.Text.Last().Equals("?")) {
                 rtbMessage.Text = rtbMessage.Text+".";
             }
         }

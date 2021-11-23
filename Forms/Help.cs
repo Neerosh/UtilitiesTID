@@ -61,5 +61,14 @@ namespace Utilities {
             psi.FileName = e.LinkText;
             Process.Start(psi);
         }
+
+        private void linkCreator_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            ProcessStartInfo psi = new ProcessStartInfo {
+                UseShellExecute = true,
+                FileName = "https://github.com/Neerosh"
+            };
+            Process.Start(psi);
+            linkCreator.LinkVisited = true;
+        }
     }
 }

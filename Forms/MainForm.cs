@@ -20,7 +20,8 @@ namespace Teste
             CustomizeDesign();
             //SetStyle(ControlStyles.ResizeRedraw, true);
             Padding = new Padding(2);
-            BackColor = Color.FromArgb(60, 60, 60);
+            BackColor = Color.FromArgb(80, 80, 80);
+            BtnMenu_Click(this,new EventArgs());
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
@@ -172,7 +173,7 @@ namespace Teste
                             if (control1 == selectedButton) {
                                 control1.BackColor = Color.FromArgb(153, 0, 0);
                             } else {
-                                control1.BackColor = Color.FromArgb(20, 20, 20);
+                                control1.BackColor = Color.FromArgb(30, 30, 30);
                             }
                         }
                     }
@@ -181,15 +182,18 @@ namespace Teste
                     if (control == selectedButton) {
                             control.BackColor = Color.FromArgb(153, 0, 0);
                     } else {
-                        control.BackColor = Color.FromArgb(35, 35, 35);
+                        control.BackColor = Color.FromArgb(45, 45, 45);
                     }
                 }
             }
         }
+
         private void OpenChildForm(Form childForm) {
             if (activeForm != null) {
                 activeForm.Close();
+                activeForm.Dispose();
             }
+            if (childForm == null) { return; }
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -198,8 +202,6 @@ namespace Teste
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-
-            lblOpenWindow.Text = childForm.Text;
         }
 
         private void BtnFileManagement_Click(object sender, EventArgs e) {
@@ -237,14 +239,16 @@ namespace Teste
             AdjustForm();
         }
 
-        private void LinkCreator_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            ProcessStartInfo psi = new ProcessStartInfo {
-                UseShellExecute = true,
-                FileName = "https://github.com/Neerosh"
-            };
-            Process.Start(psi);
-            linkCreator.LinkVisited = true;
+        private void BtnMenu_Click(object sender, EventArgs e) {
+            OpenChildForm(null);
+            PaintSelectedMenuItem(btnMenu);
         }
 
+        private void btnMenu_MouseHover(object sender, EventArgs e) {
+            btnMenu.BackColor = Color.FromArgb(90,90,90);
+        }
+        private void btnMenu_MouseLeave(object sender, EventArgs e) {
+            btnMenu.BackColor = Color.FromArgb(45, 45, 45);
+        }
     }
 }

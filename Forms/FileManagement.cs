@@ -137,7 +137,7 @@ namespace Utilities.Forms
                                 return;
                             }
 
-                            result = CustomDialog.ShowCustomDialog("Moving files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "question");
+                            result = CustomDialog.ShowCustomDialog("Moving files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "confirmation");
                             if (result == DialogResult.Cancel) {
                                 WriteLog("Process Aborted");
                                 return;
@@ -155,7 +155,7 @@ namespace Utilities.Forms
                                 return;
                             }
 
-                            result = CustomDialog.ShowCustomDialog("Copying files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "question");
+                            result = CustomDialog.ShowCustomDialog("Copying files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "confirmation");
                             if (result == DialogResult.Cancel) {
                                 WriteLog("Process Aborted");
                                 return;
@@ -163,7 +163,7 @@ namespace Utilities.Forms
                             CopyFiles(directoryFiles, toFolder);
                             break;
                         case "DeleteDuplicated":
-                            result = CustomDialog.ShowCustomDialog("Deleting duplicated files on:\n" + fromFolder + "\nAre you sure?", "Confirmation", "question");
+                            result = CustomDialog.ShowCustomDialog("Deleting duplicated files on:\n" + fromFolder + "\nAre you sure?", "Confirmation", "confirmation");
                             if (result == DialogResult.Cancel) {
                                 WriteLog("Process Aborted");
                                 return;

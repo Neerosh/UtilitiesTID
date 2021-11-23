@@ -38,14 +38,12 @@
             this.btnNo = new System.Windows.Forms.Button();
             this.btnYes = new System.Windows.Forms.Button();
             this.panelOk = new System.Windows.Forms.Panel();
-            this.panelTitleBorder = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picMessage)).BeginInit();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.panelMessage.SuspendLayout();
             this.panelConfirmation.SuspendLayout();
             this.panelOk.SuspendLayout();
-            this.panelTitleBorder.SuspendLayout();
             this.SuspendLayout();
             // 
             // picMessage
@@ -66,10 +64,11 @@
             this.panelTitle.Controls.Add(this.picIcon);
             this.panelTitle.Controls.Add(this.lblTitle);
             this.panelTitle.Controls.Add(this.btnClose);
-            this.panelTitle.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelTitle.Location = new System.Drawing.Point(0, -2);
+            this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(450, 30);
+            this.panelTitle.Size = new System.Drawing.Size(450, 23);
             this.panelTitle.TabIndex = 1;
             this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
             // 
@@ -81,7 +80,7 @@
             this.picIcon.InitialImage = null;
             this.picIcon.Location = new System.Drawing.Point(0, 0);
             this.picIcon.Name = "picIcon";
-            this.picIcon.Size = new System.Drawing.Size(30, 30);
+            this.picIcon.Size = new System.Drawing.Size(23, 23);
             this.picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picIcon.TabIndex = 2;
             this.picIcon.TabStop = false;
@@ -89,11 +88,12 @@
             // 
             // lblTitle
             // 
-            this.lblTitle.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(36, 7);
+            this.lblTitle.Location = new System.Drawing.Point(29, 3);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(370, 20);
+            this.lblTitle.Size = new System.Drawing.Size(37, 16);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Title";
             this.lblTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
@@ -104,11 +104,10 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Image = global::Utilities.Properties.Resources.icons8_close_window_32;
-            this.btnClose.Location = new System.Drawing.Point(420, 0);
+            this.btnClose.Location = new System.Drawing.Point(424, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(30, 30);
+            this.btnClose.Size = new System.Drawing.Size(26, 23);
             this.btnClose.TabIndex = 0;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -125,7 +124,7 @@
             this.rtbMessage.Location = new System.Drawing.Point(83, 21);
             this.rtbMessage.Name = "rtbMessage";
             this.rtbMessage.ReadOnly = true;
-            this.rtbMessage.Size = new System.Drawing.Size(345, 83);
+            this.rtbMessage.Size = new System.Drawing.Size(345, 90);
             this.rtbMessage.TabIndex = 2;
             this.rtbMessage.Text = "";
             // 
@@ -156,9 +155,9 @@
             this.panelMessage.Controls.Add(this.picMessage);
             this.panelMessage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMessage.ForeColor = System.Drawing.Color.White;
-            this.panelMessage.Location = new System.Drawing.Point(0, 30);
+            this.panelMessage.Location = new System.Drawing.Point(0, 23);
             this.panelMessage.Name = "panelMessage";
-            this.panelMessage.Size = new System.Drawing.Size(450, 150);
+            this.panelMessage.Size = new System.Drawing.Size(450, 157);
             this.panelMessage.TabIndex = 4;
             // 
             // panelConfirmation
@@ -166,7 +165,7 @@
             this.panelConfirmation.Controls.Add(this.btnNo);
             this.panelConfirmation.Controls.Add(this.btnYes);
             this.panelConfirmation.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelConfirmation.Location = new System.Drawing.Point(0, 70);
+            this.panelConfirmation.Location = new System.Drawing.Point(0, 77);
             this.panelConfirmation.Name = "panelConfirmation";
             this.panelConfirmation.Size = new System.Drawing.Size(450, 40);
             this.panelConfirmation.TabIndex = 5;
@@ -211,21 +210,10 @@
             // 
             this.panelOk.Controls.Add(this.btnOk);
             this.panelOk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelOk.Location = new System.Drawing.Point(0, 110);
+            this.panelOk.Location = new System.Drawing.Point(0, 117);
             this.panelOk.Name = "panelOk";
             this.panelOk.Size = new System.Drawing.Size(450, 40);
             this.panelOk.TabIndex = 4;
-            // 
-            // panelTitleBorder
-            // 
-            this.panelTitleBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panelTitleBorder.Controls.Add(this.panelTitle);
-            this.panelTitleBorder.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitleBorder.Location = new System.Drawing.Point(0, 0);
-            this.panelTitleBorder.Name = "panelTitleBorder";
-            this.panelTitleBorder.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.panelTitleBorder.Size = new System.Drawing.Size(450, 30);
-            this.panelTitleBorder.TabIndex = 3;
             // 
             // CustomDialogForm
             // 
@@ -235,7 +223,7 @@
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(450, 180);
             this.Controls.Add(this.panelMessage);
-            this.Controls.Add(this.panelTitleBorder);
+            this.Controls.Add(this.panelTitle);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -249,11 +237,11 @@
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.picMessage)).EndInit();
             this.panelTitle.ResumeLayout(false);
+            this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.panelMessage.ResumeLayout(false);
             this.panelConfirmation.ResumeLayout(false);
             this.panelOk.ResumeLayout(false);
-            this.panelTitleBorder.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -272,6 +260,5 @@
         private System.Windows.Forms.Button btnNo;
         private System.Windows.Forms.Button btnYes;
         private System.Windows.Forms.Panel panelOk;
-        private System.Windows.Forms.Panel panelTitleBorder;
     }
 }
