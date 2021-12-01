@@ -40,6 +40,7 @@ namespace Teste
             this.btnCodes = new System.Windows.Forms.Button();
             this.btnFileManagement = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.lblNameLogo = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
@@ -49,6 +50,7 @@ namespace Teste
             this.btnClose = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelSubMenuCodes.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.panelBar.SuspendLayout();
             this.SuspendLayout();
@@ -63,11 +65,12 @@ namespace Teste
             this.panelSideMenu.Controls.Add(this.btnCodes);
             this.panelSideMenu.Controls.Add(this.btnFileManagement);
             this.panelSideMenu.Controls.Add(this.btnMenu);
+            this.panelSideMenu.Controls.Add(this.panel1);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.ForeColor = System.Drawing.Color.White;
-            this.panelSideMenu.Location = new System.Drawing.Point(0, 23);
+            this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(210, 577);
+            this.panelSideMenu.Size = new System.Drawing.Size(210, 600);
             this.panelSideMenu.TabIndex = 6;
             this.panelSideMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
@@ -82,7 +85,7 @@ namespace Teste
             this.btnHelp.ForeColor = System.Drawing.Color.White;
             this.btnHelp.Image = global::Utilities.Properties.Resources.icons8_info_squared_32;
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 290);
+            this.btnHelp.Location = new System.Drawing.Point(0, 348);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnHelp.Size = new System.Drawing.Size(210, 42);
@@ -104,7 +107,7 @@ namespace Teste
             this.btnConvertClarion.ForeColor = System.Drawing.Color.White;
             this.btnConvertClarion.Image = global::Utilities.Properties.Resources.icons8_clock_32;
             this.btnConvertClarion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertClarion.Location = new System.Drawing.Point(0, 248);
+            this.btnConvertClarion.Location = new System.Drawing.Point(0, 306);
             this.btnConvertClarion.Name = "btnConvertClarion";
             this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnConvertClarion.Size = new System.Drawing.Size(210, 42);
@@ -126,7 +129,7 @@ namespace Teste
             this.btnScriptWriter.ForeColor = System.Drawing.Color.White;
             this.btnScriptWriter.Image = global::Utilities.Properties.Resources.icons8_scroll_32;
             this.btnScriptWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnScriptWriter.Location = new System.Drawing.Point(0, 206);
+            this.btnScriptWriter.Location = new System.Drawing.Point(0, 264);
             this.btnScriptWriter.Name = "btnScriptWriter";
             this.btnScriptWriter.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnScriptWriter.Size = new System.Drawing.Size(210, 42);
@@ -142,7 +145,7 @@ namespace Teste
             this.panelSubMenuCodes.Controls.Add(this.btnCodesManage);
             this.panelSubMenuCodes.Controls.Add(this.btnCodesCopyToClipboard);
             this.panelSubMenuCodes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 126);
+            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 184);
             this.panelSubMenuCodes.Name = "panelSubMenuCodes";
             this.panelSubMenuCodes.Size = new System.Drawing.Size(210, 80);
             this.panelSubMenuCodes.TabIndex = 3;
@@ -202,7 +205,7 @@ namespace Teste
             this.btnCodes.ForeColor = System.Drawing.Color.White;
             this.btnCodes.Image = global::Utilities.Properties.Resources.icons8_data_32;
             this.btnCodes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCodes.Location = new System.Drawing.Point(0, 84);
+            this.btnCodes.Location = new System.Drawing.Point(0, 142);
             this.btnCodes.Name = "btnCodes";
             this.btnCodes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnCodes.Size = new System.Drawing.Size(210, 42);
@@ -225,7 +228,7 @@ namespace Teste
             this.btnFileManagement.ForeColor = System.Drawing.Color.White;
             this.btnFileManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnFileManagement.Image")));
             this.btnFileManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileManagement.Location = new System.Drawing.Point(0, 42);
+            this.btnFileManagement.Location = new System.Drawing.Point(0, 100);
             this.btnFileManagement.Name = "btnFileManagement";
             this.btnFileManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnFileManagement.Size = new System.Drawing.Size(210, 42);
@@ -247,7 +250,7 @@ namespace Teste
             this.btnMenu.ForeColor = System.Drawing.Color.White;
             this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
             this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenu.Location = new System.Drawing.Point(0, 0);
+            this.btnMenu.Location = new System.Drawing.Point(0, 58);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnMenu.Size = new System.Drawing.Size(210, 42);
@@ -258,13 +261,23 @@ namespace Teste
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.picLogo);
+            this.panel1.Controls.Add(this.lblNameLogo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(210, 58);
+            this.panel1.TabIndex = 9;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
+            // 
             // picLogo
             // 
-            this.picLogo.Dock = System.Windows.Forms.DockStyle.Left;
             this.picLogo.Image = global::Utilities.Properties.Resources.icons8_maintenance_64;
-            this.picLogo.Location = new System.Drawing.Point(0, 0);
+            this.picLogo.Location = new System.Drawing.Point(3, 6);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(23, 23);
+            this.picLogo.Size = new System.Drawing.Size(45, 45);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 2;
             this.picLogo.TabStop = false;
@@ -273,12 +286,12 @@ namespace Teste
             // lblNameLogo
             // 
             this.lblNameLogo.AutoSize = true;
-            this.lblNameLogo.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNameLogo.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNameLogo.ForeColor = System.Drawing.Color.White;
             this.lblNameLogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblNameLogo.Location = new System.Drawing.Point(29, 3);
+            this.lblNameLogo.Location = new System.Drawing.Point(54, 19);
             this.lblNameLogo.Name = "lblNameLogo";
-            this.lblNameLogo.Size = new System.Drawing.Size(86, 16);
+            this.lblNameLogo.Size = new System.Drawing.Size(114, 22);
             this.lblNameLogo.TabIndex = 1;
             this.lblNameLogo.Text = "Utilities TID";
             this.lblNameLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -288,25 +301,23 @@ namespace Teste
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(210, 23);
+            this.panelChildForm.Location = new System.Drawing.Point(210, 30);
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Padding = new System.Windows.Forms.Padding(2);
-            this.panelChildForm.Size = new System.Drawing.Size(790, 577);
+            this.panelChildForm.Size = new System.Drawing.Size(790, 570);
             this.panelChildForm.TabIndex = 8;
             // 
             // panelBar
             // 
-            this.panelBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.panelBar.Controls.Add(this.lblNameLogo);
-            this.panelBar.Controls.Add(this.picLogo);
+            this.panelBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panelBar.Controls.Add(this.btnMinimize);
             this.panelBar.Controls.Add(this.btnMaximize);
             this.panelBar.Controls.Add(this.btnClose);
             this.panelBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBar.Location = new System.Drawing.Point(0, 0);
+            this.panelBar.Location = new System.Drawing.Point(210, 0);
             this.panelBar.Name = "panelBar";
             this.panelBar.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
-            this.panelBar.Size = new System.Drawing.Size(1000, 23);
+            this.panelBar.Size = new System.Drawing.Size(790, 30);
             this.panelBar.TabIndex = 9;
             this.panelBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
@@ -318,9 +329,9 @@ namespace Teste
             this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Image = global::Utilities.Properties.Resources.icons8_minimize_window_32;
-            this.btnMinimize.Location = new System.Drawing.Point(921, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(699, 0);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(26, 23);
+            this.btnMinimize.Size = new System.Drawing.Size(30, 30);
             this.btnMinimize.TabIndex = 6;
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
@@ -333,9 +344,9 @@ namespace Teste
             this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Image = global::Utilities.Properties.Resources.icons8_maximize_window_32;
-            this.btnMaximize.Location = new System.Drawing.Point(947, 0);
+            this.btnMaximize.Location = new System.Drawing.Point(729, 0);
             this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(26, 23);
+            this.btnMaximize.Size = new System.Drawing.Size(30, 30);
             this.btnMaximize.TabIndex = 5;
             this.btnMaximize.UseVisualStyleBackColor = false;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
@@ -348,9 +359,9 @@ namespace Teste
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::Utilities.Properties.Resources.icons8_close_window_32;
-            this.btnClose.Location = new System.Drawing.Point(973, 0);
+            this.btnClose.Location = new System.Drawing.Point(759, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(26, 23);
+            this.btnClose.Size = new System.Drawing.Size(30, 30);
             this.btnClose.TabIndex = 4;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -362,8 +373,8 @@ namespace Teste
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(1000, 600);
             this.Controls.Add(this.panelChildForm);
-            this.Controls.Add(this.panelSideMenu);
             this.Controls.Add(this.panelBar);
+            this.Controls.Add(this.panelSideMenu);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -377,9 +388,10 @@ namespace Teste
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.panelSideMenu.ResumeLayout(false);
             this.panelSubMenuCodes.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.panelBar.ResumeLayout(false);
-            this.panelBar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -402,6 +414,7 @@ namespace Teste
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
