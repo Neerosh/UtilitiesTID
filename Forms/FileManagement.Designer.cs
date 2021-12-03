@@ -331,7 +331,7 @@
             this.txtLogProcess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtLogProcess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLogProcess.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtLogProcess.ForeColor = System.Drawing.Color.White;
+            this.txtLogProcess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.txtLogProcess.HideSelection = false;
             this.txtLogProcess.Location = new System.Drawing.Point(20, 191);
             this.txtLogProcess.Name = "txtLogProcess";

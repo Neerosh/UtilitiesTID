@@ -57,7 +57,7 @@ namespace Teste
             // 
             // panelSideMenu
             // 
-            this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.panelSideMenu.Controls.Add(this.btnHelp);
             this.panelSideMenu.Controls.Add(this.btnConvertClarion);
             this.panelSideMenu.Controls.Add(this.btnScriptWriter);
@@ -76,7 +76,7 @@ namespace Teste
             // 
             // btnHelp
             // 
-            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnHelp.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnHelp.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHelp.FlatAppearance.BorderSize = 0;
@@ -85,7 +85,7 @@ namespace Teste
             this.btnHelp.ForeColor = System.Drawing.Color.White;
             this.btnHelp.Image = global::Utilities.Properties.Resources.icons8_info_squared_32;
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 348);
+            this.btnHelp.Location = new System.Drawing.Point(0, 354);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnHelp.Size = new System.Drawing.Size(210, 42);
@@ -98,7 +98,7 @@ namespace Teste
             // 
             // btnConvertClarion
             // 
-            this.btnConvertClarion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnConvertClarion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnConvertClarion.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnConvertClarion.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnConvertClarion.FlatAppearance.BorderSize = 0;
@@ -107,7 +107,7 @@ namespace Teste
             this.btnConvertClarion.ForeColor = System.Drawing.Color.White;
             this.btnConvertClarion.Image = global::Utilities.Properties.Resources.icons8_clock_32;
             this.btnConvertClarion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertClarion.Location = new System.Drawing.Point(0, 306);
+            this.btnConvertClarion.Location = new System.Drawing.Point(0, 312);
             this.btnConvertClarion.Name = "btnConvertClarion";
             this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnConvertClarion.Size = new System.Drawing.Size(210, 42);
@@ -120,7 +120,7 @@ namespace Teste
             // 
             // btnScriptWriter
             // 
-            this.btnScriptWriter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnScriptWriter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnScriptWriter.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnScriptWriter.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnScriptWriter.FlatAppearance.BorderSize = 0;
@@ -129,7 +129,7 @@ namespace Teste
             this.btnScriptWriter.ForeColor = System.Drawing.Color.White;
             this.btnScriptWriter.Image = global::Utilities.Properties.Resources.icons8_scroll_32;
             this.btnScriptWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnScriptWriter.Location = new System.Drawing.Point(0, 264);
+            this.btnScriptWriter.Location = new System.Drawing.Point(0, 270);
             this.btnScriptWriter.Name = "btnScriptWriter";
             this.btnScriptWriter.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnScriptWriter.Size = new System.Drawing.Size(210, 42);
@@ -145,14 +145,14 @@ namespace Teste
             this.panelSubMenuCodes.Controls.Add(this.btnCodesManage);
             this.panelSubMenuCodes.Controls.Add(this.btnCodesCopyToClipboard);
             this.panelSubMenuCodes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 184);
+            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 190);
             this.panelSubMenuCodes.Name = "panelSubMenuCodes";
             this.panelSubMenuCodes.Size = new System.Drawing.Size(210, 80);
             this.panelSubMenuCodes.TabIndex = 3;
             // 
             // btnCodesManage
             // 
-            this.btnCodesManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnCodesManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCodesManage.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnCodesManage.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCodesManage.FlatAppearance.BorderSize = 0;
@@ -163,7 +163,7 @@ namespace Teste
             this.btnCodesManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCodesManage.Location = new System.Drawing.Point(0, 40);
             this.btnCodesManage.Name = "btnCodesManage";
-            this.btnCodesManage.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnCodesManage.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
             this.btnCodesManage.Size = new System.Drawing.Size(210, 40);
             this.btnCodesManage.TabIndex = 1;
             this.btnCodesManage.Text = "Manage";
@@ -174,7 +174,7 @@ namespace Teste
             // 
             // btnCodesCopyToClipboard
             // 
-            this.btnCodesCopyToClipboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnCodesCopyToClipboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCodesCopyToClipboard.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnCodesCopyToClipboard.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCodesCopyToClipboard.FlatAppearance.BorderSize = 0;
@@ -185,7 +185,7 @@ namespace Teste
             this.btnCodesCopyToClipboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCodesCopyToClipboard.Location = new System.Drawing.Point(0, 0);
             this.btnCodesCopyToClipboard.Name = "btnCodesCopyToClipboard";
-            this.btnCodesCopyToClipboard.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnCodesCopyToClipboard.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
             this.btnCodesCopyToClipboard.Size = new System.Drawing.Size(210, 40);
             this.btnCodesCopyToClipboard.TabIndex = 0;
             this.btnCodesCopyToClipboard.Text = "Copy To Clipboard";
@@ -196,7 +196,7 @@ namespace Teste
             // 
             // btnCodes
             // 
-            this.btnCodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnCodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCodes.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnCodes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCodes.FlatAppearance.BorderSize = 0;
@@ -205,7 +205,7 @@ namespace Teste
             this.btnCodes.ForeColor = System.Drawing.Color.White;
             this.btnCodes.Image = global::Utilities.Properties.Resources.icons8_data_32;
             this.btnCodes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCodes.Location = new System.Drawing.Point(0, 142);
+            this.btnCodes.Location = new System.Drawing.Point(0, 148);
             this.btnCodes.Name = "btnCodes";
             this.btnCodes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnCodes.Size = new System.Drawing.Size(210, 42);
@@ -218,7 +218,7 @@ namespace Teste
             // 
             // btnFileManagement
             // 
-            this.btnFileManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnFileManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnFileManagement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnFileManagement.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnFileManagement.Dock = System.Windows.Forms.DockStyle.Top;
@@ -228,7 +228,7 @@ namespace Teste
             this.btnFileManagement.ForeColor = System.Drawing.Color.White;
             this.btnFileManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnFileManagement.Image")));
             this.btnFileManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileManagement.Location = new System.Drawing.Point(0, 100);
+            this.btnFileManagement.Location = new System.Drawing.Point(0, 106);
             this.btnFileManagement.Name = "btnFileManagement";
             this.btnFileManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnFileManagement.Size = new System.Drawing.Size(210, 42);
@@ -241,7 +241,7 @@ namespace Teste
             // 
             // btnMenu
             // 
-            this.btnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnMenu.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenu.FlatAppearance.BorderSize = 0;
@@ -250,7 +250,7 @@ namespace Teste
             this.btnMenu.ForeColor = System.Drawing.Color.White;
             this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
             this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenu.Location = new System.Drawing.Point(0, 58);
+            this.btnMenu.Location = new System.Drawing.Point(0, 64);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnMenu.Size = new System.Drawing.Size(210, 42);
@@ -268,14 +268,14 @@ namespace Teste
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(210, 58);
+            this.panel1.Size = new System.Drawing.Size(210, 64);
             this.panel1.TabIndex = 9;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
             // picLogo
             // 
             this.picLogo.Image = global::Utilities.Properties.Resources.icons8_maintenance_64;
-            this.picLogo.Location = new System.Drawing.Point(3, 6);
+            this.picLogo.Location = new System.Drawing.Point(12, 8);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(45, 45);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -286,12 +286,12 @@ namespace Teste
             // lblNameLogo
             // 
             this.lblNameLogo.AutoSize = true;
-            this.lblNameLogo.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNameLogo.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNameLogo.ForeColor = System.Drawing.Color.White;
             this.lblNameLogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblNameLogo.Location = new System.Drawing.Point(54, 19);
+            this.lblNameLogo.Location = new System.Drawing.Point(63, 18);
             this.lblNameLogo.Name = "lblNameLogo";
-            this.lblNameLogo.Size = new System.Drawing.Size(114, 22);
+            this.lblNameLogo.Size = new System.Drawing.Size(128, 26);
             this.lblNameLogo.TabIndex = 1;
             this.lblNameLogo.Text = "Utilities TID";
             this.lblNameLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -309,7 +309,7 @@ namespace Teste
             // 
             // panelBar
             // 
-            this.panelBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panelBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.panelBar.Controls.Add(this.btnMinimize);
             this.panelBar.Controls.Add(this.btnMaximize);
             this.panelBar.Controls.Add(this.btnClose);

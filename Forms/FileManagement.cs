@@ -84,8 +84,9 @@ namespace Utilities.Forms
         private void WriteLog(string text) {
             txtLogProcess.Invoke(new MethodInvoker(delegate {
                 if (txtLogProcess.Text.Equals("")) {
-                    txtLogProcess.ForeColor = Color.White;
+                    txtLogProcess.ForeColor = Color.FromArgb(68, 204, 0);
                     txtLogProcess.AppendText(text);
+                    txtLogProcess.SelectionStart = txtLogProcess.Text.Length;
                     txtLogProcess.ScrollToCaret();
                     return;
                 }
