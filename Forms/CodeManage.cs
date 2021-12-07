@@ -27,7 +27,10 @@ namespace Utilities.Forms
             DataTable dtCodes = sqlite.SelectAllCodes("");
             dgvCodes.DataSource = dtCodes;
             dgvCodes.Columns[0].Visible = false;//ID
+            dgvCodes.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvCodes.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvCodes.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
         }
         private void SelectCorrectRow(Code code) {
             dgvCodes.ClearSelection();
@@ -96,8 +99,16 @@ namespace Utilities.Forms
             BtnClearFields_Click(sender, e);
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e) {
+        private void btnAddDefaults_Click(object sender, EventArgs e) {
+            if (CustomDialog.ShowCustomDialog("Add Default Codes?", "Confirmation", "confirmation") == DialogResult.Cancel) { return; }
+            sqlite.AddDefaultCodes();
+            RefreshCodes();
+        }
 
+        private void btnDeleteAll_Click(object sender, EventArgs e) {
+            if (CustomDialog.ShowCustomDialog("Delete all registered Codes?", "Confirmation", "confirmation") == DialogResult.Cancel) { return; }
+            sqlite.DeleteAllCodes();
+            RefreshCodes();
         }
     }
 }

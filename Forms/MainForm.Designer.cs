@@ -300,6 +300,7 @@ namespace Teste
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panelChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(210, 30);
             this.panelChildForm.Name = "panelChildForm";

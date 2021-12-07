@@ -16,7 +16,6 @@ namespace Utilities.Classes
         public SQLite() {
             if (!File.Exists("UtilitiesTID.db")) {
                 CreateDatabase();
-                AddDefaultOptions();
             }
         }
 
@@ -70,6 +69,25 @@ namespace Utilities.Classes
             connection.Close();
             CustomDialog.ShowCustomDialog("Code sucessfuly deleted.", "Sucess","success");
         }
+
+        public void DeleteAllCodes() {
+            connection.Open();
+            command.Connection = connection;
+            try {
+                command.CommandText = "DELETE FROM Codes";
+                Clipboard.SetText(command.CommandText);
+                command.ExecuteNonQuery();
+
+            } catch (Exception ex) {
+                CustomDialog.ShowCustomDialog("Error deleting:\n" + ex.Message, "Error", "error");
+                connection.Close();
+                return;
+            }
+            connection.Close();
+            CustomDialog.ShowCustomDialog("Codes sucessfuly deleted.", "Sucess", "success");
+        }
+
+
 
         public DataTable SelectAllCodes(string filterType) {
             SqliteDataReader reader;
@@ -142,7 +160,7 @@ namespace Utilities.Classes
             }
             connection.Close();
         }
-        private void AddDefaultOptions() {
+        public void AddDefaultCodes() {
             connection.Open();
             command.Connection = connection;
             List<Code> listCodes = LoadDefaultOptionsCode();

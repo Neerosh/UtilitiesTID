@@ -41,6 +41,8 @@
             this.dgvCodes = new System.Windows.Forms.DataGridView();
             this.lblSelection = new System.Windows.Forms.Label();
             this.txtCodeText = new System.Windows.Forms.RichTextBox();
+            this.btnDeleteAll = new System.Windows.Forms.Button();
+            this.btnAddDefaults = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCodes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -224,7 +226,7 @@
             this.dgvCodes.RowTemplate.ReadOnly = true;
             this.dgvCodes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvCodes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCodes.Size = new System.Drawing.Size(750, 233);
+            this.dgvCodes.Size = new System.Drawing.Size(750, 202);
             this.dgvCodes.TabIndex = 0;
             this.dgvCodes.SelectionChanged += new System.EventHandler(this.DgvCodes_SelectionChanged);
             // 
@@ -255,12 +257,58 @@
             this.txtCodeText.TabIndex = 13;
             this.txtCodeText.Text = "";
             // 
+            // btnDeleteAll
+            // 
+            this.btnDeleteAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDeleteAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnDeleteAll.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDeleteAll.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnDeleteAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteAll.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDeleteAll.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDeleteAll.Image = global::Utilities.Properties.Resources.icons8_delete_database_32;
+            this.btnDeleteAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteAll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnDeleteAll.Location = new System.Drawing.Point(20, 518);
+            this.btnDeleteAll.Name = "btnDeleteAll";
+            this.btnDeleteAll.Size = new System.Drawing.Size(148, 40);
+            this.btnDeleteAll.TabIndex = 14;
+            this.btnDeleteAll.Text = "Delete All Codes";
+            this.btnDeleteAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteAll.UseVisualStyleBackColor = false;
+            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
+            // 
+            // btnAddDefaults
+            // 
+            this.btnAddDefaults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddDefaults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnAddDefaults.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAddDefaults.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnAddDefaults.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDefaults.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddDefaults.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAddDefaults.Image = global::Utilities.Properties.Resources.icons8_add_database_32;
+            this.btnAddDefaults.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddDefaults.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAddDefaults.Location = new System.Drawing.Point(613, 518);
+            this.btnAddDefaults.Name = "btnAddDefaults";
+            this.btnAddDefaults.Size = new System.Drawing.Size(157, 40);
+            this.btnAddDefaults.TabIndex = 15;
+            this.btnAddDefaults.Text = "Add Default Codes";
+            this.btnAddDefaults.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddDefaults.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddDefaults.UseVisualStyleBackColor = false;
+            this.btnAddDefaults.Click += new System.EventHandler(this.btnAddDefaults_Click);
+            // 
             // CodeManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
+            this.Controls.Add(this.btnAddDefaults);
+            this.Controls.Add(this.btnDeleteAll);
             this.Controls.Add(this.txtCodeText);
             this.Controls.Add(this.lblSelection);
             this.Controls.Add(this.lblName);
@@ -302,5 +350,7 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lblSelection;
         private System.Windows.Forms.RichTextBox txtCodeText;
+        private System.Windows.Forms.Button btnDeleteAll;
+        private System.Windows.Forms.Button btnAddDefaults;
     }
 }
