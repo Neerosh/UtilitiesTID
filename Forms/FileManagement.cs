@@ -244,6 +244,7 @@ namespace Utilities.Forms
                 case "Filename;Descending":
                     if (filterExtensions == null && filterName == null) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.Name).ToArray();
+                        listFiles.AddRange(directoryFiles);
                         break;
                     }
 
@@ -251,6 +252,7 @@ namespace Utilities.Forms
                         foreach (string extension in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.Name)
                                                 .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
+                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -258,6 +260,7 @@ namespace Utilities.Forms
                         foreach (string name in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.Name)
                                                 .Where(file => file.Name.ToLower().Equals(name)).ToArray();
+                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -266,6 +269,7 @@ namespace Utilities.Forms
                 case "Filename;Ascending":
                     if (filterExtensions == null && filterName == null) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name).ToArray();
+                        listFiles.AddRange(directoryFiles);
                         break;
                     }
 
@@ -273,6 +277,7 @@ namespace Utilities.Forms
                         foreach (string extension in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name)
                                                 .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
+                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -280,6 +285,7 @@ namespace Utilities.Forms
                         foreach (string name in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name)
                                                 .Where(file => file.Name.ToLower().Equals(name)).ToArray();
+                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -289,6 +295,7 @@ namespace Utilities.Forms
 
                     if (filterExtensions == null && filterName == null) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.CreationTime).ToArray();
+                        listFiles.AddRange(directoryFiles);
                         break;
                     }
 
@@ -296,6 +303,7 @@ namespace Utilities.Forms
                         foreach (string extension in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.CreationTime)
                                                 .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
+                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -303,6 +311,7 @@ namespace Utilities.Forms
                         foreach (string name in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.CreationTime)
                                                 .Where(file => file.Name.ToLower().Equals(name)).ToArray();
+                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -311,6 +320,7 @@ namespace Utilities.Forms
 
                     if (filterExtensions == null && filterName == null) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.CreationTime).ToArray();
+                        listFiles.AddRange(directoryFiles);
                         break;
                     }
 
@@ -318,6 +328,7 @@ namespace Utilities.Forms
                         foreach (string extension in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.CreationTime)
                                                 .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
+                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -325,6 +336,7 @@ namespace Utilities.Forms
                         foreach (string name in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.CreationTime)
                                                 .Where(file => file.Name.ToLower().Equals(name)).ToArray();
+                            listFiles.AddRange(directoryFiles);
                         }
                     }
                     break;
@@ -333,6 +345,7 @@ namespace Utilities.Forms
 
                     if (filterExtensions == null && filterName == null) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name).ToArray();
+                        listFiles.AddRange(directoryFiles);
                         break;
                     }
 
@@ -340,6 +353,7 @@ namespace Utilities.Forms
                         foreach (string extension in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name)
                                                 .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
+                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
@@ -347,13 +361,14 @@ namespace Utilities.Forms
                         foreach (string name in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name)
                                                 .Where(file => file.Name.ToLower().Equals(name)).ToArray();
+                            listFiles.AddRange(directoryFiles);
                         }
                     }
 
                     break;
             }
-            if (directoryFiles.Length > 0) {
-                listFiles.AddRange(directoryFiles);
+            if (listFiles.Count > 0) {
+
                 return listFiles.ToArray();
             }
             return new FileInfo[0];
