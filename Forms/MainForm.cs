@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using Utilities;
 using Utilities.Classes;
@@ -18,13 +19,16 @@ namespace Teste
         public Main() {
             InitializeComponent();
             CustomizeDesign();
-            //SetStyle(ControlStyles.ResizeRedraw, true);
             Padding = new Padding(2);
             BackColor = Color.FromArgb(60, 60, 60);
             BtnMenu_Click(this,new EventArgs());
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
+            if (!File.Exists("UtilitiesTID.db")) {
+                CustomMessage customMessage = sqlite.CreateDatabase();
+                CustomDialog.ShowCustomDialog(customMessage, this);
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e) {

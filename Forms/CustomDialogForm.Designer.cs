@@ -51,7 +51,7 @@
             this.picMessage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picMessage.Image = global::Utilities.Properties.Resources.icons8_info_64;
             this.picMessage.InitialImage = null;
-            this.picMessage.Location = new System.Drawing.Point(24, 6);
+            this.picMessage.Location = new System.Drawing.Point(12, 6);
             this.picMessage.Name = "picMessage";
             this.picMessage.Size = new System.Drawing.Size(50, 50);
             this.picMessage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -121,10 +121,10 @@
             this.rtbMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbMessage.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rtbMessage.ForeColor = System.Drawing.Color.White;
-            this.rtbMessage.Location = new System.Drawing.Point(83, 21);
+            this.rtbMessage.Location = new System.Drawing.Point(68, 21);
             this.rtbMessage.Name = "rtbMessage";
             this.rtbMessage.ReadOnly = true;
-            this.rtbMessage.Size = new System.Drawing.Size(345, 90);
+            this.rtbMessage.Size = new System.Drawing.Size(360, 50);
             this.rtbMessage.TabIndex = 2;
             this.rtbMessage.Text = "";
             // 
@@ -157,7 +157,7 @@
             this.panelMessage.ForeColor = System.Drawing.Color.White;
             this.panelMessage.Location = new System.Drawing.Point(0, 23);
             this.panelMessage.Name = "panelMessage";
-            this.panelMessage.Size = new System.Drawing.Size(450, 157);
+            this.panelMessage.Size = new System.Drawing.Size(450, 117);
             this.panelMessage.TabIndex = 4;
             // 
             // panelConfirmation
@@ -165,9 +165,9 @@
             this.panelConfirmation.Controls.Add(this.btnNo);
             this.panelConfirmation.Controls.Add(this.btnYes);
             this.panelConfirmation.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelConfirmation.Location = new System.Drawing.Point(0, 77);
+            this.panelConfirmation.Location = new System.Drawing.Point(0, 117);
             this.panelConfirmation.Name = "panelConfirmation";
-            this.panelConfirmation.Size = new System.Drawing.Size(450, 40);
+            this.panelConfirmation.Size = new System.Drawing.Size(450, 0);
             this.panelConfirmation.TabIndex = 5;
             // 
             // btnNo
@@ -212,7 +212,7 @@
             this.panelOk.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelOk.Location = new System.Drawing.Point(0, 117);
             this.panelOk.Name = "panelOk";
-            this.panelOk.Size = new System.Drawing.Size(450, 40);
+            this.panelOk.Size = new System.Drawing.Size(450, 0);
             this.panelOk.TabIndex = 4;
             // 
             // CustomDialogForm
@@ -221,7 +221,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(450, 180);
+            this.ClientSize = new System.Drawing.Size(450, 140);
             this.Controls.Add(this.panelMessage);
             this.Controls.Add(this.panelTitle);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

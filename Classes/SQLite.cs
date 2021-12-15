@@ -14,80 +14,71 @@ namespace Utilities.Classes
         private SqliteCommand command = new SqliteCommand();
 
         public SQLite() {
-            if (!File.Exists("UtilitiesTID.db")) {
-                CreateDatabase();
-            }
         }
+        #region Code
+        public CustomMessage InsertCode(Code code) {
+            CustomMessage customMessage = new CustomMessage();
+            if (code == null) { return customMessage; }
 
-        public void InsertCode(Code code) {
-            if (code == null) { return; }
             connection.Open();
             command.Connection = connection;
             try {
                 command.CommandText = "INSERT INTO Codes(Name,Code,Type) VALUES ('" + code.Name + "','" + code.CodeText + "','" + code.Type + "')";
                 command.ExecuteNonQuery();
-
+                customMessage = new CustomMessage("Code sucessfuly registred.", "Success", "success");
             } catch (Exception ex) {
-                CustomDialog.ShowCustomDialog("Error registering:\n" + ex.Message, "Error","error");
-                connection.Close();
-                return;
+                customMessage = new CustomMessage("Error registering:\n" + ex.Message, "Error","error");
             }
             connection.Close();
-            CustomDialog.ShowCustomDialog("Code sucessfuly registred.", "Success","success");
+            return customMessage;
         }
-        public void UpdateCode(Code code) {
-            if (code == null) { return; }
+        public CustomMessage UpdateCode(Code code) {
+            CustomMessage customMessage = new CustomMessage();
+            if (code == null) { return customMessage; }
             connection.Open();
             command.Connection = connection;
             try {
                 command.CommandText = "UPDATE Codes SET Name = '" + code.Name + "',Code = '" + code.CodeText + "', Type = '" + code.Type + "'" +
                                       " WHERE ID  = " + code.ID;
                 command.ExecuteNonQuery();
+                customMessage = new CustomMessage("Code sucessfuly updated.", "Sucess", "sucess");
             } catch (Exception ex) {
-                CustomDialog.ShowCustomDialog("Error updating:\n" + ex.Message, "Error","error");
-                connection.Close();
-                return;
+                customMessage = new CustomMessage("Error updating:\n" + ex.Message, "Error","error");
             }
             connection.Close();
-            CustomDialog.ShowCustomDialog("Code sucessfuly updated.", "Sucess", "sucess");
-
+            return customMessage;
         }
-        public void DeleteCode(Code code) {
-            if (code == null) { return; }
+        public CustomMessage DeleteCode(Code code) {
+            CustomMessage customMessage = new CustomMessage();
+            if (code == null) { return customMessage; }
             connection.Open();
             command.Connection = connection;
             try {
                 command.CommandText = "DELETE FROM Codes WHERE Name = '" + code.Name + "' AND Type = '" + code.Type + "'";
                 Clipboard.SetText(command.CommandText);
                 command.ExecuteNonQuery();
-
+                customMessage = new CustomMessage("Code sucessfuly deleted.", "Sucess", "success");
             } catch (Exception ex) {
-                CustomDialog.ShowCustomDialog("Error deleting:\n" + ex.Message, "Error","error");
-                connection.Close();
-                return;
+                customMessage = new CustomMessage("Error deleting:\n" + ex.Message, "Error","error");
             }
             connection.Close();
-            CustomDialog.ShowCustomDialog("Code sucessfuly deleted.", "Sucess","success");
+            return customMessage;
         }
-
-        public void DeleteAllCodes() {
+        public CustomMessage DeleteAllCodes() {
             connection.Open();
+            CustomMessage customMessage = new CustomMessage();
             command.Connection = connection;
             try {
                 command.CommandText = "DELETE FROM Codes";
                 Clipboard.SetText(command.CommandText);
                 command.ExecuteNonQuery();
-
+                customMessage = new CustomMessage("Codes sucessfuly deleted.", "Sucess", "success");
             } catch (Exception ex) {
-                CustomDialog.ShowCustomDialog("Error deleting:\n" + ex.Message, "Error", "error");
-                connection.Close();
-                return;
+                customMessage = new CustomMessage("Error deleting:\n" + ex.Message, "Error", "error");
             }
             connection.Close();
-            CustomDialog.ShowCustomDialog("Codes sucessfuly deleted.", "Sucess", "success");
+            return customMessage;
         }
-
-
 
         public DataTable SelectAllCodes(string filterType) {
             SqliteDataReader reader;
@@ -115,7 +106,8 @@ namespace Utilities.Classes
                 }
                 reader.Close();
             } catch (Exception ex) {
-                CustomDialog.ShowCustomDialog(ex.Message,"Error","error");
+                CustomMessage customMessage = new CustomMessage(ex.Message,"Error","error");
+                CustomDialog.ShowCustomDialog(customMessage,new Form() { StartPosition = FormStartPosition.CenterScreen });
             }
             connection.Close();
 
@@ -136,14 +128,17 @@ namespace Utilities.Classes
                 }
                 reader.Close();
             } catch (Exception ex) {
-                CustomDialog.ShowCustomDialog(ex.Message,"Error","error");
+                CustomMessage customMessage = new CustomMessage(ex.Message, "Error", "error");
+                CustomDialog.ShowCustomDialog(customMessage, new Form() { StartPosition = FormStartPosition.CenterScreen });
             }
             connection.Close();
 
             return dt;
         }
+        #endregion
 
-        private void CreateDatabase() {
+        public CustomMessage CreateDatabase() {
+            CustomMessage customMessage = new CustomMessage();
             connection.Open();
             command.Connection = connection;
             command.CommandText = "CREATE TABLE IF NOT EXISTS Codes (" +
@@ -156,11 +151,13 @@ namespace Utilities.Classes
             try {
                 command.ExecuteNonQuery();
             } catch (Exception ex) {
-                CustomDialog.ShowCustomDialog(ex.Message, "Error", "error");
+                customMessage = new CustomMessage(ex.Message, "Error", "error");
             }
             connection.Close();
+            return customMessage;
         }
-        public void AddDefaultCodes() {
+        public CustomMessage AddDefaultCodes() {
+            CustomMessage customMessage = new CustomMessage();
             connection.Open();
             command.Connection = connection;
             List<Code> listCodes = LoadDefaultOptionsCode();
@@ -173,9 +170,10 @@ namespace Utilities.Classes
                 }
 
             } catch (Exception ex) {
-                CustomDialog.ShowCustomDialog(ex.Message, "Error", "error");
+                customMessage = new CustomMessage(ex.Message, "Error", "error");
             }
             connection.Close();
+            return customMessage;
         }
         private List<Code> LoadDefaultOptionsCode() {
             List<Code> listCodes = new List<Code>();

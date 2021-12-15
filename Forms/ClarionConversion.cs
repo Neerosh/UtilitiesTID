@@ -190,9 +190,5 @@ namespace Utilities.Forms
             txtWeekDay.Text = GetWeekDay(Convert.ToInt32(txtClarionDate.Text));
         }
         #endregion
-
-        private void cboDateFormat_SelectedIndexChanged(object sender, EventArgs e) {
-
-        }
     }
 }

@@ -60,7 +60,7 @@
             this.txtTime.Mask = "00:00";
             this.txtTime.Name = "txtTime";
             this.txtTime.PromptChar = ' ';
-            this.txtTime.Size = new System.Drawing.Size(80, 22);
+            this.txtTime.Size = new System.Drawing.Size(79, 22);
             this.txtTime.TabIndex = 1;
             this.txtTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTime.ValidatingType = typeof(System.DateTime);
@@ -70,7 +70,7 @@
             // 
             this.lblClarionTime.AutoSize = true;
             this.lblClarionTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblClarionTime.Location = new System.Drawing.Point(157, 25);
+            this.lblClarionTime.Location = new System.Drawing.Point(156, 25);
             this.lblClarionTime.Name = "lblClarionTime";
             this.lblClarionTime.Size = new System.Drawing.Size(83, 16);
             this.lblClarionTime.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.txtClarionTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtClarionTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtClarionTime.ForeColor = System.Drawing.Color.White;
-            this.txtClarionTime.Location = new System.Drawing.Point(245, 22);
+            this.txtClarionTime.Location = new System.Drawing.Point(244, 22);
             this.txtClarionTime.Mask = "000000000";
             this.txtClarionTime.Name = "txtClarionTime";
             this.txtClarionTime.PromptChar = ' ';
@@ -176,7 +176,6 @@
             this.cboDateFormat.Size = new System.Drawing.Size(130, 24);
             this.cboDateFormat.Sorted = true;
             this.cboDateFormat.TabIndex = 10;
-            this.cboDateFormat.SelectedIndexChanged += new System.EventHandler(this.cboDateFormat_SelectedIndexChanged);
             // 
             // lblDateFormat
             // 
@@ -218,7 +217,7 @@
             this.txtDateConversion.Name = "txtDateConversion";
             this.txtDateConversion.ReadOnly = true;
             this.txtDateConversion.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtDateConversion.Size = new System.Drawing.Size(738, 111);
+            this.txtDateConversion.Size = new System.Drawing.Size(738, 129);
             this.txtDateConversion.TabIndex = 18;
             this.txtDateConversion.Text = "";
             // 

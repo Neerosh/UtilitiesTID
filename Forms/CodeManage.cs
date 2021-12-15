@@ -57,12 +57,17 @@ namespace Utilities.Forms
             txtType.Text = "";
         }
         private void BtnInsert_Click(object sender, EventArgs e) {
-            if (CustomDialog.ShowCustomDialog("Insert new code?", "Confirmation", "confirmation") == DialogResult.Cancel) { return; }
+            CustomMessage customMessage = new CustomMessage("Insert new code?", "Confirmation", "confirmation");
+
+            if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }
+
             int id;
             id = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
             Code code = new Code(id, txtName.Text,txtType.Text,txtCodeText.Text);
             code.FormatStrings();
-            sqlite.InsertCode(code);
+            customMessage = sqlite.InsertCode(code);
+            CustomDialog.ShowCustomDialog(customMessage, this);
+
             RefreshCodes();
             SelectCorrectRow(code);
         }
@@ -71,11 +76,15 @@ namespace Utilities.Forms
             int id;
             id = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
 
-            if (CustomDialog.ShowCustomDialog("Update selected code?\nSelected: " + txtName.Text, "Confirmation", "confirmation") == DialogResult.Cancel) { return; }
+            CustomMessage customMessage = new CustomMessage("Update selected code?\nSelected: " + txtName.Text, "Confirmation", "confirmation");
+            if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }
             
             Code code = new Code(id, txtName.Text, txtType.Text, txtCodeText.Text);
             code.FormatStrings();
-            sqlite.UpdateCode(code);
+
+            customMessage = sqlite.UpdateCode(code);
+            CustomDialog.ShowCustomDialog(customMessage, this);
+
             RefreshCodes();
             SelectCorrectRow(code);
         }
@@ -90,24 +99,33 @@ namespace Utilities.Forms
             codeText = dgvCodes.SelectedRows[0].Cells[3].Value.ToString();
             selectedRow = dgvCodes.SelectedRows[0].Index;
 
-            if (CustomDialog.ShowCustomDialog("Delete selected code?\nSelected: "+ name, "Confirmation", "confirmation") == DialogResult.Cancel) { return; }
+            CustomMessage customMessage = new CustomMessage("Delete selected code?\nSelected: " + name, "Confirmation", "confirmation");
+            if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }
 
             Code code = new Code(id, name, type, codeText);
             code.FormatStrings();
-            sqlite.DeleteCode(code);
+
+            customMessage = sqlite.DeleteCode(code);
+            CustomDialog.ShowCustomDialog(customMessage, this);
+
             dgvCodes.Rows.RemoveAt(selectedRow);
             BtnClearFields_Click(sender, e);
         }
 
         private void btnAddDefaults_Click(object sender, EventArgs e) {
-            if (CustomDialog.ShowCustomDialog("Add Default Codes?", "Confirmation", "confirmation") == DialogResult.Cancel) { return; }
+            CustomMessage customMessage = new CustomMessage("Add default list of clarion codes?", "Confirmation", "confirmation");
+            if (CustomDialog.ShowCustomDialog(customMessage,this) == DialogResult.Cancel) { return; }
             sqlite.AddDefaultCodes();
             RefreshCodes();
         }
 
         private void btnDeleteAll_Click(object sender, EventArgs e) {
-            if (CustomDialog.ShowCustomDialog("Delete all registered Codes?", "Confirmation", "confirmation") == DialogResult.Cancel) { return; }
-            sqlite.DeleteAllCodes();
+            CustomMessage customMessage = new CustomMessage("Delete all registered codes?", "Confirmation", "confirmation");
+            if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }
+
+            customMessage = sqlite.DeleteAllCodes();
+            CustomDialog.ShowCustomDialog(customMessage,this);
+
             RefreshCodes();
         }
     }

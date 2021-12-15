@@ -108,6 +108,7 @@ namespace Utilities.Forms
             int maxPercent;
             FileInfo[] directoryFiles;
             List<GroupFileDetails> listGroupedFiles = new List<GroupFileDetails>();
+            CustomMessage customMessage = new CustomMessage();
             DialogResult result = 0;
 
             orderBy = cboOrderBy.SelectedItem.ToString();
@@ -138,7 +139,8 @@ namespace Utilities.Forms
                                 return;
                             }
 
-                            result = CustomDialog.ShowCustomDialog("Moving files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "confirmation");
+                            customMessage = new CustomMessage("Moving files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "confirmation");
+                            result = CustomDialog.ShowCustomDialog(customMessage,this);
                             if (result == DialogResult.Cancel) {
                                 WriteLog("Process Aborted");
                                 return;
@@ -156,7 +158,8 @@ namespace Utilities.Forms
                                 return;
                             }
 
-                            result = CustomDialog.ShowCustomDialog("Copying files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "confirmation");
+                            customMessage = new CustomMessage("Copying files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "confirmation");
+                            result = CustomDialog.ShowCustomDialog(customMessage,this);
                             if (result == DialogResult.Cancel) {
                                 WriteLog("Process Aborted");
                                 return;
@@ -164,14 +167,16 @@ namespace Utilities.Forms
                             CopyFiles(directoryFiles, toFolder);
                             break;
                         case "DeleteDuplicated":
-                            result = CustomDialog.ShowCustomDialog("Deleting duplicated files on:\n" + fromFolder + "\nAre you sure?", "Confirmation", "confirmation");
-                            if (result == DialogResult.Cancel) {
-                                WriteLog("Process Aborted");
-                                return;
-                            }
                             List<DirectoryInfo> directories = GetDirectories(fromFolder, checkSubDirectories);
                             if (directories.Count == 0) {
                                 WriteLog("No files found");
+                                return;
+                            }
+
+                            customMessage = new CustomMessage("Deleting duplicated files on:\n" + fromFolder + "\nAre you sure?", "Confirmation", "confirmation");
+                            result = CustomDialog.ShowCustomDialog(customMessage, this);
+                            if (result == DialogResult.Cancel) {
+                                WriteLog("Process Aborted");
                                 return;
                             }
 

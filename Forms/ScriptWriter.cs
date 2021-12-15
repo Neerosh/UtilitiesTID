@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utilities.Classes;
 
 namespace Utilities.Forms
 {
@@ -48,13 +49,17 @@ namespace Utilities.Forms
 
         #region Script Writer
         private async Task TaskGenerateSQL(string scriptType) {
+            CustomMessage customMessage = new CustomMessage();
+
             if (!scriptType.Equals("Unified") && !scriptType.Equals("Regular")) { return; }
             if (txtScriptFolder.Text.Equals("")) {
-                CustomDialog.ShowCustomDialog("Script folder not selected","Error Checking folders","error");
+                customMessage = new CustomMessage("Script folder not selected", "Error Checking folders", "error");
+                CustomDialog.ShowCustomDialog(customMessage, this);
                 return; 
             }
             if (txtFolderSQL.Text.Equals("")) {
-                CustomDialog.ShowCustomDialog("SQL folder not selected", "Error Checking folders", "error");
+                customMessage = new CustomMessage("SQL folder not selected", "Error Checking folders", "error");
+                CustomDialog.ShowCustomDialog(customMessage, this);
                 return;
             }
 
@@ -90,14 +95,16 @@ namespace Utilities.Forms
                         folderScript = txtScriptFolder.Text + "\\UnifiedScript.sql";
                     }
                     GenerateUnifiedScript(folderSQL, folderScript, procedureName);
-                } catch (Exception e) {
-                    CustomDialog.ShowCustomDialog(e.Message,"Error","error");
+                } catch (Exception ex) {
+                    customMessage = new CustomMessage(ex.Message, "Error","error");
+                    CustomDialog.ShowCustomDialog(customMessage, this);
                 }
             });
         }
         private void GenerateUnifiedScript(string folderSQL, string folderScript, string procedureName) {
             Byte[] line;
             string scriptText;
+            CustomMessage customMessage;
 
             using (FileStream fileStream = File.Create(folderScript)) {
 
@@ -171,7 +178,8 @@ namespace Utilities.Forms
                 fileStream.Write(line, 0, line.Length);
 
             }
-            CustomDialog.ShowCustomDialog("Unified Script generated successfully: \n" + folderScript, "Success", "success");
+            customMessage = new CustomMessage("Unified Script generated successfully: \n" + folderScript, "Success", "success");
+            CustomDialog.ShowCustomDialog(customMessage, this);
 
         }
         private void WriteUnifiedCode(string database, FileStream fileStream, string folderSQL) {
@@ -285,6 +293,7 @@ namespace Utilities.Forms
         private void GenerateUnifiedScript_test(string folderSQL, string folderScript, string procedureName) {
             Byte[] line;
             string scriptText;
+            CustomMessage customMessage;
 
             using (FileStream fileStream = File.Create(folderScript)) {
 
@@ -335,7 +344,8 @@ namespace Utilities.Forms
                 fileStream.Write(line, 0, line.Length);
 
             }
-            CustomDialog.ShowCustomDialog("Unified Script generated successfully: " + folderScript, "Success","success");
+            customMessage = new CustomMessage("Unified Script generated successfully: " + folderScript, "Success", "success");
+            CustomDialog.ShowCustomDialog(customMessage, this);
         }
         private void WriteUnifiedScript_test(FileStream fileStream, string procedureName, string database) {
             Byte[] line;
@@ -462,6 +472,7 @@ namespace Utilities.Forms
         private void GenerateRegularScript(string folderSQL, string folderScript) {
             Byte[] line;
             String[] procedures = { "AttachTID", "DetachTID", "RestoreTID" };
+            CustomMessage customMessage;
             string scriptText;
 
             using (FileStream fileStream = File.Create(folderScript)) {
@@ -530,7 +541,8 @@ namespace Utilities.Forms
                     fileStream.Write(line, 0, line.Length);
                 }
             }
-            CustomDialog.ShowCustomDialog("Regular Script generated successfully: \n" + folderScript, "Success", "success");
+            customMessage = new CustomMessage("Regular Script generated successfully: \n" + folderScript, "Success", "success");
+            CustomDialog.ShowCustomDialog(customMessage,this);
         }
         private void WriteRegularCode(string database, string folderSQL, FileStream fileStream, string action) {
             string fileText = "";

@@ -7,39 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utilities.Classes;
 using Utilities.Properties;
 
 namespace Utilities.Forms
 {
     public partial class CustomDialogForm : Form
     {
-        public CustomDialogForm(string message, string title,string icon) {
+        public CustomDialogForm(CustomMessage customMessage,Form owner) {
             InitializeComponent();
             Padding = new Padding(2);
             BackColor = Color.FromArgb(50, 50, 50);
-            lblTitle.Text = title;
-            rtbMessage.Text = message;
-            switch (icon) {
+            lblTitle.Text = customMessage.Title;
+            rtbMessage.Text = customMessage.Message;
+            switch (customMessage.Type) {
                 case "error":
                     picMessage.Image = Resources.icons8_error_64;
-                    panelConfirmation.Visible = false;
+                    panelConfirmation.Height = 40;
                     break;
                 case "success":
                     picMessage.Image = Resources.icons8_info_64;
-                    panelConfirmation.Visible = false;
+                    panelConfirmation.Height = 40;
                     break;
                 case "confirmation":
                     picMessage.Image = Resources.icons8_question_64;
-                    panelOk.Visible = false;
+                    panelOk.Height = 40;
                     break;
                 default:
                     picMessage.Image = Resources.icons8_info_64;
-                    panelConfirmation.Visible = false;
+                    panelConfirmation.Height = 40;
                     break;
             }
-            if (!rtbMessage.Text.Last().Equals(".") || !rtbMessage.Text.Last().Equals("?")) {
-                rtbMessage.Text = rtbMessage.Text+".";
-            }
+            if (owner != null) { Owner = owner; StartPosition = FormStartPosition.CenterParent; }
         }
         #region Movable Window
         public const int WM_NCLBUTTONDOWN = 0xA1;
