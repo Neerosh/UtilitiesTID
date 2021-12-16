@@ -23,19 +23,19 @@ namespace Utilities.Forms
             switch (customMessage.Type) {
                 case "error":
                     picMessage.Image = Resources.icons8_error_64;
-                    panelConfirmation.Height = 40;
+                    panelOk.Height = 40;
                     break;
                 case "success":
                     picMessage.Image = Resources.icons8_info_64;
-                    panelConfirmation.Height = 40;
+                    panelOk.Height = 40;
                     break;
                 case "confirmation":
                     picMessage.Image = Resources.icons8_question_64;
-                    panelOk.Height = 40;
+                    panelConfirmation.Height = 40;
                     break;
                 default:
                     picMessage.Image = Resources.icons8_info_64;
-                    panelConfirmation.Height = 40;
+                    panelOk.Height = 40;
                     break;
             }
             if (owner != null) { Owner = owner; StartPosition = FormStartPosition.CenterParent; }
