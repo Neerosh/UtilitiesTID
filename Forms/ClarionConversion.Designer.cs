@@ -173,7 +173,7 @@
             this.cboDateFormat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cboDateFormat.Location = new System.Drawing.Point(627, 159);
             this.cboDateFormat.Name = "cboDateFormat";
-            this.cboDateFormat.Size = new System.Drawing.Size(130, 24);
+            this.cboDateFormat.Size = new System.Drawing.Size(103, 24);
             this.cboDateFormat.Sorted = true;
             this.cboDateFormat.TabIndex = 10;
             // 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Utilities.Forms
 {
     public partial class CustomDialogForm : Form
     {
-        public CustomDialogForm(CustomMessage customMessage,Form owner) {
+        public CustomDialogForm(CustomMessage customMessage,IntPtr owner) {
             InitializeComponent();
             Padding = new Padding(2);
             BackColor = Color.FromArgb(50, 50, 50);
@@ -38,7 +39,16 @@ namespace Utilities.Forms
                     panelOk.Height = 40;
                     break;
             }
-            if (owner != null) { Owner = owner; StartPosition = FormStartPosition.CenterParent; }
+            if (owner == IntPtr.Zero) {
+                owner = Process.GetCurrentProcess().MainWindowHandle;
+                if (owner == IntPtr.Zero) {
+                    owner = GetDesktopWindow();
+                }
+            }
+        }
+
+        private IntPtr GetDesktopWindow() {
+            throw new NotImplementedException();
         }
         #region Movable Window
         public const int WM_NCLBUTTONDOWN = 0xA1;

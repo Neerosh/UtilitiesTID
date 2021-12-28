@@ -226,7 +226,7 @@
             this.dgvCodes.RowTemplate.ReadOnly = true;
             this.dgvCodes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvCodes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCodes.Size = new System.Drawing.Size(750, 202);
+            this.dgvCodes.Size = new System.Drawing.Size(585, 248);
             this.dgvCodes.TabIndex = 0;
             this.dgvCodes.SelectionChanged += new System.EventHandler(this.DgvCodes_SelectionChanged);
             // 
@@ -259,7 +259,7 @@
             // 
             // btnDeleteAll
             // 
-            this.btnDeleteAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDeleteAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnDeleteAll.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnDeleteAll.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -269,7 +269,7 @@
             this.btnDeleteAll.Image = global::Utilities.Properties.Resources.icons8_delete_database_32;
             this.btnDeleteAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteAll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteAll.Location = new System.Drawing.Point(20, 518);
+            this.btnDeleteAll.Location = new System.Drawing.Point(622, 518);
             this.btnDeleteAll.Name = "btnDeleteAll";
             this.btnDeleteAll.Size = new System.Drawing.Size(148, 40);
             this.btnDeleteAll.TabIndex = 14;
@@ -291,9 +291,9 @@
             this.btnAddDefaults.Image = global::Utilities.Properties.Resources.icons8_add_database_32;
             this.btnAddDefaults.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddDefaults.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAddDefaults.Location = new System.Drawing.Point(613, 518);
+            this.btnAddDefaults.Location = new System.Drawing.Point(622, 472);
             this.btnAddDefaults.Name = "btnAddDefaults";
-            this.btnAddDefaults.Size = new System.Drawing.Size(157, 40);
+            this.btnAddDefaults.Size = new System.Drawing.Size(148, 40);
             this.btnAddDefaults.TabIndex = 15;
             this.btnAddDefaults.Text = "Add Default Codes";
             this.btnAddDefaults.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

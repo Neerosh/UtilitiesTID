@@ -1,5 +1,4 @@
-﻿using Microsoft.WindowsAPICodePack.Dialogs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -11,14 +10,14 @@ namespace Utilities.Forms
 {
     public partial class ScriptWriter : Form {
 
-        private readonly CommonOpenFileDialog folderPickerWriter = new CommonOpenFileDialog();
+        private readonly FolderPicker folderPicker = new FolderPicker();
         private Task task;
 
         public ScriptWriter() {
             InitializeComponent();
         }
         private void ScriptWriter_Load(object sender, EventArgs e) {
-            folderPickerWriter.IsFolderPicker = true;
+            folderPicker.InputPath = @"C:\";
         }
 
         #region Mouse Hover
@@ -54,12 +53,12 @@ namespace Utilities.Forms
             if (!scriptType.Equals("Unified") && !scriptType.Equals("Regular")) { return; }
             if (txtScriptFolder.Text.Equals("")) {
                 customMessage = new CustomMessage("Script folder not selected", "Error Checking folders", "error");
-                CustomDialog.ShowCustomDialog(customMessage, this);
+                CustomDialog.ShowCustomDialog(customMessage, Handle);
                 return; 
             }
             if (txtFolderSQL.Text.Equals("")) {
                 customMessage = new CustomMessage("SQL folder not selected", "Error Checking folders", "error");
-                CustomDialog.ShowCustomDialog(customMessage, this);
+                CustomDialog.ShowCustomDialog(customMessage, Handle);
                 return;
             }
 
@@ -97,7 +96,7 @@ namespace Utilities.Forms
                     GenerateUnifiedScript(folderSQL, folderScript, procedureName);
                 } catch (Exception ex) {
                     customMessage = new CustomMessage(ex.Message, "Error","error");
-                    CustomDialog.ShowCustomDialog(customMessage, this);
+                    CustomDialog.ShowCustomDialog(customMessage, Handle);
                 }
             });
         }
@@ -179,7 +178,7 @@ namespace Utilities.Forms
 
             }
             customMessage = new CustomMessage("Unified Script generated successfully: \n" + folderScript, "Success", "success");
-            CustomDialog.ShowCustomDialog(customMessage, this);
+            CustomDialog.ShowCustomDialog(customMessage, Handle);
 
         }
         private void WriteUnifiedCode(string database, FileStream fileStream, string folderSQL) {
@@ -345,7 +344,7 @@ namespace Utilities.Forms
 
             }
             customMessage = new CustomMessage("Unified Script generated successfully: " + folderScript, "Success", "success");
-            CustomDialog.ShowCustomDialog(customMessage, this);
+            CustomDialog.ShowCustomDialog(customMessage, Handle);
         }
         private void WriteUnifiedScript_test(FileStream fileStream, string procedureName, string database) {
             Byte[] line;
@@ -542,7 +541,7 @@ namespace Utilities.Forms
                 }
             }
             customMessage = new CustomMessage("Regular Script generated successfully: \n" + folderScript, "Success", "success");
-            CustomDialog.ShowCustomDialog(customMessage,this);
+            CustomDialog.ShowCustomDialog(customMessage, Handle);
         }
         private void WriteRegularCode(string database, string folderSQL, FileStream fileStream, string action) {
             string fileText = "";
@@ -648,13 +647,13 @@ namespace Utilities.Forms
         }
 
         private void BtnPathFolderSQLBrowser_Click(object sender, EventArgs e) {
-            if (folderPickerWriter.ShowDialog() == CommonFileDialogResult.Ok) {
-                txtFolderSQL.Text = Path.GetFullPath(folderPickerWriter.FileName);
+            if (folderPicker.ShowDialog(Handle, false) == true) {
+                txtFolderSQL.Text = folderPicker.ResultPath;
             }
         }
         private void BtnPathScriptBrowser_Click(object sender, EventArgs e) {
-            if (folderPickerWriter.ShowDialog() == CommonFileDialogResult.Ok) {
-                txtScriptFolder.Text = Path.GetFullPath(folderPickerWriter.FileName);
+            if (folderPicker.ShowDialog(Handle, false) == true) {
+                txtScriptFolder.Text = folderPicker.ResultPath;
             }
         }
 

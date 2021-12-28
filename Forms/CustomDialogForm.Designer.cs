@@ -119,6 +119,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
             this.rtbMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbMessage.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rtbMessage.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rtbMessage.ForeColor = System.Drawing.Color.White;
             this.rtbMessage.Location = new System.Drawing.Point(68, 21);

@@ -1,5 +1,4 @@
-﻿using Microsoft.WindowsAPICodePack.Dialogs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,18 +14,17 @@ using Utilities.Classes;
 
 namespace Utilities.Forms
 {
-    public partial class FileManagement : Form
-    {
+    public partial class FileManagement : Form {
         public FileManagement() {
             InitializeComponent();
-            folderPicker.IsFolderPicker = true;
+            folderPicker.InputPath = @"C:\";
             cboOrderBy.SelectedItem = "Descending";
             cboOrderField.SelectedItem = "Filename";
             cboFileExtension.SelectedItem = "TID";
             lblProgressPercent.Text = "0%";
         }
 
-        private CommonOpenFileDialog folderPicker = new CommonOpenFileDialog();
+        private FolderPicker folderPicker = new FolderPicker();
         private Task task;
         public readonly string[] arrayForbiddenCombinations = new string[] { ").", "_.", "_03.", "old.", "old--.", "copia.", "copy." };
 
@@ -140,7 +138,7 @@ namespace Utilities.Forms
                             }
 
                             customMessage = new CustomMessage("Moving files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "confirmation");
-                            result = CustomDialog.ShowCustomDialog(customMessage,this);
+                            result = CustomDialog.ShowCustomDialog(customMessage, Handle);
                             if (result == DialogResult.Cancel) {
                                 WriteLog("Process Aborted");
                                 return;
@@ -159,7 +157,7 @@ namespace Utilities.Forms
                             }
 
                             customMessage = new CustomMessage("Copying files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "confirmation");
-                            result = CustomDialog.ShowCustomDialog(customMessage,this);
+                            result = CustomDialog.ShowCustomDialog(customMessage, Handle);
                             if (result == DialogResult.Cancel) {
                                 WriteLog("Process Aborted");
                                 return;
@@ -174,7 +172,7 @@ namespace Utilities.Forms
                             }
 
                             customMessage = new CustomMessage("Deleting duplicated files on:\n" + fromFolder + "\nAre you sure?", "Confirmation", "confirmation");
-                            result = CustomDialog.ShowCustomDialog(customMessage, this);
+                            result = CustomDialog.ShowCustomDialog(customMessage, Handle);
                             if (result == DialogResult.Cancel) {
                                 WriteLog("Process Aborted");
                                 return;
@@ -505,14 +503,15 @@ namespace Utilities.Forms
         }
 
         private void BtnFromBrowser_Click(object sender, EventArgs e) {
-            if (folderPicker.ShowDialog() == CommonFileDialogResult.Ok) {
-                txtFromFolder.Text = Path.GetFullPath(folderPicker.FileName);
+            if (folderPicker.ShowDialog(Handle,false) == true) {
+                txtFromFolder.Text = folderPicker.ResultPath;
             }
         }
         private void BtnToBrowser_Click(object sender, EventArgs e) {
-            if (folderPicker.ShowDialog() == CommonFileDialogResult.Ok) {
-                txtToFolder.Text = Path.GetFullPath(folderPicker.FileName);
+            if (folderPicker.ShowDialog(Handle, false) == true) {
+                txtToFolder.Text = folderPicker.ResultPath;
             }
+
         }
         #endregion File Management
 

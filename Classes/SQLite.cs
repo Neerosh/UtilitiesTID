@@ -107,7 +107,7 @@ namespace Utilities.Classes
                 reader.Close();
             } catch (Exception ex) {
                 CustomMessage customMessage = new CustomMessage(ex.Message,"Error","error");
-                CustomDialog.ShowCustomDialog(customMessage,new Form() { StartPosition = FormStartPosition.CenterScreen });
+                CustomDialog.ShowCustomDialog(customMessage, IntPtr.Zero);
             }
             connection.Close();
 
@@ -129,7 +129,7 @@ namespace Utilities.Classes
                 reader.Close();
             } catch (Exception ex) {
                 CustomMessage customMessage = new CustomMessage(ex.Message, "Error", "error");
-                CustomDialog.ShowCustomDialog(customMessage, new Form() { StartPosition = FormStartPosition.CenterScreen });
+                CustomDialog.ShowCustomDialog(customMessage, IntPtr.Zero);
             }
             connection.Close();
 

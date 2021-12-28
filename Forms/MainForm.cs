@@ -27,7 +27,7 @@ namespace Teste
         private void MainForm_Load(object sender, EventArgs e) {
             if (!File.Exists("UtilitiesTID.db")) {
                 CustomMessage customMessage = sqlite.CreateDatabase();
-                CustomDialog.ShowCustomDialog(customMessage, this);
+                CustomDialog.ShowCustomDialog(customMessage, Handle);
             }
         }
 
