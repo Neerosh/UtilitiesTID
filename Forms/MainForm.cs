@@ -29,6 +29,9 @@ namespace Teste
                 CustomMessage customMessage = sqlite.CreateDatabase();
                 CustomDialog.ShowCustomDialog(customMessage, Handle);
             }
+
+            HideSubmenu();
+            OpenChildForm(new ProcessManagement());
         }
 
         private void btnClose_Click(object sender, EventArgs e) {

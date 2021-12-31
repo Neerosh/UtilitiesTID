@@ -29,6 +29,7 @@
   <PropertyGroup>
     <StartupObject />
     <DebugType>portable</DebugType>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>False</Optimize>
