@@ -116,7 +116,7 @@
             this.btnClearFields.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnClearFields.Location = new System.Drawing.Point(622, 54);
             this.btnClearFields.Name = "btnClearFields";
-            this.btnClearFields.Size = new System.Drawing.Size(148, 40);
+            this.btnClearFields.Size = new System.Drawing.Size(148, 44);
             this.btnClearFields.TabIndex = 8;
             this.btnClearFields.Text = "Clear Fields";
             this.btnClearFields.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -136,9 +136,9 @@
             this.btnInsert.Image = global::Utilities.Properties.Resources.icons8_add_clipboard_32;
             this.btnInsert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsert.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnInsert.Location = new System.Drawing.Point(622, 144);
+            this.btnInsert.Location = new System.Drawing.Point(622, 136);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(148, 40);
+            this.btnInsert.Size = new System.Drawing.Size(148, 44);
             this.btnInsert.TabIndex = 7;
             this.btnInsert.Text = "Add New Code";
             this.btnInsert.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -158,9 +158,9 @@
             this.btnUpdate.Image = global::Utilities.Properties.Resources.icons8_update_clipboard_32;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnUpdate.Location = new System.Drawing.Point(622, 190);
+            this.btnUpdate.Location = new System.Drawing.Point(622, 186);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(148, 40);
+            this.btnUpdate.Size = new System.Drawing.Size(148, 44);
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Update Selected";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -182,7 +182,7 @@
             this.btnDelete.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnDelete.Location = new System.Drawing.Point(622, 236);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(148, 40);
+            this.btnDelete.Size = new System.Drawing.Size(148, 44);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Delete Selected";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -269,9 +269,9 @@
             this.btnDeleteAll.Image = global::Utilities.Properties.Resources.icons8_delete_database_32;
             this.btnDeleteAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteAll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteAll.Location = new System.Drawing.Point(622, 518);
+            this.btnDeleteAll.Location = new System.Drawing.Point(622, 514);
             this.btnDeleteAll.Name = "btnDeleteAll";
-            this.btnDeleteAll.Size = new System.Drawing.Size(148, 40);
+            this.btnDeleteAll.Size = new System.Drawing.Size(148, 44);
             this.btnDeleteAll.TabIndex = 14;
             this.btnDeleteAll.Text = "Delete All Codes";
             this.btnDeleteAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -291,9 +291,9 @@
             this.btnAddDefaults.Image = global::Utilities.Properties.Resources.icons8_add_database_32;
             this.btnAddDefaults.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddDefaults.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAddDefaults.Location = new System.Drawing.Point(622, 472);
+            this.btnAddDefaults.Location = new System.Drawing.Point(622, 464);
             this.btnAddDefaults.Name = "btnAddDefaults";
-            this.btnAddDefaults.Size = new System.Drawing.Size(148, 40);
+            this.btnAddDefaults.Size = new System.Drawing.Size(148, 44);
             this.btnAddDefaults.TabIndex = 15;
             this.btnAddDefaults.Text = "Add Default Codes";
             this.btnAddDefaults.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

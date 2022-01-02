@@ -29,9 +29,6 @@ namespace Teste
                 CustomMessage customMessage = sqlite.CreateDatabase();
                 CustomDialog.ShowCustomDialog(customMessage, Handle);
             }
-
-            HideSubmenu();
-            OpenChildForm(new ProcessManagement());
         }
 
         private void btnClose_Click(object sender, EventArgs e) {
@@ -240,15 +237,18 @@ namespace Teste
             OpenChildForm(new Utilities.Help(arrayForbiddenCombinations));
             PaintSelectedMenuItem(btnHelp);
         }
+        private void btnProcessManagement_Click(object sender, EventArgs e) {
+            OpenChildForm(new ProcessManagement());
+            PaintSelectedMenuItem(btnProcessManagement);
+        }
+        private void BtnMenu_Click(object sender, EventArgs e) {
+            OpenChildForm(null);
+            PaintSelectedMenuItem(btnMenu);
+        }
         #endregion
 
         private void Main_Resize(object sender, EventArgs e) {
             AdjustForm();
-        }
-
-        private void BtnMenu_Click(object sender, EventArgs e) {
-            OpenChildForm(null);
-            PaintSelectedMenuItem(btnMenu);
         }
     }
 }

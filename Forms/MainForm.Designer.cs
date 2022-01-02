@@ -33,6 +33,7 @@ namespace Teste
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnConvertClarion = new System.Windows.Forms.Button();
+            this.btnProcessManagement = new System.Windows.Forms.Button();
             this.btnScriptWriter = new System.Windows.Forms.Button();
             this.panelSubMenuCodes = new System.Windows.Forms.Panel();
             this.btnCodesManage = new System.Windows.Forms.Button();
@@ -60,6 +61,7 @@ namespace Teste
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.panelSideMenu.Controls.Add(this.btnHelp);
             this.panelSideMenu.Controls.Add(this.btnConvertClarion);
+            this.panelSideMenu.Controls.Add(this.btnProcessManagement);
             this.panelSideMenu.Controls.Add(this.btnScriptWriter);
             this.panelSideMenu.Controls.Add(this.panelSubMenuCodes);
             this.panelSideMenu.Controls.Add(this.btnCodes);
@@ -85,10 +87,10 @@ namespace Teste
             this.btnHelp.ForeColor = System.Drawing.Color.White;
             this.btnHelp.Image = global::Utilities.Properties.Resources.icons8_info_squared_32;
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 354);
+            this.btnHelp.Location = new System.Drawing.Point(0, 412);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnHelp.Size = new System.Drawing.Size(210, 42);
+            this.btnHelp.Size = new System.Drawing.Size(210, 44);
             this.btnHelp.TabIndex = 6;
             this.btnHelp.Text = "Help";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -107,16 +109,38 @@ namespace Teste
             this.btnConvertClarion.ForeColor = System.Drawing.Color.White;
             this.btnConvertClarion.Image = global::Utilities.Properties.Resources.icons8_clock_32;
             this.btnConvertClarion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertClarion.Location = new System.Drawing.Point(0, 312);
+            this.btnConvertClarion.Location = new System.Drawing.Point(0, 368);
             this.btnConvertClarion.Name = "btnConvertClarion";
             this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnConvertClarion.Size = new System.Drawing.Size(210, 42);
+            this.btnConvertClarion.Size = new System.Drawing.Size(210, 44);
             this.btnConvertClarion.TabIndex = 5;
             this.btnConvertClarion.Text = "Clarion Conversion";
             this.btnConvertClarion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConvertClarion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConvertClarion.UseVisualStyleBackColor = false;
             this.btnConvertClarion.Click += new System.EventHandler(this.BtnConvertClarion_Click);
+            // 
+            // btnProcessManagement
+            // 
+            this.btnProcessManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnProcessManagement.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnProcessManagement.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProcessManagement.FlatAppearance.BorderSize = 0;
+            this.btnProcessManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProcessManagement.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnProcessManagement.ForeColor = System.Drawing.Color.White;
+            this.btnProcessManagement.Image = global::Utilities.Properties.Resources.icons8_list_32;
+            this.btnProcessManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProcessManagement.Location = new System.Drawing.Point(0, 324);
+            this.btnProcessManagement.Name = "btnProcessManagement";
+            this.btnProcessManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnProcessManagement.Size = new System.Drawing.Size(210, 44);
+            this.btnProcessManagement.TabIndex = 10;
+            this.btnProcessManagement.Text = "Process Management";
+            this.btnProcessManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProcessManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProcessManagement.UseVisualStyleBackColor = false;
+            this.btnProcessManagement.Click += new System.EventHandler(this.btnProcessManagement_Click);
             // 
             // btnScriptWriter
             // 
@@ -129,10 +153,10 @@ namespace Teste
             this.btnScriptWriter.ForeColor = System.Drawing.Color.White;
             this.btnScriptWriter.Image = global::Utilities.Properties.Resources.icons8_scroll_32;
             this.btnScriptWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnScriptWriter.Location = new System.Drawing.Point(0, 270);
+            this.btnScriptWriter.Location = new System.Drawing.Point(0, 280);
             this.btnScriptWriter.Name = "btnScriptWriter";
             this.btnScriptWriter.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnScriptWriter.Size = new System.Drawing.Size(210, 42);
+            this.btnScriptWriter.Size = new System.Drawing.Size(210, 44);
             this.btnScriptWriter.TabIndex = 4;
             this.btnScriptWriter.Text = "Script Writer";
             this.btnScriptWriter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -145,9 +169,9 @@ namespace Teste
             this.panelSubMenuCodes.Controls.Add(this.btnCodesManage);
             this.panelSubMenuCodes.Controls.Add(this.btnCodesCopyToClipboard);
             this.panelSubMenuCodes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 190);
+            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 196);
             this.panelSubMenuCodes.Name = "panelSubMenuCodes";
-            this.panelSubMenuCodes.Size = new System.Drawing.Size(210, 80);
+            this.panelSubMenuCodes.Size = new System.Drawing.Size(210, 84);
             this.panelSubMenuCodes.TabIndex = 3;
             // 
             // btnCodesManage
@@ -161,10 +185,10 @@ namespace Teste
             this.btnCodesManage.ForeColor = System.Drawing.Color.White;
             this.btnCodesManage.Image = global::Utilities.Properties.Resources.icons8_manage_clipboard_32;
             this.btnCodesManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCodesManage.Location = new System.Drawing.Point(0, 40);
+            this.btnCodesManage.Location = new System.Drawing.Point(0, 42);
             this.btnCodesManage.Name = "btnCodesManage";
             this.btnCodesManage.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
-            this.btnCodesManage.Size = new System.Drawing.Size(210, 40);
+            this.btnCodesManage.Size = new System.Drawing.Size(210, 42);
             this.btnCodesManage.TabIndex = 1;
             this.btnCodesManage.Text = "Manage";
             this.btnCodesManage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -186,7 +210,7 @@ namespace Teste
             this.btnCodesCopyToClipboard.Location = new System.Drawing.Point(0, 0);
             this.btnCodesCopyToClipboard.Name = "btnCodesCopyToClipboard";
             this.btnCodesCopyToClipboard.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
-            this.btnCodesCopyToClipboard.Size = new System.Drawing.Size(210, 40);
+            this.btnCodesCopyToClipboard.Size = new System.Drawing.Size(210, 42);
             this.btnCodesCopyToClipboard.TabIndex = 0;
             this.btnCodesCopyToClipboard.Text = "Copy To Clipboard";
             this.btnCodesCopyToClipboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -205,10 +229,10 @@ namespace Teste
             this.btnCodes.ForeColor = System.Drawing.Color.White;
             this.btnCodes.Image = global::Utilities.Properties.Resources.icons8_data_32;
             this.btnCodes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCodes.Location = new System.Drawing.Point(0, 148);
+            this.btnCodes.Location = new System.Drawing.Point(0, 152);
             this.btnCodes.Name = "btnCodes";
             this.btnCodes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnCodes.Size = new System.Drawing.Size(210, 42);
+            this.btnCodes.Size = new System.Drawing.Size(210, 44);
             this.btnCodes.TabIndex = 2;
             this.btnCodes.Text = "Codes";
             this.btnCodes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -228,10 +252,10 @@ namespace Teste
             this.btnFileManagement.ForeColor = System.Drawing.Color.White;
             this.btnFileManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnFileManagement.Image")));
             this.btnFileManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileManagement.Location = new System.Drawing.Point(0, 106);
+            this.btnFileManagement.Location = new System.Drawing.Point(0, 108);
             this.btnFileManagement.Name = "btnFileManagement";
             this.btnFileManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnFileManagement.Size = new System.Drawing.Size(210, 42);
+            this.btnFileManagement.Size = new System.Drawing.Size(210, 44);
             this.btnFileManagement.TabIndex = 1;
             this.btnFileManagement.Text = "File Management";
             this.btnFileManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -253,7 +277,7 @@ namespace Teste
             this.btnMenu.Location = new System.Drawing.Point(0, 64);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnMenu.Size = new System.Drawing.Size(210, 42);
+            this.btnMenu.Size = new System.Drawing.Size(210, 44);
             this.btnMenu.TabIndex = 8;
             this.btnMenu.Text = "Menu";
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -416,6 +440,7 @@ namespace Teste
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnProcessManagement;
     }
 }
 

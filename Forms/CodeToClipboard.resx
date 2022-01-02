@@ -211,7 +211,7 @@
     <value>609, 13</value>
   </data>
   <data name="btnCopyClipboard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 40</value>
+    <value>161, 44</value>
   </data>
   <data name="btnCopyClipboard.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>

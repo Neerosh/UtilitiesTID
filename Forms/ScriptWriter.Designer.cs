@@ -38,6 +38,7 @@ namespace Utilities.Forms {
             this.txtFolderSQL = new System.Windows.Forms.TextBox();
             this.btnScriptUnified = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtFunctionality = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // btnScriptRegular
@@ -54,7 +55,7 @@ namespace Utilities.Forms {
             this.btnScriptRegular.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnScriptRegular.Location = new System.Drawing.Point(634, 24);
             this.btnScriptRegular.Name = "btnScriptRegular";
-            this.btnScriptRegular.Size = new System.Drawing.Size(136, 40);
+            this.btnScriptRegular.Size = new System.Drawing.Size(136, 44);
             this.btnScriptRegular.TabIndex = 17;
             this.btnScriptRegular.Text = "Generate Regular Script\r\n";
             this.btnScriptRegular.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -206,9 +207,9 @@ namespace Utilities.Forms {
             this.btnScriptUnified.Image = global::Utilities.Properties.Resources.icons8_compose_32;
             this.btnScriptUnified.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnScriptUnified.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnScriptUnified.Location = new System.Drawing.Point(634, 70);
+            this.btnScriptUnified.Location = new System.Drawing.Point(634, 74);
             this.btnScriptUnified.Name = "btnScriptUnified";
-            this.btnScriptUnified.Size = new System.Drawing.Size(136, 40);
+            this.btnScriptUnified.Size = new System.Drawing.Size(136, 44);
             this.btnScriptUnified.TabIndex = 6;
             this.btnScriptUnified.Text = "Generate Unified Script\r\n";
             this.btnScriptUnified.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -228,9 +229,9 @@ namespace Utilities.Forms {
             this.button1.Image = global::Utilities.Properties.Resources.icons8_compose_32;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(620, 116);
+            this.button1.Location = new System.Drawing.Point(620, 124);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 40);
+            this.button1.Size = new System.Drawing.Size(150, 44);
             this.button1.TabIndex = 18;
             this.button1.Text = "Generate Unified Script test\r\n";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -239,12 +240,30 @@ namespace Utilities.Forms {
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txtFunctionality
+            // 
+            this.txtFunctionality.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFunctionality.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.txtFunctionality.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFunctionality.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtFunctionality.ForeColor = System.Drawing.Color.White;
+            this.txtFunctionality.Location = new System.Drawing.Point(20, 174);
+            this.txtFunctionality.Name = "txtFunctionality";
+            this.txtFunctionality.ReadOnly = true;
+            this.txtFunctionality.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.txtFunctionality.Size = new System.Drawing.Size(750, 109);
+            this.txtFunctionality.TabIndex = 19;
+            this.txtFunctionality.Text = "";
+            // 
             // ScriptWriter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
+            this.Controls.Add(this.txtFunctionality);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnScriptRegular);
             this.Controls.Add(this.txtProcedureName);
@@ -289,5 +308,6 @@ namespace Utilities.Forms {
         private System.Windows.Forms.TextBox txtFolderSQL;
         private System.Windows.Forms.Button btnScriptUnified;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox txtFunctionality;
     }
 }

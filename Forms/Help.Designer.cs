@@ -42,7 +42,7 @@ namespace Utilities {
             this.txtFunctionality.Name = "txtFunctionality";
             this.txtFunctionality.ReadOnly = true;
             this.txtFunctionality.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtFunctionality.Size = new System.Drawing.Size(403, 499);
+            this.txtFunctionality.Size = new System.Drawing.Size(370, 499);
             this.txtFunctionality.TabIndex = 7;
             this.txtFunctionality.Text = "";
             // 
@@ -55,11 +55,11 @@ namespace Utilities {
             this.txtSqlServerInstall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSqlServerInstall.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtSqlServerInstall.ForeColor = System.Drawing.Color.White;
-            this.txtSqlServerInstall.Location = new System.Drawing.Point(429, 25);
+            this.txtSqlServerInstall.Location = new System.Drawing.Point(396, 25);
             this.txtSqlServerInstall.Name = "txtSqlServerInstall";
             this.txtSqlServerInstall.ReadOnly = true;
             this.txtSqlServerInstall.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtSqlServerInstall.Size = new System.Drawing.Size(341, 499);
+            this.txtSqlServerInstall.Size = new System.Drawing.Size(370, 499);
             this.txtSqlServerInstall.TabIndex = 8;
             this.txtSqlServerInstall.Text = "";
             this.txtSqlServerInstall.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.txtSqlServerInstall_LinkClicked);

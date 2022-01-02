@@ -63,7 +63,7 @@
             this.dgvProcess.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProcess.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvProcess.GridColor = System.Drawing.Color.White;
-            this.dgvProcess.Location = new System.Drawing.Point(24, 87);
+            this.dgvProcess.Location = new System.Drawing.Point(24, 78);
             this.dgvProcess.MultiSelect = false;
             this.dgvProcess.Name = "dgvProcess";
             this.dgvProcess.ReadOnly = true;
@@ -75,24 +75,24 @@
             this.dgvProcess.RowTemplate.ReadOnly = true;
             this.dgvProcess.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProcess.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProcess.Size = new System.Drawing.Size(576, 458);
+            this.dgvProcess.Size = new System.Drawing.Size(576, 471);
             this.dgvProcess.TabIndex = 1;
             // 
             // btnListProcesses
             // 
-            this.btnListProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnListProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnListProcesses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnListProcesses.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnListProcesses.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnListProcesses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListProcesses.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnListProcesses.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnListProcesses.Image = global::Utilities.Properties.Resources.icons8_add_database_32;
+            this.btnListProcesses.Image = global::Utilities.Properties.Resources.icons8_list_view_32;
             this.btnListProcesses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnListProcesses.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnListProcesses.Location = new System.Drawing.Point(606, 505);
             this.btnListProcesses.Name = "btnListProcesses";
-            this.btnListProcesses.Size = new System.Drawing.Size(155, 40);
+            this.btnListProcesses.Size = new System.Drawing.Size(155, 44);
             this.btnListProcesses.TabIndex = 9;
             this.btnListProcesses.Text = "List All Processes";
             this.btnListProcesses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -153,12 +153,12 @@
             this.BtnCheckLockedFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCheckLockedFile.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnCheckLockedFile.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnCheckLockedFile.Image = global::Utilities.Properties.Resources.icons8_update_clipboard_32;
+            this.BtnCheckLockedFile.Image = global::Utilities.Properties.Resources.icons8_lock_file_32;
             this.BtnCheckLockedFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCheckLockedFile.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnCheckLockedFile.Location = new System.Drawing.Point(606, 87);
+            this.BtnCheckLockedFile.Location = new System.Drawing.Point(606, 78);
             this.BtnCheckLockedFile.Name = "BtnCheckLockedFile";
-            this.BtnCheckLockedFile.Size = new System.Drawing.Size(155, 40);
+            this.BtnCheckLockedFile.Size = new System.Drawing.Size(155, 44);
             this.BtnCheckLockedFile.TabIndex = 17;
             this.BtnCheckLockedFile.Text = "Check Locked File";
             this.BtnCheckLockedFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

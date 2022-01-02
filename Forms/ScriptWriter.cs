@@ -16,8 +16,13 @@ namespace Utilities.Forms
         public ScriptWriter() {
             InitializeComponent();
         }
+
         private void ScriptWriter_Load(object sender, EventArgs e) {
             folderPicker.InputPath = @"C:\";
+            txtFunctionality.Text = "Unified Script:" +
+                                    "\r\n   Generate an sql script that check and execute the suitable operation. Operation order detach>attach>restore." +
+                                    "\r\nRegular Script:" +
+                                    "\r\n   Generate an sql script it contains 3 procedures (DetachTID, AttachTID and RestoreTID) that check and execute the determined operation. ";
         }
 
         #region Mouse Hover

@@ -17,7 +17,7 @@ namespace Utilities.Forms
             InitializeComponent();
         }
         private void ProcessManagement_Load(object sender, EventArgs e) {
-            btnListProcesses.PerformClick();
+            RefreshProcessList(GetGridDataTable());
         }
 
         private static string GetProcessUser(Process process) {
@@ -85,7 +85,7 @@ namespace Utilities.Forms
         }
         private void RefreshProcessList(DataTable dataTable) { 
             dgvProcess.DataSource = dataTable;
-            dgvProcess.Sort(dgvProcess.Columns[0],System.ComponentModel.ListSortDirection.Ascending);
+            //dgvProcess.Sort(dgvProcess.Columns[0],System.ComponentModel.ListSortDirection.Ascending);
             dgvProcess.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvProcess.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvProcess.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -96,7 +96,7 @@ namespace Utilities.Forms
             string owner = "";
 
             try {
-                foreach (Process process in Process.GetProcesses()) {
+                foreach (Process process in Process.GetProcesses().OrderBy(p => p.Id)) {
                     owner = GetProcessUser(process);
                     if (owner == null || owner.Equals("")) {
                         owner = "Unknown";
@@ -122,6 +122,7 @@ namespace Utilities.Forms
 
             try {
                 rm = FindLockerProcesses(txtLockedFilePath.Text);
+                rm.OrderBy(rm => rm.Process.dwProcessId);
                 for (int i = 0; i < rm.Count(); i++) {
                     process = Process.GetProcessById(rm[i].Process.dwProcessId);
                     owner = GetProcessUser(process);
