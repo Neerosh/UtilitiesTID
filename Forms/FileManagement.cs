@@ -115,7 +115,7 @@ namespace Utilities.Forms
             toFolder = txtToFolder.Text;
             filterExtension = cboFileExtension.SelectedItem.ToString();
             checkSubDirectories = chkSubFolders.Checked;
-
+            IntPtr handle = this.Handle;
             txtLogProcess.Clear();
             UpdateProgress(0);
             WriteLog("Starting...");
@@ -137,8 +137,8 @@ namespace Utilities.Forms
                                 return;
                             }
 
-                            customMessage = new CustomMessage("Moving files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "confirmation");
-                            result = CustomDialog.ShowCustomDialog(customMessage, Handle);
+                            customMessage = new CustomMessage("Moving files. Are you sure ?\nFrom: " + fromFolder + "\nTo: " + toFolder, "Confirmation", "confirmation");
+                            result = CustomDialog.ShowCustomDialog(customMessage, handle);
                             if (result == DialogResult.Cancel) {
                                 WriteLog("Process Aborted");
                                 return;
@@ -156,8 +156,8 @@ namespace Utilities.Forms
                                 return;
                             }
 
-                            customMessage = new CustomMessage("Copying files, \nFrom: " + fromFolder + "\nTo: " + toFolder + "\nAre you sure?", "Confirmation", "confirmation");
-                            result = CustomDialog.ShowCustomDialog(customMessage, Handle);
+                            customMessage = new CustomMessage("Copying files. Are you sure?\nFrom: " + fromFolder + "\nTo: " + toFolder + , "Confirmation", "confirmation");
+                            result = CustomDialog.ShowCustomDialog(customMessage, handle);
                             if (result == DialogResult.Cancel) {
                                 WriteLog("Process Aborted");
                                 return;
@@ -172,7 +172,7 @@ namespace Utilities.Forms
                             }
 
                             customMessage = new CustomMessage("Deleting duplicated files on:\n" + fromFolder + "\nAre you sure?", "Confirmation", "confirmation");
-                            result = CustomDialog.ShowCustomDialog(customMessage, Handle);
+                            result = CustomDialog.ShowCustomDialog(customMessage, handle);
                             if (result == DialogResult.Cancel) {
                                 WriteLog("Process Aborted");
                                 return;

@@ -32,14 +32,14 @@ namespace Teste
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.btnHelp = new System.Windows.Forms.Button();
-            this.btnConvertClarion = new System.Windows.Forms.Button();
-            this.btnProcessManagement = new System.Windows.Forms.Button();
             this.btnScriptWriter = new System.Windows.Forms.Button();
+            this.btnProcessManagement = new System.Windows.Forms.Button();
+            this.btnFileManagement = new System.Windows.Forms.Button();
+            this.btnConvertClarion = new System.Windows.Forms.Button();
             this.panelSubMenuCodes = new System.Windows.Forms.Panel();
             this.btnCodesManage = new System.Windows.Forms.Button();
             this.btnCodesCopyToClipboard = new System.Windows.Forms.Button();
             this.btnCodes = new System.Windows.Forms.Button();
-            this.btnFileManagement = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picLogo = new System.Windows.Forms.PictureBox();
@@ -60,12 +60,12 @@ namespace Teste
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.panelSideMenu.Controls.Add(this.btnHelp);
-            this.panelSideMenu.Controls.Add(this.btnConvertClarion);
-            this.panelSideMenu.Controls.Add(this.btnProcessManagement);
             this.panelSideMenu.Controls.Add(this.btnScriptWriter);
+            this.panelSideMenu.Controls.Add(this.btnProcessManagement);
+            this.panelSideMenu.Controls.Add(this.btnFileManagement);
+            this.panelSideMenu.Controls.Add(this.btnConvertClarion);
             this.panelSideMenu.Controls.Add(this.panelSubMenuCodes);
             this.panelSideMenu.Controls.Add(this.btnCodes);
-            this.panelSideMenu.Controls.Add(this.btnFileManagement);
             this.panelSideMenu.Controls.Add(this.btnMenu);
             this.panelSideMenu.Controls.Add(this.panel1);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -98,27 +98,27 @@ namespace Teste
             this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.BtnHelp_Click);
             // 
-            // btnConvertClarion
+            // btnScriptWriter
             // 
-            this.btnConvertClarion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnConvertClarion.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnConvertClarion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConvertClarion.FlatAppearance.BorderSize = 0;
-            this.btnConvertClarion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConvertClarion.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnConvertClarion.ForeColor = System.Drawing.Color.White;
-            this.btnConvertClarion.Image = global::Utilities.Properties.Resources.icons8_clock_32;
-            this.btnConvertClarion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertClarion.Location = new System.Drawing.Point(0, 368);
-            this.btnConvertClarion.Name = "btnConvertClarion";
-            this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnConvertClarion.Size = new System.Drawing.Size(210, 44);
-            this.btnConvertClarion.TabIndex = 5;
-            this.btnConvertClarion.Text = "Clarion Conversion";
-            this.btnConvertClarion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertClarion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConvertClarion.UseVisualStyleBackColor = false;
-            this.btnConvertClarion.Click += new System.EventHandler(this.BtnConvertClarion_Click);
+            this.btnScriptWriter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnScriptWriter.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnScriptWriter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnScriptWriter.FlatAppearance.BorderSize = 0;
+            this.btnScriptWriter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScriptWriter.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnScriptWriter.ForeColor = System.Drawing.Color.White;
+            this.btnScriptWriter.Image = global::Utilities.Properties.Resources.icons8_scroll_32;
+            this.btnScriptWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnScriptWriter.Location = new System.Drawing.Point(0, 368);
+            this.btnScriptWriter.Name = "btnScriptWriter";
+            this.btnScriptWriter.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnScriptWriter.Size = new System.Drawing.Size(210, 44);
+            this.btnScriptWriter.TabIndex = 4;
+            this.btnScriptWriter.Text = "Script Writer";
+            this.btnScriptWriter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnScriptWriter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnScriptWriter.UseVisualStyleBackColor = false;
+            this.btnScriptWriter.Click += new System.EventHandler(this.BtnScriptWriter_Click);
             // 
             // btnProcessManagement
             // 
@@ -129,7 +129,7 @@ namespace Teste
             this.btnProcessManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcessManagement.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnProcessManagement.ForeColor = System.Drawing.Color.White;
-            this.btnProcessManagement.Image = global::Utilities.Properties.Resources.icons8_list_32;
+            this.btnProcessManagement.Image = global::Utilities.Properties.Resources.icons8_processes_32;
             this.btnProcessManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProcessManagement.Location = new System.Drawing.Point(0, 324);
             this.btnProcessManagement.Name = "btnProcessManagement";
@@ -142,34 +142,57 @@ namespace Teste
             this.btnProcessManagement.UseVisualStyleBackColor = false;
             this.btnProcessManagement.Click += new System.EventHandler(this.btnProcessManagement_Click);
             // 
-            // btnScriptWriter
+            // btnFileManagement
             // 
-            this.btnScriptWriter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnScriptWriter.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnScriptWriter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnScriptWriter.FlatAppearance.BorderSize = 0;
-            this.btnScriptWriter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnScriptWriter.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnScriptWriter.ForeColor = System.Drawing.Color.White;
-            this.btnScriptWriter.Image = global::Utilities.Properties.Resources.icons8_scroll_32;
-            this.btnScriptWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnScriptWriter.Location = new System.Drawing.Point(0, 280);
-            this.btnScriptWriter.Name = "btnScriptWriter";
-            this.btnScriptWriter.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnScriptWriter.Size = new System.Drawing.Size(210, 44);
-            this.btnScriptWriter.TabIndex = 4;
-            this.btnScriptWriter.Text = "Script Writer";
-            this.btnScriptWriter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnScriptWriter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnScriptWriter.UseVisualStyleBackColor = false;
-            this.btnScriptWriter.Click += new System.EventHandler(this.BtnScriptWriter_Click);
+            this.btnFileManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnFileManagement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnFileManagement.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnFileManagement.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFileManagement.FlatAppearance.BorderSize = 0;
+            this.btnFileManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFileManagement.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnFileManagement.ForeColor = System.Drawing.Color.White;
+            this.btnFileManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnFileManagement.Image")));
+            this.btnFileManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileManagement.Location = new System.Drawing.Point(0, 280);
+            this.btnFileManagement.Name = "btnFileManagement";
+            this.btnFileManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnFileManagement.Size = new System.Drawing.Size(210, 44);
+            this.btnFileManagement.TabIndex = 1;
+            this.btnFileManagement.Text = "File Management";
+            this.btnFileManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileManagement.UseVisualStyleBackColor = false;
+            this.btnFileManagement.Click += new System.EventHandler(this.BtnFileManagement_Click);
+            // 
+            // btnConvertClarion
+            // 
+            this.btnConvertClarion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnConvertClarion.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnConvertClarion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConvertClarion.FlatAppearance.BorderSize = 0;
+            this.btnConvertClarion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConvertClarion.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnConvertClarion.ForeColor = System.Drawing.Color.White;
+            this.btnConvertClarion.Image = global::Utilities.Properties.Resources.icons8_clock_32;
+            this.btnConvertClarion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConvertClarion.Location = new System.Drawing.Point(0, 236);
+            this.btnConvertClarion.Name = "btnConvertClarion";
+            this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnConvertClarion.Size = new System.Drawing.Size(210, 44);
+            this.btnConvertClarion.TabIndex = 5;
+            this.btnConvertClarion.Text = "Clarion Conversion";
+            this.btnConvertClarion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConvertClarion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConvertClarion.UseVisualStyleBackColor = false;
+            this.btnConvertClarion.Click += new System.EventHandler(this.BtnConvertClarion_Click);
             // 
             // panelSubMenuCodes
             // 
             this.panelSubMenuCodes.Controls.Add(this.btnCodesManage);
             this.panelSubMenuCodes.Controls.Add(this.btnCodesCopyToClipboard);
             this.panelSubMenuCodes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 196);
+            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 152);
             this.panelSubMenuCodes.Name = "panelSubMenuCodes";
             this.panelSubMenuCodes.Size = new System.Drawing.Size(210, 84);
             this.panelSubMenuCodes.TabIndex = 3;
@@ -229,7 +252,7 @@ namespace Teste
             this.btnCodes.ForeColor = System.Drawing.Color.White;
             this.btnCodes.Image = global::Utilities.Properties.Resources.icons8_data_32;
             this.btnCodes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCodes.Location = new System.Drawing.Point(0, 152);
+            this.btnCodes.Location = new System.Drawing.Point(0, 108);
             this.btnCodes.Name = "btnCodes";
             this.btnCodes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnCodes.Size = new System.Drawing.Size(210, 44);
@@ -239,29 +262,6 @@ namespace Teste
             this.btnCodes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCodes.UseVisualStyleBackColor = false;
             this.btnCodes.Click += new System.EventHandler(this.BtnCodes_Click);
-            // 
-            // btnFileManagement
-            // 
-            this.btnFileManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnFileManagement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnFileManagement.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnFileManagement.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFileManagement.FlatAppearance.BorderSize = 0;
-            this.btnFileManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFileManagement.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnFileManagement.ForeColor = System.Drawing.Color.White;
-            this.btnFileManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnFileManagement.Image")));
-            this.btnFileManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileManagement.Location = new System.Drawing.Point(0, 108);
-            this.btnFileManagement.Name = "btnFileManagement";
-            this.btnFileManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnFileManagement.Size = new System.Drawing.Size(210, 44);
-            this.btnFileManagement.TabIndex = 1;
-            this.btnFileManagement.Text = "File Management";
-            this.btnFileManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFileManagement.UseVisualStyleBackColor = false;
-            this.btnFileManagement.Click += new System.EventHandler(this.BtnFileManagement_Click);
             // 
             // btnMenu
             // 

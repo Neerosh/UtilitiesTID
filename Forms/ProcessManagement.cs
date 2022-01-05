@@ -142,5 +142,30 @@ namespace Utilities.Forms
             openFileDialog.ShowDialog(this);
             txtLockedFilePath.Text = openFileDialog.FileName;   
         }
+
+        private void btnEndSelectedProcess_Click(object sender, EventArgs e) {
+            if (dgvProcess.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
+            int id = Int32.Parse(dgvProcess.SelectedRows[0].Cells[0].Value.ToString());
+            string name, owner;
+            name = dgvProcess.SelectedRows[0].Cells[1].Value.ToString();
+            owner = dgvProcess.SelectedRows[0].Cells[2].Value.ToString();
+
+            CustomMessage customMessage = new CustomMessage("You are about to end the process below. Are you sure?\nID: " +id+"    Name: "+name+"\nOwner: "+owner , "Confirmation", "confirmation");
+            DialogResult result = CustomDialog.ShowCustomDialog(customMessage, Handle);
+            if (result == DialogResult.Cancel) {
+                customMessage = new CustomMessage("Action aborted.", "Information", "information");
+                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                return;
+            }
+            try { 
+                Process process = Process.GetProcessById(id);
+                process.Kill();
+                dgvProcess.Rows.RemoveAt(dgvProcess.SelectedRows[0].Index);
+                customMessage = new CustomMessage("Process ended successfully.", "Success", "success");
+            } catch (Exception ex) {
+                customMessage = new CustomMessage("Error trying to end selected process :\n" + ex.Message, "Error", "error");
+            }
+            CustomDialog.ShowCustomDialog(customMessage, Handle);
+        }
     }
 }

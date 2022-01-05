@@ -74,6 +74,7 @@ namespace Utilities.Forms
             folderSQL = txtFolderSQL.Text;
 
             string directoryScript = folderScript.Substring(0, folderScript.LastIndexOf('\\'));
+            IntPtr handle = this.Handle;
 
             await Task.Run(() => {
                 try {
@@ -88,7 +89,7 @@ namespace Utilities.Forms
                         if (txtScriptName.Text.Equals("")) {
                             folderScript = txtScriptFolder.Text + "\\RegularScript.sql";
                         }
-                        GenerateRegularScript(folderSQL, folderScript);
+                        GenerateRegularScript(folderSQL, folderScript,handle);
                         return;
                     }
 
@@ -98,14 +99,14 @@ namespace Utilities.Forms
                     if (txtScriptName.Text.Equals("")) {
                         folderScript = txtScriptFolder.Text + "\\UnifiedScript.sql";
                     }
-                    GenerateUnifiedScript(folderSQL, folderScript, procedureName);
+                    GenerateUnifiedScript(folderSQL, folderScript, procedureName,handle);
                 } catch (Exception ex) {
                     customMessage = new CustomMessage(ex.Message, "Error","error");
-                    CustomDialog.ShowCustomDialog(customMessage, Handle);
+                    CustomDialog.ShowCustomDialog(customMessage, handle);
                 }
             });
         }
-        private void GenerateUnifiedScript(string folderSQL, string folderScript, string procedureName) {
+        private void GenerateUnifiedScript(string folderSQL, string folderScript, string procedureName, IntPtr handle) {
             Byte[] line;
             string scriptText;
             CustomMessage customMessage;
@@ -294,7 +295,7 @@ namespace Utilities.Forms
             }
         }
 
-        private void GenerateUnifiedScript_test(string folderSQL, string folderScript, string procedureName) {
+        private void GenerateUnifiedScript_test(string folderSQL, string folderScript, string procedureName, IntPtr handle) {
             Byte[] line;
             string scriptText;
             CustomMessage customMessage;
@@ -473,7 +474,7 @@ namespace Utilities.Forms
 
         }
 
-        private void GenerateRegularScript(string folderSQL, string folderScript) {
+        private void GenerateRegularScript(string folderSQL, string folderScript, IntPtr handle) {
             Byte[] line;
             String[] procedures = { "AttachTID", "DetachTID", "RestoreTID" };
             CustomMessage customMessage;
@@ -695,7 +696,7 @@ namespace Utilities.Forms
             if (procedureName.Equals("")) {
                 procedureName = "test";
             }
-            GenerateUnifiedScript_test(folderSQL, folderScript, procedureName);
+            GenerateUnifiedScript_test(folderSQL, folderScript, procedureName,Handle);
         }
     }
 }

@@ -36,6 +36,7 @@
             this.btnLockedFileBrowser = new System.Windows.Forms.Button();
             this.BtnCheckLockedFile = new System.Windows.Forms.Button();
             this.chkShowUnknownUsers = new System.Windows.Forms.CheckBox();
+            this.btnEndSelectedProcess = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcess)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@
             this.dgvProcess.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProcess.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvProcess.GridColor = System.Drawing.Color.White;
-            this.dgvProcess.Location = new System.Drawing.Point(24, 78);
+            this.dgvProcess.Location = new System.Drawing.Point(24, 86);
             this.dgvProcess.MultiSelect = false;
             this.dgvProcess.Name = "dgvProcess";
             this.dgvProcess.ReadOnly = true;
@@ -75,12 +76,12 @@
             this.dgvProcess.RowTemplate.ReadOnly = true;
             this.dgvProcess.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProcess.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProcess.Size = new System.Drawing.Size(576, 471);
+            this.dgvProcess.Size = new System.Drawing.Size(576, 463);
             this.dgvProcess.TabIndex = 1;
             // 
             // btnListProcesses
             // 
-            this.btnListProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnListProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnListProcesses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnListProcesses.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnListProcesses.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -90,7 +91,7 @@
             this.btnListProcesses.Image = global::Utilities.Properties.Resources.icons8_list_view_32;
             this.btnListProcesses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnListProcesses.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnListProcesses.Location = new System.Drawing.Point(606, 505);
+            this.btnListProcesses.Location = new System.Drawing.Point(606, 86);
             this.btnListProcesses.Name = "btnListProcesses";
             this.btnListProcesses.Size = new System.Drawing.Size(155, 44);
             this.btnListProcesses.TabIndex = 9;
@@ -108,7 +109,7 @@
             this.lblFromMoveFiles.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFromMoveFiles.ForeColor = System.Drawing.SystemColors.Control;
             this.lblFromMoveFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblFromMoveFiles.Location = new System.Drawing.Point(24, 20);
+            this.lblFromMoveFiles.Location = new System.Drawing.Point(24, 35);
             this.lblFromMoveFiles.Name = "lblFromMoveFiles";
             this.lblFromMoveFiles.Size = new System.Drawing.Size(78, 16);
             this.lblFromMoveFiles.TabIndex = 14;
@@ -121,9 +122,9 @@
             this.txtLockedFilePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtLockedFilePath.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtLockedFilePath.ForeColor = System.Drawing.Color.White;
-            this.txtLockedFilePath.Location = new System.Drawing.Point(108, 17);
+            this.txtLockedFilePath.Location = new System.Drawing.Point(108, 32);
             this.txtLockedFilePath.Name = "txtLockedFilePath";
-            this.txtLockedFilePath.Size = new System.Drawing.Size(616, 22);
+            this.txtLockedFilePath.Size = new System.Drawing.Size(456, 22);
             this.txtLockedFilePath.TabIndex = 15;
             // 
             // btnLockedFileBrowser
@@ -136,7 +137,7 @@
             this.btnLockedFileBrowser.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLockedFileBrowser.ForeColor = System.Drawing.Color.White;
             this.btnLockedFileBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnLockedFileBrowser.Location = new System.Drawing.Point(731, 16);
+            this.btnLockedFileBrowser.Location = new System.Drawing.Point(570, 31);
             this.btnLockedFileBrowser.Name = "btnLockedFileBrowser";
             this.btnLockedFileBrowser.Size = new System.Drawing.Size(30, 25);
             this.btnLockedFileBrowser.TabIndex = 16;
@@ -156,7 +157,7 @@
             this.BtnCheckLockedFile.Image = global::Utilities.Properties.Resources.icons8_lock_file_32;
             this.BtnCheckLockedFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCheckLockedFile.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnCheckLockedFile.Location = new System.Drawing.Point(606, 78);
+            this.BtnCheckLockedFile.Location = new System.Drawing.Point(606, 21);
             this.BtnCheckLockedFile.Name = "BtnCheckLockedFile";
             this.BtnCheckLockedFile.Size = new System.Drawing.Size(155, 44);
             this.BtnCheckLockedFile.TabIndex = 17;
@@ -172,12 +173,34 @@
             this.chkShowUnknownUsers.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkShowUnknownUsers.ForeColor = System.Drawing.Color.White;
             this.chkShowUnknownUsers.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkShowUnknownUsers.Location = new System.Drawing.Point(108, 45);
+            this.chkShowUnknownUsers.Location = new System.Drawing.Point(108, 60);
             this.chkShowUnknownUsers.Name = "chkShowUnknownUsers";
             this.chkShowUnknownUsers.Size = new System.Drawing.Size(250, 20);
             this.chkShowUnknownUsers.TabIndex = 18;
             this.chkShowUnknownUsers.Text = "Show Processes With Unknown Users";
             this.chkShowUnknownUsers.UseVisualStyleBackColor = true;
+            // 
+            // btnEndSelectedProcess
+            // 
+            this.btnEndSelectedProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEndSelectedProcess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnEndSelectedProcess.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEndSelectedProcess.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnEndSelectedProcess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEndSelectedProcess.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEndSelectedProcess.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnEndSelectedProcess.Image = global::Utilities.Properties.Resources.icons8_delete_process_32;
+            this.btnEndSelectedProcess.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEndSelectedProcess.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnEndSelectedProcess.Location = new System.Drawing.Point(606, 505);
+            this.btnEndSelectedProcess.Name = "btnEndSelectedProcess";
+            this.btnEndSelectedProcess.Size = new System.Drawing.Size(155, 44);
+            this.btnEndSelectedProcess.TabIndex = 19;
+            this.btnEndSelectedProcess.Text = "End Selected Process";
+            this.btnEndSelectedProcess.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEndSelectedProcess.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEndSelectedProcess.UseVisualStyleBackColor = false;
+            this.btnEndSelectedProcess.Click += new System.EventHandler(this.btnEndSelectedProcess_Click);
             // 
             // ProcessManagement
             // 
@@ -185,6 +208,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
+            this.Controls.Add(this.btnEndSelectedProcess);
             this.Controls.Add(this.chkShowUnknownUsers);
             this.Controls.Add(this.lblFromMoveFiles);
             this.Controls.Add(this.txtLockedFilePath);
@@ -213,5 +237,6 @@
         private System.Windows.Forms.Button btnLockedFileBrowser;
         private System.Windows.Forms.Button BtnCheckLockedFile;
         private System.Windows.Forms.CheckBox chkShowUnknownUsers;
+        private System.Windows.Forms.Button btnEndSelectedProcess;
     }
 }
