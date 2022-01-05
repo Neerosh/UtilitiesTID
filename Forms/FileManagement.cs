@@ -156,7 +156,7 @@ namespace Utilities.Forms
                                 return;
                             }
 
-                            customMessage = new CustomMessage("Copying files. Are you sure?\nFrom: " + fromFolder + "\nTo: " + toFolder + , "Confirmation", "confirmation");
+                            customMessage = new CustomMessage("Copying files. Are you sure?\nFrom: " + fromFolder + "\nTo: " + toFolder , "Confirmation", "confirmation");
                             result = CustomDialog.ShowCustomDialog(customMessage, handle);
                             if (result == DialogResult.Cancel) {
                                 WriteLog("Process Aborted");
