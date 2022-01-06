@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
-using System.Security.Permissions;
 using System.Security.Principal;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilities.Classes;
 using static Utilities.Classes.NativeMembers;
@@ -20,6 +19,25 @@ namespace Utilities.Forms
             RefreshProcessList(GetGridDataTable());
         }
 
+        private Task task;
+
+        private DataTable GetGridDataTable() {
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("ID");
+            dataTable.Columns.Add("Name");
+            dataTable.Columns.Add("User");
+            dataTable.Columns["ID"].DataType = Type.GetType("System.Int32");
+            return dataTable;
+        }
+        private void RefreshProcessList(DataTable dataTable) {
+            Invoke(new MethodInvoker(delegate {
+                dgvProcess.DataSource = dataTable;
+                //dgvProcess.Sort(dgvProcess.Columns[0],System.ComponentModel.ListSortDirection.Ascending);
+                dgvProcess.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvProcess.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvProcess.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }));
+        }
         private static string GetProcessUser(Process process) {
             IntPtr processHandle = IntPtr.Zero;
             try {
@@ -36,7 +54,7 @@ namespace Utilities.Forms
             }
         }
 
-        public static RM_PROCESS_INFO[] FindLockerProcesses(string path) {
+        private static RM_PROCESS_INFO[] FindLockedFileProcesses(string path) {
             int handle;
             if (NativeMethods.RmStartSession(out handle, 0, strSessionKey: Guid.NewGuid().ToString()) != RmResult.ERROR_SUCCESS)
                 throw new Exception("Could not begin session. Unable to determine file lockers.");
@@ -74,75 +92,79 @@ namespace Utilities.Forms
             return new RM_PROCESS_INFO[0];
         }
 
-
-        private DataTable GetGridDataTable() {
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Name");
-            dataTable.Columns.Add("User");
-            dataTable.Columns["ID"].DataType = Type.GetType("System.Int32");
-            return dataTable;
-        }
-        private void RefreshProcessList(DataTable dataTable) { 
-            dgvProcess.DataSource = dataTable;
-            //dgvProcess.Sort(dgvProcess.Columns[0],System.ComponentModel.ListSortDirection.Ascending);
-            dgvProcess.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvProcess.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvProcess.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        }
-
-        private void btnListProcesses_Click(object sender, EventArgs e) {
-            DataTable dataTable = GetGridDataTable();
-            string owner = "";
-
-            try {
-                foreach (Process process in Process.GetProcesses().OrderBy(p => p.Id)) {
-                    owner = GetProcessUser(process);
-                    if (owner == null || owner.Equals("")) {
-                        owner = "Unknown";
-                    }
-                    if (!chkShowUnknownUsers.Checked && owner.Equals("Unknown")) { continue; }
-                    dataTable.Rows.Add(process.Id, process.ProcessName, owner);
-                }
-                RefreshProcessList(dataTable);
-            } catch (Exception ex) {
-                CustomDialog.ShowCustomDialog(new CustomMessage("Error listing processes: \n" + ex.Message, "Error", "error"), Handle);
-            }
-        }
-
-        private void BtnCheckLockedFile_Click(object sender, EventArgs e) {
-            if (txtLockedFilePath.Text == null || txtLockedFilePath.Text.Length == 0) {
+        private async Task GetLockedFileProcesses() {
+            string lockedFile = txtLockedFilePath.Text;
+            if (lockedFile == null || lockedFile.Length == 0) {
                 CustomDialog.ShowCustomDialog(new CustomMessage("Select a file", "Error", "error"), Handle);
                 return;
             }
-            RM_PROCESS_INFO[] rm = null;
-            Process process = null;
-            DataTable dataTable = GetGridDataTable();
-            string owner = "";
+            IntPtr handle = this.Handle;
 
-            try {
-                rm = FindLockerProcesses(txtLockedFilePath.Text);
-                rm.OrderBy(rm => rm.Process.dwProcessId);
-                for (int i = 0; i < rm.Count(); i++) {
-                    process = Process.GetProcessById(rm[i].Process.dwProcessId);
-                    owner = GetProcessUser(process);
-                    if (owner == null || owner.Equals("")) {
-                        owner = "Unknown";
+            await Task.Run(() => {
+                RM_PROCESS_INFO[] rm = null;
+                Process process = null;
+                DataTable dataTable = GetGridDataTable();
+                string owner = "";
+                try {
+                    rm = FindLockedFileProcesses(lockedFile);
+                    rm.OrderBy(rm => rm.Process.dwProcessId);
+                    for (int i = 0; i < rm.Count(); i++) {
+                        process = Process.GetProcessById(rm[i].Process.dwProcessId);
+                        owner = GetProcessUser(process);
+                        if (owner == null || owner.Equals("")) {
+                            owner = "Unknown";
+                        }
+                        dataTable.Rows.Add(process.Id, process.ProcessName, owner);
                     }
-                    dataTable.Rows.Add(process.Id, process.ProcessName, owner);
+                    RefreshProcessList(dataTable);
+                } catch (Exception ex) {
+                    CustomDialog.ShowCustomDialog(new CustomMessage("Error getting processes :\n" + ex.Message, "Error", "error"), handle);
                 }
-                RefreshProcessList(dataTable);
-            } catch (Exception ex) {
-                CustomDialog.ShowCustomDialog(new CustomMessage("Error getting processes :\n" + ex.Message, "Error", "error"), Handle);
-            }
+
+            });
+        }
+        private async Task ListAllProcesses() {
+            IntPtr handle = this.Handle;
+
+            await Task.Run(() => {
+                DataTable dataTable = GetGridDataTable();
+                string owner = "";
+
+                try {
+                    foreach (Process process in Process.GetProcesses().OrderBy(p => p.Id)) {
+                        owner = GetProcessUser(process);
+                        if (owner == null || owner.Equals("")) {
+                            owner = "Unknown";
+                        }
+                        if (!chkShowUnknownUsers.Checked && owner.Equals("Unknown")) { continue; }
+                        dataTable.Rows.Add(process.Id, process.ProcessName, owner);
+                    }
+                    RefreshProcessList(dataTable);
+                } catch (Exception ex) {
+                    CustomDialog.ShowCustomDialog(new CustomMessage("Error listing processes: \n" + ex.Message, "Error", "error"), handle);
+                }
+            });
         }
 
+        private async void BtnCheckLockedFile_Click(object sender, EventArgs e) {
+            if (task == null || task.IsCompleted) {
+                task = GetLockedFileProcesses();
+                await task;
+                return;
+            }
+        }
+        private async void btnListProcesses_Click(object sender, EventArgs e) {
+            if (task == null || task.IsCompleted) {
+                task = ListAllProcesses();
+                await task;
+                return;
+            }
+        }
         private void btnLockedFileBrowser_Click(object sender, EventArgs e) {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.ShowDialog(this);
-            txtLockedFilePath.Text = openFileDialog.FileName;   
+            txtLockedFilePath.Text = openFileDialog.FileName;
         }
-
         private void btnEndSelectedProcess_Click(object sender, EventArgs e) {
             if (dgvProcess.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
             int id = Int32.Parse(dgvProcess.SelectedRows[0].Cells[0].Value.ToString());

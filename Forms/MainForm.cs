@@ -209,7 +209,6 @@ namespace Teste
         }
 
         private void BtnFileManagement_Click(object sender, EventArgs e) {
-            HideSubmenu();
             OpenChildForm(new FileManagement());
             PaintSelectedMenuItem(btnFileManagement);
         }

@@ -305,7 +305,7 @@
             this.pgsFileManagement.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pgsFileManagement.Location = new System.Drawing.Point(20, 180);
             this.pgsFileManagement.Name = "pgsFileManagement";
-            this.pgsFileManagement.Size = new System.Drawing.Size(704, 29);
+            this.pgsFileManagement.Size = new System.Drawing.Size(690, 29);
             this.pgsFileManagement.TabIndex = 7;
             // 
             // lblProgressPercent
@@ -317,7 +317,7 @@
             this.lblProgressPercent.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblProgressPercent.ForeColor = System.Drawing.SystemColors.Control;
             this.lblProgressPercent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblProgressPercent.Location = new System.Drawing.Point(730, 185);
+            this.lblProgressPercent.Location = new System.Drawing.Point(716, 186);
             this.lblProgressPercent.Name = "lblProgressPercent";
             this.lblProgressPercent.Size = new System.Drawing.Size(40, 16);
             this.lblProgressPercent.TabIndex = 8;
