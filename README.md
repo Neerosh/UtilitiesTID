@@ -7,4 +7,4 @@ Useful tools I use every day:
 <li>Process Management - list all running processes with owners and possibility to check if a file is in use on a process,</li>
 <li>Script Writer - Pre-Defined script generation with selected folder paths.</li>
 </ul>
-<img src="https://github.com/Neerosh/UtilitiesTID/blob/master/UtilitiesTID%20v1.5.png?raw=true">
+<img src="https://github.com/Neerosh/UtilitiesTID/blob/master/UtilitiesTID.png?raw=true">
