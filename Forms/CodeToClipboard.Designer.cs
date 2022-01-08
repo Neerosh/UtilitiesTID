@@ -82,7 +82,7 @@ namespace Utilities
             this.btnCopyClipboard.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnCopyClipboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.btnCopyClipboard.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCopyClipboard.Image = global::Utilities.Properties.Resources.icons8_copy_32;
+            this.btnCopyClipboard.Image = global::Utilities.Properties.Resources.icons8_copy_to_clipboard_32;
             this.btnCopyClipboard.Name = "btnCopyClipboard";
             this.btnCopyClipboard.UseVisualStyleBackColor = false;
             this.btnCopyClipboard.Click += new System.EventHandler(this.BtnCopyClipboard_Click);

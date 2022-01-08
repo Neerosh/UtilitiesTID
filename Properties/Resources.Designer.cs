@@ -8,11 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Utilities.Properties {
-    using System;
-    using System.Drawing;
-
-
+namespace Utilities.Properties
+{
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -47,29 +44,6 @@ namespace Utilities.Properties {
             }
         }
         
-        /// <summary>
-        ///   Overrides the current thread's CurrentUICulture property for all
-        ///   resource lookups using this strongly typed resource class.
-        /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
-            get {
-                return resourceCulture;
-            }
-            set {
-                resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_clock_32 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_clock_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -107,16 +81,6 @@ namespace Utilities.Properties {
         internal static System.Drawing.Bitmap icons8_delete_file2_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_delete_file2_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_info_squared_32 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_info_squared_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -346,6 +310,46 @@ namespace Utilities.Properties {
         internal static System.Drawing.Bitmap icons8_processes_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_processes_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_help_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_help_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_code_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_code_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_tune_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_tune_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_convert_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_convert_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -85,7 +85,7 @@ namespace Teste
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnHelp.ForeColor = System.Drawing.Color.White;
-            this.btnHelp.Image = global::Utilities.Properties.Resources.icons8_info_squared_32;
+            this.btnHelp.Image = global::Utilities.Properties.Resources.icons8_help_32;
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHelp.Location = new System.Drawing.Point(0, 412);
             this.btnHelp.Name = "btnHelp";
@@ -174,7 +174,7 @@ namespace Teste
             this.btnConvertClarion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvertClarion.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnConvertClarion.ForeColor = System.Drawing.Color.White;
-            this.btnConvertClarion.Image = global::Utilities.Properties.Resources.icons8_clock_32;
+            this.btnConvertClarion.Image = global::Utilities.Properties.Resources.icons8_convert_32;
             this.btnConvertClarion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConvertClarion.Location = new System.Drawing.Point(0, 236);
             this.btnConvertClarion.Name = "btnConvertClarion";
@@ -206,7 +206,7 @@ namespace Teste
             this.btnCodesManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCodesManage.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCodesManage.ForeColor = System.Drawing.Color.White;
-            this.btnCodesManage.Image = global::Utilities.Properties.Resources.icons8_manage_clipboard_32;
+            this.btnCodesManage.Image = global::Utilities.Properties.Resources.icons8_tune_32;
             this.btnCodesManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCodesManage.Location = new System.Drawing.Point(0, 42);
             this.btnCodesManage.Name = "btnCodesManage";
@@ -250,7 +250,7 @@ namespace Teste
             this.btnCodes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCodes.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCodes.ForeColor = System.Drawing.Color.White;
-            this.btnCodes.Image = global::Utilities.Properties.Resources.icons8_data_32;
+            this.btnCodes.Image = global::Utilities.Properties.Resources.icons8_code_32;
             this.btnCodes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCodes.Location = new System.Drawing.Point(0, 108);
             this.btnCodes.Name = "btnCodes";
@@ -326,10 +326,10 @@ namespace Teste
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.panelChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(210, 30);
+            this.panelChildForm.Location = new System.Drawing.Point(210, 26);
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Padding = new System.Windows.Forms.Padding(2);
-            this.panelChildForm.Size = new System.Drawing.Size(790, 570);
+            this.panelChildForm.Size = new System.Drawing.Size(790, 574);
             this.panelChildForm.TabIndex = 8;
             // 
             // panelBar
@@ -341,8 +341,7 @@ namespace Teste
             this.panelBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBar.Location = new System.Drawing.Point(210, 0);
             this.panelBar.Name = "panelBar";
-            this.panelBar.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
-            this.panelBar.Size = new System.Drawing.Size(790, 30);
+            this.panelBar.Size = new System.Drawing.Size(790, 26);
             this.panelBar.TabIndex = 9;
             this.panelBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
@@ -354,9 +353,9 @@ namespace Teste
             this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Image = global::Utilities.Properties.Resources.icons8_minimize_window_32;
-            this.btnMinimize.Location = new System.Drawing.Point(699, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(706, 0);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimize.Size = new System.Drawing.Size(28, 26);
             this.btnMinimize.TabIndex = 6;
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
@@ -369,9 +368,9 @@ namespace Teste
             this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Image = global::Utilities.Properties.Resources.icons8_maximize_window_32;
-            this.btnMaximize.Location = new System.Drawing.Point(729, 0);
+            this.btnMaximize.Location = new System.Drawing.Point(734, 0);
             this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(30, 30);
+            this.btnMaximize.Size = new System.Drawing.Size(28, 26);
             this.btnMaximize.TabIndex = 5;
             this.btnMaximize.UseVisualStyleBackColor = false;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
@@ -384,9 +383,9 @@ namespace Teste
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::Utilities.Properties.Resources.icons8_close_window_32;
-            this.btnClose.Location = new System.Drawing.Point(759, 0);
+            this.btnClose.Location = new System.Drawing.Point(762, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(30, 30);
+            this.btnClose.Size = new System.Drawing.Size(28, 26);
             this.btnClose.TabIndex = 4;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
