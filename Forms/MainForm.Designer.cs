@@ -152,7 +152,7 @@ namespace Teste
             this.btnFileManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFileManagement.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnFileManagement.ForeColor = System.Drawing.Color.White;
-            this.btnFileManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnFileManagement.Image")));
+            this.btnFileManagement.Image = global::Utilities.Properties.Resources.icons8_manage_file_32;
             this.btnFileManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFileManagement.Location = new System.Drawing.Point(0, 280);
             this.btnFileManagement.Name = "btnFileManagement";

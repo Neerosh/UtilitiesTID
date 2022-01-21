@@ -283,7 +283,7 @@
             this.BtnMoveFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMoveFiles.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnMoveFiles.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnMoveFiles.Image = global::Utilities.Properties.Resources.icons8_send_file_32;
+            this.BtnMoveFiles.Image = global::Utilities.Properties.Resources.icons8_move_file_32;
             this.BtnMoveFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnMoveFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnMoveFiles.Location = new System.Drawing.Point(628, 21);

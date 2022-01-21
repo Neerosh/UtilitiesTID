@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
+using System.Management;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +19,7 @@ namespace Utilities.Forms
         }
         private void ProcessManagement_Load(object sender, EventArgs e) {
             RefreshProcessList(GetGridDataTable());
+            lblListProgress.Visible = false;
         }
 
         private Task task;
@@ -39,6 +42,7 @@ namespace Utilities.Forms
             }));
         }
         private static string GetProcessUser(Process process) {
+
             IntPtr processHandle = IntPtr.Zero;
             try {
                 NativeMethods.OpenProcessToken(process.Handle, 8, out processHandle);
@@ -92,13 +96,18 @@ namespace Utilities.Forms
             return new RM_PROCESS_INFO[0];
         }
 
+        private void InvokeMessage(CustomMessage customMessage) {
+            Invoke(new Action(() => {
+                CustomDialog.ShowCustomDialog(customMessage, Handle);
+            }));
+        }
+
         private async Task GetLockedFileProcesses() {
             string lockedFile = txtLockedFilePath.Text;
             if (lockedFile == null || lockedFile.Length == 0) {
                 CustomDialog.ShowCustomDialog(new CustomMessage("Select a file", "Error", "error"), Handle);
                 return;
             }
-            IntPtr handle = this.Handle;
 
             await Task.Run(() => {
                 RM_PROCESS_INFO[] rm = null;
@@ -118,32 +127,111 @@ namespace Utilities.Forms
                     }
                     RefreshProcessList(dataTable);
                 } catch (Exception ex) {
-                    CustomDialog.ShowCustomDialog(new CustomMessage("Error getting processes :\n" + ex.Message, "Error", "error"), handle);
+                    InvokeMessage(new CustomMessage("Error getting processes :\n" + ex.Message, "Error", "error"));
                 }
 
             });
         }
         private async Task ListAllProcesses() {
-            IntPtr handle = this.Handle;
+            string nameRemotePC = "";
+
+            if (!txtNameRemotePC.Text.Equals("") && txtNameRemotePC.Text != null) {
+                nameRemotePC = txtNameRemotePC.Text;
+            }
+            lblListProgress.Visible = true;
 
             await Task.Run(() => {
                 DataTable dataTable = GetGridDataTable();
-                string owner = "";
-
+                string owner = "Unknown";
                 try {
-                    foreach (Process process in Process.GetProcesses().OrderBy(p => p.Id)) {
-                        owner = GetProcessUser(process);
-                        if (owner == null || owner.Equals("")) {
-                            owner = "Unknown";
+                    if (!OperatingSystem.IsWindows()) { throw new Exception("Operating System is not Windows"); }
+
+                    string[] argList = new string[] { string.Empty, string.Empty };
+                    int returnVal;
+                    ManagementScope scope;
+                    ConnectionOptions connection;
+
+                    if (nameRemotePC.Equals("")) {
+                        scope = new ManagementScope("\\\\.\\root\\cimv2");
+                    } else {
+                        connection = new ConnectionOptions();
+                        connection.Username = txtRemoteUser.Text;
+                        connection.Password = txtRemotePassword.Text;
+                        scope = new ManagementScope("\\\\" + txtNameRemotePC.Text + "\\root\\cimv2", connection);
+                    }
+                    scope.Connect();
+                    EnumerationOptions options = new EnumerationOptions();
+                    options.ReturnImmediately = false;
+                    ObjectQuery query = new ObjectQuery("SELECT Name,ProcessId,Handle FROM Win32_Process");
+                    ManagementObjectSearcher searcher = new ManagementObjectSearcher(scope, query, options);
+                    foreach (ManagementObject queryObj in searcher.Get()) {
+                        owner = "Unknown";
+                        returnVal = Convert.ToInt32(queryObj.InvokeMethod("GetOwner", argList));
+                        if (returnVal == 0) {
+                            owner =  argList[1] + "\\" + argList[0];
                         }
-                        if (!chkShowUnknownUsers.Checked && owner.Equals("Unknown")) { continue; }
-                        dataTable.Rows.Add(process.Id, process.ProcessName, owner);
+
+                        if (!chkShowUnknownUsers.Checked && owner.Equals("Unknown")) {
+                            continue;
+                        }
+
+                        dataTable.Rows.Add(queryObj["ProcessId"], queryObj["Name"], owner);
                     }
                     RefreshProcessList(dataTable);
+                } catch (ManagementException err) {
+                    InvokeMessage(new CustomMessage("An error occurred while querying for WMI data: " + err.Message, "Error", "error"));
+                } catch (UnauthorizedAccessException unauthorizedErr) {
+                    InvokeMessage(new CustomMessage("Connection error (user name or password might be incorrect): " + unauthorizedErr.Message, "Error", "error"));
                 } catch (Exception ex) {
-                    CustomDialog.ShowCustomDialog(new CustomMessage("Error listing processes: \n" + ex.Message, "Error", "error"), handle);
+                    InvokeMessage(new CustomMessage("Error listing processes: \n" + ex.Message, "Error", "error"));
                 }
             });
+            lblListProgress.Visible = false;
+        }
+        private async Task KillProcess(int processId) {
+            string nameRemotePC = "";
+
+            if (!txtNameRemotePC.Text.Equals("") && txtNameRemotePC.Text != null) {
+                nameRemotePC = txtNameRemotePC.Text;
+            }
+            await Task.Run(() => {
+                string owner = "Unknown";
+                try {
+                    if (!OperatingSystem.IsWindows()) { throw new Exception("Operating System is not Windows"); }
+
+                    string[] argList = new string[] { string.Empty, string.Empty };
+                    int returnVal;
+                    ManagementScope scope;
+                    ConnectionOptions connection;
+
+                    if (nameRemotePC.Equals("")) {
+                        scope = new ManagementScope("\\\\.\\root\\cimv2");
+                    } else {
+                        connection = new ConnectionOptions();
+                        connection.Username = txtRemoteUser.Text;
+                        connection.Password = txtRemotePassword.Text;
+                        scope = new ManagementScope("\\\\" + txtNameRemotePC.Text + "\\root\\cimv2", connection);
+                    }
+                    scope.Connect();
+                    EnumerationOptions options = new EnumerationOptions();
+                    options.ReturnImmediately = false;
+                    ObjectQuery query = new ObjectQuery("SELECT Handle FROM Win32_Process WHERE ProcessId = "+ processId);
+                    ManagementObjectSearcher searcher = new ManagementObjectSearcher(scope, query, options);
+                    foreach (ManagementObject queryObj in searcher.Get()) {
+                        queryObj.InvokeMethod("Terminate", null);
+                    }
+                    Invoke(new Action(() => {
+                        dgvProcess.Rows.Remove(dgvProcess.SelectedRows[0]);
+                    }));
+                } catch (ManagementException err) {
+                    InvokeMessage(new CustomMessage("An error occurred while querying for WMI data: " + err.Message, "Error", "error"));
+                } catch (UnauthorizedAccessException unauthorizedErr) {
+                    InvokeMessage(new CustomMessage("Connection error (user name or password might be incorrect): " + unauthorizedErr.Message, "Error", "error"));
+                } catch (Exception ex) {
+                    InvokeMessage(new CustomMessage("Error ending process: \n" + ex.Message, "Error", "error"));
+                }
+            });
+
         }
 
         private async void BtnCheckLockedFile_Click(object sender, EventArgs e) {
@@ -154,6 +242,20 @@ namespace Utilities.Forms
             }
         }
         private async void btnListProcesses_Click(object sender, EventArgs e) {
+            //DataTable dataTable = GetGridDataTable();
+            //string owner;
+            //try { 
+            //    Process[] processes = Process.GetProcesses(".");
+            //    foreach (Process process in processes) {
+            //        owner = "Unknown";
+            //        owner = GetProcessUser(process);
+            //        dataTable.Rows.Add(process.Id, process.ProcessName, owner);
+            //    }
+            //    RefreshProcessList(dataTable);
+            //} catch (Exception ex) {
+            //    InvokeMessage(new CustomMessage("Error listing processes: \n" + ex.Message, "Error", "error"));
+            //}
+
             if (task == null || task.IsCompleted) {
                 task = ListAllProcesses();
                 await task;
@@ -165,29 +267,37 @@ namespace Utilities.Forms
             openFileDialog.ShowDialog(this);
             txtLockedFilePath.Text = openFileDialog.FileName;
         }
-        private void btnEndSelectedProcess_Click(object sender, EventArgs e) {
+        private async void btnEndSelectedProcess_Click(object sender, EventArgs e) {
             if (dgvProcess.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
-            int id = Int32.Parse(dgvProcess.SelectedRows[0].Cells[0].Value.ToString());
-            string name, owner;
-            name = dgvProcess.SelectedRows[0].Cells[1].Value.ToString();
-            owner = dgvProcess.SelectedRows[0].Cells[2].Value.ToString();
 
-            CustomMessage customMessage = new CustomMessage("You are about to end the process below. Are you sure?\nID: " +id+"    Name: "+name+"\nOwner: "+owner , "Confirmation", "confirmation");
-            DialogResult result = CustomDialog.ShowCustomDialog(customMessage, Handle);
-            if (result == DialogResult.Cancel) {
-                customMessage = new CustomMessage("Action aborted.", "Information", "information");
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+            int id = Int32.Parse(dgvProcess.SelectedRows[0].Cells[0].Value.ToString());
+
+            if (task == null || task.IsCompleted) {
+                task = KillProcess(id);
+                await task;
                 return;
             }
-            try { 
-                Process process = Process.GetProcessById(id);
-                process.Kill();
-                dgvProcess.Rows.RemoveAt(dgvProcess.SelectedRows[0].Index);
-                customMessage = new CustomMessage("Process ended successfully.", "Success", "success");
-            } catch (Exception ex) {
-                customMessage = new CustomMessage("Error trying to end selected process :\n" + ex.Message, "Error", "error");
-            }
-            CustomDialog.ShowCustomDialog(customMessage, Handle);
+
+            //string name, owner;
+            //name = dgvProcess.SelectedRows[0].Cells[1].Value.ToString();
+            //owner = dgvProcess.SelectedRows[0].Cells[2].Value.ToString();
+
+            //CustomMessage customMessage = new CustomMessage("You are about to end the process below. Are you sure?\nID: " +id+"    Name: "+name+"\nOwner: "+owner , "Confirmation", "confirmation");
+            //DialogResult result = CustomDialog.ShowCustomDialog(customMessage, Handle);
+            //if (result == DialogResult.Cancel) {
+            //    customMessage = new CustomMessage("Action aborted.", "Information", "information");
+            //    CustomDialog.ShowCustomDialog(customMessage, Handle);
+            //    return;
+            //}
+            //try { 
+            //    Process process = Process.GetProcessById(id);
+            //    process.Kill();
+            //    dgvProcess.Rows.RemoveAt(dgvProcess.SelectedRows[0].Index);
+            //    customMessage = new CustomMessage("Process ended successfully.", "Success", "success");
+            //} catch (Exception ex) {
+            //    customMessage = new CustomMessage("Error trying to end selected process :\n" + ex.Message, "Error", "error");
+            //}
+            //CustomDialog.ShowCustomDialog(customMessage, Handle);
         }
     }
 }
