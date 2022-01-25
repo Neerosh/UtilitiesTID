@@ -34,11 +34,12 @@ namespace Teste
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnScriptWriter = new System.Windows.Forms.Button();
             this.btnProcessManagement = new System.Windows.Forms.Button();
+            this.panelSubMenuFileManagement = new System.Windows.Forms.Panel();
+            this.btnFileFilters = new System.Windows.Forms.Button();
             this.btnFileManagement = new System.Windows.Forms.Button();
             this.btnConvertClarion = new System.Windows.Forms.Button();
             this.panelSubMenuCodes = new System.Windows.Forms.Panel();
             this.btnCodesManage = new System.Windows.Forms.Button();
-            this.btnCodesCopyToClipboard = new System.Windows.Forms.Button();
             this.btnCodes = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -50,6 +51,7 @@ namespace Teste
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
+            this.panelSubMenuFileManagement.SuspendLayout();
             this.panelSubMenuCodes.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -62,10 +64,11 @@ namespace Teste
             this.panelSideMenu.Controls.Add(this.btnHelp);
             this.panelSideMenu.Controls.Add(this.btnScriptWriter);
             this.panelSideMenu.Controls.Add(this.btnProcessManagement);
+            this.panelSideMenu.Controls.Add(this.panelSubMenuFileManagement);
             this.panelSideMenu.Controls.Add(this.btnFileManagement);
-            this.panelSideMenu.Controls.Add(this.btnConvertClarion);
             this.panelSideMenu.Controls.Add(this.panelSubMenuCodes);
             this.panelSideMenu.Controls.Add(this.btnCodes);
+            this.panelSideMenu.Controls.Add(this.btnConvertClarion);
             this.panelSideMenu.Controls.Add(this.btnMenu);
             this.panelSideMenu.Controls.Add(this.panel1);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -142,6 +145,37 @@ namespace Teste
             this.btnProcessManagement.UseVisualStyleBackColor = false;
             this.btnProcessManagement.Click += new System.EventHandler(this.btnProcessManagement_Click);
             // 
+            // panelSubMenuFileManagement
+            // 
+            this.panelSubMenuFileManagement.Controls.Add(this.btnFileFilters);
+            this.panelSubMenuFileManagement.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSubMenuFileManagement.Location = new System.Drawing.Point(0, 282);
+            this.panelSubMenuFileManagement.Name = "panelSubMenuFileManagement";
+            this.panelSubMenuFileManagement.Size = new System.Drawing.Size(210, 42);
+            this.panelSubMenuFileManagement.TabIndex = 4;
+            // 
+            // btnFileFilters
+            // 
+            this.btnFileFilters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnFileFilters.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnFileFilters.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFileFilters.FlatAppearance.BorderSize = 0;
+            this.btnFileFilters.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFileFilters.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnFileFilters.ForeColor = System.Drawing.Color.White;
+            this.btnFileFilters.Image = global::Utilities.Properties.Resources.icons8_tune_32;
+            this.btnFileFilters.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileFilters.Location = new System.Drawing.Point(0, 0);
+            this.btnFileFilters.Name = "btnFileFilters";
+            this.btnFileFilters.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
+            this.btnFileFilters.Size = new System.Drawing.Size(210, 42);
+            this.btnFileFilters.TabIndex = 1;
+            this.btnFileFilters.Text = "Manage File Filters";
+            this.btnFileFilters.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileFilters.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileFilters.UseVisualStyleBackColor = false;
+            this.btnFileFilters.Click += new System.EventHandler(this.btnFileFilters_Click);
+            // 
             // btnFileManagement
             // 
             this.btnFileManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -154,7 +188,7 @@ namespace Teste
             this.btnFileManagement.ForeColor = System.Drawing.Color.White;
             this.btnFileManagement.Image = global::Utilities.Properties.Resources.icons8_manage_file_32;
             this.btnFileManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileManagement.Location = new System.Drawing.Point(0, 280);
+            this.btnFileManagement.Location = new System.Drawing.Point(0, 238);
             this.btnFileManagement.Name = "btnFileManagement";
             this.btnFileManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnFileManagement.Size = new System.Drawing.Size(210, 44);
@@ -176,7 +210,7 @@ namespace Teste
             this.btnConvertClarion.ForeColor = System.Drawing.Color.White;
             this.btnConvertClarion.Image = global::Utilities.Properties.Resources.icons8_convert_32;
             this.btnConvertClarion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertClarion.Location = new System.Drawing.Point(0, 236);
+            this.btnConvertClarion.Location = new System.Drawing.Point(0, 108);
             this.btnConvertClarion.Name = "btnConvertClarion";
             this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnConvertClarion.Size = new System.Drawing.Size(210, 44);
@@ -190,11 +224,10 @@ namespace Teste
             // panelSubMenuCodes
             // 
             this.panelSubMenuCodes.Controls.Add(this.btnCodesManage);
-            this.panelSubMenuCodes.Controls.Add(this.btnCodesCopyToClipboard);
             this.panelSubMenuCodes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 152);
+            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 196);
             this.panelSubMenuCodes.Name = "panelSubMenuCodes";
-            this.panelSubMenuCodes.Size = new System.Drawing.Size(210, 84);
+            this.panelSubMenuCodes.Size = new System.Drawing.Size(210, 42);
             this.panelSubMenuCodes.TabIndex = 3;
             // 
             // btnCodesManage
@@ -208,38 +241,16 @@ namespace Teste
             this.btnCodesManage.ForeColor = System.Drawing.Color.White;
             this.btnCodesManage.Image = global::Utilities.Properties.Resources.icons8_tune_32;
             this.btnCodesManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCodesManage.Location = new System.Drawing.Point(0, 42);
+            this.btnCodesManage.Location = new System.Drawing.Point(0, 0);
             this.btnCodesManage.Name = "btnCodesManage";
             this.btnCodesManage.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
             this.btnCodesManage.Size = new System.Drawing.Size(210, 42);
             this.btnCodesManage.TabIndex = 1;
-            this.btnCodesManage.Text = "Manage";
+            this.btnCodesManage.Text = "Manage Codes";
             this.btnCodesManage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCodesManage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCodesManage.UseVisualStyleBackColor = false;
             this.btnCodesManage.Click += new System.EventHandler(this.BtnCodesManage_Click);
-            // 
-            // btnCodesCopyToClipboard
-            // 
-            this.btnCodesCopyToClipboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCodesCopyToClipboard.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnCodesCopyToClipboard.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCodesCopyToClipboard.FlatAppearance.BorderSize = 0;
-            this.btnCodesCopyToClipboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCodesCopyToClipboard.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCodesCopyToClipboard.ForeColor = System.Drawing.Color.White;
-            this.btnCodesCopyToClipboard.Image = global::Utilities.Properties.Resources.icons8_copy_to_clipboard_32;
-            this.btnCodesCopyToClipboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCodesCopyToClipboard.Location = new System.Drawing.Point(0, 0);
-            this.btnCodesCopyToClipboard.Name = "btnCodesCopyToClipboard";
-            this.btnCodesCopyToClipboard.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
-            this.btnCodesCopyToClipboard.Size = new System.Drawing.Size(210, 42);
-            this.btnCodesCopyToClipboard.TabIndex = 0;
-            this.btnCodesCopyToClipboard.Text = "Copy To Clipboard";
-            this.btnCodesCopyToClipboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCodesCopyToClipboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCodesCopyToClipboard.UseVisualStyleBackColor = false;
-            this.btnCodesCopyToClipboard.Click += new System.EventHandler(this.BtnCodesCopyToClipboard_Click);
             // 
             // btnCodes
             // 
@@ -252,12 +263,12 @@ namespace Teste
             this.btnCodes.ForeColor = System.Drawing.Color.White;
             this.btnCodes.Image = global::Utilities.Properties.Resources.icons8_code_32;
             this.btnCodes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCodes.Location = new System.Drawing.Point(0, 108);
+            this.btnCodes.Location = new System.Drawing.Point(0, 152);
             this.btnCodes.Name = "btnCodes";
             this.btnCodes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnCodes.Size = new System.Drawing.Size(210, 44);
             this.btnCodes.TabIndex = 2;
-            this.btnCodes.Text = "Codes";
+            this.btnCodes.Text = "Codes To Clipboard";
             this.btnCodes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCodes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCodes.UseVisualStyleBackColor = false;
@@ -411,6 +422,7 @@ namespace Teste
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.panelSideMenu.ResumeLayout(false);
+            this.panelSubMenuFileManagement.ResumeLayout(false);
             this.panelSubMenuCodes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -424,7 +436,6 @@ namespace Teste
         private System.Windows.Forms.Panel panelSideMenu;
         private System.Windows.Forms.Panel panelSubMenuCodes;
         private System.Windows.Forms.Button btnCodesManage;
-        private System.Windows.Forms.Button btnCodesCopyToClipboard;
         private System.Windows.Forms.Button btnCodes;
         private System.Windows.Forms.Button btnFileManagement;
         private System.Windows.Forms.Button btnScriptWriter;
@@ -440,6 +451,8 @@ namespace Teste
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnProcessManagement;
+        private System.Windows.Forms.Panel panelSubMenuFileManagement;
+        private System.Windows.Forms.Button btnFileFilters;
     }
 }
 

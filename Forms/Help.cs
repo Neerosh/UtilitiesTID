@@ -35,8 +35,6 @@ namespace Utilities {
             foreach (string str in arrayDeleteDuplicates) {
                 functionality += "\"" + str + "\"  ";
             }
-            functionality += "\r\nAcronyms:" +
-                            "\r\n   TID = includes files with the extensions *.dll, *.exe and the file conexao.tps .";
 
             sqlInstallGuide = "SQL SERVER Install Guide:"+
                             "\r\n1) Go to Microsoft website and download the developer edition: SQLServer2019-SSEI-Dev.exe" + 

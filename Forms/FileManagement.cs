@@ -17,13 +17,22 @@ namespace Utilities.Forms
             folderPicker.InputPath = @"C:\";
             cboOrderBy.SelectedItem = "Descending";
             cboOrderField.SelectedItem = "Filename";
-            cboFileExtension.SelectedItem = "TID";
             lblProgressPercent.Text = "0%";
+            LoadFileFilterSelection();
         }
 
         private FolderPicker folderPicker = new FolderPicker();
         private Task task;
         public readonly string[] arrayForbiddenCombinations = new string[] { ").", "_.", "_03.", "old.", "old--.", "copia.", "copy." };
+
+        private void LoadFileFilterSelection() {
+            SQLite sqlite = new SQLite();
+            DataTable dt = sqlite.SelectAllFileFilters();
+            dt.Rows.Add(0, "All Files");
+            cboFileFilter.DataSource = dt;
+            cboFileFilter.ValueMember = "Id";
+            cboFileFilter.DisplayMember = "Name";
+        }
 
         #region MouseHover
         private void MouseHoverDynamicFields(string button, string action) {
@@ -98,9 +107,9 @@ namespace Utilities.Forms
         private async Task TaskFileManagement(string action) {
             if (!action.Equals("Move") && !action.Equals("Copy") && !action.Equals("DeleteDuplicated")) { return; }
 
-            string orderBy, orderProperty, fromFolder, toFolder, filterExtension;
+            string orderBy, orderProperty, fromFolder, toFolder;
             bool checkSubDirectories;
-            int maxPercent;
+            int maxPercent, idFileFilter;
             FileInfo[] directoryFiles;
             List<GroupFileDetails> listGroupedFiles = new List<GroupFileDetails>();
             CustomMessage customMessage = new CustomMessage();
@@ -110,7 +119,7 @@ namespace Utilities.Forms
             orderProperty = cboOrderField.SelectedItem.ToString();
             fromFolder = txtFromFolder.Text;
             toFolder = txtToFolder.Text;
-            filterExtension = cboFileExtension.SelectedItem.ToString();
+            idFileFilter = Convert.ToInt32(cboFileFilter.SelectedValue);
             checkSubDirectories = chkSubFolders.Checked;
             IntPtr handle = this.Handle;
             txtLogProcess.Clear();
@@ -128,7 +137,7 @@ namespace Utilities.Forms
                                 throw new Exception("To folder must be a valid folder path");
                             }
 
-                            directoryFiles = GetDirectoryFiles(fromFolder, filterExtension, orderProperty, orderBy);
+                            directoryFiles = GetDirectoryFiles(fromFolder, idFileFilter, orderProperty, orderBy);
                             if (directoryFiles.Length == 0) {
                                 WriteLog("No files to " + action);
                                 return;
@@ -147,7 +156,7 @@ namespace Utilities.Forms
                                 throw new Exception("To folder must be a valid folder path");
                             }
 
-                            directoryFiles = GetDirectoryFiles(fromFolder, filterExtension, orderProperty, orderBy);
+                            directoryFiles = GetDirectoryFiles(fromFolder, idFileFilter, orderProperty, orderBy);
                             if (directoryFiles.Length == 0) {
                                 WriteLog("No files to " + action);
                                 return;
@@ -178,7 +187,7 @@ namespace Utilities.Forms
                             for (int i = 0; i < directories.Count; i++) {
                                 WriteLog("\r\nGrouping files from: " + directories[i].FullName);
                                 maxPercent = (i + 1) * 50 / directories.Count;
-                                directoryFiles = GetDirectoryFiles(directories[i].FullName, filterExtension, orderProperty, orderBy);
+                                directoryFiles = GetDirectoryFiles(directories[i].FullName, idFileFilter, orderProperty, orderBy);
                                 GroupDirectoryFilesByHash(listGroupedFiles, directoryFiles, maxPercent);
                             }
 
@@ -206,60 +215,38 @@ namespace Utilities.Forms
             }
             return returnList;
         }
-        private FileInfo[] GetDirectoryFiles(string folder, string filterExtension, string orderProperty, string orderBy) {
+        private FileInfo[] GetDirectoryFiles(string folder, int IdFileFilter, string orderProperty, string orderBy) {
+            SQLite sqlite = new SQLite();
             FileInfo[] directoryFiles = null;
             List<FileInfo> listFiles = new List<FileInfo>();
-            String[] filterExtensions;
-            String[] filterName;
+            List<FileFilterExtension> filterExtensions = new List<FileFilterExtension>();
+            List<FileFilterFile> filterName = new List<FileFilterFile>();
+            if (IdFileFilter > 0) {
+                filterExtensions = sqlite.SelectFileFilterExtensions(IdFileFilter);
+                filterName = sqlite.SelectFileFilterFiles(IdFileFilter);
 
-            switch (filterExtension) {
-                case "*.dll or *.exe":
-                    filterExtensions = new String[] { ".dll", ".exe" };
-                    filterName = null;
-                    break;
-                case "*.exe":
-                    filterExtensions = new String[] { ".exe" };
-                    filterName = null;
-                    break;
-                case "*.dll":
-                    filterExtensions = new String[] { ".dll" };
-                    filterName = null;
-                    break;
-                case "*.tps":
-                    filterExtensions = new String[] { ".tps" };
-                    filterName = null;
-                    break;
-                case "TID":
-                    filterExtensions = new String[] { ".dll", ".exe", "conexao.tps" };
-                    filterName = new String[] { "conexao.tps" };
-                    break;
-                default:
-                    filterExtensions = null;
-                    filterName = null;
-                    break;
             }
-
 
             switch (orderProperty + ";" + orderBy) {
                 case "Filename;Descending":
-                    if (filterExtensions == null && filterName == null) {
+                    if (filterExtensions.Count <= 0 && filterName.Count <= 0) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.Name).ToArray();
                         listFiles.AddRange(directoryFiles);
                         break;
                     }
 
-                    if (filterExtensions != null) {
-                        foreach (string extension in filterExtensions) {
+                    if (filterExtensions.Count > 0) {
+                        foreach (FileFilterExtension fileFilter in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.Name)
-                                                .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
+                                                .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == fileFilter.Extension).ToArray();
                             listFiles.AddRange(directoryFiles);
                         }
                     }
 
-                    if (filterName != null) {
-                        foreach (string name in filterName) {
+                    if (filterName.Count > 0) {
+                        foreach (FileFilterFile fileFilter in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.Name)
-                                                .Where(file => file.Name.ToLower().Equals(name)).ToArray();
+                                                .Where(file => file.Name.ToLower().Equals(fileFilter.FileName)).ToArray();
                             listFiles.AddRange(directoryFiles);
                         }
                     }
@@ -267,24 +254,24 @@ namespace Utilities.Forms
                     break;
 
                 case "Filename;Ascending":
-                    if (filterExtensions == null && filterName == null) {
+                    if (filterExtensions.Count <= 0 && filterName.Count <= 0) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name).ToArray();
                         listFiles.AddRange(directoryFiles);
                         break;
                     }
 
-                    if (filterExtensions != null) {
-                        foreach (string extension in filterExtensions) {
+                    if (filterExtensions.Count > 0) {
+                        foreach (FileFilterExtension fileFilter in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name)
-                                                .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
+                                                .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == fileFilter.Extension).ToArray();
                             listFiles.AddRange(directoryFiles);
                         }
                     }
 
-                    if (filterName != null) {
-                        foreach (string name in filterName) {
+                    if (filterName.Count > 0) {
+                        foreach (FileFilterFile fileFilter in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name)
-                                                .Where(file => file.Name.ToLower().Equals(name)).ToArray();
+                                                .Where(file => file.Name.ToLower().Equals(fileFilter.FileName)).ToArray();
                             listFiles.AddRange(directoryFiles);
                         }
                     }
@@ -293,24 +280,24 @@ namespace Utilities.Forms
 
                 case "Creation Time;Descending":
 
-                    if (filterExtensions == null && filterName == null) {
+                    if (filterExtensions.Count <= 0 && filterName.Count <= 0) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.CreationTime).ToArray();
                         listFiles.AddRange(directoryFiles);
                         break;
                     }
 
-                    if (filterExtensions != null) {
-                        foreach (string extension in filterExtensions) {
+                    if (filterExtensions.Count > 0) {
+                        foreach (FileFilterExtension fileFilter in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.CreationTime)
-                                                .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
+                                                .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == fileFilter.Extension).ToArray();
                             listFiles.AddRange(directoryFiles);
                         }
                     }
 
-                    if (filterName != null) {
-                        foreach (string name in filterName) {
+                    if (filterName.Count > 0) {
+                        foreach (FileFilterFile fileFilter in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.CreationTime)
-                                                .Where(file => file.Name.ToLower().Equals(name)).ToArray();
+                                                .Where(file => file.Name.ToLower().Equals(fileFilter.FileName)).ToArray();
                             listFiles.AddRange(directoryFiles);
                         }
                     }
@@ -318,24 +305,24 @@ namespace Utilities.Forms
                     break;
                 case "Creation Time;Ascending":
 
-                    if (filterExtensions == null && filterName == null) {
+                    if (filterExtensions.Count <= 0 && filterName.Count <= 0) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.CreationTime).ToArray();
                         listFiles.AddRange(directoryFiles);
                         break;
                     }
 
-                    if (filterExtensions != null) {
-                        foreach (string extension in filterExtensions) {
+                    if (filterExtensions.Count > 0) {
+                        foreach (FileFilterExtension fileFilter in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.CreationTime)
-                                                .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
+                                                .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == fileFilter.Extension).ToArray();
                             listFiles.AddRange(directoryFiles);
                         }
                     }
 
-                    if (filterName != null) {
-                        foreach (string name in filterName) {
+                    if (filterName.Count > 0) {
+                        foreach (FileFilterFile fileFilter in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.CreationTime)
-                                                .Where(file => file.Name.ToLower().Equals(name)).ToArray();
+                                                .Where(file => file.Name.ToLower().Equals(fileFilter.FileName)).ToArray();
                             listFiles.AddRange(directoryFiles);
                         }
                     }
@@ -343,24 +330,24 @@ namespace Utilities.Forms
 
                 default:
 
-                    if (filterExtensions == null && filterName == null) {
+                    if (filterExtensions.Count <= 0 && filterName.Count <= 0) {
                         directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name).ToArray();
                         listFiles.AddRange(directoryFiles);
                         break;
                     }
 
-                    if (filterExtensions != null) {
-                        foreach (string extension in filterExtensions) {
+                    if (filterExtensions.Count > 0) {
+                        foreach (FileFilterExtension fileFilter in filterExtensions) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name)
-                                                .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == extension).ToArray();
+                                                .Where(file => file.Name.Substring(file.Name.LastIndexOf(".")).ToLower() == fileFilter.Extension).ToArray();
                             listFiles.AddRange(directoryFiles);
                         }
                     }
 
-                    if (filterName != null) {
-                        foreach (string name in filterName) {
+                    if (filterName.Count > 0) {
+                        foreach (FileFilterFile fileFilter in filterName) {
                             directoryFiles = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name)
-                                                .Where(file => file.Name.ToLower().Equals(name)).ToArray();
+                                                .Where(file => file.Name.ToLower().Equals(fileFilter.FileName)).ToArray();
                             listFiles.AddRange(directoryFiles);
                         }
                     }

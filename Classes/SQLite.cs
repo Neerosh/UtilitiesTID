@@ -15,6 +15,7 @@ namespace Utilities.Classes
 
         public SQLite() {
         }
+
         #region Code
         public CustomMessage InsertCode(Code code) {
             CustomMessage customMessage = new CustomMessage();
@@ -137,6 +138,284 @@ namespace Utilities.Classes
         }
         #endregion
 
+        #region FileFilters
+        public CustomMessage InsertFileFilter(FileFilter fileFilter) {
+            CustomMessage customMessage = new CustomMessage();
+            if (fileFilter == null) { return customMessage; }
+
+            connection.Open();
+            command.Connection = connection;
+            try {
+                command.CommandText = "INSERT INTO FileFilters(Name,Notes) VALUES ('" + fileFilter.Name + "','" + fileFilter.Notes + "')";
+                command.ExecuteNonQuery();
+                customMessage = new CustomMessage("File Filter sucessfuly registred.", "Success", "success");
+            } catch (Exception ex) {
+                customMessage = new CustomMessage("Error registering:\n" + ex.Message, "Error", "error");
+            }
+            connection.Close();
+            return customMessage;
+        }
+        public CustomMessage UpdateFileFilter(FileFilter fileFilter) {
+            CustomMessage customMessage = new CustomMessage();
+            if (fileFilter == null) { return customMessage; }
+            connection.Open();
+            command.Connection = connection;
+            try {
+                command.CommandText = "UPDATE FileFilter SET Name = '" + fileFilter.Name + "'" +
+                                      " WHERE ID  = " + fileFilter.Id;
+                command.ExecuteNonQuery();
+                customMessage = new CustomMessage("File Filter sucessfuly updated.", "Sucess", "sucess");
+            } catch (Exception ex) {
+                customMessage = new CustomMessage("Error updating:\n" + ex.Message, "Error", "error");
+            }
+            connection.Close();
+            return customMessage;
+        }
+        public CustomMessage DeleteFileFilter(FileFilter fileFilter) {
+            CustomMessage customMessage = new CustomMessage();
+            if (fileFilter == null) { return customMessage; }
+            connection.Open();
+            command.Connection = connection;
+            try {
+                command.CommandText = "DELETE FROM FileFilterFiles WHERE id_FileFilter = " + fileFilter.Id;
+                command.ExecuteNonQuery();
+                command.CommandText = "DELETE FROM FileFilterExtensions WHERE id_FileFilter = " + fileFilter.Id;
+                command.ExecuteNonQuery();
+                command.CommandText = "DELETE FROM FileFilters WHERE id = " + fileFilter.Id;
+                command.ExecuteNonQuery();
+                customMessage = new CustomMessage("File Filter sucessfuly deleted.", "Sucess", "success");
+            } catch (Exception ex) {
+                customMessage = new CustomMessage("Error deleting:\n" + ex.Message, "Error", "error");
+            }
+            connection.Close();
+            return customMessage;
+        }
+
+        public CustomMessage InsertFileFilterFile(FileFilterFile fileFilterFile) {
+            CustomMessage customMessage = new CustomMessage();
+            if (fileFilterFile == null) { return customMessage; }
+
+            connection.Open();
+            command.Connection = connection;
+            try {
+                command.CommandText = "INSERT INTO FileFilterFiles(id_FileFilter,FileName) VALUES (" + fileFilterFile.IdFileFilter + ",'" + fileFilterFile.FileName + "')";
+                command.ExecuteNonQuery();
+                customMessage = new CustomMessage("File Filter File sucessfuly registred.", "Success", "success");
+            } catch (Exception ex) {
+                customMessage = new CustomMessage("Error registering:\n" + ex.Message, "Error", "error");
+            }
+            connection.Close();
+            return customMessage;
+        }
+        public CustomMessage UpdateFileFilterFile(FileFilterFile fileFilterFile) {
+            CustomMessage customMessage = new CustomMessage();
+            if (fileFilterFile == null) { return customMessage; }
+            connection.Open();
+            command.Connection = connection;
+            try {
+                command.CommandText = "UPDATE FileFilterFiles SET FileName = '" + fileFilterFile.FileName + "'" +
+                                      " WHERE ID  = " + fileFilterFile.Id;
+                command.ExecuteNonQuery();
+                customMessage = new CustomMessage("File Filter File sucessfuly updated.", "Sucess", "sucess");
+            } catch (Exception ex) {
+                customMessage = new CustomMessage("Error updating:\n" + ex.Message, "Error", "error");
+            }
+            connection.Close();
+            return customMessage;
+        }
+        public CustomMessage DeleteFileFilterFile(FileFilterFile fileFilterFile) {
+            CustomMessage customMessage = new CustomMessage();
+            if (fileFilterFile == null) { return customMessage; }
+            connection.Open();
+            command.Connection = connection;
+            try {
+                command.CommandText = "DELETE FROM FileFilterFiles WHERE id = " + fileFilterFile.Id;
+                Clipboard.SetText(command.CommandText);
+                command.ExecuteNonQuery();
+                customMessage = new CustomMessage("File Filter File sucessfuly deleted.", "Sucess", "success");
+            } catch (Exception ex) {
+                customMessage = new CustomMessage("Error deleting:\n" + ex.Message, "Error", "error");
+            }
+            connection.Close();
+            return customMessage;
+        }
+
+        public CustomMessage InsertFileFilterExtension(FileFilterExtension fileFilterExtension) {
+            CustomMessage customMessage = new CustomMessage();
+            if (fileFilterExtension == null) { return customMessage; }
+
+            connection.Open();
+            command.Connection = connection;
+            try {
+                command.CommandText = "INSERT INTO FileFilterExtensions(id_FileFilter,Extension) VALUES (" + fileFilterExtension.IdFileFilter + ",'" + fileFilterExtension.Extension + "')";
+                command.ExecuteNonQuery();
+                customMessage = new CustomMessage("File Filter File sucessfuly registred.", "Success", "success");
+            } catch (Exception ex) {
+                customMessage = new CustomMessage("Error registering:\n" + ex.Message, "Error", "error");
+            }
+            connection.Close();
+            return customMessage;
+        }
+        public CustomMessage UpdateFileFilterExtension(FileFilterExtension fileFilterExtension) {
+            CustomMessage customMessage = new CustomMessage();
+            if (fileFilterExtension == null) { return customMessage; }
+            connection.Open();
+            command.Connection = connection;
+            try {
+                command.CommandText = "UPDATE FileFilterExtensions SET Extension = '" + fileFilterExtension.Extension + "'" +
+                                      " WHERE ID  = " + fileFilterExtension.Id;
+                command.ExecuteNonQuery();
+                customMessage = new CustomMessage("File Filter File sucessfuly updated.", "Sucess", "sucess");
+            } catch (Exception ex) {
+                customMessage = new CustomMessage("Error updating:\n" + ex.Message, "Error", "error");
+            }
+            connection.Close();
+            return customMessage;
+        }
+        public CustomMessage DeleteFileFilterExtension(FileFilterExtension fileFilterExtension) {
+            CustomMessage customMessage = new CustomMessage();
+            if (fileFilterExtension == null) { return customMessage; }
+            connection.Open();
+            command.Connection = connection;
+            try {
+                command.CommandText = "DELETE FROM FileFilterExtensions WHERE id = " + fileFilterExtension.Id;
+                Clipboard.SetText(command.CommandText);
+                command.ExecuteNonQuery();
+                customMessage = new CustomMessage("File Filter File sucessfuly deleted.", "Sucess", "success");
+            } catch (Exception ex) {
+                customMessage = new CustomMessage("Error deleting:\n" + ex.Message, "Error", "error");
+            }
+            connection.Close();
+            return customMessage;
+        }
+
+        public DataTable SelectAllFileFilters() {
+            SqliteDataReader reader;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Notes");
+
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "SELECT Id,Name,Notes FROM FileFilters";
+
+            try {
+                reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    FileFilter fileFilter = new FileFilter(reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
+                    dt.Rows.Add(fileFilter.Id, fileFilter.Name, fileFilter.Notes);
+                }
+                reader.Close();
+            } catch (Exception ex) {
+                CustomMessage customMessage = new CustomMessage(ex.Message, "Error", "error");
+                CustomDialog.ShowCustomDialog(customMessage, IntPtr.Zero);
+            }
+            connection.Close();
+
+            return dt;
+        }
+        public DataTable SelectAllFileFilterFiles(int idFileFilter) {
+            SqliteDataReader reader;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("FileName");
+
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "SELECT Id,FileName FROM FileFilterFiles WHERE Id_FileFilter = " + idFileFilter;
+
+            try {
+                reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    dt.Rows.Add(reader.GetInt32(0), reader.GetString(1));
+                }
+                reader.Close();
+            } catch (Exception ex) {
+                CustomMessage customMessage = new CustomMessage(ex.Message, "Error", "error");
+                CustomDialog.ShowCustomDialog(customMessage, IntPtr.Zero);
+            }
+            connection.Close();
+
+            return dt;
+        }
+        public DataTable SelectAllFileFilterExtensions(int idFileFilter) {
+            SqliteDataReader reader;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Extension");
+
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "SELECT Id,Extension FROM FileFilterExtensions WHERE Id_FileFilter = " + idFileFilter;
+
+            try {
+                reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    dt.Rows.Add(reader.GetInt32(0), reader.GetString(1));
+                }
+                reader.Close();
+            } catch (Exception ex) {
+                CustomMessage customMessage = new CustomMessage(ex.Message, "Error", "error");
+                CustomDialog.ShowCustomDialog(customMessage, IntPtr.Zero);
+            }
+            connection.Close();
+
+            return dt;
+        }
+
+        public List<FileFilterFile> SelectFileFilterFiles(int idFileFilter) {
+            SqliteDataReader reader;
+            FileFilterFile fileFilter;
+            List<FileFilterFile> list = new List<FileFilterFile>();
+
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "SELECT Id,FileName FROM FileFilterFiles WHERE Id_FileFilter = " + idFileFilter;
+
+            try {
+                reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    fileFilter = new FileFilterFile(reader.GetInt32(0), idFileFilter, reader.GetString(1));
+                    fileFilter.SetFileNameLowerCase();
+                    list.Add(fileFilter);
+                }
+                reader.Close();
+            } catch (Exception ex) {
+                CustomMessage customMessage = new CustomMessage(ex.Message, "Error", "error");
+                CustomDialog.ShowCustomDialog(customMessage, IntPtr.Zero);
+            }
+            connection.Close();
+
+            return list;
+        }
+        public List<FileFilterExtension> SelectFileFilterExtensions(int idFileFilter) {
+            SqliteDataReader reader;
+            FileFilterExtension fileFilter;
+            List<FileFilterExtension> list = new List<FileFilterExtension>();
+
+            connection.Open();
+            command.Connection = connection;
+            command.CommandText = "SELECT Id,Extension FROM FileFilterExtensions WHERE Id_FileFilter = " + idFileFilter;
+
+            try {
+                reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    fileFilter = new FileFilterExtension(reader.GetInt32(0), idFileFilter, reader.GetString(1));
+                    fileFilter.SetExtensionLowerCase();
+                    list.Add(fileFilter);
+                }
+                reader.Close();
+            } catch (Exception ex) {
+                CustomMessage customMessage = new CustomMessage(ex.Message, "Error", "error");
+                CustomDialog.ShowCustomDialog(customMessage, IntPtr.Zero);
+            }
+            connection.Close();
+
+            return list;
+        }
+        #endregion
+
         public CustomMessage CreateDatabase() {
             CustomMessage customMessage = new CustomMessage();
             connection.Open();
@@ -147,7 +426,28 @@ namespace Utilities.Classes
                                     "Code Varchar(2000) NOT NULL," +
                                     "Type Varchar(30) NOT NULL," +
                                     "UNIQUE (Name,Type)" +
+                                  ");"+
+                                  "CREATE TABLE IF NOT EXISTS FileFilters (" +
+                                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                    "Name Varchar(50) NOT NULL," +
+                                    "Notes Varchar(2000) NULL," +
+                                    "UNIQUE (Name)" +
+                                  ");"+
+                                  "CREATE TABLE IF NOT EXISTS FileFilterExtensions (" +
+                                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                    "id_FileFilter INTEGER NOT NULL," +
+                                    "Extension Varchar(30) NOT NULL," +
+                                    "UNIQUE (id_FileFilter,Extension)," +
+                                    "FOREIGN KEY(id_FileFilter) REFERENCES FileFilters(id)" +
+                                  ");" +
+                                  "CREATE TABLE IF NOT EXISTS FileFilterFiles (" +
+                                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                    "id_FileFilter INTEGER NOT NULL," +
+                                    "FileName Varchar(2000) NOT NULL," +
+                                    "UNIQUE (id_FileFilter,FileName)," +
+                                    "FOREIGN KEY(id_FileFilter) REFERENCES FileFilters(id)" +
                                   ");";
+
             try {
                 command.ExecuteNonQuery();
             } catch (Exception ex) {

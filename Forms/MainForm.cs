@@ -18,7 +18,6 @@ namespace Teste
 
         public Main() {
             InitializeComponent();
-            CustomizeDesign();
             Padding = new Padding(2);
             BackColor = Color.FromArgb(60, 60, 60);
             BtnMenu_Click(this,new EventArgs());
@@ -153,22 +152,6 @@ namespace Teste
         #endregion
 
         #region SideMenu
-        private void CustomizeDesign() {
-            panelSubMenuCodes.Visible = false;
-        }
-        private void HideSubmenu() {
-            if (panelSubMenuCodes.Visible) {
-                panelSubMenuCodes.Visible = false;
-            }
-        }
-        private void ShowSubMenu(Panel subMenu) {
-            if (subMenu.Visible == false) {
-                HideSubmenu();
-                subMenu.Visible = true;
-            } else {
-                subMenu.Visible = false;
-            }
-        }
         private void PaintSelectedMenuItem(Button selectedButton) {
             foreach (Control control in panelSideMenu.Controls) {
                 if (control is Panel) { 
@@ -212,13 +195,13 @@ namespace Teste
             OpenChildForm(new FileManagement());
             PaintSelectedMenuItem(btnFileManagement);
         }
-        private void BtnCodes_Click(object sender, EventArgs e) {
-            ShowSubMenu(panelSubMenuCodes);
-            PaintSelectedMenuItem(btnCodes);
+        private void btnFileFilters_Click(object sender, EventArgs e) {
+            OpenChildForm(new FileFilters());
+            PaintSelectedMenuItem(btnFileFilters);
         }
-        private void BtnCodesCopyToClipboard_Click(object sender, EventArgs e) {
+        private void BtnCodes_Click(object sender, EventArgs e) {
             OpenChildForm(new CodeToClipboard());
-            PaintSelectedMenuItem(btnCodesCopyToClipboard);
+            PaintSelectedMenuItem(btnCodes);
         }
         private void BtnCodesManage_Click(object sender, EventArgs e) {
             OpenChildForm(new CodeManage());

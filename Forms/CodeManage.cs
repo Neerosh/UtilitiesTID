@@ -32,11 +32,12 @@ namespace Utilities.Forms
             dgvCodes.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
         }
-        private void SelectCorrectRow(Code code) {
+        private void SelectCorrectRow(int? selectedId) {
+            if (selectedId == null || selectedId == 0) { return; }
             dgvCodes.ClearSelection();
             //returns to updated/included row
             foreach (DataGridViewRow row in dgvCodes.Rows) {
-                if (code.ID == Int32.Parse(row.Cells[0].Value.ToString())) {
+                if (selectedId == Int32.Parse(row.Cells[0].Value.ToString())) {
                     row.Selected = true;
                     dgvCodes.CurrentCell = row.Cells[1];
                     break;
@@ -55,41 +56,56 @@ namespace Utilities.Forms
             txtName.Text = "";
             txtCodeText.Text = "";
             txtType.Text = "";
+            dgvCodes.ClearSelection();
         }
         private void BtnInsert_Click(object sender, EventArgs e) {
             CustomMessage customMessage = new CustomMessage("Insert new code?", "Confirmation", "confirmation");
-
             if (CustomDialog.ShowCustomDialog(customMessage, Handle) == DialogResult.Cancel) { return; }
 
-            int id;
-            id = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
-            Code code = new Code(id, txtName.Text,txtType.Text,txtCodeText.Text);
+            int selectedId;
+            if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
+                selectedId = 0;
+            } else { 
+                selectedId = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
+            }
+
+            Code code = new Code(0, txtName.Text,txtType.Text,txtCodeText.Text);
             code.FormatStrings();
             customMessage = sqlite.InsertCode(code);
             CustomDialog.ShowCustomDialog(customMessage, Handle);
 
             RefreshCodes();
-            SelectCorrectRow(code);
+            SelectCorrectRow(selectedId);
         }
         private void BtnUpdate_Click(object sender, EventArgs e) {
-            if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
-            int id;
-            id = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
+            CustomMessage customMessage;
+            if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
+                customMessage = new CustomMessage("Select a code on the table below first.", "Information", "Information");
+                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                return;
+            }
 
-            CustomMessage customMessage = new CustomMessage("Update selected code?\nSelected: " + txtName.Text, "Confirmation", "confirmation");
+            int selectedId;
+            selectedId = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
+            customMessage = new CustomMessage("Update selected code?\nSelected: " + txtName.Text, "Confirmation", "confirmation");
             if (CustomDialog.ShowCustomDialog(customMessage, Handle) == DialogResult.Cancel) { return; }
             
-            Code code = new Code(id, txtName.Text, txtType.Text, txtCodeText.Text);
+            Code code = new Code(selectedId, txtName.Text, txtType.Text, txtCodeText.Text);
             code.FormatStrings();
 
             customMessage = sqlite.UpdateCode(code);
             CustomDialog.ShowCustomDialog(customMessage, Handle);
 
             RefreshCodes();
-            SelectCorrectRow(code);
+            SelectCorrectRow(selectedId);
         }
         private void BtnDelete_Click(object sender, EventArgs e) {
-            if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
+            CustomMessage customMessage;
+            if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
+                customMessage = new CustomMessage("Select a code on the table below first.", "Information", "Information");
+                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                return;
+            }
 
             string name, type, codeText;
             int selectedRow,id;
@@ -99,7 +115,7 @@ namespace Utilities.Forms
             codeText = dgvCodes.SelectedRows[0].Cells[3].Value.ToString();
             selectedRow = dgvCodes.SelectedRows[0].Index;
 
-            CustomMessage customMessage = new CustomMessage("Delete selected code?\nSelected: " + name, "Confirmation", "confirmation");
+            customMessage = new CustomMessage("Delete selected code?\nSelected: " + name, "Confirmation", "confirmation");
             if (CustomDialog.ShowCustomDialog(customMessage, Handle) == DialogResult.Cancel) { return; }
 
             Code code = new Code(id, name, type, codeText);
@@ -127,6 +143,7 @@ namespace Utilities.Forms
             CustomDialog.ShowCustomDialog(customMessage, Handle);
 
             RefreshCodes();
+            BtnClearFields_Click(sender, e);
         }
     }
 }

@@ -34,8 +34,8 @@
             this.lblOrderBy = new System.Windows.Forms.Label();
             this.cboOrderBy = new System.Windows.Forms.ComboBox();
             this.cboOrderField = new System.Windows.Forms.ComboBox();
-            this.lblFileExtension = new System.Windows.Forms.Label();
-            this.cboFileExtension = new System.Windows.Forms.ComboBox();
+            this.lblFileFilter = new System.Windows.Forms.Label();
+            this.cboFileFilter = new System.Windows.Forms.ComboBox();
             this.chkSubFolders = new System.Windows.Forms.CheckBox();
             this.btnCopyFiles = new System.Windows.Forms.Button();
             this.btnDeleteDuplicate = new System.Windows.Forms.Button();
@@ -179,39 +179,39 @@
             this.cboOrderField.Size = new System.Drawing.Size(123, 24);
             this.cboOrderField.TabIndex = 7;
             // 
-            // lblFileExtension
+            // lblFileFilter
             // 
-            this.lblFileExtension.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblFileFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFileExtension.AutoSize = true;
-            this.lblFileExtension.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFileExtension.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblFileExtension.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblFileExtension.Location = new System.Drawing.Point(27, 126);
-            this.lblFileExtension.Name = "lblFileExtension";
-            this.lblFileExtension.Size = new System.Drawing.Size(74, 16);
-            this.lblFileExtension.TabIndex = 9;
-            this.lblFileExtension.Text = "Filtered By:\r\n";
+            this.lblFileFilter.AutoSize = true;
+            this.lblFileFilter.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFileFilter.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblFileFilter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblFileFilter.Location = new System.Drawing.Point(36, 126);
+            this.lblFileFilter.Name = "lblFileFilter";
+            this.lblFileFilter.Size = new System.Drawing.Size(65, 16);
+            this.lblFileFilter.TabIndex = 9;
+            this.lblFileFilter.Text = "File Filter:\r\n";
             // 
-            // cboFileExtension
+            // cboFileFilter
             // 
-            this.cboFileExtension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.cboFileExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFileExtension.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboFileExtension.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cboFileExtension.ForeColor = System.Drawing.Color.White;
-            this.cboFileExtension.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cboFileExtension.Items.AddRange(new object[] {
+            this.cboFileFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.cboFileFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFileFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboFileFilter.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cboFileFilter.ForeColor = System.Drawing.Color.White;
+            this.cboFileFilter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cboFileFilter.Items.AddRange(new object[] {
             "All Extensions",
             "TID",
             "*.dll or *.exe",
             "*.dll",
             "*.exe ",
             "*.tps"});
-            this.cboFileExtension.Location = new System.Drawing.Point(105, 121);
-            this.cboFileExtension.Name = "cboFileExtension";
-            this.cboFileExtension.Size = new System.Drawing.Size(123, 24);
-            this.cboFileExtension.TabIndex = 10;
+            this.cboFileFilter.Location = new System.Drawing.Point(105, 121);
+            this.cboFileFilter.Name = "cboFileFilter";
+            this.cboFileFilter.Size = new System.Drawing.Size(261, 24);
+            this.cboFileFilter.TabIndex = 10;
             // 
             // chkSubFolders
             // 
@@ -219,7 +219,7 @@
             this.chkSubFolders.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkSubFolders.ForeColor = System.Drawing.Color.White;
             this.chkSubFolders.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkSubFolders.Location = new System.Drawing.Point(242, 125);
+            this.chkSubFolders.Location = new System.Drawing.Point(385, 88);
             this.chkSubFolders.Name = "chkSubFolders";
             this.chkSubFolders.Size = new System.Drawing.Size(128, 20);
             this.chkSubFolders.TabIndex = 11;
@@ -363,8 +363,8 @@
             this.Controls.Add(this.btnCopyFiles);
             this.Controls.Add(this.cboOrderField);
             this.Controls.Add(this.chkSubFolders);
-            this.Controls.Add(this.lblFileExtension);
-            this.Controls.Add(this.cboFileExtension);
+            this.Controls.Add(this.lblFileFilter);
+            this.Controls.Add(this.cboFileFilter);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FileManagement";
@@ -385,8 +385,8 @@
         private System.Windows.Forms.Label lblOrderBy;
         private System.Windows.Forms.ComboBox cboOrderBy;
         private System.Windows.Forms.ComboBox cboOrderField;
-        private System.Windows.Forms.Label lblFileExtension;
-        private System.Windows.Forms.ComboBox cboFileExtension;
+        private System.Windows.Forms.Label lblFileFilter;
+        private System.Windows.Forms.ComboBox cboFileFilter;
         private System.Windows.Forms.CheckBox chkSubFolders;
         private System.Windows.Forms.Button btnCopyFiles;
         private System.Windows.Forms.Button btnDeleteDuplicate;

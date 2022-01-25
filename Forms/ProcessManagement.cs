@@ -134,9 +134,13 @@ namespace Utilities.Forms
         }
         private async Task ListAllProcesses() {
             string nameRemotePC = "";
+            string username = "";
+            string password = "";
 
             if (!txtNameRemotePC.Text.Equals("") && txtNameRemotePC.Text != null) {
-                nameRemotePC = txtNameRemotePC.Text;
+                nameRemotePC = txtNameRemotePC.Text.Trim();
+                username = txtRemoteUser.Text.Trim();
+                password = txtRemotePassword.Text.Trim();
             }
             lblListProgress.Visible = true;
 
@@ -152,23 +156,23 @@ namespace Utilities.Forms
                     ConnectionOptions connection;
 
                     if (nameRemotePC.Equals("")) {
-                        scope = new ManagementScope("\\\\.\\root\\cimv2");
+                        scope = new ManagementScope(@"\\.\root\cimv2");
                     } else {
                         connection = new ConnectionOptions();
-                        connection.Username = txtRemoteUser.Text;
-                        connection.Password = txtRemotePassword.Text;
-                        scope = new ManagementScope("\\\\" + txtNameRemotePC.Text + "\\root\\cimv2", connection);
+                        connection.Username = username;
+                        connection.Password = password;
+                        connection.Impersonation = ImpersonationLevel.Impersonate;
+                        scope = new ManagementScope(@"\\" + nameRemotePC + @"\root\cimv2", connection);
+
                     }
                     scope.Connect();
-                    EnumerationOptions options = new EnumerationOptions();
-                    options.ReturnImmediately = false;
                     ObjectQuery query = new ObjectQuery("SELECT Name,ProcessId,Handle FROM Win32_Process");
-                    ManagementObjectSearcher searcher = new ManagementObjectSearcher(scope, query, options);
+                    ManagementObjectSearcher searcher = new ManagementObjectSearcher(scope, query);
                     foreach (ManagementObject queryObj in searcher.Get()) {
                         owner = "Unknown";
                         returnVal = Convert.ToInt32(queryObj.InvokeMethod("GetOwner", argList));
                         if (returnVal == 0) {
-                            owner =  argList[1] + "\\" + argList[0];
+                            owner = argList[1] + @"\" + argList[0];
                         }
 
                         if (!chkShowUnknownUsers.Checked && owner.Equals("Unknown")) {
