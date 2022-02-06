@@ -28,31 +28,30 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblSelection = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.txtFilterName = new System.Windows.Forms.TextBox();
             this.dgvFileFilters = new System.Windows.Forms.DataGridView();
-            this.btnUpdateFile = new System.Windows.Forms.Button();
-            this.lsbFileExtensions = new System.Windows.Forms.ListBox();
-            this.lsbFiles = new System.Windows.Forms.ListBox();
-            this.lblFileExtensions = new System.Windows.Forms.Label();
-            this.lblFiles = new System.Windows.Forms.Label();
-            this.btnUpdateExtension = new System.Windows.Forms.Button();
+            this.lblConditions = new System.Windows.Forms.Label();
+            this.btnUpdateCondition = new System.Windows.Forms.Button();
             this.btnDeleteFileFilter = new System.Windows.Forms.Button();
             this.btnUpdateFileFilter = new System.Windows.Forms.Button();
             this.btnInsertFileFilter = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtFileExtension = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtFileName = new System.Windows.Forms.TextBox();
-            this.btnInsertFile = new System.Windows.Forms.Button();
-            this.btnInsertExtension = new System.Windows.Forms.Button();
-            this.btnDeleteExtension = new System.Windows.Forms.Button();
-            this.btnDeleteFile = new System.Windows.Forms.Button();
+            this.txtCondition = new System.Windows.Forms.TextBox();
+            this.btnInsertCondition = new System.Windows.Forms.Button();
+            this.btnDeleteCondition = new System.Windows.Forms.Button();
             this.btnClearFields = new System.Windows.Forms.Button();
             this.txtFilterNotes = new System.Windows.Forms.RichTextBox();
             this.lblNotes = new System.Windows.Forms.Label();
+            this.lblType = new System.Windows.Forms.Label();
+            this.dgvFileFilterConditions = new System.Windows.Forms.DataGridView();
+            this.cboConditionType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFileFilters)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFileFilterConditions)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSelection
@@ -131,107 +130,38 @@
             this.dgvFileFilters.TabIndex = 16;
             this.dgvFileFilters.SelectionChanged += new System.EventHandler(this.dgvFileFilters_SelectionChanged);
             // 
-            // btnUpdateFile
+            // lblConditions
             // 
-            this.btnUpdateFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUpdateFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnUpdateFile.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnUpdateFile.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnUpdateFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateFile.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnUpdateFile.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnUpdateFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateFile.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnUpdateFile.Location = new System.Drawing.Point(431, 218);
-            this.btnUpdateFile.Name = "btnUpdateFile";
-            this.btnUpdateFile.Size = new System.Drawing.Size(80, 24);
-            this.btnUpdateFile.TabIndex = 23;
-            this.btnUpdateFile.Text = "Update File";
-            this.btnUpdateFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUpdateFile.UseVisualStyleBackColor = false;
-            this.btnUpdateFile.Click += new System.EventHandler(this.btnUpdateFile_Click);
+            this.lblConditions.AutoSize = true;
+            this.lblConditions.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblConditions.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblConditions.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblConditions.Location = new System.Drawing.Point(18, 149);
+            this.lblConditions.Name = "lblConditions";
+            this.lblConditions.Size = new System.Drawing.Size(72, 16);
+            this.lblConditions.TabIndex = 33;
+            this.lblConditions.Text = "Conditions:";
             // 
-            // lsbFileExtensions
+            // btnUpdateCondition
             // 
-            this.lsbFileExtensions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lsbFileExtensions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.lsbFileExtensions.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.lsbFileExtensions.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lsbFileExtensions.ForeColor = System.Drawing.Color.White;
-            this.lsbFileExtensions.FormattingEnabled = true;
-            this.lsbFileExtensions.ItemHeight = 16;
-            this.lsbFileExtensions.Location = new System.Drawing.Point(96, 248);
-            this.lsbFileExtensions.Name = "lsbFileExtensions";
-            this.lsbFileExtensions.Size = new System.Drawing.Size(501, 84);
-            this.lsbFileExtensions.Sorted = true;
-            this.lsbFileExtensions.TabIndex = 30;
-            this.lsbFileExtensions.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsbFileExtensions_DrawItem);
-            this.lsbFileExtensions.SelectedIndexChanged += new System.EventHandler(this.lsbFileExtensions_SelectedIndexChanged);
-            // 
-            // lsbFiles
-            // 
-            this.lsbFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lsbFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.lsbFiles.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.lsbFiles.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lsbFiles.ForeColor = System.Drawing.Color.White;
-            this.lsbFiles.FormattingEnabled = true;
-            this.lsbFiles.ItemHeight = 16;
-            this.lsbFiles.Location = new System.Drawing.Point(96, 102);
-            this.lsbFiles.Name = "lsbFiles";
-            this.lsbFiles.Size = new System.Drawing.Size(501, 84);
-            this.lsbFiles.Sorted = true;
-            this.lsbFiles.TabIndex = 31;
-            this.lsbFiles.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsbFiles_DrawItem);
-            this.lsbFiles.SelectedIndexChanged += new System.EventHandler(this.lsbFiles_SelectedIndexChanged);
-            // 
-            // lblFileExtensions
-            // 
-            this.lblFileExtensions.AutoSize = true;
-            this.lblFileExtensions.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFileExtensions.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblFileExtensions.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblFileExtensions.Location = new System.Drawing.Point(14, 248);
-            this.lblFileExtensions.Name = "lblFileExtensions";
-            this.lblFileExtensions.Size = new System.Drawing.Size(76, 16);
-            this.lblFileExtensions.TabIndex = 32;
-            this.lblFileExtensions.Text = "Extensions:";
-            // 
-            // lblFiles
-            // 
-            this.lblFiles.AutoSize = true;
-            this.lblFiles.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFiles.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblFiles.Location = new System.Drawing.Point(51, 102);
-            this.lblFiles.Name = "lblFiles";
-            this.lblFiles.Size = new System.Drawing.Size(39, 16);
-            this.lblFiles.TabIndex = 33;
-            this.lblFiles.Text = "Files:";
-            // 
-            // btnUpdateExtension
-            // 
-            this.btnUpdateExtension.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUpdateExtension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnUpdateExtension.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnUpdateExtension.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnUpdateExtension.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateExtension.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnUpdateExtension.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnUpdateExtension.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateExtension.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnUpdateExtension.Location = new System.Drawing.Point(357, 364);
-            this.btnUpdateExtension.Name = "btnUpdateExtension";
-            this.btnUpdateExtension.Size = new System.Drawing.Size(117, 24);
-            this.btnUpdateExtension.TabIndex = 34;
-            this.btnUpdateExtension.Text = "Update Extension";
-            this.btnUpdateExtension.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateExtension.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUpdateExtension.UseVisualStyleBackColor = false;
-            this.btnUpdateExtension.Click += new System.EventHandler(this.btnUpdateExtension_Click);
+            this.btnUpdateCondition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdateCondition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnUpdateCondition.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnUpdateCondition.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnUpdateCondition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateCondition.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUpdateCondition.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnUpdateCondition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnUpdateCondition.Location = new System.Drawing.Point(357, 361);
+            this.btnUpdateCondition.Name = "btnUpdateCondition";
+            this.btnUpdateCondition.Size = new System.Drawing.Size(117, 24);
+            this.btnUpdateCondition.TabIndex = 34;
+            this.btnUpdateCondition.Text = "Update Condition";
+            this.btnUpdateCondition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateCondition.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUpdateCondition.UseVisualStyleBackColor = false;
+            this.btnUpdateCondition.Click += new System.EventHandler(this.btnUpdateCondition_Click);
             // 
             // btnDeleteFileFilter
             // 
@@ -305,131 +235,65 @@
             this.label1.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(96, 339);
+            this.label1.Location = new System.Drawing.Point(96, 306);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 16);
+            this.label1.Size = new System.Drawing.Size(65, 16);
             this.label1.TabIndex = 38;
-            this.label1.Text = "Extension:";
+            this.label1.Text = "Condition:";
             // 
-            // txtFileExtension
+            // txtCondition
             // 
-            this.txtFileExtension.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtCondition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFileExtension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.txtFileExtension.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtFileExtension.ForeColor = System.Drawing.Color.White;
-            this.txtFileExtension.Location = new System.Drawing.Point(171, 336);
-            this.txtFileExtension.Name = "txtFileExtension";
-            this.txtFileExtension.Size = new System.Drawing.Size(426, 22);
-            this.txtFileExtension.TabIndex = 39;
+            this.txtCondition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.txtCondition.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtCondition.ForeColor = System.Drawing.Color.White;
+            this.txtCondition.Location = new System.Drawing.Point(167, 303);
+            this.txtCondition.Name = "txtCondition";
+            this.txtCondition.Size = new System.Drawing.Size(430, 22);
+            this.txtCondition.TabIndex = 39;
             // 
-            // label2
+            // btnInsertCondition
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(96, 193);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 16);
-            this.label2.TabIndex = 40;
-            this.label2.Text = "File Name:";
+            this.btnInsertCondition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInsertCondition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnInsertCondition.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnInsertCondition.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnInsertCondition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInsertCondition.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnInsertCondition.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnInsertCondition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInsertCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnInsertCondition.Location = new System.Drawing.Point(234, 361);
+            this.btnInsertCondition.Name = "btnInsertCondition";
+            this.btnInsertCondition.Size = new System.Drawing.Size(117, 24);
+            this.btnInsertCondition.TabIndex = 43;
+            this.btnInsertCondition.Text = "Add Condition";
+            this.btnInsertCondition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInsertCondition.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInsertCondition.UseVisualStyleBackColor = false;
+            this.btnInsertCondition.Click += new System.EventHandler(this.btnInsertCondition_Click);
             // 
-            // txtFileName
+            // btnDeleteCondition
             // 
-            this.txtFileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFileName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.txtFileName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtFileName.ForeColor = System.Drawing.Color.White;
-            this.txtFileName.Location = new System.Drawing.Point(172, 190);
-            this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(425, 22);
-            this.txtFileName.TabIndex = 41;
-            // 
-            // btnInsertFile
-            // 
-            this.btnInsertFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInsertFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnInsertFile.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnInsertFile.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnInsertFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInsertFile.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnInsertFile.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnInsertFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInsertFile.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnInsertFile.Location = new System.Drawing.Point(345, 218);
-            this.btnInsertFile.Name = "btnInsertFile";
-            this.btnInsertFile.Size = new System.Drawing.Size(80, 24);
-            this.btnInsertFile.TabIndex = 42;
-            this.btnInsertFile.Text = "Add File";
-            this.btnInsertFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInsertFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnInsertFile.UseVisualStyleBackColor = false;
-            this.btnInsertFile.Click += new System.EventHandler(this.btnInsertFile_Click);
-            // 
-            // btnInsertExtension
-            // 
-            this.btnInsertExtension.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInsertExtension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnInsertExtension.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnInsertExtension.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnInsertExtension.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInsertExtension.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnInsertExtension.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnInsertExtension.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInsertExtension.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnInsertExtension.Location = new System.Drawing.Point(234, 364);
-            this.btnInsertExtension.Name = "btnInsertExtension";
-            this.btnInsertExtension.Size = new System.Drawing.Size(117, 24);
-            this.btnInsertExtension.TabIndex = 43;
-            this.btnInsertExtension.Text = "Add Extension";
-            this.btnInsertExtension.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInsertExtension.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnInsertExtension.UseVisualStyleBackColor = false;
-            this.btnInsertExtension.Click += new System.EventHandler(this.btnInsertExtension_Click);
-            // 
-            // btnDeleteExtension
-            // 
-            this.btnDeleteExtension.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteExtension.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnDeleteExtension.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnDeleteExtension.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnDeleteExtension.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteExtension.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnDeleteExtension.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDeleteExtension.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteExtension.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteExtension.Location = new System.Drawing.Point(480, 364);
-            this.btnDeleteExtension.Name = "btnDeleteExtension";
-            this.btnDeleteExtension.Size = new System.Drawing.Size(117, 24);
-            this.btnDeleteExtension.TabIndex = 44;
-            this.btnDeleteExtension.Text = "Delete Extension";
-            this.btnDeleteExtension.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteExtension.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteExtension.UseVisualStyleBackColor = false;
-            this.btnDeleteExtension.Click += new System.EventHandler(this.btnDeleteExtension_Click);
-            // 
-            // btnDeleteFile
-            // 
-            this.btnDeleteFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnDeleteFile.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnDeleteFile.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnDeleteFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteFile.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnDeleteFile.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDeleteFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteFile.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteFile.Location = new System.Drawing.Point(517, 218);
-            this.btnDeleteFile.Name = "btnDeleteFile";
-            this.btnDeleteFile.Size = new System.Drawing.Size(80, 24);
-            this.btnDeleteFile.TabIndex = 45;
-            this.btnDeleteFile.Text = "Delete File";
-            this.btnDeleteFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteFile.UseVisualStyleBackColor = false;
-            this.btnDeleteFile.Click += new System.EventHandler(this.btnDeleteFile_Click);
+            this.btnDeleteCondition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteCondition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnDeleteCondition.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDeleteCondition.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnDeleteCondition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteCondition.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDeleteCondition.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDeleteCondition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnDeleteCondition.Location = new System.Drawing.Point(480, 361);
+            this.btnDeleteCondition.Name = "btnDeleteCondition";
+            this.btnDeleteCondition.Size = new System.Drawing.Size(117, 24);
+            this.btnDeleteCondition.TabIndex = 44;
+            this.btnDeleteCondition.Text = "Delete Condition";
+            this.btnDeleteCondition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteCondition.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteCondition.UseVisualStyleBackColor = false;
+            this.btnDeleteCondition.Click += new System.EventHandler(this.btnDeleteCondition_Click);
             // 
             // btnClearFields
             // 
@@ -464,7 +328,7 @@
             this.txtFilterNotes.Location = new System.Drawing.Point(96, 45);
             this.txtFilterNotes.Name = "txtFilterNotes";
             this.txtFilterNotes.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtFilterNotes.Size = new System.Drawing.Size(501, 51);
+            this.txtFilterNotes.Size = new System.Drawing.Size(501, 98);
             this.txtFilterNotes.TabIndex = 47;
             this.txtFilterNotes.Text = "";
             // 
@@ -480,36 +344,103 @@
             this.lblNotes.TabIndex = 48;
             this.lblNotes.Text = "Filter Notes:";
             // 
+            // lblType
+            // 
+            this.lblType.AutoSize = true;
+            this.lblType.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblType.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblType.Location = new System.Drawing.Point(123, 334);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(38, 16);
+            this.lblType.TabIndex = 49;
+            this.lblType.Text = "Type:";
+            // 
+            // dgvFileFilterConditions
+            // 
+            this.dgvFileFilterConditions.AllowUserToAddRows = false;
+            this.dgvFileFilterConditions.AllowUserToDeleteRows = false;
+            this.dgvFileFilterConditions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFileFilterConditions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
+            this.dgvFileFilterConditions.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dgvFileFilterConditions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.dgvFileFilterConditions.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvFileFilterConditions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvFileFilterConditions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvFileFilterConditions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFileFilterConditions.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvFileFilterConditions.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvFileFilterConditions.GridColor = System.Drawing.Color.White;
+            this.dgvFileFilterConditions.Location = new System.Drawing.Point(96, 149);
+            this.dgvFileFilterConditions.MultiSelect = false;
+            this.dgvFileFilterConditions.Name = "dgvFileFilterConditions";
+            this.dgvFileFilterConditions.ReadOnly = true;
+            this.dgvFileFilterConditions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvFileFilterConditions.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvFileFilterConditions.RowHeadersVisible = false;
+            this.dgvFileFilterConditions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvFileFilterConditions.RowTemplate.Height = 25;
+            this.dgvFileFilterConditions.RowTemplate.ReadOnly = true;
+            this.dgvFileFilterConditions.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvFileFilterConditions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFileFilterConditions.Size = new System.Drawing.Size(501, 146);
+            this.dgvFileFilterConditions.TabIndex = 50;
+            this.dgvFileFilterConditions.SelectionChanged += new System.EventHandler(this.dgvFileFilterConditions_SelectionChanged);
+            // 
+            // cboConditionType
+            // 
+            this.cboConditionType.AutoCompleteCustomSource.AddRange(new string[] {
+            "List Owners ap~"});
+            this.cboConditionType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.cboConditionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboConditionType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboConditionType.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cboConditionType.ForeColor = System.Drawing.Color.White;
+            this.cboConditionType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cboConditionType.Items.AddRange(new object[] {
+            "Name Contains",
+            "Name Ends With",
+            "Name is Exactly"});
+            this.cboConditionType.Location = new System.Drawing.Point(167, 331);
+            this.cboConditionType.Name = "cboConditionType";
+            this.cboConditionType.Size = new System.Drawing.Size(170, 24);
+            this.cboConditionType.Sorted = true;
+            this.cboConditionType.TabIndex = 51;
+            // 
             // FileFilters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
+            this.Controls.Add(this.cboConditionType);
+            this.Controls.Add(this.dgvFileFilterConditions);
+            this.Controls.Add(this.lblType);
             this.Controls.Add(this.lblNotes);
             this.Controls.Add(this.txtFilterNotes);
             this.Controls.Add(this.btnClearFields);
-            this.Controls.Add(this.btnDeleteFile);
-            this.Controls.Add(this.btnDeleteExtension);
-            this.Controls.Add(this.btnInsertExtension);
-            this.Controls.Add(this.btnInsertFile);
-            this.Controls.Add(this.txtFileName);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtFileExtension);
+            this.Controls.Add(this.btnDeleteCondition);
+            this.Controls.Add(this.btnInsertCondition);
+            this.Controls.Add(this.txtCondition);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDeleteFileFilter);
             this.Controls.Add(this.btnUpdateFileFilter);
             this.Controls.Add(this.btnInsertFileFilter);
-            this.Controls.Add(this.btnUpdateExtension);
-            this.Controls.Add(this.lblFiles);
-            this.Controls.Add(this.lblFileExtensions);
-            this.Controls.Add(this.lsbFiles);
-            this.Controls.Add(this.lsbFileExtensions);
+            this.Controls.Add(this.btnUpdateCondition);
+            this.Controls.Add(this.lblConditions);
             this.Controls.Add(this.lblSelection);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtFilterName);
             this.Controls.Add(this.dgvFileFilters);
-            this.Controls.Add(this.btnUpdateFile);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FileFilters";
@@ -517,6 +448,7 @@
             this.Text = "FileFilters";
             this.Load += new System.EventHandler(this.FileFilters_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFileFilters)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFileFilterConditions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -527,25 +459,20 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtFilterName;
         private System.Windows.Forms.DataGridView dgvFileFilters;
-        private System.Windows.Forms.Button btnUpdateFile;
-        private System.Windows.Forms.ListBox lsbFileExtensions;
-        private System.Windows.Forms.ListBox lsbFiles;
-        private System.Windows.Forms.Label lblFileExtensions;
-        private System.Windows.Forms.Label lblFiles;
-        private System.Windows.Forms.Button btnUpdateExtension;
+        private System.Windows.Forms.Label lblConditions;
+        private System.Windows.Forms.Button btnUpdateCondition;
         private System.Windows.Forms.Button btnDeleteFileFilter;
         private System.Windows.Forms.Button btnUpdateFileFilter;
         private System.Windows.Forms.Button btnInsertFileFilter;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFileExtension;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtFileName;
-        private System.Windows.Forms.Button btnInsertFile;
-        private System.Windows.Forms.Button btnInsertExtension;
-        private System.Windows.Forms.Button btnDeleteExtension;
-        private System.Windows.Forms.Button btnDeleteFile;
+        private System.Windows.Forms.TextBox txtCondition;
+        private System.Windows.Forms.Button btnInsertCondition;
+        private System.Windows.Forms.Button btnDeleteCondition;
         private System.Windows.Forms.Button btnClearFields;
         private System.Windows.Forms.RichTextBox txtFilterNotes;
         private System.Windows.Forms.Label lblNotes;
+        private System.Windows.Forms.Label lblType;
+        private System.Windows.Forms.DataGridView dgvFileFilterConditions;
+        private System.Windows.Forms.ComboBox cboConditionType;
     }
 }
