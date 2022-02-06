@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilities.Classes;
 
@@ -65,11 +59,11 @@ namespace Utilities.Forms
             int selectedId;
             if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
                 selectedId = 0;
-            } else { 
+            } else {
                 selectedId = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
             }
 
-            Code code = new Code(0, txtName.Text,txtType.Text,txtCodeText.Text);
+            Code code = new Code(0, txtName.Text, txtType.Text, txtCodeText.Text);
             code.FormatStrings();
             customMessage = sqlite.InsertCode(code);
             CustomDialog.ShowCustomDialog(customMessage, Handle);
@@ -89,7 +83,7 @@ namespace Utilities.Forms
             selectedId = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
             customMessage = new CustomMessage("Update selected code?\nSelected: " + txtName.Text, "Confirmation", "confirmation");
             if (CustomDialog.ShowCustomDialog(customMessage, Handle) == DialogResult.Cancel) { return; }
-            
+
             Code code = new Code(selectedId, txtName.Text, txtType.Text, txtCodeText.Text);
             code.FormatStrings();
 
@@ -108,7 +102,7 @@ namespace Utilities.Forms
             }
 
             string name, type, codeText;
-            int selectedRow,id;
+            int selectedRow, id;
             id = Int32.Parse(dgvCodes.SelectedRows[0].Cells[0].Value.ToString());
             name = dgvCodes.SelectedRows[0].Cells[1].Value.ToString();
             type = dgvCodes.SelectedRows[0].Cells[2].Value.ToString();

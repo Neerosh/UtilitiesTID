@@ -11,7 +11,8 @@ using Utilities.Classes;
 
 namespace Utilities.Forms
 {
-    public partial class FileManagement : Form {
+    public partial class FileManagement : Form
+    {
         public FileManagement() {
             InitializeComponent();
             folderPicker.InputPath = @"C:\";
@@ -162,7 +163,7 @@ namespace Utilities.Forms
                                 return;
                             }
 
-                            customMessage = new CustomMessage("Copying files. Are you sure?\nFrom: " + fromFolder + "\nTo: " + toFolder , "Confirmation", "confirmation");
+                            customMessage = new CustomMessage("Copying files. Are you sure?\nFrom: " + fromFolder + "\nTo: " + toFolder, "Confirmation", "confirmation");
                             result = CustomDialog.ShowCustomDialog(customMessage, handle);
                             if (result == DialogResult.Cancel) {
                                 WriteLog("Process Aborted");
@@ -246,7 +247,7 @@ namespace Utilities.Forms
                     break;
             }
 
-            if (filterConditions.Count > 0 && files.Count() > 0 ) {
+            if (filterConditions.Count > 0 && files.Count() > 0) {
                 FileInfo[] directoryFiles = null;
                 foreach (FileFilterCondition condition in filterConditions) {
                     directoryFiles = null;
@@ -401,7 +402,7 @@ namespace Utilities.Forms
         }
 
         private void BtnFromBrowser_Click(object sender, EventArgs e) {
-            if (folderPicker.ShowDialog(Handle,false) == true) {
+            if (folderPicker.ShowDialog(Handle, false) == true) {
                 txtFromFolder.Text = folderPicker.ResultPath;
             }
         }

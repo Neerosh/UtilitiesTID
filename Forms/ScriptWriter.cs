@@ -8,7 +8,8 @@ using Utilities.Classes;
 
 namespace Utilities.Forms
 {
-    public partial class ScriptWriter : Form {
+    public partial class ScriptWriter : Form
+    {
 
         private readonly FolderPicker folderPicker = new FolderPicker();
         private Task task;
@@ -59,7 +60,7 @@ namespace Utilities.Forms
             if (txtScriptFolder.Text.Equals("")) {
                 customMessage = new CustomMessage("Script folder not selected", "Error Checking folders", "error");
                 CustomDialog.ShowCustomDialog(customMessage, Handle);
-                return; 
+                return;
             }
             if (txtFolderSQL.Text.Equals("")) {
                 customMessage = new CustomMessage("SQL folder not selected", "Error Checking folders", "error");
@@ -89,7 +90,7 @@ namespace Utilities.Forms
                         if (txtScriptName.Text.Equals("")) {
                             folderScript = txtScriptFolder.Text + "\\RegularScript.sql";
                         }
-                        GenerateRegularScript(folderSQL, folderScript,handle);
+                        GenerateRegularScript(folderSQL, folderScript, handle);
                         return;
                     }
 
@@ -99,9 +100,9 @@ namespace Utilities.Forms
                     if (txtScriptName.Text.Equals("")) {
                         folderScript = txtScriptFolder.Text + "\\UnifiedScript.sql";
                     }
-                    GenerateUnifiedScript(folderSQL, folderScript, procedureName,handle);
+                    GenerateUnifiedScript(folderSQL, folderScript, procedureName, handle);
                 } catch (Exception ex) {
-                    customMessage = new CustomMessage(ex.Message, "Error","error");
+                    customMessage = new CustomMessage(ex.Message, "Error", "error");
                     CustomDialog.ShowCustomDialog(customMessage, handle);
                 }
             });
@@ -312,7 +313,7 @@ namespace Utilities.Forms
                             "\r\n USE [master]" +
                             "\r\n GO" +
                             "\r\n CREATE PROCEDURE [dbo].[" + procedureName + "]" +
-                            "\r\n AS BEGIN "+
+                            "\r\n AS BEGIN " +
                             "\r\n DECLARE @out int;";
 
                 line = new UTF8Encoding(true).GetBytes(scriptText);
@@ -320,7 +321,7 @@ namespace Utilities.Forms
 
                 for (int c = 1; c <= 30; c++) {
                     if (c < 10) {
-                        WriteUnifiedScript_test(fileStream, procedureName,"TID_EMP0" + c);
+                        WriteUnifiedScript_test(fileStream, procedureName, "TID_EMP0" + c);
                         continue;
                     }
                     WriteUnifiedScript_test(fileStream, procedureName, "TID_EMP" + c);
@@ -356,18 +357,18 @@ namespace Utilities.Forms
             Byte[] line;
             string scriptText;
 
-                scriptText = "\r\n EXEC " + procedureName + "Sub @database ='"+database+ "', @output = @out OUTPUT" +
-                             "\r\n";
+            scriptText = "\r\n EXEC " + procedureName + "Sub @database ='" + database + "', @output = @out OUTPUT" +
+                         "\r\n";
 
-                line = new UTF8Encoding(true).GetBytes(scriptText);
-                fileStream.Write(line, 0, line.Length);
-            }
+            line = new UTF8Encoding(true).GetBytes(scriptText);
+            fileStream.Write(line, 0, line.Length);
+        }
         private void WriteUnifiedSubProcedure(FileStream fileStream, string folderSQL, string procedureName) {
             Byte[] line;
             string scriptText;
-            procedureName = procedureName+"Sub";
+            procedureName = procedureName + "Sub";
 
-            scriptText = "\r\n IF EXISTS (SELECT 1 FROM sys.procedures WHERE name = '" + procedureName +"')" +
+            scriptText = "\r\n IF EXISTS (SELECT 1 FROM sys.procedures WHERE name = '" + procedureName + "')" +
                         "\r\n BEGIN" +
                         "\r\n    DROP PROCEDURE [" + procedureName + "]" +
                         "\r\n END" +
@@ -608,7 +609,7 @@ namespace Utilities.Forms
                     }
                     break;
                 case "Restore":
-                    fileText =  "\r\n   SET @bakExist = 0;" +
+                    fileText = "\r\n   SET @bakExist = 0;" +
                                 "\r\n   Exec master..xp_fileexist'" + folderSQL + "\\" + database + ".bak',@bakExist OUT" +
                                 "\r\n   IF @bakExist = 1" +
                                 "\r\n   BEGIN" +
@@ -641,7 +642,7 @@ namespace Utilities.Forms
                                     "\r\n      IF @create = 1" +
                                     "\r\n      BEGIN" +
                                     "\r\n         PRINT 'Database " + database + " created'" +
-                                    "\r\n      END"+
+                                    "\r\n      END" +
                                     "\r\n   END";
                     }
 
@@ -696,7 +697,7 @@ namespace Utilities.Forms
             if (procedureName.Equals("")) {
                 procedureName = "test";
             }
-            GenerateUnifiedScript_test(folderSQL, folderScript, procedureName,Handle);
+            GenerateUnifiedScript_test(folderSQL, folderScript, procedureName, Handle);
         }
     }
 }

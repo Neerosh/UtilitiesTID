@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 using Utilities.Classes;
 
@@ -21,7 +20,7 @@ namespace Utilities.Forms
             cboConditionType.SelectedItem = "Name Contains";
         }
 
-        private void RefreshFileFilters() { 
+        private void RefreshFileFilters() {
             DataTable dataTableFileFilters = sqlite.SelectAllFileFilters();
             dgvFileFilters.DataSource = dataTableFileFilters;
             dgvFileFilters.Columns[0].Visible = false;//ID
@@ -79,7 +78,7 @@ namespace Utilities.Forms
         private void dgvFileFilters_SelectionChanged(object sender, EventArgs e) {
             if (dgvFileFilters.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
                 RefreshFileFilterConditions(0);
-                return; 
+                return;
             }
 
             int idFileFilter = Convert.ToInt32(dgvFileFilters.SelectedRows[0].Cells[0].Value);
@@ -125,7 +124,7 @@ namespace Utilities.Forms
                 idCondition = Convert.ToInt32(dgvFileFilterConditions.SelectedRows[0].Cells[0].Value);
             }
 
-            FileFilterCondition fileFilterCondition = new FileFilterCondition(0, idFileFilter,cboConditionType.SelectedItem.ToString(), txtCondition.Text);
+            FileFilterCondition fileFilterCondition = new FileFilterCondition(0, idFileFilter, cboConditionType.SelectedItem.ToString(), txtCondition.Text);
 
             customMessage = sqlite.InsertFileFilterCondition(fileFilterCondition);
             CustomDialog.ShowCustomDialog(customMessage, Handle);
@@ -209,7 +208,7 @@ namespace Utilities.Forms
                 idFileFilter = Convert.ToInt32(dgvFileFilters.SelectedRows[0].Cells[0].Value);
             }
 
-            FileFilter fileFilter = new FileFilter(0, txtFilterName.Text,txtFilterNotes.Text);
+            FileFilter fileFilter = new FileFilter(0, txtFilterName.Text, txtFilterNotes.Text);
 
             customMessage = sqlite.InsertFileFilter(fileFilter);
             CustomDialog.ShowCustomDialog(customMessage, Handle);
@@ -236,7 +235,7 @@ namespace Utilities.Forms
             customMessage = new CustomMessage("Update selected file filter?\nSelected: " + txtFilterName.Text, "Confirmation", "confirmation");
             if (CustomDialog.ShowCustomDialog(customMessage, Handle) == DialogResult.Cancel) { return; }
 
-            FileFilter fileFilter = new FileFilter(idFileFilter, txtFilterName.Text,txtFilterNotes.Text);
+            FileFilter fileFilter = new FileFilter(idFileFilter, txtFilterName.Text, txtFilterNotes.Text);
 
             customMessage = sqlite.UpdateFileFilter(fileFilter);
             CustomDialog.ShowCustomDialog(customMessage, Handle);

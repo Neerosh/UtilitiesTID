@@ -2,7 +2,6 @@
 using System.Data;
 using System.Windows.Forms;
 using Utilities.Classes;
-using Utilities.Forms;
 
 namespace Utilities
 {
@@ -29,7 +28,6 @@ namespace Utilities
             cboCodeName.DisplayMember = "Name";
             cboCodeName.ValueMember = "Code";
             cboCodeName.Refresh();
-            
         }
         private void RefreshCodeTypes() {
             DataTable dt = sqlite.SelectAllCodeTypes();

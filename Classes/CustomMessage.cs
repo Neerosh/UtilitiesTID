@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Utilities.Classes
+﻿namespace Utilities.Classes
 {
-    public class CustomMessage {
+    public class CustomMessage
+    {
         string message, title, type;
 
         public string Message { get => message; set => message = value; }
@@ -19,10 +14,10 @@ namespace Utilities.Classes
             Type = "";
         }
 
-        public CustomMessage(string message,string title, string type) { 
+        public CustomMessage(string message, string title, string type) {
             Message = message;
             Title = title;
-            Type = type;    
+            Type = type;
         }
     }
 }

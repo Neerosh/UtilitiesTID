@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Utilities.Classes
+﻿namespace Utilities.Classes
 {
     public class Code
     {
@@ -14,13 +8,13 @@ namespace Utilities.Classes
         public string Name { get => name; set => name = value; }
         public string Type { get => type; set => type = value; }
         public string CodeText { get => codeText; set => codeText = value; }
-        public int ID { get => id;}
+        public int ID { get => id; }
 
         public Code(string Name) {
             name = Name;
         }
 
-        public Code(int Id,string Name,string Type,string Code) {
+        public Code(int Id, string Name, string Type, string Code) {
             id = Id;
             name = Name;
             type = Type;

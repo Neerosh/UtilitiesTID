@@ -21,7 +21,7 @@ namespace Utilities.Forms
                 "\n      (date format used on this example DD/MM/YYYY)" +
                 "\n   Weekday to get the day of the week you need to divide the clarion value for 7 and look at the rest value." +
                 "\n      0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday.";
-;
+            ;
         }
 
         #region Clarion Date / Time Conversion
@@ -122,7 +122,7 @@ namespace Utilities.Forms
             int day;
             String weekDay = "";
             day = clarionDate % 7;
-            switch (day) { 
+            switch (day) {
                 case 0:
                     weekDay = "Sunday";
                     break;
@@ -146,7 +146,7 @@ namespace Utilities.Forms
                     break;
 
             }
-            return weekDay; 
+            return weekDay;
 
         }
 

@@ -2,8 +2,10 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace Utilities {
-    public partial class Help : Form {
+namespace Utilities
+{
+    public partial class Help : Form
+    {
         private readonly string[] arrayDeleteDuplicates;
 
         public Help() {
@@ -15,12 +17,12 @@ namespace Utilities {
         }
 
         private void Notes_Load(object sender, EventArgs e) {
-            string  functionality,sqlInstallGuide;
+            string functionality, sqlInstallGuide;
 
-            functionality = "Functionality:"+ 
-                            "\r\nCommon:" + 
+            functionality = "Functionality:" +
+                            "\r\nCommon:" +
                             "\r\n   Mouse Hover = When the mouse stops over a button it will hide options that the button won't use." +
-                            "\r\n"+
+                            "\r\n" +
                             "\r\nSQL Scripts:" +
                             "\r\n   Unified Script:" +
                             "\r\n       Generate an sql script that check and execute the suitable operation. Operation order detach>attach>restore." +
@@ -36,10 +38,10 @@ namespace Utilities {
                 functionality += "\"" + str + "\"  ";
             }
 
-            sqlInstallGuide = "SQL SERVER Install Guide:"+
-                            "\r\n1) Go to Microsoft website and download the developer edition: SQLServer2019-SSEI-Dev.exe" + 
+            sqlInstallGuide = "SQL SERVER Install Guide:" +
+                            "\r\n1) Go to Microsoft website and download the developer edition: SQLServer2019-SSEI-Dev.exe" +
                             "\r\n2) Run, select Custom then Install" +
-                            "\r\n3) Once the download is complete. A new window with the SQL Server Installation Center will open"+
+                            "\r\n3) Once the download is complete. A new window with the SQL Server Installation Center will open" +
                             "\r\n4) Select Installation then New SQL Server stand-alone installation or add features to existing installation" +
                             "\r\n5) Just follow the intallation process using free edition: Developter, until the section Feature Selection" +
                             "\r\n6) In Feature Selection check Database Engine Services then click next" +

@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using Utilities.Classes;
 using Utilities.Forms;
 
 namespace Utilities
 {
-    class CustomDialog 
+    class CustomDialog
     {
 
         public static DialogResult ShowCustomDialog(CustomMessage customMessage, IntPtr owner) {

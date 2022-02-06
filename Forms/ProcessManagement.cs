@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
-using System.Management;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -147,7 +145,7 @@ namespace Utilities.Forms
                         if (owner.Equals("")) {
                             owner = "Unknown";
                         }
-                        if(showUnknownUsers == false && owner.Equals("Unknown")) {
+                        if (showUnknownUsers == false && owner.Equals("Unknown")) {
                             continue;
                         }
                         dataTable.Rows.Add(process.Id, process.ProcessName, owner);

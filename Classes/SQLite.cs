@@ -28,7 +28,7 @@ namespace Utilities.Classes
                 command.ExecuteNonQuery();
                 customMessage = new CustomMessage("Code sucessfuly registred.", "Success", "success");
             } catch (Exception ex) {
-                customMessage = new CustomMessage("Error registering:\n" + ex.Message, "Error","error");
+                customMessage = new CustomMessage("Error registering:\n" + ex.Message, "Error", "error");
             }
             connection.Close();
             return customMessage;
@@ -44,7 +44,7 @@ namespace Utilities.Classes
                 command.ExecuteNonQuery();
                 customMessage = new CustomMessage("Code sucessfuly updated.", "Sucess", "sucess");
             } catch (Exception ex) {
-                customMessage = new CustomMessage("Error updating:\n" + ex.Message, "Error","error");
+                customMessage = new CustomMessage("Error updating:\n" + ex.Message, "Error", "error");
             }
             connection.Close();
             return customMessage;
@@ -60,7 +60,7 @@ namespace Utilities.Classes
                 command.ExecuteNonQuery();
                 customMessage = new CustomMessage("Code sucessfuly deleted.", "Sucess", "success");
             } catch (Exception ex) {
-                customMessage = new CustomMessage("Error deleting:\n" + ex.Message, "Error","error");
+                customMessage = new CustomMessage("Error deleting:\n" + ex.Message, "Error", "error");
             }
             connection.Close();
             return customMessage;
@@ -103,11 +103,11 @@ namespace Utilities.Classes
                     Code code = new Code(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
                     code.DeformatStrings();
 
-                    dt.Rows.Add(code.ID,code.Name,code.Type,code.CodeText);
+                    dt.Rows.Add(code.ID, code.Name, code.Type, code.CodeText);
                 }
                 reader.Close();
             } catch (Exception ex) {
-                CustomMessage customMessage = new CustomMessage(ex.Message,"Error","error");
+                CustomMessage customMessage = new CustomMessage(ex.Message, "Error", "error");
                 CustomDialog.ShowCustomDialog(customMessage, IntPtr.Zero);
             }
             connection.Close();
@@ -196,8 +196,8 @@ namespace Utilities.Classes
             connection.Open();
             command.Connection = connection;
             try {
-                command.CommandText = String.Format("INSERT INTO FileFilterConditions(id_FileFilter,Type,Condition) "+
-                                      "VALUES ({0},'{1}','{2}')",fileFilterCondition.IdFileFilter, fileFilterCondition.Type,fileFilterCondition.Condition);
+                command.CommandText = String.Format("INSERT INTO FileFilterConditions(id_FileFilter,Type,Condition) " +
+                                      "VALUES ({0},'{1}','{2}')", fileFilterCondition.IdFileFilter, fileFilterCondition.Type, fileFilterCondition.Condition);
                 command.ExecuteNonQuery();
                 customMessage = new CustomMessage("File Filter Condition sucessfuly registred.", "Success", "success");
             } catch (Exception ex) {
@@ -213,7 +213,7 @@ namespace Utilities.Classes
             command.Connection = connection;
             try {
                 command.CommandText = String.Format("UPDATE FileFilterConditions SET Condition = '{0}', Type = '{1}' " +
-                                      "WHERE ID  = {2}", fileFilterCondition.Condition,fileFilterCondition.Type,fileFilterCondition.Id);
+                                      "WHERE ID  = {2}", fileFilterCondition.Condition, fileFilterCondition.Type, fileFilterCondition.Id);
                 command.ExecuteNonQuery();
                 customMessage = new CustomMessage("File Filter Condition sucessfuly updated.", "Sucess", "sucess");
             } catch (Exception ex) {
@@ -265,7 +265,7 @@ namespace Utilities.Classes
 
             return dt;
         }
-        public DataTable SelectAllFileFilterConditions(int idFileFilter,string conditionType) {
+        public DataTable SelectAllFileFilterConditions(int idFileFilter, string conditionType) {
             SqliteDataReader reader;
             DataTable dt = new DataTable();
             dt.Columns.Add("ID");
@@ -274,7 +274,7 @@ namespace Utilities.Classes
 
             connection.Open();
             command.Connection = connection;
-            command.CommandText = String.Format("SELECT Id,Condition,Type FROM FileFilterConditions WHERE id_FileFilter = {0}",idFileFilter);
+            command.CommandText = String.Format("SELECT Id,Condition,Type FROM FileFilterConditions WHERE id_FileFilter = {0}", idFileFilter);
             if (conditionType != null && !conditionType.Equals("")) {
                 command.CommandText += String.Format(" AND Type = '{0}'", conditionType);
             }
@@ -293,7 +293,7 @@ namespace Utilities.Classes
             return dt;
         }
 
-        public List<FileFilterCondition> SelectFileFilterConditions(int idFileFilter,string conditionType) {
+        public List<FileFilterCondition> SelectFileFilterConditions(int idFileFilter, string conditionType) {
             SqliteDataReader reader;
             FileFilterCondition fileFilterCondition;
             List<FileFilterCondition> list = new List<FileFilterCondition>();
@@ -332,13 +332,13 @@ namespace Utilities.Classes
                                     "Code Varchar(2000) NOT NULL," +
                                     "Type Varchar(30) NOT NULL," +
                                     "UNIQUE (Name,Type)" +
-                                  ");"+
+                                  ");" +
                                   "CREATE TABLE IF NOT EXISTS FileFilters (" +
                                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                                     "Name Varchar(50) NOT NULL," +
                                     "Notes Varchar(2000) NULL," +
                                     "UNIQUE (Name)" +
-                                  ");"+
+                                  ");" +
                                   "CREATE TABLE IF NOT EXISTS FileFilterConditions (" +
                                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                                     "id_FileFilter INTEGER NOT NULL," +
@@ -365,7 +365,7 @@ namespace Utilities.Classes
             try {
                 for (int i = 0; i < listCodes.Count; i++) {
                     listCodes[i].FormatStrings();
-                    command.CommandText = "INSERT OR IGNORE INTO Codes(Name,Code,Type) VALUES ('" + listCodes[i].Name + "','" + listCodes[i].CodeText + "','"+ listCodes[i].Type + "')";
+                    command.CommandText = "INSERT OR IGNORE INTO Codes(Name,Code,Type) VALUES ('" + listCodes[i].Name + "','" + listCodes[i].CodeText + "','" + listCodes[i].Type + "')";
                     command.ExecuteNonQuery();
                 }
 
@@ -574,10 +574,9 @@ namespace Utilities.Classes
                         text = "DO BRW1::RefreshPage";
                         break;
                 }
-                
-                
-                if (!text.Equals(""))
-                {
+
+
+                if (!text.Equals("")) {
                     text = text.Replace("'", "''");
                     listCodes[i].Type = "Clarion";
                     listCodes[i].CodeText = text;
@@ -614,7 +613,7 @@ namespace Utilities.Classes
                 text = text.Replace("'", "''");
                 array.SetValue(text, i, 1);
             }
-                return array;
+            return array;
         }
 
     }

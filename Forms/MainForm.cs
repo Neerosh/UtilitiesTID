@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -20,7 +19,7 @@ namespace Teste
             InitializeComponent();
             Padding = new Padding(2);
             BackColor = Color.FromArgb(60, 60, 60);
-            BtnMenu_Click(this,new EventArgs());
+            BtnMenu_Click(this, new EventArgs());
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
@@ -154,7 +153,7 @@ namespace Teste
         #region SideMenu
         private void PaintSelectedMenuItem(Button selectedButton) {
             foreach (Control control in panelSideMenu.Controls) {
-                if (control is Panel) { 
+                if (control is Panel) {
                     foreach (Control control1 in control.Controls) {
                         if (control1 is Button) {
                             if (control1 == selectedButton) {
@@ -164,10 +163,10 @@ namespace Teste
                             }
                         }
                     }
-                } 
-                if (control is Button){ 
+                }
+                if (control is Button) {
                     if (control == selectedButton) {
-                            control.BackColor = Color.FromArgb(204, 0, 0);
+                        control.BackColor = Color.FromArgb(204, 0, 0);
                     } else {
                         control.BackColor = Color.FromArgb(153, 0, 0);
                     }
