@@ -202,12 +202,12 @@
             this.cboFileFilter.ForeColor = System.Drawing.Color.White;
             this.cboFileFilter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cboFileFilter.Items.AddRange(new object[] {
-            "All Extensions",
-            "TID",
-            "*.dll or *.exe",
             "*.dll",
+            "*.dll or *.exe",
             "*.exe ",
-            "*.tps"});
+            "*.tps",
+            "All Extensions",
+            "TID"});
             this.cboFileFilter.Location = new System.Drawing.Point(105, 121);
             this.cboFileFilter.Name = "cboFileFilter";
             this.cboFileFilter.Size = new System.Drawing.Size(261, 24);

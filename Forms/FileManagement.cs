@@ -225,7 +225,6 @@ namespace Utilities.Forms
             if (IdFileFilter > 0) {
                 filterConditions = sqlite.SelectFileFilterConditions(IdFileFilter, "");
             }
-
             switch (orderProperty + ";" + orderBy) {
                 case "Filename;Descending":
                     files = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.Name);
@@ -339,44 +338,54 @@ namespace Utilities.Forms
                 WriteLog("No files to delete");
                 return;
             }
-
-            WriteLog("Total duplicate files - " + filesDeleted);
-            WriteLog("Total space free up by - " + Math.Round((totalBytesDeletedFiles / 1000000), 2).ToString() + " MB");
+            WriteLog("----------------------------------------");
+            WriteLog("Total Duplicate Files - " + filesDeleted);
+            WriteLog("Total Space Free Up - " + Math.Round((totalBytesDeletedFiles / 1000000), 2).ToString() + " MB");
         }
         private void MoveFiles(FileInfo[] directoryFiles, string toFolder) {
             double totalBytesFiles = 0;
             int FilesToMove = directoryFiles.Length;
+            int filesMoved = 0;
 
             WriteLog("Moving files...");
             for (int l = 0; l < FilesToMove; l++) {
 
                 WriteLog("Moving: " + directoryFiles[l].FullName);
-                totalBytesFiles += directoryFiles[l].Length;
 
                 try {
                     File.Move(directoryFiles[l].FullName, toFolder + "\\" + directoryFiles[l].Name);
+                    totalBytesFiles += directoryFiles[l].Length;
+                    filesMoved += 1;
                 } catch (Exception e) { WriteLog("Error: " + e.Message); }
 
                 UpdateProgress((l + 1) * 100 / FilesToMove);
             }
+            WriteLog("----------------------------------------");
+            WriteLog("Total Moved Files - " + filesMoved);
+            WriteLog("Total Size - " + Math.Round((totalBytesFiles / 1000000), 2).ToString() + " MB");
         }
         private void CopyFiles(FileInfo[] directoryFiles, string toFolder) {
             double totalBytesFiles = 0;
             int FilesToMove = directoryFiles.Length;
+            int filesCopied = 0;
 
             WriteLog("Copying files...");
 
             for (int l = 0; l < FilesToMove; l++) {
                 WriteLog("Copying: " + directoryFiles[l].FullName);
-                totalBytesFiles += directoryFiles[l].Length;
+                
 
                 try {
                     File.Copy(directoryFiles[l].FullName, toFolder + "\\" + directoryFiles[l].Name, true);//copy and replace if prompted
+                    totalBytesFiles += directoryFiles[l].Length;
+                    filesCopied += 1;
                 } catch (Exception e) { WriteLog("Error: " + e.Message); }
 
                 UpdateProgress((l + 1) * 100 / FilesToMove);
             }
-
+            WriteLog("----------------------------------------");
+            WriteLog("Total Copied Files - " + filesCopied);
+            WriteLog("Total Size - " + Math.Round((totalBytesFiles / 1000000), 2).ToString() + " MB");
         }
 
         private async void BtnDeleteDuplicate_Click(object sender, EventArgs e) {
