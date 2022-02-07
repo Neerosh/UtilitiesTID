@@ -88,16 +88,14 @@ namespace Utilities.Forms
             RefreshFileFilterConditions(idFileFilter);
         }
         private void dgvFileFilterConditions_SelectionChanged(object sender, EventArgs e) {
-            if (dgvFileFilters.GetCellCount(DataGridViewElementStates.Selected) <= 0 ||
-                dgvFileFilterConditions.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
-                RefreshFileFilterConditions(0);
+            if (dgvFileFilterConditions.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
                 return;
             }
             int idFileFilter = Convert.ToInt32(dgvFileFilters.SelectedRows[0].Cells[0].Value);
             int idCondition = Convert.ToInt32(dgvFileFilterConditions.SelectedRows[0].Cells[0].Value);
 
             txtCondition.Text = dgvFileFilterConditions.SelectedRows[0].Cells[1].Value.ToString();
-            cboConditionType.SelectedValue = dgvFileFilterConditions.SelectedRows[0].Cells[2].Value.ToString();
+            cboConditionType.SelectedItem = dgvFileFilterConditions.SelectedRows[0].Cells[2].Value.ToString();
         }
 
         private void btnInsertCondition_Click(object sender, EventArgs e) {
@@ -158,7 +156,7 @@ namespace Utilities.Forms
 
             FileFilterCondition fileFilterCondition = new FileFilterCondition(idCondition, idFileFilter, cboConditionType.SelectedItem.ToString(), txtCondition.Text);
 
-            customMessage = sqlite.InsertFileFilterCondition(fileFilterCondition);
+            customMessage = sqlite.UpdateFileFilterCondition(fileFilterCondition);
             CustomDialog.ShowCustomDialog(customMessage, Handle);
 
             RefreshFileFilterConditions(idFileFilter);
@@ -215,7 +213,6 @@ namespace Utilities.Forms
 
             RefreshFileFilters();
             SelectCorrectRowFileFilter(idFileFilter);
-
         }
         private void btnUpdateFileFilter_Click(object sender, EventArgs e) {
             CustomMessage customMessage;
