@@ -153,7 +153,7 @@
             this.btnUpdateCondition.ForeColor = System.Drawing.SystemColors.Control;
             this.btnUpdateCondition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnUpdateCondition.Location = new System.Drawing.Point(357, 361);
+            this.btnUpdateCondition.Location = new System.Drawing.Point(480, 333);
             this.btnUpdateCondition.Name = "btnUpdateCondition";
             this.btnUpdateCondition.Size = new System.Drawing.Size(117, 24);
             this.btnUpdateCondition.TabIndex = 34;
@@ -250,7 +250,7 @@
             this.txtCondition.ForeColor = System.Drawing.Color.White;
             this.txtCondition.Location = new System.Drawing.Point(167, 303);
             this.txtCondition.Name = "txtCondition";
-            this.txtCondition.Size = new System.Drawing.Size(430, 22);
+            this.txtCondition.Size = new System.Drawing.Size(307, 22);
             this.txtCondition.TabIndex = 39;
             // 
             // btnInsertCondition
@@ -264,7 +264,7 @@
             this.btnInsertCondition.ForeColor = System.Drawing.SystemColors.Control;
             this.btnInsertCondition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsertCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnInsertCondition.Location = new System.Drawing.Point(234, 361);
+            this.btnInsertCondition.Location = new System.Drawing.Point(480, 303);
             this.btnInsertCondition.Name = "btnInsertCondition";
             this.btnInsertCondition.Size = new System.Drawing.Size(117, 24);
             this.btnInsertCondition.TabIndex = 43;
@@ -285,7 +285,7 @@
             this.btnDeleteCondition.ForeColor = System.Drawing.SystemColors.Control;
             this.btnDeleteCondition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteCondition.Location = new System.Drawing.Point(480, 361);
+            this.btnDeleteCondition.Location = new System.Drawing.Point(480, 363);
             this.btnDeleteCondition.Name = "btnDeleteCondition";
             this.btnDeleteCondition.Size = new System.Drawing.Size(117, 24);
             this.btnDeleteCondition.TabIndex = 44;
@@ -360,8 +360,7 @@
             // 
             this.dgvFileFilterConditions.AllowUserToAddRows = false;
             this.dgvFileFilterConditions.AllowUserToDeleteRows = false;
-            this.dgvFileFilterConditions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvFileFilterConditions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFileFilterConditions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
             this.dgvFileFilterConditions.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;

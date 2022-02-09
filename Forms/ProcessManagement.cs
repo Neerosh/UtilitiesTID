@@ -158,8 +158,6 @@ namespace Utilities.Forms
             lblListProgress.Visible = false;
         }
         private async Task KillProcess(int processId) {
-            string nameRemotePC = "";
-
             await Task.Run(() => {
                 try {
                     if (!OperatingSystem.IsWindows()) { throw new Exception("Operating System is not Windows"); }
