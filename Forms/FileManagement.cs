@@ -33,6 +33,7 @@ namespace Utilities.Forms
             cboFileFilter.DataSource = dt;
             cboFileFilter.ValueMember = "Id";
             cboFileFilter.DisplayMember = "Name";
+            dt.DefaultView.Sort = "Name";
         }
 
         #region MouseHover
@@ -114,6 +115,7 @@ namespace Utilities.Forms
             FileInfo[] directoryFiles;
             List<GroupFileDetails> listGroupedFiles = new List<GroupFileDetails>();
             CustomMessage customMessage = new CustomMessage();
+            IntPtr handle = this.Handle;
             DialogResult result = 0;
 
             orderBy = cboOrderBy.SelectedItem.ToString();
@@ -122,7 +124,7 @@ namespace Utilities.Forms
             toFolder = txtToFolder.Text;
             idFileFilter = Convert.ToInt32(cboFileFilter.SelectedValue);
             checkSubDirectories = chkSubFolders.Checked;
-            IntPtr handle = this.Handle;
+
             txtLogProcess.Clear();
             UpdateProgress(0);
             WriteLog("Starting...");
@@ -229,24 +231,25 @@ namespace Utilities.Forms
                 case "Filename;Descending":
                     files = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.Name);
                     break;
-
                 case "Filename;Ascending":
                     files = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name);
                     break;
-
                 case "Creation Time;Descending":
                     files = new DirectoryInfo(folder).EnumerateFiles().OrderByDescending(file => file.CreationTime);
                     break;
                 case "Creation Time;Ascending":
                     files = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.CreationTime);
                     break;
-
                 default:
                     files = new DirectoryInfo(folder).EnumerateFiles().OrderBy(file => file.Name);
                     break;
             }
 
-            if (filterConditions.Count > 0 && files.Count() > 0) {
+            if (files.Count() <= 0) {
+                return new FileInfo[0];
+            }
+
+            if (filterConditions.Count > 0) {
                 FileInfo[] directoryFiles = null;
                 foreach (FileFilterCondition condition in filterConditions) {
                     directoryFiles = null;
@@ -266,13 +269,12 @@ namespace Utilities.Forms
                         listFiles.AddRange(directoryFiles);
                     }
                 }
+                listFiles.DistinctBy(file => file.Name);
+            } else {
+                listFiles.AddRange(files);
             }
 
-            if (listFiles.Count > 0) {
-                listFiles.DistinctBy(file => file.Name);
-                return listFiles.ToArray();
-            }
-            return new FileInfo[0];
+            return listFiles.ToArray();
         }
         private void GroupDirectoryFilesByHash(List<GroupFileDetails> listGroupedFiles, FileInfo[] directoryFiles, int maxPercent) {
             string fileHash;

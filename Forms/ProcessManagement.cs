@@ -32,6 +32,7 @@ namespace Utilities.Forms
         }
         private void RefreshProcessList(DataTable dataTable) {
             Invoke(new MethodInvoker(delegate {
+                dataTable.DefaultView.Sort = "ID";
                 dgvProcess.DataSource = dataTable;
                 //dgvProcess.Sort(dgvProcess.Columns[0],System.ComponentModel.ListSortDirection.Ascending);
                 dgvProcess.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;

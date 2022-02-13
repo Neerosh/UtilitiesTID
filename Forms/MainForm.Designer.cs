@@ -37,10 +37,11 @@ namespace Teste
             this.panelSubMenuFileManagement = new System.Windows.Forms.Panel();
             this.btnFileFilters = new System.Windows.Forms.Button();
             this.btnFileManagement = new System.Windows.Forms.Button();
-            this.btnConvertClarion = new System.Windows.Forms.Button();
+            this.btnFileEncryption = new System.Windows.Forms.Button();
             this.panelSubMenuCodes = new System.Windows.Forms.Panel();
             this.btnCodesManage = new System.Windows.Forms.Button();
             this.btnCodes = new System.Windows.Forms.Button();
+            this.btnConvertClarion = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picLogo = new System.Windows.Forms.PictureBox();
@@ -66,6 +67,7 @@ namespace Teste
             this.panelSideMenu.Controls.Add(this.btnProcessManagement);
             this.panelSideMenu.Controls.Add(this.panelSubMenuFileManagement);
             this.panelSideMenu.Controls.Add(this.btnFileManagement);
+            this.panelSideMenu.Controls.Add(this.btnFileEncryption);
             this.panelSideMenu.Controls.Add(this.panelSubMenuCodes);
             this.panelSideMenu.Controls.Add(this.btnCodes);
             this.panelSideMenu.Controls.Add(this.btnConvertClarion);
@@ -75,7 +77,7 @@ namespace Teste
             this.panelSideMenu.ForeColor = System.Drawing.Color.White;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(210, 600);
+            this.panelSideMenu.Size = new System.Drawing.Size(210, 611);
             this.panelSideMenu.TabIndex = 6;
             this.panelSideMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
@@ -90,7 +92,7 @@ namespace Teste
             this.btnHelp.ForeColor = System.Drawing.Color.White;
             this.btnHelp.Image = global::Utilities.Properties.Resources.icons8_help_32;
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 412);
+            this.btnHelp.Location = new System.Drawing.Point(0, 456);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnHelp.Size = new System.Drawing.Size(210, 44);
@@ -112,7 +114,7 @@ namespace Teste
             this.btnScriptWriter.ForeColor = System.Drawing.Color.White;
             this.btnScriptWriter.Image = global::Utilities.Properties.Resources.icons8_scroll_32;
             this.btnScriptWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnScriptWriter.Location = new System.Drawing.Point(0, 368);
+            this.btnScriptWriter.Location = new System.Drawing.Point(0, 412);
             this.btnScriptWriter.Name = "btnScriptWriter";
             this.btnScriptWriter.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnScriptWriter.Size = new System.Drawing.Size(210, 44);
@@ -134,7 +136,7 @@ namespace Teste
             this.btnProcessManagement.ForeColor = System.Drawing.Color.White;
             this.btnProcessManagement.Image = global::Utilities.Properties.Resources.icons8_processes_32;
             this.btnProcessManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProcessManagement.Location = new System.Drawing.Point(0, 324);
+            this.btnProcessManagement.Location = new System.Drawing.Point(0, 368);
             this.btnProcessManagement.Name = "btnProcessManagement";
             this.btnProcessManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnProcessManagement.Size = new System.Drawing.Size(210, 44);
@@ -149,7 +151,7 @@ namespace Teste
             // 
             this.panelSubMenuFileManagement.Controls.Add(this.btnFileFilters);
             this.panelSubMenuFileManagement.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuFileManagement.Location = new System.Drawing.Point(0, 282);
+            this.panelSubMenuFileManagement.Location = new System.Drawing.Point(0, 326);
             this.panelSubMenuFileManagement.Name = "panelSubMenuFileManagement";
             this.panelSubMenuFileManagement.Size = new System.Drawing.Size(210, 42);
             this.panelSubMenuFileManagement.TabIndex = 4;
@@ -188,7 +190,7 @@ namespace Teste
             this.btnFileManagement.ForeColor = System.Drawing.Color.White;
             this.btnFileManagement.Image = global::Utilities.Properties.Resources.icons8_manage_file_32;
             this.btnFileManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileManagement.Location = new System.Drawing.Point(0, 238);
+            this.btnFileManagement.Location = new System.Drawing.Point(0, 282);
             this.btnFileManagement.Name = "btnFileManagement";
             this.btnFileManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnFileManagement.Size = new System.Drawing.Size(210, 44);
@@ -199,27 +201,27 @@ namespace Teste
             this.btnFileManagement.UseVisualStyleBackColor = false;
             this.btnFileManagement.Click += new System.EventHandler(this.BtnFileManagement_Click);
             // 
-            // btnConvertClarion
+            // btnFileEncryption
             // 
-            this.btnConvertClarion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnConvertClarion.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnConvertClarion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConvertClarion.FlatAppearance.BorderSize = 0;
-            this.btnConvertClarion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConvertClarion.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnConvertClarion.ForeColor = System.Drawing.Color.White;
-            this.btnConvertClarion.Image = global::Utilities.Properties.Resources.icons8_convert_32;
-            this.btnConvertClarion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertClarion.Location = new System.Drawing.Point(0, 108);
-            this.btnConvertClarion.Name = "btnConvertClarion";
-            this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnConvertClarion.Size = new System.Drawing.Size(210, 44);
-            this.btnConvertClarion.TabIndex = 5;
-            this.btnConvertClarion.Text = "Clarion Conversion";
-            this.btnConvertClarion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertClarion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConvertClarion.UseVisualStyleBackColor = false;
-            this.btnConvertClarion.Click += new System.EventHandler(this.BtnConvertClarion_Click);
+            this.btnFileEncryption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnFileEncryption.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnFileEncryption.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFileEncryption.FlatAppearance.BorderSize = 0;
+            this.btnFileEncryption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFileEncryption.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnFileEncryption.ForeColor = System.Drawing.Color.White;
+            this.btnFileEncryption.Image = global::Utilities.Properties.Resources.icons8_check_file_32;
+            this.btnFileEncryption.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileEncryption.Location = new System.Drawing.Point(0, 238);
+            this.btnFileEncryption.Name = "btnFileEncryption";
+            this.btnFileEncryption.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnFileEncryption.Size = new System.Drawing.Size(210, 44);
+            this.btnFileEncryption.TabIndex = 11;
+            this.btnFileEncryption.Text = "File Checksum";
+            this.btnFileEncryption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileEncryption.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileEncryption.UseVisualStyleBackColor = false;
+            this.btnFileEncryption.Click += new System.EventHandler(this.btnFileEncryption_Click);
             // 
             // panelSubMenuCodes
             // 
@@ -273,6 +275,28 @@ namespace Teste
             this.btnCodes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCodes.UseVisualStyleBackColor = false;
             this.btnCodes.Click += new System.EventHandler(this.BtnCodes_Click);
+            // 
+            // btnConvertClarion
+            // 
+            this.btnConvertClarion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnConvertClarion.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnConvertClarion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConvertClarion.FlatAppearance.BorderSize = 0;
+            this.btnConvertClarion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConvertClarion.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnConvertClarion.ForeColor = System.Drawing.Color.White;
+            this.btnConvertClarion.Image = global::Utilities.Properties.Resources.icons8_convert_32;
+            this.btnConvertClarion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConvertClarion.Location = new System.Drawing.Point(0, 108);
+            this.btnConvertClarion.Name = "btnConvertClarion";
+            this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnConvertClarion.Size = new System.Drawing.Size(210, 44);
+            this.btnConvertClarion.TabIndex = 5;
+            this.btnConvertClarion.Text = "Clarion Conversion";
+            this.btnConvertClarion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConvertClarion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConvertClarion.UseVisualStyleBackColor = false;
+            this.btnConvertClarion.Click += new System.EventHandler(this.BtnConvertClarion_Click);
             // 
             // btnMenu
             // 
@@ -340,7 +364,7 @@ namespace Teste
             this.panelChildForm.Location = new System.Drawing.Point(210, 26);
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Padding = new System.Windows.Forms.Padding(2);
-            this.panelChildForm.Size = new System.Drawing.Size(790, 574);
+            this.panelChildForm.Size = new System.Drawing.Size(794, 585);
             this.panelChildForm.TabIndex = 8;
             // 
             // panelBar
@@ -352,7 +376,7 @@ namespace Teste
             this.panelBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBar.Location = new System.Drawing.Point(210, 0);
             this.panelBar.Name = "panelBar";
-            this.panelBar.Size = new System.Drawing.Size(790, 26);
+            this.panelBar.Size = new System.Drawing.Size(794, 26);
             this.panelBar.TabIndex = 9;
             this.panelBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
@@ -364,7 +388,7 @@ namespace Teste
             this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Image = global::Utilities.Properties.Resources.icons8_minimize_window_32;
-            this.btnMinimize.Location = new System.Drawing.Point(706, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(710, 0);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(28, 26);
             this.btnMinimize.TabIndex = 6;
@@ -379,7 +403,7 @@ namespace Teste
             this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Image = global::Utilities.Properties.Resources.icons8_maximize_window_32;
-            this.btnMaximize.Location = new System.Drawing.Point(734, 0);
+            this.btnMaximize.Location = new System.Drawing.Point(738, 0);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(28, 26);
             this.btnMaximize.TabIndex = 5;
@@ -394,7 +418,7 @@ namespace Teste
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::Utilities.Properties.Resources.icons8_close_window_32;
-            this.btnClose.Location = new System.Drawing.Point(762, 0);
+            this.btnClose.Location = new System.Drawing.Point(766, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(28, 26);
             this.btnClose.TabIndex = 4;
@@ -406,14 +430,14 @@ namespace Teste
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.ClientSize = new System.Drawing.Size(1004, 611);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelBar);
             this.Controls.Add(this.panelSideMenu);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1000, 600);
+            this.MinimumSize = new System.Drawing.Size(1020, 650);
             this.Name = "Main";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -453,6 +477,7 @@ namespace Teste
         private System.Windows.Forms.Button btnProcessManagement;
         private System.Windows.Forms.Panel panelSubMenuFileManagement;
         private System.Windows.Forms.Button btnFileFilters;
+        private System.Windows.Forms.Button btnFileEncryption;
     }
 }
 

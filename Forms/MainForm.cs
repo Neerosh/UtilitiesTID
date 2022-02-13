@@ -226,10 +226,16 @@ namespace Teste
             OpenChildForm(null);
             PaintSelectedMenuItem(btnMenu);
         }
+        private void btnFileEncryption_Click(object sender, EventArgs e) {
+            OpenChildForm(new FileChecksum());
+            PaintSelectedMenuItem(btnFileEncryption);
+        }
         #endregion
 
         private void Main_Resize(object sender, EventArgs e) {
             AdjustForm();
         }
+
+
     }
 }
