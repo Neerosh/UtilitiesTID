@@ -106,8 +106,105 @@ namespace Utilities.Forms
             }));
 
         }
-        private async Task TaskFileManagement(string action) {
-            if (!action.Equals("Move") && !action.Equals("Copy") && !action.Equals("DeleteDuplicated")) { return; }
+
+        private async Task TaskMoveFiles() {
+            string orderBy, orderProperty, fromFolder, toFolder;
+            int idFileFilter;
+            FileInfo[] directoryFiles;
+            List<GroupFileDetails> listGroupedFiles = new List<GroupFileDetails>();
+            CustomMessage customMessage = new CustomMessage();
+            Form form = this;
+            DialogResult result = 0;
+
+            orderBy = cboOrderBy.SelectedItem.ToString();
+            orderProperty = cboOrderField.SelectedItem.ToString();
+            fromFolder = txtFromFolder.Text;
+            toFolder = txtToFolder.Text;
+            idFileFilter = Convert.ToInt32(cboFileFilter.SelectedValue);
+
+
+            txtLogProcess.Clear();
+            UpdateProgress(0);
+            WriteLog("Starting...");
+
+            customMessage = new CustomMessage("Moving files. Are you sure ?\nFrom: " + fromFolder + "\nTo: " + toFolder, "Confirmation", "confirmation");
+            result = CustomDialog.ShowCustomDialog(customMessage, form);
+            if (result == DialogResult.Cancel) {
+                WriteLog("Process Aborted");
+                return;
+            }
+
+            await Task.Run(() => {
+                try {
+                    if (Directory.Exists(fromFolder) == false) {
+                        throw new Exception("From folder must be a valid folder path");
+                    }
+
+                    if (Directory.Exists(toFolder) == false) {
+                        throw new Exception("To folder must be a valid folder path");
+                    }
+
+                    directoryFiles = GetDirectoryFiles(fromFolder, idFileFilter, orderProperty, orderBy);
+                    if (directoryFiles.Length == 0) {
+                        WriteLog("No files to move.");
+                        return;
+                    }
+
+                    MoveFiles(directoryFiles, toFolder);       
+                } catch (Exception e) {
+                    WriteLog("Error: " + e.Message);
+                }
+            });
+        }
+        private async Task TaskCopyFiles() {
+            string orderBy, orderProperty, fromFolder, toFolder;
+            int idFileFilter;
+            FileInfo[] directoryFiles;
+            List<GroupFileDetails> listGroupedFiles = new List<GroupFileDetails>();
+            CustomMessage customMessage = new CustomMessage();
+            Form form = this;
+            DialogResult result = 0;
+
+            orderBy = cboOrderBy.SelectedItem.ToString();
+            orderProperty = cboOrderField.SelectedItem.ToString();
+            fromFolder = txtFromFolder.Text;
+            toFolder = txtToFolder.Text;
+            idFileFilter = Convert.ToInt32(cboFileFilter.SelectedValue);
+
+            txtLogProcess.Clear();
+            UpdateProgress(0);
+            WriteLog("Starting...");
+
+
+            customMessage = new CustomMessage("Copying files. Are you sure?\nFrom: " + fromFolder + "\nTo: " + toFolder, "Confirmation", "confirmation");
+            result = CustomDialog.ShowCustomDialog(customMessage, form);
+            if (result == DialogResult.Cancel) {
+                WriteLog("Process Aborted");
+                return;
+            }
+
+            await Task.Run(() => {
+                try {
+                    if (Directory.Exists(fromFolder) == false) {
+                        throw new Exception("From folder must be a valid folder path");
+                    }
+
+                    if (Directory.Exists(toFolder) == false) {
+                        throw new Exception("To folder must be a valid folder path");
+                    }
+
+                    directoryFiles = GetDirectoryFiles(fromFolder, idFileFilter, orderProperty, orderBy);
+                    if (directoryFiles.Length == 0) {
+                        WriteLog("No files to copy.");
+                        return;
+                    }
+                    CopyFiles(directoryFiles, toFolder);                        
+                } catch (Exception e) {
+                    WriteLog("Error: " + e.Message);
+                }
+            });
+        }
+        private async Task TaskDeleteDuplicatedFiles() {
 
             string orderBy, orderProperty, fromFolder, toFolder;
             bool checkSubDirectories;
@@ -115,7 +212,7 @@ namespace Utilities.Forms
             FileInfo[] directoryFiles;
             List<GroupFileDetails> listGroupedFiles = new List<GroupFileDetails>();
             CustomMessage customMessage = new CustomMessage();
-            IntPtr handle = this.Handle;
+            Form form = this;
             DialogResult result = 0;
 
             orderBy = cboOrderBy.SelectedItem.ToString();
@@ -127,6 +224,14 @@ namespace Utilities.Forms
 
             txtLogProcess.Clear();
             UpdateProgress(0);
+
+            customMessage = new CustomMessage("Deleting duplicated files on:\n" + fromFolder + "\nAre you sure?", "Confirmation", "confirmation");
+            result = CustomDialog.ShowCustomDialog(customMessage, form);
+            if (result == DialogResult.Cancel) {
+                WriteLog("Process Aborted");
+                return;
+            }
+
             WriteLog("Starting...");
             await Task.Run(() => {
                 try {
@@ -134,78 +239,31 @@ namespace Utilities.Forms
                         throw new Exception("From folder must be a valid folder path");
                     }
 
-                    switch (action) {
-                        case "Move":
-                            if (Directory.Exists(toFolder) == false) {
-                                throw new Exception("To folder must be a valid folder path");
-                            }
-
-                            directoryFiles = GetDirectoryFiles(fromFolder, idFileFilter, orderProperty, orderBy);
-                            if (directoryFiles.Length == 0) {
-                                WriteLog("No files to " + action);
-                                return;
-                            }
-
-                            customMessage = new CustomMessage("Moving files. Are you sure ?\nFrom: " + fromFolder + "\nTo: " + toFolder, "Confirmation", "confirmation");
-                            result = CustomDialog.ShowCustomDialog(customMessage, handle);
-                            if (result == DialogResult.Cancel) {
-                                WriteLog("Process Aborted");
-                                return;
-                            }
-                            MoveFiles(directoryFiles, toFolder);
-                            break;
-                        case "Copy":
-                            if (Directory.Exists(toFolder) == false) {
-                                throw new Exception("To folder must be a valid folder path");
-                            }
-
-                            directoryFiles = GetDirectoryFiles(fromFolder, idFileFilter, orderProperty, orderBy);
-                            if (directoryFiles.Length == 0) {
-                                WriteLog("No files to " + action);
-                                return;
-                            }
-
-                            customMessage = new CustomMessage("Copying files. Are you sure?\nFrom: " + fromFolder + "\nTo: " + toFolder, "Confirmation", "confirmation");
-                            result = CustomDialog.ShowCustomDialog(customMessage, handle);
-                            if (result == DialogResult.Cancel) {
-                                WriteLog("Process Aborted");
-                                return;
-                            }
-                            CopyFiles(directoryFiles, toFolder);
-                            break;
-                        case "DeleteDuplicated":
-                            List<DirectoryInfo> directories = GetDirectories(fromFolder, checkSubDirectories);
-                            if (directories.Count == 0) {
-                                WriteLog("No files found");
-                                return;
-                            }
-
-                            customMessage = new CustomMessage("Deleting duplicated files on:\n" + fromFolder + "\nAre you sure?", "Confirmation", "confirmation");
-                            result = CustomDialog.ShowCustomDialog(customMessage, handle);
-                            if (result == DialogResult.Cancel) {
-                                WriteLog("Process Aborted");
-                                return;
-                            }
-
-                            for (int i = 0; i < directories.Count; i++) {
-                                WriteLog("\r\nGrouping files from: " + directories[i].FullName);
-                                maxPercent = (i + 1) * 50 / directories.Count;
-                                directoryFiles = GetDirectoryFiles(directories[i].FullName, idFileFilter, orderProperty, orderBy);
-                                GroupDirectoryFilesByHash(listGroupedFiles, directoryFiles, maxPercent);
-                            }
-
-                            if (listGroupedFiles.Count == 0) {
-                                WriteLog("No files found.");
-                                return;
-                            }
-                            DeleteDuplicatedFiles(listGroupedFiles);
-                            break;
+                    List<DirectoryInfo> directories = GetDirectories(fromFolder, checkSubDirectories);
+                    if (directories.Count == 0) {
+                        WriteLog("No files found.");
+                        return;
                     }
+
+                    for (int i = 0; i < directories.Count; i++) {
+                        WriteLog("\r\nGrouping files from: " + directories[i].FullName);
+                        maxPercent = (i + 1) * 50 / directories.Count;
+                        directoryFiles = GetDirectoryFiles(directories[i].FullName, idFileFilter, orderProperty, orderBy);
+                        GroupDirectoryFilesByHash(listGroupedFiles, directoryFiles, maxPercent);
+                    }
+
+                    if (listGroupedFiles.Count == 0) {
+                        WriteLog("No files found.");
+                        return;
+                    }
+                    DeleteDuplicatedFiles(listGroupedFiles);
+
                 } catch (Exception e) {
                     WriteLog("Error: " + e.Message);
                 }
             });
         }
+
         private List<DirectoryInfo> GetDirectories(string folder, bool checkSubDirectories) {
             DirectoryInfo[] directoryFiles;
             List<DirectoryInfo> returnList = new List<DirectoryInfo> { new DirectoryInfo(folder) };
@@ -392,21 +450,21 @@ namespace Utilities.Forms
 
         private async void BtnDeleteDuplicate_Click(object sender, EventArgs e) {
             if (task == null || task.IsCompleted) {
-                task = TaskFileManagement("DeleteDuplicated");
+                task = TaskDeleteDuplicatedFiles();
                 await task;
                 return;
             }
         }
         private async void BtnMoveFiles_Click(object sender, EventArgs e) {
             if (task == null || task.IsCompleted) {
-                task = TaskFileManagement("Move");
+                task = TaskMoveFiles();
                 await task;
                 return;
             }
         }
         private async void BtnCopyFiles_Click(object sender, EventArgs e) {
             if (task == null || task.IsCompleted) {
-                task = TaskFileManagement("Copy");
+                task = TaskCopyFiles();
                 await task;
                 return;
             }

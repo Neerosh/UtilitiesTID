@@ -97,14 +97,14 @@ namespace Utilities.Forms
 
         private void InvokeMessage(CustomMessage customMessage) {
             Invoke(new Action(() => {
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                CustomDialog.ShowCustomDialog(customMessage, this);
             }));
         }
 
         private async Task GetLockedFileProcesses() {
             string lockedFile = txtLockedFilePath.Text;
             if (lockedFile == null || lockedFile.Length == 0) {
-                CustomDialog.ShowCustomDialog(new CustomMessage("Select a file", "Error", "error"), Handle);
+                CustomDialog.ShowCustomDialog(new CustomMessage("Select a file", "Error", "error"), this);
                 return;
             }
 
@@ -196,9 +196,19 @@ namespace Utilities.Forms
         private async void btnEndSelectedProcess_Click(object sender, EventArgs e) {
             if (dgvProcess.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
 
-            int id = Int32.Parse(dgvProcess.SelectedRows[0].Cells[0].Value.ToString());
+            int processId = Int32.Parse(dgvProcess.SelectedRows[0].Cells[0].Value.ToString());
+            string processName = dgvProcess.SelectedRows[0].Cells[1].Value.ToString();
+            string processOwner = dgvProcess.SelectedRows[0].Cells[2].Value.ToString();
+
+            CustomMessage customMessage = new CustomMessage("You are about to end this process:\nID: " +
+                                          processId + "  Name: "+ processName + "  Owner: "+ processOwner + "\nAre you sure?", "Confirmation", "confirmation");
+            DialogResult result = CustomDialog.ShowCustomDialog(customMessage, this);
+            if (result == DialogResult.Cancel) {
+                return;
+            }
+
             if (task == null || task.IsCompleted) {
-                task = KillProcess(id);
+                task = KillProcess(processId);
                 await task;
                 return;
             }

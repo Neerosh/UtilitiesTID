@@ -8,10 +8,10 @@ namespace Utilities
     class CustomDialog
     {
 
-        public static DialogResult ShowCustomDialog(CustomMessage customMessage, IntPtr owner) {
+        public static DialogResult ShowCustomDialog(CustomMessage customMessage, Form form) {
             if (customMessage.Message.Equals("") || customMessage == null) { return DialogResult.None; }
-            CustomDialogForm cmb = new CustomDialogForm(customMessage, owner);
-            DialogResult dialogResult = cmb.ShowDialog();
+            CustomDialogForm cmb = new CustomDialogForm(customMessage);
+            DialogResult dialogResult = cmb.ShowDialog(form);
             return dialogResult;
         }
     }

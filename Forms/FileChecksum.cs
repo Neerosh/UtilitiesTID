@@ -30,7 +30,7 @@ namespace Utilities.Forms
             txtChecksumFileHash.Text = "";
 
             if (checksumFile == null || checksumFile.Length == 0) {
-                CustomDialog.ShowCustomDialog(new CustomMessage("Select a file", "Error", "error"), Handle);
+                CustomDialog.ShowCustomDialog(new CustomMessage("Select a file", "Error", "error"), this);
                 return;
             }
 
