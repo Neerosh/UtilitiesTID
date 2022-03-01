@@ -175,7 +175,7 @@ namespace Teste
             this.btnFileFilters.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnFileFilters.Size = new System.Drawing.Size(206, 40);
             this.btnFileFilters.TabIndex = 1;
-            this.btnFileFilters.Text = "Manage File Filters";
+            this.btnFileFilters.Text = "Manage Filters";
             this.btnFileFilters.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFileFilters.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFileFilters.UseVisualStyleBackColor = false;
