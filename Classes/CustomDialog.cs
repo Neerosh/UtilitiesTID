@@ -7,11 +7,13 @@ namespace Utilities
 {
     class CustomDialog
     {
-
         public static DialogResult ShowCustomDialog(CustomMessage customMessage, Form form) {
             if (customMessage.Message.Equals("") || customMessage == null) { return DialogResult.None; }
-            CustomDialogForm cmb = new CustomDialogForm(customMessage);
-            DialogResult dialogResult = cmb.ShowDialog(form);
+            CustomDialogForm customDialog = new CustomDialogForm(customMessage);
+            if (form == null) {
+                customDialog.StartPosition = FormStartPosition.CenterScreen;
+            }
+            DialogResult dialogResult = customDialog.ShowDialog(form);
             return dialogResult;
         }
     }

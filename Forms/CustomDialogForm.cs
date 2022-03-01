@@ -34,6 +34,7 @@ namespace Utilities.Forms
                     panelOk.Height = 40;
                     break;
             }
+
         }
 
         #region Movable Window

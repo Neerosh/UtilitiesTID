@@ -8,9 +8,10 @@ namespace Utilities.Forms
     public partial class FileFilters : Form
     {
 
-        private readonly SQLite sqlite = new SQLite();
+        private SQLite sqlite;
         public FileFilters() {
             InitializeComponent();
+            sqlite = new SQLite();
         }
 
         private void FileFilters_Load(object sender, EventArgs e) {

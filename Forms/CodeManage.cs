@@ -7,10 +7,11 @@ namespace Utilities.Forms
 {
     public partial class CodeManage : Form
     {
-        private readonly SQLite sqlite = new SQLite();
+        private SQLite sqlite;
 
         public CodeManage() {
             InitializeComponent();
+            sqlite = new SQLite();
         }
         private void CodeManage_Load(object sender, EventArgs e) {
             RefreshCodes();
