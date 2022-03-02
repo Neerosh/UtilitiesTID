@@ -202,6 +202,10 @@ namespace Teste
             }
         }
 
+        private void BtnMenu_Click(object sender, EventArgs e) {
+            OpenChildForm(null);
+            PaintSelectedMenuItem(btnMenu);
+        }
         private void BtnCodes_Click(object sender, EventArgs e) {
             PaintSelectedMenuItem(btnCodes);
             ShowHideSubMenus(panelSubMenuCodes);
@@ -244,13 +248,13 @@ namespace Teste
             OpenChildForm(new ProcessManagement());
             PaintSelectedMenuItem(btnProcessManagement);
         }
-        private void BtnMenu_Click(object sender, EventArgs e) {
-            OpenChildForm(null);
-            PaintSelectedMenuItem(btnMenu);
-        }
         private void BtnFileChecksum_Click(object sender, EventArgs e) {
             OpenChildForm(new FileChecksum());
             PaintSelectedMenuItem(btnFileChecksum);
+        }
+        private void btnFileWatcher_Click(object sender, EventArgs e) {
+            OpenChildForm(new FileWatcher());
+            PaintSelectedMenuItem(btnFileWatcher);
         }
         #endregion
 

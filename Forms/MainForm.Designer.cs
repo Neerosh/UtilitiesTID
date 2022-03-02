@@ -38,6 +38,7 @@ namespace Teste
             this.btnFileFilters = new System.Windows.Forms.Button();
             this.btnFileManagement = new System.Windows.Forms.Button();
             this.btnFileChecksum = new System.Windows.Forms.Button();
+            this.btnFileWatcher = new System.Windows.Forms.Button();
             this.btnFiles = new System.Windows.Forms.Button();
             this.panelSubMenuCodes = new System.Windows.Forms.Panel();
             this.btnCodesManage = new System.Windows.Forms.Button();
@@ -93,7 +94,7 @@ namespace Teste
             this.btnHelp.ForeColor = System.Drawing.Color.White;
             this.btnHelp.Image = global::Utilities.Properties.Resources.icons8_help_32;
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 504);
+            this.btnHelp.Location = new System.Drawing.Point(0, 544);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnHelp.Size = new System.Drawing.Size(206, 40);
@@ -115,7 +116,7 @@ namespace Teste
             this.btnScriptWriter.ForeColor = System.Drawing.Color.White;
             this.btnScriptWriter.Image = global::Utilities.Properties.Resources.icons8_scroll_32;
             this.btnScriptWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnScriptWriter.Location = new System.Drawing.Point(0, 464);
+            this.btnScriptWriter.Location = new System.Drawing.Point(0, 504);
             this.btnScriptWriter.Name = "btnScriptWriter";
             this.btnScriptWriter.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnScriptWriter.Size = new System.Drawing.Size(206, 40);
@@ -137,12 +138,12 @@ namespace Teste
             this.btnProcessManagement.ForeColor = System.Drawing.Color.White;
             this.btnProcessManagement.Image = global::Utilities.Properties.Resources.icons8_processes_32;
             this.btnProcessManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProcessManagement.Location = new System.Drawing.Point(0, 424);
+            this.btnProcessManagement.Location = new System.Drawing.Point(0, 464);
             this.btnProcessManagement.Name = "btnProcessManagement";
             this.btnProcessManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnProcessManagement.Size = new System.Drawing.Size(206, 40);
             this.btnProcessManagement.TabIndex = 10;
-            this.btnProcessManagement.Text = "Process Management";
+            this.btnProcessManagement.Text = "Manage Processes";
             this.btnProcessManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProcessManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProcessManagement.UseVisualStyleBackColor = false;
@@ -152,11 +153,12 @@ namespace Teste
             // 
             this.panelSubMenuFiles.Controls.Add(this.btnFileFilters);
             this.panelSubMenuFiles.Controls.Add(this.btnFileManagement);
+            this.panelSubMenuFiles.Controls.Add(this.btnFileWatcher);
             this.panelSubMenuFiles.Controls.Add(this.btnFileChecksum);
             this.panelSubMenuFiles.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuFiles.Location = new System.Drawing.Point(0, 304);
             this.panelSubMenuFiles.Name = "panelSubMenuFiles";
-            this.panelSubMenuFiles.Size = new System.Drawing.Size(206, 120);
+            this.panelSubMenuFiles.Size = new System.Drawing.Size(206, 160);
             this.panelSubMenuFiles.TabIndex = 4;
             // 
             // btnFileFilters
@@ -170,7 +172,7 @@ namespace Teste
             this.btnFileFilters.ForeColor = System.Drawing.Color.White;
             this.btnFileFilters.Image = global::Utilities.Properties.Resources.icons8_filter_file_32;
             this.btnFileFilters.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileFilters.Location = new System.Drawing.Point(0, 80);
+            this.btnFileFilters.Location = new System.Drawing.Point(0, 120);
             this.btnFileFilters.Name = "btnFileFilters";
             this.btnFileFilters.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnFileFilters.Size = new System.Drawing.Size(206, 40);
@@ -193,7 +195,7 @@ namespace Teste
             this.btnFileManagement.ForeColor = System.Drawing.Color.White;
             this.btnFileManagement.Image = global::Utilities.Properties.Resources.icons8_manage_file_32;
             this.btnFileManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileManagement.Location = new System.Drawing.Point(0, 40);
+            this.btnFileManagement.Location = new System.Drawing.Point(0, 80);
             this.btnFileManagement.Name = "btnFileManagement";
             this.btnFileManagement.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnFileManagement.Size = new System.Drawing.Size(206, 40);
@@ -225,6 +227,28 @@ namespace Teste
             this.btnFileChecksum.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFileChecksum.UseVisualStyleBackColor = false;
             this.btnFileChecksum.Click += new System.EventHandler(this.BtnFileChecksum_Click);
+            // 
+            // btnFileWatcher
+            // 
+            this.btnFileWatcher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnFileWatcher.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnFileWatcher.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFileWatcher.FlatAppearance.BorderSize = 0;
+            this.btnFileWatcher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFileWatcher.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnFileWatcher.ForeColor = System.Drawing.Color.White;
+            this.btnFileWatcher.Image = global::Utilities.Properties.Resources.icons8_watch_file_32;
+            this.btnFileWatcher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileWatcher.Location = new System.Drawing.Point(0, 40);
+            this.btnFileWatcher.Name = "btnFileWatcher";
+            this.btnFileWatcher.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnFileWatcher.Size = new System.Drawing.Size(206, 40);
+            this.btnFileWatcher.TabIndex = 12;
+            this.btnFileWatcher.Text = "Watcher";
+            this.btnFileWatcher.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileWatcher.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileWatcher.UseVisualStyleBackColor = false;
+            this.btnFileWatcher.Click += new System.EventHandler(this.btnFileWatcher_Click);
             // 
             // btnFiles
             // 
@@ -528,6 +552,7 @@ namespace Teste
         private System.Windows.Forms.Button btnFileChecksum;
         private System.Windows.Forms.Button btnCodes;
         private System.Windows.Forms.Button btnFiles;
+        private System.Windows.Forms.Button btnFileWatcher;
     }
 }
 

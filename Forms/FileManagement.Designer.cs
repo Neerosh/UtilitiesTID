@@ -36,7 +36,7 @@
             this.cboOrderField = new System.Windows.Forms.ComboBox();
             this.lblFileFilter = new System.Windows.Forms.Label();
             this.cboFileFilter = new System.Windows.Forms.ComboBox();
-            this.chkSubFolders = new System.Windows.Forms.CheckBox();
+            this.chkSubdirectories = new System.Windows.Forms.CheckBox();
             this.btnCopyFiles = new System.Windows.Forms.Button();
             this.btnDeleteDuplicate = new System.Windows.Forms.Button();
             this.BtnMoveFiles = new System.Windows.Forms.Button();
@@ -213,18 +213,18 @@
             this.cboFileFilter.Size = new System.Drawing.Size(261, 24);
             this.cboFileFilter.TabIndex = 10;
             // 
-            // chkSubFolders
+            // chkSubdirectories
             // 
-            this.chkSubFolders.AutoSize = true;
-            this.chkSubFolders.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.chkSubFolders.ForeColor = System.Drawing.Color.White;
-            this.chkSubFolders.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkSubFolders.Location = new System.Drawing.Point(385, 88);
-            this.chkSubFolders.Name = "chkSubFolders";
-            this.chkSubFolders.Size = new System.Drawing.Size(128, 20);
-            this.chkSubFolders.TabIndex = 11;
-            this.chkSubFolders.Text = "Check Subfolders";
-            this.chkSubFolders.UseVisualStyleBackColor = true;
+            this.chkSubdirectories.AutoSize = true;
+            this.chkSubdirectories.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chkSubdirectories.ForeColor = System.Drawing.Color.White;
+            this.chkSubdirectories.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.chkSubdirectories.Location = new System.Drawing.Point(385, 88);
+            this.chkSubdirectories.Name = "chkSubdirectories";
+            this.chkSubdirectories.Size = new System.Drawing.Size(154, 20);
+            this.chkSubdirectories.TabIndex = 11;
+            this.chkSubdirectories.Text = "Include Subdirectories";
+            this.chkSubdirectories.UseVisualStyleBackColor = true;
             // 
             // btnCopyFiles
             // 
@@ -362,7 +362,7 @@
             this.Controls.Add(this.cboOrderBy);
             this.Controls.Add(this.btnCopyFiles);
             this.Controls.Add(this.cboOrderField);
-            this.Controls.Add(this.chkSubFolders);
+            this.Controls.Add(this.chkSubdirectories);
             this.Controls.Add(this.lblFileFilter);
             this.Controls.Add(this.cboFileFilter);
             this.DoubleBuffered = true;
@@ -387,7 +387,7 @@
         private System.Windows.Forms.ComboBox cboOrderField;
         private System.Windows.Forms.Label lblFileFilter;
         private System.Windows.Forms.ComboBox cboFileFilter;
-        private System.Windows.Forms.CheckBox chkSubFolders;
+        private System.Windows.Forms.CheckBox chkSubdirectories;
         private System.Windows.Forms.Button btnCopyFiles;
         private System.Windows.Forms.Button btnDeleteDuplicate;
         private System.Windows.Forms.Button BtnMoveFiles;

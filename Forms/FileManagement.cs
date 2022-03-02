@@ -46,10 +46,10 @@ namespace Utilities.Forms
                     controlList.Add(btnToBrowser);
                     break;
                 case "Copy Files":
-                    controlList.Add(chkSubFolders);
+                    controlList.Add(chkSubdirectories);
                     break;
                 case "Move Files":
-                    controlList.Add(chkSubFolders);
+                    controlList.Add(chkSubdirectories);
                     break;
             }
 
@@ -220,7 +220,7 @@ namespace Utilities.Forms
             fromFolder = txtFromFolder.Text;
             toFolder = txtToFolder.Text;
             idFileFilter = Convert.ToInt32(cboFileFilter.SelectedValue);
-            checkSubDirectories = chkSubFolders.Checked;
+            checkSubDirectories = chkSubdirectories.Checked;
 
             txtLogProcess.Clear();
             UpdateProgress(0);
@@ -447,7 +447,7 @@ namespace Utilities.Forms
             WriteLog("Total Copied Files - " + filesCopied);
             WriteLog("Total Size - " + Math.Round((totalBytesFiles / 1000000), 2).ToString() + " MB");
         }
-
+        #endregion File Management
         private async void BtnDeleteDuplicate_Click(object sender, EventArgs e) {
             if (task == null || task.IsCompleted) {
                 task = TaskDeleteDuplicatedFiles();
@@ -481,6 +481,5 @@ namespace Utilities.Forms
             }
 
         }
-        #endregion File Management
     }
 }
