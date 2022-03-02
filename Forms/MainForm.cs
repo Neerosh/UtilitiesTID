@@ -10,7 +10,7 @@ namespace Teste
 {
     public partial class Main : Form
     {
-        private readonly SQLite sqlite = new SQLite();
+        private SQLite sqlite;
         public readonly string[] arrayForbiddenCombinations = new string[] { ").", "_.", "_03.", "old.", "old--.", "copia.", "copy." };
         private Form activeForm = null;
         private Size formSize;
@@ -20,13 +20,16 @@ namespace Teste
             Padding = new Padding(2);
             BackColor = Color.FromArgb(60, 60, 60);
             BtnMenu_Click(this, new EventArgs());
+            sqlite = new SQLite();
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
             if (!File.Exists("UtilitiesTID.db")) {
                 CustomMessage customMessage = sqlite.CreateDatabase();
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                CustomDialog.ShowCustomDialog(customMessage, this);
             }
+            panelSubMenuFiles.Visible = false;
+            panelSubMenuCodes.Visible = false;
         }
 
         private void btnClose_Click(object sender, EventArgs e) {
@@ -158,6 +161,7 @@ namespace Teste
                         if (control1 is Button) {
                             if (control1 == selectedButton) {
                                 control1.BackColor = Color.FromArgb(204, 0, 0);
+                                control.Visible = true;
                             } else {
                                 control1.BackColor = Color.FromArgb(102, 0, 0);
                             }
@@ -190,21 +194,43 @@ namespace Teste
             childForm.Show();
         }
 
-        private void BtnFileManagement_Click(object sender, EventArgs e) {
-            OpenChildForm(new FileManagement());
-            PaintSelectedMenuItem(btnFileManagement);
+        private void ShowHideSubMenus(Panel submenu) {
+            if (submenu.Visible == false) {
+                submenu.Visible = true;
+            } else {
+                submenu.Visible = false;
+            }
         }
-        private void btnFileFilters_Click(object sender, EventArgs e) {
-            OpenChildForm(new FileFilters());
-            PaintSelectedMenuItem(btnFileFilters);
+
+        private void BtnMenu_Click(object sender, EventArgs e) {
+            OpenChildForm(null);
+            PaintSelectedMenuItem(btnMenu);
         }
         private void BtnCodes_Click(object sender, EventArgs e) {
-            OpenChildForm(new CodeToClipboard());
             PaintSelectedMenuItem(btnCodes);
+            ShowHideSubMenus(panelSubMenuCodes);
+        }
+        private void BtnCodesToClipboard_Click(object sender, EventArgs e) {
+            OpenChildForm(new CodeToClipboard());
+            PaintSelectedMenuItem(btnCodeToClipboard);
         }
         private void BtnCodesManage_Click(object sender, EventArgs e) {
             OpenChildForm(new CodeManage());
             PaintSelectedMenuItem(btnCodesManage);
+        }
+
+        private void BtnFiles_Click(object sender, EventArgs e) {
+            PaintSelectedMenuItem(btnFiles);
+            ShowHideSubMenus(panelSubMenuFiles);
+        }
+        private void BtnFileManagement_Click(object sender, EventArgs e) {
+            OpenChildForm(new FileManagement());
+            PaintSelectedMenuItem(btnFileManagement);
+        }
+        private void BtnFileFilters_Click(object sender, EventArgs e) {
+            OpenChildForm(new FileFilters());
+            PaintSelectedMenuItem(btnFileFilters);
+
         }
         private void BtnScriptWriter_Click(object sender, EventArgs e) {
             OpenChildForm(new ScriptWriter());
@@ -222,20 +248,18 @@ namespace Teste
             OpenChildForm(new ProcessManagement());
             PaintSelectedMenuItem(btnProcessManagement);
         }
-        private void BtnMenu_Click(object sender, EventArgs e) {
-            OpenChildForm(null);
-            PaintSelectedMenuItem(btnMenu);
-        }
-        private void btnFileEncryption_Click(object sender, EventArgs e) {
+        private void BtnFileChecksum_Click(object sender, EventArgs e) {
             OpenChildForm(new FileChecksum());
-            PaintSelectedMenuItem(btnFileEncryption);
+            PaintSelectedMenuItem(btnFileChecksum);
+        }
+        private void btnFileWatcher_Click(object sender, EventArgs e) {
+            OpenChildForm(new FileWatcher());
+            PaintSelectedMenuItem(btnFileWatcher);
         }
         #endregion
 
         private void Main_Resize(object sender, EventArgs e) {
             AdjustForm();
         }
-
-
     }
 }

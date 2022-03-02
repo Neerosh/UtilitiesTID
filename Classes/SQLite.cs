@@ -108,7 +108,7 @@ namespace Utilities.Classes
                 reader.Close();
             } catch (Exception ex) {
                 CustomMessage customMessage = new CustomMessage(ex.Message, "Error", "error");
-                CustomDialog.ShowCustomDialog(customMessage, IntPtr.Zero);
+                CustomDialog.ShowCustomDialog(customMessage, null);
             }
             connection.Close();
 
@@ -130,7 +130,7 @@ namespace Utilities.Classes
                 reader.Close();
             } catch (Exception ex) {
                 CustomMessage customMessage = new CustomMessage(ex.Message, "Error", "error");
-                CustomDialog.ShowCustomDialog(customMessage, IntPtr.Zero);
+                CustomDialog.ShowCustomDialog(customMessage, null);
             }
             connection.Close();
 
@@ -259,7 +259,7 @@ namespace Utilities.Classes
                 reader.Close();
             } catch (Exception ex) {
                 CustomMessage customMessage = new CustomMessage(ex.Message, "Error", "error");
-                CustomDialog.ShowCustomDialog(customMessage, IntPtr.Zero);
+                CustomDialog.ShowCustomDialog(customMessage, null);
             }
             connection.Close();
 
@@ -286,7 +286,7 @@ namespace Utilities.Classes
                 reader.Close();
             } catch (Exception ex) {
                 CustomMessage customMessage = new CustomMessage(ex.Message, "Error", "error");
-                CustomDialog.ShowCustomDialog(customMessage, IntPtr.Zero);
+                CustomDialog.ShowCustomDialog(customMessage, null);
             }
             connection.Close();
 
@@ -314,7 +314,7 @@ namespace Utilities.Classes
                 reader.Close();
             } catch (Exception ex) {
                 CustomMessage customMessage = new CustomMessage(ex.Message, "Error", "error");
-                CustomDialog.ShowCustomDialog(customMessage, IntPtr.Zero);
+                CustomDialog.ShowCustomDialog(customMessage, null);
             }
             connection.Close();
 

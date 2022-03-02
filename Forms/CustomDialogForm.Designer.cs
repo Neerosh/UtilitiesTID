@@ -122,10 +122,10 @@
             this.rtbMessage.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rtbMessage.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rtbMessage.ForeColor = System.Drawing.Color.White;
-            this.rtbMessage.Location = new System.Drawing.Point(68, 21);
+            this.rtbMessage.Location = new System.Drawing.Point(68, 18);
             this.rtbMessage.Name = "rtbMessage";
             this.rtbMessage.ReadOnly = true;
-            this.rtbMessage.Size = new System.Drawing.Size(360, 58);
+            this.rtbMessage.Size = new System.Drawing.Size(360, 61);
             this.rtbMessage.TabIndex = 2;
             this.rtbMessage.Text = "";
             // 

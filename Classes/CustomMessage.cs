@@ -5,8 +5,8 @@
         string message, title, type;
 
         public string Message { get => message; set => message = value; }
-        public string Type { get => type; set => type = value; }
         public string Title { get => title; set => title = value; }
+        public string Type { get => type; set => type = value; }
 
         public CustomMessage() {
             Message = "";

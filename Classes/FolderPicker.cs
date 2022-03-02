@@ -32,7 +32,6 @@ namespace Utilities.Forms
 
                 dialog.SetFolder(item);
             }
-
             var options = FOS.FOS_PICKFOLDERS;
             options = (FOS)SetOptions((int)options);
             dialog.SetOptions(options);

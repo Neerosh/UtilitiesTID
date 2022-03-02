@@ -314,6 +314,16 @@ namespace Utilities.Properties
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_file_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_file_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
 
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -354,5 +364,26 @@ namespace Utilities.Properties
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_filter_file_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_filter_file_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_watch_file_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_watch_file_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
     }
 }

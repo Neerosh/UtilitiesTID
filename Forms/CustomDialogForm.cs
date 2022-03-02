@@ -9,10 +9,11 @@ namespace Utilities.Forms
 {
     public partial class CustomDialogForm : Form
     {
-        public CustomDialogForm(CustomMessage customMessage, IntPtr owner) {
+        public CustomDialogForm(CustomMessage customMessage) {
             InitializeComponent();
             Padding = new Padding(2);
             BackColor = Color.FromArgb(50, 50, 50);
+            StartPosition = FormStartPosition.CenterParent;
             lblTitle.Text = customMessage.Title;
             rtbMessage.Text = customMessage.Message;
             switch (customMessage.Type) {
@@ -33,17 +34,9 @@ namespace Utilities.Forms
                     panelOk.Height = 40;
                     break;
             }
-            if (owner == IntPtr.Zero) {
-                owner = Process.GetCurrentProcess().MainWindowHandle;
-                if (owner == IntPtr.Zero) {
-                    owner = GetDesktopWindow();
-                }
-            }
+
         }
 
-        private IntPtr GetDesktopWindow() {
-            throw new NotImplementedException();
-        }
         #region Movable Window
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;

@@ -7,10 +7,11 @@ namespace Utilities
 {
     public partial class CodeToClipboard : Form
     {
-        private readonly SQLite sqlite = new SQLite();
+        private SQLite sqlite;
 
         public CodeToClipboard() {
             InitializeComponent();
+            sqlite = new SQLite();
         }
         private void CodeToClipboard_Load(object sender, EventArgs e) {
             RefreshCodeTypes();

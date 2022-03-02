@@ -8,9 +8,10 @@ namespace Utilities.Forms
     public partial class FileFilters : Form
     {
 
-        private readonly SQLite sqlite = new SQLite();
+        private SQLite sqlite;
         public FileFilters() {
             InitializeComponent();
+            sqlite = new SQLite();
         }
 
         private void FileFilters_Load(object sender, EventArgs e) {
@@ -102,16 +103,16 @@ namespace Utilities.Forms
             CustomMessage customMessage;
             if (dgvFileFilters.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
                 customMessage = new CustomMessage("Select a filter on the table below first.", "Information", "Information");
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                CustomDialog.ShowCustomDialog(customMessage, this);
                 return;
             }
             if (txtCondition.Text.Equals("")) {
                 customMessage = new CustomMessage("Invalid extension.", "Information", "Information");
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                CustomDialog.ShowCustomDialog(customMessage, this);
                 return;
             }
             customMessage = new CustomMessage("Insert new condition?", "Confirmation", "confirmation");
-            if (CustomDialog.ShowCustomDialog(customMessage, Handle) == DialogResult.Cancel) { return; }
+            if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }
 
             int idFileFilter = Convert.ToInt32(dgvFileFilters.SelectedRows[0].Cells[0].Value);
 
@@ -125,7 +126,7 @@ namespace Utilities.Forms
             FileFilterCondition fileFilterCondition = new FileFilterCondition(0, idFileFilter, cboConditionType.SelectedItem.ToString(), txtCondition.Text);
 
             customMessage = sqlite.InsertFileFilterCondition(fileFilterCondition);
-            CustomDialog.ShowCustomDialog(customMessage, Handle);
+            CustomDialog.ShowCustomDialog(customMessage, this);
 
             RefreshFileFilterConditions(idFileFilter);
             SelectCorrectRowFileCondition(idCondition);
@@ -134,17 +135,17 @@ namespace Utilities.Forms
             CustomMessage customMessage;
             if (dgvFileFilters.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
                 customMessage = new CustomMessage("Select a filter on the table below first.", "Information", "Information");
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                CustomDialog.ShowCustomDialog(customMessage, this);
                 return;
             }
             if (dgvFileFilterConditions.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
                 customMessage = new CustomMessage("Select a condition on the table above first.", "Information", "Information");
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                CustomDialog.ShowCustomDialog(customMessage, this);
                 return;
             }
             if (txtCondition.Text.Equals("")) {
                 customMessage = new CustomMessage("Invalid condition.", "Information", "Information");
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                CustomDialog.ShowCustomDialog(customMessage, this);
                 return;
             }
 
@@ -152,12 +153,12 @@ namespace Utilities.Forms
             int idCondition = Convert.ToInt32(dgvFileFilterConditions.SelectedRows[0].Cells[0].Value);
 
             customMessage = new CustomMessage("Update selected condition?\nSelected: " + txtCondition.Text, "Confirmation", "confirmation");
-            if (CustomDialog.ShowCustomDialog(customMessage, Handle) == DialogResult.Cancel) { return; }
+            if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }
 
             FileFilterCondition fileFilterCondition = new FileFilterCondition(idCondition, idFileFilter, cboConditionType.SelectedItem.ToString(), txtCondition.Text);
 
             customMessage = sqlite.UpdateFileFilterCondition(fileFilterCondition);
-            CustomDialog.ShowCustomDialog(customMessage, Handle);
+            CustomDialog.ShowCustomDialog(customMessage, this);
 
             RefreshFileFilterConditions(idFileFilter);
             SelectCorrectRowFileCondition(idCondition);
@@ -166,12 +167,12 @@ namespace Utilities.Forms
             CustomMessage customMessage;
             if (dgvFileFilters.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
                 customMessage = new CustomMessage("Select a filter on the table below first.", "Information", "Information");
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                CustomDialog.ShowCustomDialog(customMessage, this);
                 return;
             }
             if (dgvFileFilterConditions.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
                 customMessage = new CustomMessage("Select a condition on the table above first.", "Information", "Information");
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                CustomDialog.ShowCustomDialog(customMessage, this);
                 return;
             }
 
@@ -179,12 +180,12 @@ namespace Utilities.Forms
             int idCondition = Convert.ToInt32(dgvFileFilterConditions.SelectedRows[0].Cells[0].Value);
 
             customMessage = new CustomMessage("Delete selected condition?\nSelected: " + txtCondition.Text, "Confirmation", "confirmation");
-            if (CustomDialog.ShowCustomDialog(customMessage, Handle) == DialogResult.Cancel) { return; }
+            if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }
 
             FileFilterCondition fileFilterCondition = new FileFilterCondition(idCondition, idFileFilter, cboConditionType.SelectedItem.ToString(), txtCondition.Text);
 
             customMessage = sqlite.DeleteFileFilterCondition(fileFilterCondition);
-            CustomDialog.ShowCustomDialog(customMessage, Handle);
+            CustomDialog.ShowCustomDialog(customMessage, this);
 
             RefreshFileFilterConditions(idFileFilter);
         }
@@ -193,11 +194,11 @@ namespace Utilities.Forms
             CustomMessage customMessage;
             if (txtFilterName.Text.Equals("")) {
                 customMessage = new CustomMessage("Invalid file filter name.", "Information", "Information");
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                CustomDialog.ShowCustomDialog(customMessage, this);
                 return;
             }
             customMessage = new CustomMessage("Insert new file filter?", "Confirmation", "confirmation");
-            if (CustomDialog.ShowCustomDialog(customMessage, Handle) == DialogResult.Cancel) { return; }
+            if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }
 
             int idFileFilter;
             if (dgvFileFilters.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
@@ -209,7 +210,7 @@ namespace Utilities.Forms
             FileFilter fileFilter = new FileFilter(0, txtFilterName.Text, txtFilterNotes.Text);
 
             customMessage = sqlite.InsertFileFilter(fileFilter);
-            CustomDialog.ShowCustomDialog(customMessage, Handle);
+            CustomDialog.ShowCustomDialog(customMessage, this);
 
             RefreshFileFilters();
             SelectCorrectRowFileFilter(idFileFilter);
@@ -218,24 +219,24 @@ namespace Utilities.Forms
             CustomMessage customMessage;
             if (dgvFileFilters.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
                 customMessage = new CustomMessage("Select a file filter on the table below first.", "Information", "Information");
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                CustomDialog.ShowCustomDialog(customMessage, this);
                 return;
             }
             if (txtFilterName.Text.Equals("")) {
                 customMessage = new CustomMessage("Invalid file filter name.", "Information", "Information");
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                CustomDialog.ShowCustomDialog(customMessage, this);
                 return;
             }
 
             int idFileFilter = Convert.ToInt32(dgvFileFilters.SelectedRows[0].Cells[0].Value);
 
             customMessage = new CustomMessage("Update selected file filter?\nSelected: " + txtFilterName.Text, "Confirmation", "confirmation");
-            if (CustomDialog.ShowCustomDialog(customMessage, Handle) == DialogResult.Cancel) { return; }
+            if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }
 
             FileFilter fileFilter = new FileFilter(idFileFilter, txtFilterName.Text, txtFilterNotes.Text);
 
             customMessage = sqlite.UpdateFileFilter(fileFilter);
-            CustomDialog.ShowCustomDialog(customMessage, Handle);
+            CustomDialog.ShowCustomDialog(customMessage, this);
 
             RefreshFileFilters();
             SelectCorrectRowFileFilter(idFileFilter);
@@ -244,7 +245,7 @@ namespace Utilities.Forms
             CustomMessage customMessage;
             if (dgvFileFilters.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
                 customMessage = new CustomMessage("Select a filter on the table below first.", "Information", "Information");
-                CustomDialog.ShowCustomDialog(customMessage, Handle);
+                CustomDialog.ShowCustomDialog(customMessage, this);
                 return;
             }
 
@@ -252,12 +253,12 @@ namespace Utilities.Forms
             int selectedRow = Convert.ToInt32(dgvFileFilters.SelectedRows[0].Index);
 
             customMessage = new CustomMessage("Delete selected file filter?\nSelected: " + txtFilterName.Text, "Confirmation", "confirmation");
-            if (CustomDialog.ShowCustomDialog(customMessage, Handle) == DialogResult.Cancel) { return; }
+            if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }
 
             FileFilter fileFilter = new FileFilter(idFileFilter, txtFilterName.Text, txtFilterNotes.Text);
 
             customMessage = sqlite.DeleteFileFilter(fileFilter);
-            CustomDialog.ShowCustomDialog(customMessage, Handle);
+            CustomDialog.ShowCustomDialog(customMessage, this);
 
             dgvFileFilters.Rows.RemoveAt(selectedRow);
             RefreshFileFilters();
