@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -698,6 +701,42 @@ namespace Utilities.Forms
                 procedureName = "test";
             }
             GenerateUnifiedScript_test(folderSQL, folderScript, procedureName, Handle);
+        }
+
+        private async void button2_Click(object sender, EventArgs e) {
+            //string command = "cmd /k sqlcmd - S.\\TID - Q \"Exec UnifiedScript\"";
+            //Process process = new Process();
+            //process.StartInfo.FileName = command;
+            //process.StartInfo.UseShellExecute = true;
+            //process.StartInfo.Verb = "runas";
+            //process.Start();
+            //Process.Start("cmd.exe", "/K " + command);
+
+            Process process = new Process();
+            Process subProcess = new Process();
+
+            string command = //"echo hi "+"> \""+Environment.CurrentDirectory+"\\TestUnifiedProcedure.txt\"";
+                             "sqlcmd -S .\\TID -Q \"Exec UnifiedScript\""+" 1> \""+Environment.CurrentDirectory+ "\\TestUnifiedProcedure.txt\" 2>&1";
+            ProcessStartInfo info = new ProcessStartInfo(@"cmd.exe", "/C " + command);
+            info.UseShellExecute = true;
+            info.WindowStyle = ProcessWindowStyle.Hidden;
+            info.ErrorDialog = false;
+            info.Verb = "runas";
+            string output = "";
+            try {
+                process = Process.Start(info);
+                process.WaitForExit();
+
+                output = File.ReadAllText(Environment.CurrentDirectory + "\\TestUnifiedProcedure.txt");
+                Directory.Move(@"C:\Sistema TID\TIDSCI\MDFSQL", @"C:\Sistema TID\TIDSCI\MDFSQL_Sutilezza");
+                Directory.Move(@"C:\Sistema TID\TIDSCI\EXETPS", @"C:\Sistema TID\TIDSCI\EXETPS_Sutilezza");
+            } catch (Exception ex) {
+                MessageBox.Show(ex.ToString());
+            }  
+            MessageBox.Show(output);
+
+            //rename folders
+            
         }
     }
 }

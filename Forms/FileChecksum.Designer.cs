@@ -211,7 +211,7 @@
             this.lblFileHashProgress.Text = "Generating File Hash...";
             this.lblFileHashProgress.Visible = false;
             // 
-            // FileEncryption
+            // FileChecksum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -231,7 +231,7 @@
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FileEncryption";
+            this.Name = "FileChecksum";
             this.Text = "FileChecksum";
             this.ResumeLayout(false);
             this.PerformLayout();

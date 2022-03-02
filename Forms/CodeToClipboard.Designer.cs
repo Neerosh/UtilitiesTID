@@ -72,7 +72,6 @@ namespace Utilities
             this.cboCodeName.ForeColor = System.Drawing.Color.White;
             this.cboCodeName.Name = "cboCodeName";
             this.cboCodeName.Sorted = true;
-            this.cboCodeName.SelectedIndexChanged += new System.EventHandler(this.cboCodeName_SelectedIndexChanged);
             this.cboCodeName.SelectedValueChanged += new System.EventHandler(this.CboCodeName_SelectedValueChanged);
             // 
             // btnCopyClipboard
