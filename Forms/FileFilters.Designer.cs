@@ -25,13 +25,13 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.lblSelection = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.lblFileFilters = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.txtFilterName = new System.Windows.Forms.TextBox();
             this.dgvFileFilters = new System.Windows.Forms.DataGridView();
@@ -54,17 +54,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvFileFilterConditions)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblSelection
+            // lblFileFilters
             // 
-            this.lblSelection.AutoSize = true;
-            this.lblSelection.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSelection.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblSelection.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblSelection.Location = new System.Drawing.Point(12, 388);
-            this.lblSelection.Name = "lblSelection";
-            this.lblSelection.Size = new System.Drawing.Size(65, 16);
-            this.lblSelection.TabIndex = 17;
-            this.lblSelection.Text = "Selection:";
+            this.lblFileFilters.AutoSize = true;
+            this.lblFileFilters.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFileFilters.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblFileFilters.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblFileFilters.Location = new System.Drawing.Point(12, 388);
+            this.lblFileFilters.Name = "lblFileFilters";
+            this.lblFileFilters.Size = new System.Drawing.Size(72, 16);
+            this.lblFileFilters.TabIndex = 17;
+            this.lblFileFilters.Text = "File Filters:";
             // 
             // lblName
             // 
@@ -102,16 +102,16 @@
             this.dgvFileFilters.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.dgvFileFilters.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFileFilters.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvFileFilters.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvFileFilters.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvFileFilters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFileFilters.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFileFilters.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvFileFilters.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvFileFilters.GridColor = System.Drawing.Color.White;
             this.dgvFileFilters.Location = new System.Drawing.Point(12, 407);
@@ -119,7 +119,7 @@
             this.dgvFileFilters.Name = "dgvFileFilters";
             this.dgvFileFilters.ReadOnly = true;
             this.dgvFileFilters.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvFileFilters.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvFileFilters.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvFileFilters.RowHeadersVisible = false;
             this.dgvFileFilters.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvFileFilters.RowTemplate.Height = 25;
@@ -367,16 +367,16 @@
             this.dgvFileFilterConditions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.dgvFileFilterConditions.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFileFilterConditions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvFileFilterConditions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvFileFilterConditions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvFileFilterConditions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFileFilterConditions.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFileFilterConditions.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvFileFilterConditions.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvFileFilterConditions.GridColor = System.Drawing.Color.White;
             this.dgvFileFilterConditions.Location = new System.Drawing.Point(96, 149);
@@ -384,7 +384,7 @@
             this.dgvFileFilterConditions.Name = "dgvFileFilterConditions";
             this.dgvFileFilterConditions.ReadOnly = true;
             this.dgvFileFilterConditions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvFileFilterConditions.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvFileFilterConditions.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvFileFilterConditions.RowHeadersVisible = false;
             this.dgvFileFilterConditions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvFileFilterConditions.RowTemplate.Height = 25;
@@ -422,7 +422,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
             this.Controls.Add(this.dgvFileFilters);
-            this.Controls.Add(this.lblSelection);
+            this.Controls.Add(this.lblFileFilters);
             this.Controls.Add(this.btnDeleteFileFilter);
             this.Controls.Add(this.btnUpdateFileFilter);
             this.Controls.Add(this.btnInsertFileFilter);
@@ -456,7 +456,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblSelection;
+        private System.Windows.Forms.Label lblFileFilters;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtFilterName;
         private System.Windows.Forms.DataGridView dgvFileFilters;

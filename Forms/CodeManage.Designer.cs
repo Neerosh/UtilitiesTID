@@ -29,7 +29,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeManage));
-            this.lblCodeName = new System.Windows.Forms.Label();
+            this.lblCodeText = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
@@ -39,24 +39,24 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvCodes = new System.Windows.Forms.DataGridView();
-            this.lblSelection = new System.Windows.Forms.Label();
+            this.lblCodes = new System.Windows.Forms.Label();
             this.txtCodeText = new System.Windows.Forms.RichTextBox();
             this.btnDeleteAll = new System.Windows.Forms.Button();
             this.btnAddDefaults = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCodes)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblCodeName
+            // lblCodeText
             // 
-            this.lblCodeName.AutoSize = true;
-            this.lblCodeName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCodeName.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCodeName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblCodeName.Location = new System.Drawing.Point(24, 57);
-            this.lblCodeName.Name = "lblCodeName";
-            this.lblCodeName.Size = new System.Drawing.Size(41, 16);
-            this.lblCodeName.TabIndex = 5;
-            this.lblCodeName.Text = "Code:";
+            this.lblCodeText.AutoSize = true;
+            this.lblCodeText.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCodeText.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCodeText.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblCodeText.Location = new System.Drawing.Point(24, 57);
+            this.lblCodeText.Name = "lblCodeText";
+            this.lblCodeText.Size = new System.Drawing.Size(41, 16);
+            this.lblCodeText.TabIndex = 5;
+            this.lblCodeText.Text = "Code:";
             // 
             // lblName
             // 
@@ -230,17 +230,17 @@
             this.dgvCodes.TabIndex = 14;
             this.dgvCodes.SelectionChanged += new System.EventHandler(this.DgvCodes_SelectionChanged);
             // 
-            // lblSelection
+            // lblCodes
             // 
-            this.lblSelection.AutoSize = true;
-            this.lblSelection.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSelection.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblSelection.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblSelection.Location = new System.Drawing.Point(20, 291);
-            this.lblSelection.Name = "lblSelection";
-            this.lblSelection.Size = new System.Drawing.Size(65, 16);
-            this.lblSelection.TabIndex = 7;
-            this.lblSelection.Text = "Selection:";
+            this.lblCodes.AutoSize = true;
+            this.lblCodes.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCodes.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCodes.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblCodes.Location = new System.Drawing.Point(20, 291);
+            this.lblCodes.Name = "lblCodes";
+            this.lblCodes.Size = new System.Drawing.Size(48, 16);
+            this.lblCodes.TabIndex = 7;
+            this.lblCodes.Text = "Codes:";
             // 
             // txtCodeText
             // 
@@ -310,11 +310,11 @@
             this.Controls.Add(this.txtCodeText);
             this.Controls.Add(this.btnAddDefaults);
             this.Controls.Add(this.btnDeleteAll);
-            this.Controls.Add(this.lblSelection);
+            this.Controls.Add(this.lblCodes);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.dgvCodes);
-            this.Controls.Add(this.lblCodeName);
+            this.Controls.Add(this.lblCodeText);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.btnUpdate);
@@ -340,7 +340,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblCodeName;
+        private System.Windows.Forms.Label lblCodeText;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtType;
@@ -350,7 +350,7 @@
         private System.Windows.Forms.DataGridView dgvCodes;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Label lblSelection;
+        private System.Windows.Forms.Label lblCodes;
         private System.Windows.Forms.RichTextBox txtCodeText;
         private System.Windows.Forms.Button btnDeleteAll;
         private System.Windows.Forms.Button btnAddDefaults;
