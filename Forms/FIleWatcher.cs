@@ -12,7 +12,7 @@ namespace Utilities.Forms
         private DataTable dtWatcherHistory;
         private CustomMessage customMessage;
         private readonly FolderPicker folderPicker = new FolderPicker();
-        private FileSystemWatcher fileWatcher = new FileSystemWatcher();
+        private FileSystemWatcher fileWatcher = null;
 
         public FileWatcher() {
             InitializeComponent();
@@ -63,6 +63,7 @@ namespace Utilities.Forms
             int selectedFileFilter = Convert.ToInt32(cboFileFilter.SelectedValue);
             bool includeSubdirectories = chkSubdirectories.Checked;
 
+            fileWatcher = new FileSystemWatcher();
             fileWatcher.Path = folderPath;
             fileWatcher.IncludeSubdirectories = includeSubdirectories;
             fileWatcher.NotifyFilter = NotifyFilters.CreationTime | NotifyFilters.Size | NotifyFilters.Attributes |
@@ -73,16 +74,16 @@ namespace Utilities.Forms
             if (idFileFilter > 0) {
                 List<FileFilterCondition> filterConditions = new List<FileFilterCondition>();
                 filterConditions = sqlite.SelectFileFilterConditions(idFileFilter, "");
-                foreach (FileFilterCondition condition in filterConditions) {
-                    switch (condition.Type) {
+                foreach (FileFilterCondition Filtercondition in filterConditions) {
+                    switch (Filtercondition.Type) {
                         case "Name Ends With":
-                            fileWatcher.Filters.Add("*" + condition.ToString());
+                            fileWatcher.Filters.Add("*" + Filtercondition.Condition.ToString());
                             break;
                         case "Name is Exactly":
-                            fileWatcher.Filters.Add(condition.ToString());
+                            fileWatcher.Filters.Add(Filtercondition.Condition.ToString());
                             break;
                         case "Name Contains":
-                            fileWatcher.Filters.Add("*" + condition.ToString() + "*");
+                            fileWatcher.Filters.Add("*" + Filtercondition.Condition.ToString() + "*");
                             break;
                     }
                 }
@@ -100,6 +101,7 @@ namespace Utilities.Forms
             fileWatcher.EnableRaisingEvents = false;
             lblFileWatcherStatus.Visible = false;
             fileWatcher.Dispose();
+            fileWatcher = null;
             BtnWatcher.Text = "Start File Watcher";
         }
 
@@ -125,7 +127,7 @@ namespace Utilities.Forms
         # endregion File Watcher
 
         private void BtnWatcher_Click(object sender, EventArgs e) {
-            if (!fileWatcher.Path.Equals("")) {
+            if (fileWatcher != null) {
                 customMessage = new CustomMessage("Stopping file watcher. Are you sure ?", "Confirmation", "confirmation");
                 DialogResult result = CustomDialog.ShowCustomDialog(customMessage, this);
                 if (result == DialogResult.Cancel) {
