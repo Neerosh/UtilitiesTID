@@ -41,7 +41,9 @@ namespace Utilities
         private void BtnCopyClipboard_Click(object sender, EventArgs e) {
             if (cboCodeName.SelectedItem != null) {
                 Clipboard.SetText(cboCodeName.SelectedValue.ToString());
-                txtCodePreview.Text = cboCodeName.Text + "\r\nCopied to clipboard successfully.";
+                txtCodePreview.Text = cboCodeName.Text + "\r\nCopied to clipboard successfully."+
+                    "\r\n-------------------------------------------------------------------\r\n" +
+                     cboCodeName.SelectedValue.ToString();
             }
         }
         private void CboCodeName_SelectedValueChanged(object sender, EventArgs e) {

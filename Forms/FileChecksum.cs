@@ -113,9 +113,11 @@ namespace Utilities.Forms
             if (formatedExpectedHash.Equals(txtChecksumFileHash.Text)) {
                 lblValidateStatus.Text = "Validation Result: Success";
                 lblValidateStatus.ForeColor = Color.FromArgb(68, 204, 0);
+                txtChecksumExpectedHash.ForeColor = Color.FromArgb(68, 204, 0);
             } else {
                 lblValidateStatus.Text = "Validation Result: Failed";
                 lblValidateStatus.ForeColor = Color.Yellow;
+                txtChecksumExpectedHash.ForeColor = Color.Yellow;
             }
             lblValidateStatus.Visible = true;
         }

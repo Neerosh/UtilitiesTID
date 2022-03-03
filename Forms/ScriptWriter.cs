@@ -703,7 +703,7 @@ namespace Utilities.Forms
             GenerateUnifiedScript_test(folderSQL, folderScript, procedureName, this);
         }
 
-        private async void button2_Click(object sender, EventArgs e) {
+        private  void button2_Click(object sender, EventArgs e) {
             //string command = "cmd /k sqlcmd - S.\\TID - Q \"Exec UnifiedScript\"";
             //Process process = new Process();
             //process.StartInfo.FileName = command;
