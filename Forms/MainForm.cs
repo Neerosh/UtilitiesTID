@@ -192,6 +192,7 @@ namespace Teste
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+            childForm.Select();
         }
 
         private void ShowHideSubMenus(Panel submenu) {

@@ -202,6 +202,7 @@
             this.txtTimeConversion.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtTimeConversion.Size = new System.Drawing.Size(738, 80);
             this.txtTimeConversion.TabIndex = 17;
+            this.txtTimeConversion.TabStop = false;
             this.txtTimeConversion.Text = "";
             // 
             // txtDateConversion
@@ -219,6 +220,7 @@
             this.txtDateConversion.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtDateConversion.Size = new System.Drawing.Size(738, 129);
             this.txtDateConversion.TabIndex = 18;
+            this.txtDateConversion.TabStop = false;
             this.txtDateConversion.Text = "";
             // 
             // ClarionConversion

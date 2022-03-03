@@ -55,7 +55,7 @@
             this.lblCodeName.Location = new System.Drawing.Point(24, 57);
             this.lblCodeName.Name = "lblCodeName";
             this.lblCodeName.Size = new System.Drawing.Size(41, 16);
-            this.lblCodeName.TabIndex = 1;
+            this.lblCodeName.TabIndex = 5;
             this.lblCodeName.Text = "Code:";
             // 
             // lblName
@@ -67,7 +67,7 @@
             this.lblName.Location = new System.Drawing.Point(20, 25);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(45, 16);
-            this.lblName.TabIndex = 3;
+            this.lblName.TabIndex = 1;
             this.lblName.Text = "Name:";
             // 
             // txtName
@@ -78,7 +78,7 @@
             this.txtName.Location = new System.Drawing.Point(67, 22);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(300, 22);
-            this.txtName.TabIndex = 4;
+            this.txtName.TabIndex = 2;
             // 
             // lblType
             // 
@@ -89,7 +89,7 @@
             this.lblType.Location = new System.Drawing.Point(382, 25);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(38, 16);
-            this.lblType.TabIndex = 2;
+            this.lblType.TabIndex = 3;
             this.lblType.Text = "Type:";
             // 
             // txtType
@@ -100,7 +100,7 @@
             this.txtType.Location = new System.Drawing.Point(426, 22);
             this.txtType.Name = "txtType";
             this.txtType.Size = new System.Drawing.Size(179, 22);
-            this.txtType.TabIndex = 5;
+            this.txtType.TabIndex = 4;
             // 
             // btnClearFields
             // 
@@ -139,7 +139,7 @@
             this.btnInsert.Location = new System.Drawing.Point(622, 136);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(148, 44);
-            this.btnInsert.TabIndex = 7;
+            this.btnInsert.TabIndex = 9;
             this.btnInsert.Text = "Add New Code";
             this.btnInsert.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsert.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -161,7 +161,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(622, 186);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(148, 44);
-            this.btnUpdate.TabIndex = 11;
+            this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Update Selected";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -183,7 +183,7 @@
             this.btnDelete.Location = new System.Drawing.Point(622, 236);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(148, 44);
-            this.btnDelete.TabIndex = 9;
+            this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Delete Selected";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -227,7 +227,7 @@
             this.dgvCodes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvCodes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCodes.Size = new System.Drawing.Size(585, 248);
-            this.dgvCodes.TabIndex = 0;
+            this.dgvCodes.TabIndex = 14;
             this.dgvCodes.SelectionChanged += new System.EventHandler(this.DgvCodes_SelectionChanged);
             // 
             // lblSelection
@@ -239,7 +239,7 @@
             this.lblSelection.Location = new System.Drawing.Point(20, 291);
             this.lblSelection.Name = "lblSelection";
             this.lblSelection.Size = new System.Drawing.Size(65, 16);
-            this.lblSelection.TabIndex = 12;
+            this.lblSelection.TabIndex = 7;
             this.lblSelection.Text = "Selection:";
             // 
             // txtCodeText
@@ -254,7 +254,7 @@
             this.txtCodeText.Name = "txtCodeText";
             this.txtCodeText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtCodeText.Size = new System.Drawing.Size(538, 226);
-            this.txtCodeText.TabIndex = 13;
+            this.txtCodeText.TabIndex = 6;
             this.txtCodeText.Text = "";
             // 
             // btnDeleteAll
@@ -272,7 +272,7 @@
             this.btnDeleteAll.Location = new System.Drawing.Point(622, 514);
             this.btnDeleteAll.Name = "btnDeleteAll";
             this.btnDeleteAll.Size = new System.Drawing.Size(148, 44);
-            this.btnDeleteAll.TabIndex = 14;
+            this.btnDeleteAll.TabIndex = 13;
             this.btnDeleteAll.Text = "Delete All Codes";
             this.btnDeleteAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -294,7 +294,7 @@
             this.btnAddDefaults.Location = new System.Drawing.Point(622, 464);
             this.btnAddDefaults.Name = "btnAddDefaults";
             this.btnAddDefaults.Size = new System.Drawing.Size(148, 44);
-            this.btnAddDefaults.TabIndex = 15;
+            this.btnAddDefaults.TabIndex = 12;
             this.btnAddDefaults.Text = "Add Default Codes";
             this.btnAddDefaults.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddDefaults.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

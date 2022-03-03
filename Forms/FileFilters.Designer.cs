@@ -25,12 +25,12 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblSelection = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.txtFilterName = new System.Windows.Forms.TextBox();
@@ -63,7 +63,7 @@
             this.lblSelection.Location = new System.Drawing.Point(12, 388);
             this.lblSelection.Name = "lblSelection";
             this.lblSelection.Size = new System.Drawing.Size(65, 16);
-            this.lblSelection.TabIndex = 26;
+            this.lblSelection.TabIndex = 17;
             this.lblSelection.Text = "Selection:";
             // 
             // lblName
@@ -75,7 +75,7 @@
             this.lblName.Location = new System.Drawing.Point(12, 20);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(78, 16);
-            this.lblName.TabIndex = 19;
+            this.lblName.TabIndex = 0;
             this.lblName.Text = "Filter Name:";
             // 
             // txtFilterName
@@ -88,7 +88,7 @@
             this.txtFilterName.Location = new System.Drawing.Point(96, 17);
             this.txtFilterName.Name = "txtFilterName";
             this.txtFilterName.Size = new System.Drawing.Size(501, 22);
-            this.txtFilterName.TabIndex = 20;
+            this.txtFilterName.TabIndex = 1;
             // 
             // dgvFileFilters
             // 
@@ -102,16 +102,16 @@
             this.dgvFileFilters.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.dgvFileFilters.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFileFilters.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvFileFilters.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvFileFilters.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFileFilters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFileFilters.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFileFilters.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFileFilters.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvFileFilters.GridColor = System.Drawing.Color.White;
             this.dgvFileFilters.Location = new System.Drawing.Point(12, 407);
@@ -119,7 +119,7 @@
             this.dgvFileFilters.Name = "dgvFileFilters";
             this.dgvFileFilters.ReadOnly = true;
             this.dgvFileFilters.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvFileFilters.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvFileFilters.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFileFilters.RowHeadersVisible = false;
             this.dgvFileFilters.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvFileFilters.RowTemplate.Height = 25;
@@ -127,7 +127,7 @@
             this.dgvFileFilters.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvFileFilters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFileFilters.Size = new System.Drawing.Size(585, 146);
-            this.dgvFileFilters.TabIndex = 16;
+            this.dgvFileFilters.TabIndex = 18;
             this.dgvFileFilters.SelectionChanged += new System.EventHandler(this.dgvFileFilters_SelectionChanged);
             // 
             // lblConditions
@@ -139,7 +139,7 @@
             this.lblConditions.Location = new System.Drawing.Point(18, 149);
             this.lblConditions.Name = "lblConditions";
             this.lblConditions.Size = new System.Drawing.Size(72, 16);
-            this.lblConditions.TabIndex = 33;
+            this.lblConditions.TabIndex = 8;
             this.lblConditions.Text = "Conditions:";
             // 
             // btnUpdateCondition
@@ -156,7 +156,7 @@
             this.btnUpdateCondition.Location = new System.Drawing.Point(480, 333);
             this.btnUpdateCondition.Name = "btnUpdateCondition";
             this.btnUpdateCondition.Size = new System.Drawing.Size(117, 24);
-            this.btnUpdateCondition.TabIndex = 34;
+            this.btnUpdateCondition.TabIndex = 15;
             this.btnUpdateCondition.Text = "Update Condition";
             this.btnUpdateCondition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateCondition.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -178,7 +178,7 @@
             this.btnDeleteFileFilter.Location = new System.Drawing.Point(615, 509);
             this.btnDeleteFileFilter.Name = "btnDeleteFileFilter";
             this.btnDeleteFileFilter.Size = new System.Drawing.Size(155, 44);
-            this.btnDeleteFileFilter.TabIndex = 36;
+            this.btnDeleteFileFilter.TabIndex = 7;
             this.btnDeleteFileFilter.Text = "Delete Selected";
             this.btnDeleteFileFilter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteFileFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -200,7 +200,7 @@
             this.btnUpdateFileFilter.Location = new System.Drawing.Point(615, 459);
             this.btnUpdateFileFilter.Name = "btnUpdateFileFilter";
             this.btnUpdateFileFilter.Size = new System.Drawing.Size(155, 44);
-            this.btnUpdateFileFilter.TabIndex = 37;
+            this.btnUpdateFileFilter.TabIndex = 6;
             this.btnUpdateFileFilter.Text = "Update Selected";
             this.btnUpdateFileFilter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateFileFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -222,7 +222,7 @@
             this.btnInsertFileFilter.Location = new System.Drawing.Point(615, 407);
             this.btnInsertFileFilter.Name = "btnInsertFileFilter";
             this.btnInsertFileFilter.Size = new System.Drawing.Size(155, 44);
-            this.btnInsertFileFilter.TabIndex = 35;
+            this.btnInsertFileFilter.TabIndex = 5;
             this.btnInsertFileFilter.Text = "Add New Filter";
             this.btnInsertFileFilter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsertFileFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -238,7 +238,7 @@
             this.lblCondition.Location = new System.Drawing.Point(96, 306);
             this.lblCondition.Name = "lblCondition";
             this.lblCondition.Size = new System.Drawing.Size(65, 16);
-            this.lblCondition.TabIndex = 38;
+            this.lblCondition.TabIndex = 10;
             this.lblCondition.Text = "Condition:";
             // 
             // txtCondition
@@ -251,7 +251,7 @@
             this.txtCondition.Location = new System.Drawing.Point(167, 303);
             this.txtCondition.Name = "txtCondition";
             this.txtCondition.Size = new System.Drawing.Size(307, 22);
-            this.txtCondition.TabIndex = 39;
+            this.txtCondition.TabIndex = 11;
             // 
             // btnInsertCondition
             // 
@@ -267,7 +267,7 @@
             this.btnInsertCondition.Location = new System.Drawing.Point(480, 303);
             this.btnInsertCondition.Name = "btnInsertCondition";
             this.btnInsertCondition.Size = new System.Drawing.Size(117, 24);
-            this.btnInsertCondition.TabIndex = 43;
+            this.btnInsertCondition.TabIndex = 14;
             this.btnInsertCondition.Text = "Add Condition";
             this.btnInsertCondition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsertCondition.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -288,7 +288,7 @@
             this.btnDeleteCondition.Location = new System.Drawing.Point(480, 363);
             this.btnDeleteCondition.Name = "btnDeleteCondition";
             this.btnDeleteCondition.Size = new System.Drawing.Size(117, 24);
-            this.btnDeleteCondition.TabIndex = 44;
+            this.btnDeleteCondition.TabIndex = 16;
             this.btnDeleteCondition.Text = "Delete Condition";
             this.btnDeleteCondition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteCondition.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -310,7 +310,7 @@
             this.btnClearFields.Location = new System.Drawing.Point(615, 17);
             this.btnClearFields.Name = "btnClearFields";
             this.btnClearFields.Size = new System.Drawing.Size(155, 44);
-            this.btnClearFields.TabIndex = 46;
+            this.btnClearFields.TabIndex = 4;
             this.btnClearFields.Text = "Clear Fields";
             this.btnClearFields.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClearFields.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -329,7 +329,7 @@
             this.txtFilterNotes.Name = "txtFilterNotes";
             this.txtFilterNotes.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtFilterNotes.Size = new System.Drawing.Size(501, 98);
-            this.txtFilterNotes.TabIndex = 47;
+            this.txtFilterNotes.TabIndex = 3;
             this.txtFilterNotes.Text = "";
             // 
             // lblNotes
@@ -341,7 +341,7 @@
             this.lblNotes.Location = new System.Drawing.Point(12, 45);
             this.lblNotes.Name = "lblNotes";
             this.lblNotes.Size = new System.Drawing.Size(78, 16);
-            this.lblNotes.TabIndex = 48;
+            this.lblNotes.TabIndex = 2;
             this.lblNotes.Text = "Filter Notes:";
             // 
             // lblType
@@ -353,7 +353,7 @@
             this.lblType.Location = new System.Drawing.Point(123, 334);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(38, 16);
-            this.lblType.TabIndex = 49;
+            this.lblType.TabIndex = 12;
             this.lblType.Text = "Type:";
             // 
             // dgvFileFilterConditions
@@ -367,16 +367,16 @@
             this.dgvFileFilterConditions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.dgvFileFilterConditions.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFileFilterConditions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvFileFilterConditions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvFileFilterConditions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvFileFilterConditions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFileFilterConditions.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFileFilterConditions.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvFileFilterConditions.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvFileFilterConditions.GridColor = System.Drawing.Color.White;
             this.dgvFileFilterConditions.Location = new System.Drawing.Point(96, 149);
@@ -384,7 +384,7 @@
             this.dgvFileFilterConditions.Name = "dgvFileFilterConditions";
             this.dgvFileFilterConditions.ReadOnly = true;
             this.dgvFileFilterConditions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvFileFilterConditions.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            this.dgvFileFilterConditions.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvFileFilterConditions.RowHeadersVisible = false;
             this.dgvFileFilterConditions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvFileFilterConditions.RowTemplate.Height = 25;
@@ -392,7 +392,7 @@
             this.dgvFileFilterConditions.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvFileFilterConditions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFileFilterConditions.Size = new System.Drawing.Size(501, 146);
-            this.dgvFileFilterConditions.TabIndex = 50;
+            this.dgvFileFilterConditions.TabIndex = 9;
             this.dgvFileFilterConditions.SelectionChanged += new System.EventHandler(this.dgvFileFilterConditions_SelectionChanged);
             // 
             // cboConditionType
@@ -413,7 +413,7 @@
             this.cboConditionType.Name = "cboConditionType";
             this.cboConditionType.Size = new System.Drawing.Size(170, 24);
             this.cboConditionType.Sorted = true;
-            this.cboConditionType.TabIndex = 51;
+            this.cboConditionType.TabIndex = 13;
             // 
             // FileFilters
             // 

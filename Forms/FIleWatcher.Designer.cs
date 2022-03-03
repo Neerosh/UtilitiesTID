@@ -52,7 +52,7 @@
             this.lblWatcherFolder.Location = new System.Drawing.Point(38, 25);
             this.lblWatcherFolder.Name = "lblWatcherFolder";
             this.lblWatcherFolder.Size = new System.Drawing.Size(47, 16);
-            this.lblWatcherFolder.TabIndex = 14;
+            this.lblWatcherFolder.TabIndex = 0;
             this.lblWatcherFolder.Text = "Folder:";
             // 
             // txtWatcherFolder
@@ -65,7 +65,7 @@
             this.txtWatcherFolder.Location = new System.Drawing.Point(91, 22);
             this.txtWatcherFolder.Name = "txtWatcherFolder";
             this.txtWatcherFolder.Size = new System.Drawing.Size(468, 22);
-            this.txtWatcherFolder.TabIndex = 15;
+            this.txtWatcherFolder.TabIndex = 1;
             // 
             // btnFolderBrowser
             // 
@@ -80,7 +80,7 @@
             this.btnFolderBrowser.Location = new System.Drawing.Point(565, 21);
             this.btnFolderBrowser.Name = "btnFolderBrowser";
             this.btnFolderBrowser.Size = new System.Drawing.Size(30, 25);
-            this.btnFolderBrowser.TabIndex = 16;
+            this.btnFolderBrowser.TabIndex = 2;
             this.btnFolderBrowser.Text = "...";
             this.btnFolderBrowser.UseVisualStyleBackColor = false;
             this.btnFolderBrowser.Click += new System.EventHandler(this.BtnFolderBrowser_Click);
@@ -100,7 +100,7 @@
             this.BtnWatcher.Location = new System.Drawing.Point(611, 21);
             this.BtnWatcher.Name = "BtnWatcher";
             this.BtnWatcher.Size = new System.Drawing.Size(158, 44);
-            this.BtnWatcher.TabIndex = 17;
+            this.BtnWatcher.TabIndex = 6;
             this.BtnWatcher.Text = "Start File Watcher";
             this.BtnWatcher.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnWatcher.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -144,7 +144,7 @@
             this.dgvWatchHistory.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvWatchHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvWatchHistory.Size = new System.Drawing.Size(749, 399);
-            this.dgvWatchHistory.TabIndex = 18;
+            this.dgvWatchHistory.TabIndex = 8;
             // 
             // chkSubdirectories
             // 
@@ -155,7 +155,7 @@
             this.chkSubdirectories.Location = new System.Drawing.Point(367, 58);
             this.chkSubdirectories.Name = "chkSubdirectories";
             this.chkSubdirectories.Size = new System.Drawing.Size(154, 20);
-            this.chkSubdirectories.TabIndex = 19;
+            this.chkSubdirectories.TabIndex = 5;
             this.chkSubdirectories.Text = "Include Subdirectories";
             this.chkSubdirectories.UseVisualStyleBackColor = true;
             // 
@@ -170,7 +170,7 @@
             this.lblFileFilter.Location = new System.Drawing.Point(20, 59);
             this.lblFileFilter.Name = "lblFileFilter";
             this.lblFileFilter.Size = new System.Drawing.Size(65, 16);
-            this.lblFileFilter.TabIndex = 20;
+            this.lblFileFilter.TabIndex = 3;
             this.lblFileFilter.Text = "File Filter:\r\n";
             // 
             // cboFileFilter
@@ -191,7 +191,7 @@
             this.cboFileFilter.Location = new System.Drawing.Point(91, 56);
             this.cboFileFilter.Name = "cboFileFilter";
             this.cboFileFilter.Size = new System.Drawing.Size(261, 24);
-            this.cboFileFilter.TabIndex = 21;
+            this.cboFileFilter.TabIndex = 4;
             // 
             // lblFileWatcherStatus
             // 
@@ -202,7 +202,7 @@
             this.lblFileWatcherStatus.Location = new System.Drawing.Point(631, 78);
             this.lblFileWatcherStatus.Name = "lblFileWatcherStatus";
             this.lblFileWatcherStatus.Size = new System.Drawing.Size(119, 16);
-            this.lblFileWatcherStatus.TabIndex = 29;
+            this.lblFileWatcherStatus.TabIndex = 100;
             this.lblFileWatcherStatus.Text = "Watcher Running...";
             this.lblFileWatcherStatus.Visible = false;
             // 
@@ -217,7 +217,7 @@
             this.lblHistory.Location = new System.Drawing.Point(20, 126);
             this.lblHistory.Name = "lblHistory";
             this.lblHistory.Size = new System.Drawing.Size(105, 16);
-            this.lblHistory.TabIndex = 31;
+            this.lblHistory.TabIndex = 7;
             this.lblHistory.Text = "Watcher History:";
             // 
             // FileWatcher

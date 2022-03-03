@@ -78,7 +78,7 @@
             this.dgvProcess.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProcess.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProcess.Size = new System.Drawing.Size(576, 444);
-            this.dgvProcess.TabIndex = 1;
+            this.dgvProcess.TabIndex = 7;
             // 
             // btnListProcesses
             // 
@@ -95,7 +95,7 @@
             this.btnListProcesses.Location = new System.Drawing.Point(606, 105);
             this.btnListProcesses.Name = "btnListProcesses";
             this.btnListProcesses.Size = new System.Drawing.Size(155, 44);
-            this.btnListProcesses.TabIndex = 9;
+            this.btnListProcesses.TabIndex = 5;
             this.btnListProcesses.Text = "List All Processes";
             this.btnListProcesses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnListProcesses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -113,7 +113,7 @@
             this.lblFromMoveFiles.Location = new System.Drawing.Point(24, 35);
             this.lblFromMoveFiles.Name = "lblFromMoveFiles";
             this.lblFromMoveFiles.Size = new System.Drawing.Size(78, 16);
-            this.lblFromMoveFiles.TabIndex = 14;
+            this.lblFromMoveFiles.TabIndex = 0;
             this.lblFromMoveFiles.Text = "Locked File:";
             // 
             // txtLockedFilePath
@@ -126,7 +126,7 @@
             this.txtLockedFilePath.Location = new System.Drawing.Point(108, 32);
             this.txtLockedFilePath.Name = "txtLockedFilePath";
             this.txtLockedFilePath.Size = new System.Drawing.Size(456, 22);
-            this.txtLockedFilePath.TabIndex = 15;
+            this.txtLockedFilePath.TabIndex = 1;
             // 
             // btnLockedFileBrowser
             // 
@@ -141,7 +141,7 @@
             this.btnLockedFileBrowser.Location = new System.Drawing.Point(570, 31);
             this.btnLockedFileBrowser.Name = "btnLockedFileBrowser";
             this.btnLockedFileBrowser.Size = new System.Drawing.Size(30, 25);
-            this.btnLockedFileBrowser.TabIndex = 16;
+            this.btnLockedFileBrowser.TabIndex = 2;
             this.btnLockedFileBrowser.Text = "...";
             this.btnLockedFileBrowser.UseVisualStyleBackColor = false;
             this.btnLockedFileBrowser.Click += new System.EventHandler(this.btnLockedFileBrowser_Click);
@@ -161,7 +161,7 @@
             this.BtnCheckLockedFile.Location = new System.Drawing.Point(606, 21);
             this.BtnCheckLockedFile.Name = "BtnCheckLockedFile";
             this.BtnCheckLockedFile.Size = new System.Drawing.Size(155, 44);
-            this.BtnCheckLockedFile.TabIndex = 17;
+            this.BtnCheckLockedFile.TabIndex = 4;
             this.BtnCheckLockedFile.Text = "Check Locked File";
             this.BtnCheckLockedFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCheckLockedFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -177,7 +177,7 @@
             this.chkShowUnknownUsers.Location = new System.Drawing.Point(108, 60);
             this.chkShowUnknownUsers.Name = "chkShowUnknownUsers";
             this.chkShowUnknownUsers.Size = new System.Drawing.Size(250, 20);
-            this.chkShowUnknownUsers.TabIndex = 18;
+            this.chkShowUnknownUsers.TabIndex = 3;
             this.chkShowUnknownUsers.Text = "Show Processes With Unknown Users";
             this.chkShowUnknownUsers.UseVisualStyleBackColor = true;
             // 
@@ -196,7 +196,7 @@
             this.btnEndSelectedProcess.Location = new System.Drawing.Point(606, 505);
             this.btnEndSelectedProcess.Name = "btnEndSelectedProcess";
             this.btnEndSelectedProcess.Size = new System.Drawing.Size(155, 44);
-            this.btnEndSelectedProcess.TabIndex = 19;
+            this.btnEndSelectedProcess.TabIndex = 6;
             this.btnEndSelectedProcess.Text = "End Selected Process";
             this.btnEndSelectedProcess.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEndSelectedProcess.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

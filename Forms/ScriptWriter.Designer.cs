@@ -57,7 +57,7 @@ namespace Utilities.Forms {
             this.btnScriptRegular.Location = new System.Drawing.Point(634, 24);
             this.btnScriptRegular.Name = "btnScriptRegular";
             this.btnScriptRegular.Size = new System.Drawing.Size(136, 44);
-            this.btnScriptRegular.TabIndex = 17;
+            this.btnScriptRegular.TabIndex = 11;
             this.btnScriptRegular.Text = "Generate Regular Script\r\n";
             this.btnScriptRegular.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnScriptRegular.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -75,7 +75,7 @@ namespace Utilities.Forms {
             this.txtProcedureName.MaxLength = 20;
             this.txtProcedureName.Name = "txtProcedureName";
             this.txtProcedureName.Size = new System.Drawing.Size(200, 22);
-            this.txtProcedureName.TabIndex = 16;
+            this.txtProcedureName.TabIndex = 9;
             // 
             // lblProcedureName
             // 
@@ -86,7 +86,7 @@ namespace Utilities.Forms {
             this.lblProcedureName.Location = new System.Drawing.Point(25, 124);
             this.lblProcedureName.Name = "lblProcedureName";
             this.lblProcedureName.Size = new System.Drawing.Size(80, 16);
-            this.lblProcedureName.TabIndex = 15;
+            this.lblProcedureName.TabIndex = 8;
             this.lblProcedureName.Text = "Proc. Name:";
             // 
             // txtScriptName
@@ -98,7 +98,7 @@ namespace Utilities.Forms {
             this.txtScriptName.MaxLength = 20;
             this.txtScriptName.Name = "txtScriptName";
             this.txtScriptName.Size = new System.Drawing.Size(200, 22);
-            this.txtScriptName.TabIndex = 14;
+            this.txtScriptName.TabIndex = 7;
             // 
             // lblScriptName
             // 
@@ -109,7 +109,7 @@ namespace Utilities.Forms {
             this.lblScriptName.Location = new System.Drawing.Point(22, 92);
             this.lblScriptName.Name = "lblScriptName";
             this.lblScriptName.Size = new System.Drawing.Size(83, 16);
-            this.lblScriptName.TabIndex = 13;
+            this.lblScriptName.TabIndex = 6;
             this.lblScriptName.Text = "Script Name:";
             // 
             // btnScriptFolderBrowser
@@ -125,7 +125,7 @@ namespace Utilities.Forms {
             this.btnScriptFolderBrowser.Location = new System.Drawing.Point(589, 56);
             this.btnScriptFolderBrowser.Name = "btnScriptFolderBrowser";
             this.btnScriptFolderBrowser.Size = new System.Drawing.Size(30, 25);
-            this.btnScriptFolderBrowser.TabIndex = 12;
+            this.btnScriptFolderBrowser.TabIndex = 5;
             this.btnScriptFolderBrowser.Text = "...";
             this.btnScriptFolderBrowser.UseVisualStyleBackColor = false;
             this.btnScriptFolderBrowser.Click += new System.EventHandler(this.BtnPathScriptBrowser_Click);
@@ -143,7 +143,7 @@ namespace Utilities.Forms {
             this.btnFolderSQLBrowser.Location = new System.Drawing.Point(589, 24);
             this.btnFolderSQLBrowser.Name = "btnFolderSQLBrowser";
             this.btnFolderSQLBrowser.Size = new System.Drawing.Size(30, 25);
-            this.btnFolderSQLBrowser.TabIndex = 11;
+            this.btnFolderSQLBrowser.TabIndex = 2;
             this.btnFolderSQLBrowser.Text = "...";
             this.btnFolderSQLBrowser.UseVisualStyleBackColor = false;
             this.btnFolderSQLBrowser.Click += new System.EventHandler(this.BtnPathFolderSQLBrowser_Click);
@@ -157,7 +157,7 @@ namespace Utilities.Forms {
             this.lblScriptFolder.Location = new System.Drawing.Point(20, 60);
             this.lblScriptFolder.Name = "lblScriptFolder";
             this.lblScriptFolder.Size = new System.Drawing.Size(85, 16);
-            this.lblScriptFolder.TabIndex = 9;
+            this.lblScriptFolder.TabIndex = 3;
             this.lblScriptFolder.Text = "Script Folder:";
             // 
             // txtScriptFolder
@@ -170,7 +170,7 @@ namespace Utilities.Forms {
             this.txtScriptFolder.Location = new System.Drawing.Point(111, 57);
             this.txtScriptFolder.Name = "txtScriptFolder";
             this.txtScriptFolder.Size = new System.Drawing.Size(472, 22);
-            this.txtScriptFolder.TabIndex = 10;
+            this.txtScriptFolder.TabIndex = 4;
             // 
             // lblSQLFolder
             // 
@@ -181,7 +181,7 @@ namespace Utilities.Forms {
             this.lblSQLFolder.Location = new System.Drawing.Point(28, 28);
             this.lblSQLFolder.Name = "lblSQLFolder";
             this.lblSQLFolder.Size = new System.Drawing.Size(77, 16);
-            this.lblSQLFolder.TabIndex = 7;
+            this.lblSQLFolder.TabIndex = 0;
             this.lblSQLFolder.Text = "SQL Folder:";
             // 
             // txtFolderSQL
@@ -194,7 +194,7 @@ namespace Utilities.Forms {
             this.txtFolderSQL.Location = new System.Drawing.Point(111, 25);
             this.txtFolderSQL.Name = "txtFolderSQL";
             this.txtFolderSQL.Size = new System.Drawing.Size(472, 22);
-            this.txtFolderSQL.TabIndex = 8;
+            this.txtFolderSQL.TabIndex = 1;
             // 
             // btnScriptUnified
             // 
@@ -211,7 +211,7 @@ namespace Utilities.Forms {
             this.btnScriptUnified.Location = new System.Drawing.Point(634, 74);
             this.btnScriptUnified.Name = "btnScriptUnified";
             this.btnScriptUnified.Size = new System.Drawing.Size(136, 44);
-            this.btnScriptUnified.TabIndex = 6;
+            this.btnScriptUnified.TabIndex = 12;
             this.btnScriptUnified.Text = "Generate Unified Script\r\n";
             this.btnScriptUnified.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnScriptUnified.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -233,7 +233,7 @@ namespace Utilities.Forms {
             this.button1.Location = new System.Drawing.Point(620, 124);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 44);
-            this.button1.TabIndex = 18;
+            this.button1.TabIndex = 13;
             this.button1.Text = "Generate Unified Script test\r\n";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -255,7 +255,8 @@ namespace Utilities.Forms {
             this.txtFunctionality.ReadOnly = true;
             this.txtFunctionality.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtFunctionality.Size = new System.Drawing.Size(750, 109);
-            this.txtFunctionality.TabIndex = 19;
+            this.txtFunctionality.TabIndex = 10;
+            this.txtFunctionality.TabStop = false;
             this.txtFunctionality.Text = "";
             // 
             // button2
@@ -273,7 +274,7 @@ namespace Utilities.Forms {
             this.button2.Location = new System.Drawing.Point(620, 289);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(150, 44);
-            this.button2.TabIndex = 20;
+            this.button2.TabIndex = 14;
             this.button2.Text = "Test Unified Procedure";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

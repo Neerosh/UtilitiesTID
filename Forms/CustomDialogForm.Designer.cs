@@ -108,7 +108,7 @@
             this.btnClose.Location = new System.Drawing.Point(424, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(26, 23);
-            this.btnClose.TabIndex = 0;
+            this.btnClose.TabIndex = 4;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -126,7 +126,7 @@
             this.rtbMessage.Name = "rtbMessage";
             this.rtbMessage.ReadOnly = true;
             this.rtbMessage.Size = new System.Drawing.Size(360, 61);
-            this.rtbMessage.TabIndex = 2;
+            this.rtbMessage.TabIndex = 3;
             this.rtbMessage.Text = "";
             // 
             // btnOk
@@ -142,7 +142,7 @@
             this.btnOk.Location = new System.Drawing.Point(180, 2);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(91, 30);
-            this.btnOk.TabIndex = 3;
+            this.btnOk.TabIndex = 1;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -169,7 +169,7 @@
             this.panelConfirmation.Location = new System.Drawing.Point(0, 127);
             this.panelConfirmation.Name = "panelConfirmation";
             this.panelConfirmation.Size = new System.Drawing.Size(450, 0);
-            this.panelConfirmation.TabIndex = 5;
+            this.panelConfirmation.TabIndex = 1;
             // 
             // btnYes
             // 
@@ -184,7 +184,7 @@
             this.btnYes.Location = new System.Drawing.Point(102, 2);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(91, 30);
-            this.btnYes.TabIndex = 4;
+            this.btnYes.TabIndex = 1;
             this.btnYes.Text = "Yes";
             this.btnYes.UseVisualStyleBackColor = false;
             this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
@@ -202,7 +202,7 @@
             this.btnNo.Location = new System.Drawing.Point(258, 2);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(91, 30);
-            this.btnNo.TabIndex = 5;
+            this.btnNo.TabIndex = 2;
             this.btnNo.Text = "No";
             this.btnNo.UseVisualStyleBackColor = false;
             this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
@@ -214,7 +214,7 @@
             this.panelOk.Location = new System.Drawing.Point(0, 127);
             this.panelOk.Name = "panelOk";
             this.panelOk.Size = new System.Drawing.Size(450, 0);
-            this.panelOk.TabIndex = 4;
+            this.panelOk.TabIndex = 2;
             // 
             // CustomDialogForm
             // 

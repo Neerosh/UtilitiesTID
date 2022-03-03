@@ -37,8 +37,8 @@ namespace Teste
             this.panelSubMenuFiles = new System.Windows.Forms.Panel();
             this.btnFileFilters = new System.Windows.Forms.Button();
             this.btnFileManagement = new System.Windows.Forms.Button();
-            this.btnFileChecksum = new System.Windows.Forms.Button();
             this.btnFileWatcher = new System.Windows.Forms.Button();
+            this.btnFileChecksum = new System.Windows.Forms.Button();
             this.btnFiles = new System.Windows.Forms.Button();
             this.panelSubMenuCodes = new System.Windows.Forms.Panel();
             this.btnCodesManage = new System.Windows.Forms.Button();
@@ -80,7 +80,7 @@ namespace Teste
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(206, 611);
-            this.panelSideMenu.TabIndex = 6;
+            this.panelSideMenu.TabIndex = 19;
             this.panelSideMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
             // btnHelp
@@ -98,7 +98,7 @@ namespace Teste
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnHelp.Size = new System.Drawing.Size(206, 40);
-            this.btnHelp.TabIndex = 6;
+            this.btnHelp.TabIndex = 12;
             this.btnHelp.Text = "Help";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -120,7 +120,7 @@ namespace Teste
             this.btnScriptWriter.Name = "btnScriptWriter";
             this.btnScriptWriter.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnScriptWriter.Size = new System.Drawing.Size(206, 40);
-            this.btnScriptWriter.TabIndex = 4;
+            this.btnScriptWriter.TabIndex = 11;
             this.btnScriptWriter.Text = "Script Writer";
             this.btnScriptWriter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnScriptWriter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -176,7 +176,7 @@ namespace Teste
             this.btnFileFilters.Name = "btnFileFilters";
             this.btnFileFilters.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnFileFilters.Size = new System.Drawing.Size(206, 40);
-            this.btnFileFilters.TabIndex = 1;
+            this.btnFileFilters.TabIndex = 9;
             this.btnFileFilters.Text = "Manage Filters";
             this.btnFileFilters.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFileFilters.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -199,34 +199,12 @@ namespace Teste
             this.btnFileManagement.Name = "btnFileManagement";
             this.btnFileManagement.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnFileManagement.Size = new System.Drawing.Size(206, 40);
-            this.btnFileManagement.TabIndex = 1;
+            this.btnFileManagement.TabIndex = 8;
             this.btnFileManagement.Text = "Manage Files";
             this.btnFileManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFileManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFileManagement.UseVisualStyleBackColor = false;
             this.btnFileManagement.Click += new System.EventHandler(this.BtnFileManagement_Click);
-            // 
-            // btnFileChecksum
-            // 
-            this.btnFileChecksum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnFileChecksum.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnFileChecksum.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFileChecksum.FlatAppearance.BorderSize = 0;
-            this.btnFileChecksum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFileChecksum.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnFileChecksum.ForeColor = System.Drawing.Color.White;
-            this.btnFileChecksum.Image = global::Utilities.Properties.Resources.icons8_check_file_32;
-            this.btnFileChecksum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileChecksum.Location = new System.Drawing.Point(0, 0);
-            this.btnFileChecksum.Name = "btnFileChecksum";
-            this.btnFileChecksum.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnFileChecksum.Size = new System.Drawing.Size(206, 40);
-            this.btnFileChecksum.TabIndex = 11;
-            this.btnFileChecksum.Text = "Checksum";
-            this.btnFileChecksum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileChecksum.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFileChecksum.UseVisualStyleBackColor = false;
-            this.btnFileChecksum.Click += new System.EventHandler(this.BtnFileChecksum_Click);
             // 
             // btnFileWatcher
             // 
@@ -243,12 +221,34 @@ namespace Teste
             this.btnFileWatcher.Name = "btnFileWatcher";
             this.btnFileWatcher.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnFileWatcher.Size = new System.Drawing.Size(206, 40);
-            this.btnFileWatcher.TabIndex = 12;
+            this.btnFileWatcher.TabIndex = 7;
             this.btnFileWatcher.Text = "Watcher";
             this.btnFileWatcher.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFileWatcher.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFileWatcher.UseVisualStyleBackColor = false;
             this.btnFileWatcher.Click += new System.EventHandler(this.btnFileWatcher_Click);
+            // 
+            // btnFileChecksum
+            // 
+            this.btnFileChecksum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnFileChecksum.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnFileChecksum.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFileChecksum.FlatAppearance.BorderSize = 0;
+            this.btnFileChecksum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFileChecksum.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnFileChecksum.ForeColor = System.Drawing.Color.White;
+            this.btnFileChecksum.Image = global::Utilities.Properties.Resources.icons8_check_file_32;
+            this.btnFileChecksum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileChecksum.Location = new System.Drawing.Point(0, 0);
+            this.btnFileChecksum.Name = "btnFileChecksum";
+            this.btnFileChecksum.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnFileChecksum.Size = new System.Drawing.Size(206, 40);
+            this.btnFileChecksum.TabIndex = 6;
+            this.btnFileChecksum.Text = "Checksum";
+            this.btnFileChecksum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileChecksum.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileChecksum.UseVisualStyleBackColor = false;
+            this.btnFileChecksum.Click += new System.EventHandler(this.BtnFileChecksum_Click);
             // 
             // btnFiles
             // 
@@ -265,7 +265,7 @@ namespace Teste
             this.btnFiles.Name = "btnFiles";
             this.btnFiles.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnFiles.Size = new System.Drawing.Size(206, 40);
-            this.btnFiles.TabIndex = 13;
+            this.btnFiles.TabIndex = 5;
             this.btnFiles.Text = "Files";
             this.btnFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFiles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -297,7 +297,7 @@ namespace Teste
             this.btnCodesManage.Name = "btnCodesManage";
             this.btnCodesManage.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnCodesManage.Size = new System.Drawing.Size(206, 40);
-            this.btnCodesManage.TabIndex = 1;
+            this.btnCodesManage.TabIndex = 4;
             this.btnCodesManage.Text = "Manage Codes";
             this.btnCodesManage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCodesManage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -319,7 +319,7 @@ namespace Teste
             this.btnCodeToClipboard.Name = "btnCodeToClipboard";
             this.btnCodeToClipboard.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnCodeToClipboard.Size = new System.Drawing.Size(206, 40);
-            this.btnCodeToClipboard.TabIndex = 2;
+            this.btnCodeToClipboard.TabIndex = 3;
             this.btnCodeToClipboard.Text = "Copy To Clipboard";
             this.btnCodeToClipboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCodeToClipboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -341,7 +341,7 @@ namespace Teste
             this.btnCodes.Name = "btnCodes";
             this.btnCodes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnCodes.Size = new System.Drawing.Size(206, 40);
-            this.btnCodes.TabIndex = 12;
+            this.btnCodes.TabIndex = 2;
             this.btnCodes.Text = "Codes";
             this.btnCodes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCodes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -363,7 +363,7 @@ namespace Teste
             this.btnConvertClarion.Name = "btnConvertClarion";
             this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnConvertClarion.Size = new System.Drawing.Size(206, 40);
-            this.btnConvertClarion.TabIndex = 5;
+            this.btnConvertClarion.TabIndex = 1;
             this.btnConvertClarion.Text = "Clarion Conversion";
             this.btnConvertClarion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConvertClarion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -385,7 +385,7 @@ namespace Teste
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnMenu.Size = new System.Drawing.Size(206, 40);
-            this.btnMenu.TabIndex = 8;
+            this.btnMenu.TabIndex = 0;
             this.btnMenu.Text = "Menu";
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -400,7 +400,7 @@ namespace Teste
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(206, 64);
-            this.panel1.TabIndex = 9;
+            this.panel1.TabIndex = 20;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
             // picLogo
@@ -423,7 +423,7 @@ namespace Teste
             this.lblNameLogo.Location = new System.Drawing.Point(63, 18);
             this.lblNameLogo.Name = "lblNameLogo";
             this.lblNameLogo.Size = new System.Drawing.Size(128, 26);
-            this.lblNameLogo.TabIndex = 1;
+            this.lblNameLogo.TabIndex = 16;
             this.lblNameLogo.Text = "Utilities TID";
             this.lblNameLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblNameLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
@@ -437,7 +437,7 @@ namespace Teste
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Padding = new System.Windows.Forms.Padding(2);
             this.panelChildForm.Size = new System.Drawing.Size(798, 585);
-            this.panelChildForm.TabIndex = 8;
+            this.panelChildForm.TabIndex = 18;
             // 
             // panelBar
             // 
@@ -449,7 +449,7 @@ namespace Teste
             this.panelBar.Location = new System.Drawing.Point(206, 0);
             this.panelBar.Name = "panelBar";
             this.panelBar.Size = new System.Drawing.Size(798, 26);
-            this.panelBar.TabIndex = 9;
+            this.panelBar.TabIndex = 17;
             this.panelBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
             // btnMinimize
@@ -463,7 +463,7 @@ namespace Teste
             this.btnMinimize.Location = new System.Drawing.Point(714, 0);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(28, 26);
-            this.btnMinimize.TabIndex = 6;
+            this.btnMinimize.TabIndex = 13;
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
@@ -478,7 +478,7 @@ namespace Teste
             this.btnMaximize.Location = new System.Drawing.Point(742, 0);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(28, 26);
-            this.btnMaximize.TabIndex = 5;
+            this.btnMaximize.TabIndex = 14;
             this.btnMaximize.UseVisualStyleBackColor = false;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
             // 
@@ -493,7 +493,7 @@ namespace Teste
             this.btnClose.Location = new System.Drawing.Point(770, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(28, 26);
-            this.btnClose.TabIndex = 4;
+            this.btnClose.TabIndex = 15;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 

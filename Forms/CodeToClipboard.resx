@@ -82,7 +82,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cboCodeType.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;cboCodeType.Name" xml:space="preserve">
     <value>cboCodeType</value>
@@ -112,7 +112,7 @@
     <value>38, 16</value>
   </data>
   <data name="lblCodeType.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>2</value>
   </data>
   <data name="lblCodeType.Text" xml:space="preserve">
     <value>Type:</value>
@@ -214,7 +214,7 @@
     <value>161, 44</value>
   </data>
   <data name="btnCopyClipboard.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="btnCopyClipboard.Text" xml:space="preserve">
     <value>Copy to Clipboard</value>
@@ -253,7 +253,7 @@
     <value>750, 486</value>
   </data>
   <data name="txtCodePreview.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="txtCodePreview.Text" xml:space="preserve">
     <value />

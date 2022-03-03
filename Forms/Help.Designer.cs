@@ -43,7 +43,7 @@ namespace Utilities {
             this.txtFunctionality.ReadOnly = true;
             this.txtFunctionality.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtFunctionality.Size = new System.Drawing.Size(370, 499);
-            this.txtFunctionality.TabIndex = 7;
+            this.txtFunctionality.TabIndex = 0;
             this.txtFunctionality.Text = "";
             // 
             // txtSqlServerInstall
@@ -60,7 +60,7 @@ namespace Utilities {
             this.txtSqlServerInstall.ReadOnly = true;
             this.txtSqlServerInstall.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtSqlServerInstall.Size = new System.Drawing.Size(370, 499);
-            this.txtSqlServerInstall.TabIndex = 8;
+            this.txtSqlServerInstall.TabIndex = 1;
             this.txtSqlServerInstall.Text = "";
             this.txtSqlServerInstall.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.txtSqlServerInstall_LinkClicked);
             // 
@@ -74,7 +74,7 @@ namespace Utilities {
             this.linkCreator.Location = new System.Drawing.Point(20, 535);
             this.linkCreator.Name = "linkCreator";
             this.linkCreator.Size = new System.Drawing.Size(117, 15);
-            this.linkCreator.TabIndex = 9;
+            this.linkCreator.TabIndex = 2;
             this.linkCreator.TabStop = true;
             this.linkCreator.Text = "Created by Nerrosh";
             this.linkCreator.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(157)))), ((int)(((byte)(0)))));

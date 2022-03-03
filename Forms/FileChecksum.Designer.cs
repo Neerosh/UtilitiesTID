@@ -49,7 +49,7 @@
             this.lblChecksumFile.Location = new System.Drawing.Point(80, 25);
             this.lblChecksumFile.Name = "lblChecksumFile";
             this.lblChecksumFile.Size = new System.Drawing.Size(32, 16);
-            this.lblChecksumFile.TabIndex = 14;
+            this.lblChecksumFile.TabIndex = 0;
             this.lblChecksumFile.Text = "File:";
             // 
             // txtChecksumFile
@@ -62,7 +62,7 @@
             this.txtChecksumFile.Location = new System.Drawing.Point(118, 22);
             this.txtChecksumFile.Name = "txtChecksumFile";
             this.txtChecksumFile.Size = new System.Drawing.Size(451, 22);
-            this.txtChecksumFile.TabIndex = 15;
+            this.txtChecksumFile.TabIndex = 1;
             // 
             // btnChecksumFileBrowser
             // 
@@ -77,7 +77,7 @@
             this.btnChecksumFileBrowser.Location = new System.Drawing.Point(575, 21);
             this.btnChecksumFileBrowser.Name = "btnChecksumFileBrowser";
             this.btnChecksumFileBrowser.Size = new System.Drawing.Size(30, 25);
-            this.btnChecksumFileBrowser.TabIndex = 16;
+            this.btnChecksumFileBrowser.TabIndex = 2;
             this.btnChecksumFileBrowser.Text = "...";
             this.btnChecksumFileBrowser.UseVisualStyleBackColor = false;
             this.btnChecksumFileBrowser.Click += new System.EventHandler(this.btnChecksumFileBrowser_Click);
@@ -97,7 +97,7 @@
             this.BtnChecksum.Location = new System.Drawing.Point(625, 21);
             this.BtnChecksum.Name = "BtnChecksum";
             this.BtnChecksum.Size = new System.Drawing.Size(142, 44);
-            this.BtnChecksum.TabIndex = 19;
+            this.BtnChecksum.TabIndex = 9;
             this.BtnChecksum.Text = "Generate File Hash";
             this.BtnChecksum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnChecksum.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -115,7 +115,7 @@
             this.lblChecksumAlgorithm.Location = new System.Drawing.Point(46, 55);
             this.lblChecksumAlgorithm.Name = "lblChecksumAlgorithm";
             this.lblChecksumAlgorithm.Size = new System.Drawing.Size(66, 16);
-            this.lblChecksumAlgorithm.TabIndex = 17;
+            this.lblChecksumAlgorithm.TabIndex = 3;
             this.lblChecksumAlgorithm.Text = "Algorithm:";
             // 
             // cboChecksumAlgorithm
@@ -135,7 +135,7 @@
             this.cboChecksumAlgorithm.Location = new System.Drawing.Point(118, 52);
             this.cboChecksumAlgorithm.Name = "cboChecksumAlgorithm";
             this.cboChecksumAlgorithm.Size = new System.Drawing.Size(113, 24);
-            this.cboChecksumAlgorithm.TabIndex = 18;
+            this.cboChecksumAlgorithm.TabIndex = 4;
             // 
             // lblChecksumFileHash
             // 
@@ -148,7 +148,7 @@
             this.lblChecksumFileHash.Location = new System.Drawing.Point(46, 90);
             this.lblChecksumFileHash.Name = "lblChecksumFileHash";
             this.lblChecksumFileHash.Size = new System.Drawing.Size(66, 16);
-            this.lblChecksumFileHash.TabIndex = 20;
+            this.lblChecksumFileHash.TabIndex = 5;
             this.lblChecksumFileHash.Text = "File Hash:";
             // 
             // txtChecksumFileHash
@@ -165,7 +165,7 @@
             this.txtChecksumFileHash.ReadOnly = true;
             this.txtChecksumFileHash.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtChecksumFileHash.Size = new System.Drawing.Size(487, 50);
-            this.txtChecksumFileHash.TabIndex = 21;
+            this.txtChecksumFileHash.TabIndex = 6;
             this.txtChecksumFileHash.Text = "";
             // 
             // label1
@@ -179,7 +179,7 @@
             this.label1.Location = new System.Drawing.Point(12, 152);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 16);
-            this.label1.TabIndex = 22;
+            this.label1.TabIndex = 7;
             this.label1.Text = "Expected Hash:";
             // 
             // txtChecksumExpectedHash
@@ -195,7 +195,7 @@
             this.txtChecksumExpectedHash.Name = "txtChecksumExpectedHash";
             this.txtChecksumExpectedHash.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtChecksumExpectedHash.Size = new System.Drawing.Size(487, 50);
-            this.txtChecksumExpectedHash.TabIndex = 23;
+            this.txtChecksumExpectedHash.TabIndex = 8;
             this.txtChecksumExpectedHash.Text = "";
             // 
             // lblFileHashProgress
@@ -204,10 +204,10 @@
             this.lblFileHashProgress.AutoSize = true;
             this.lblFileHashProgress.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFileHashProgress.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblFileHashProgress.Location = new System.Drawing.Point(464, 60);
+            this.lblFileHashProgress.Location = new System.Drawing.Point(626, 77);
             this.lblFileHashProgress.Name = "lblFileHashProgress";
             this.lblFileHashProgress.Size = new System.Drawing.Size(141, 16);
-            this.lblFileHashProgress.TabIndex = 28;
+            this.lblFileHashProgress.TabIndex = 10;
             this.lblFileHashProgress.Text = "Generating File Hash...";
             this.lblFileHashProgress.Visible = false;
             // 

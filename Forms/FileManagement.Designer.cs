@@ -190,7 +190,7 @@
             this.lblFileFilter.Location = new System.Drawing.Point(36, 126);
             this.lblFileFilter.Name = "lblFileFilter";
             this.lblFileFilter.Size = new System.Drawing.Size(65, 16);
-            this.lblFileFilter.TabIndex = 9;
+            this.lblFileFilter.TabIndex = 10;
             this.lblFileFilter.Text = "File Filter:\r\n";
             // 
             // cboFileFilter
@@ -211,7 +211,7 @@
             this.cboFileFilter.Location = new System.Drawing.Point(105, 121);
             this.cboFileFilter.Name = "cboFileFilter";
             this.cboFileFilter.Size = new System.Drawing.Size(261, 24);
-            this.cboFileFilter.TabIndex = 10;
+            this.cboFileFilter.TabIndex = 11;
             // 
             // chkSubdirectories
             // 
@@ -222,7 +222,7 @@
             this.chkSubdirectories.Location = new System.Drawing.Point(385, 88);
             this.chkSubdirectories.Name = "chkSubdirectories";
             this.chkSubdirectories.Size = new System.Drawing.Size(154, 20);
-            this.chkSubdirectories.TabIndex = 11;
+            this.chkSubdirectories.TabIndex = 9;
             this.chkSubdirectories.Text = "Include Subdirectories";
             this.chkSubdirectories.UseVisualStyleBackColor = true;
             // 
@@ -241,7 +241,7 @@
             this.btnCopyFiles.Location = new System.Drawing.Point(628, 71);
             this.btnCopyFiles.Name = "btnCopyFiles";
             this.btnCopyFiles.Size = new System.Drawing.Size(142, 44);
-            this.btnCopyFiles.TabIndex = 14;
+            this.btnCopyFiles.TabIndex = 13;
             this.btnCopyFiles.Text = "Copy Files";
             this.btnCopyFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCopyFiles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -265,7 +265,7 @@
             this.btnDeleteDuplicate.Location = new System.Drawing.Point(628, 121);
             this.btnDeleteDuplicate.Name = "btnDeleteDuplicate";
             this.btnDeleteDuplicate.Size = new System.Drawing.Size(142, 44);
-            this.btnDeleteDuplicate.TabIndex = 12;
+            this.btnDeleteDuplicate.TabIndex = 14;
             this.btnDeleteDuplicate.Text = "Delete Duplicated Files";
             this.btnDeleteDuplicate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteDuplicate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -289,7 +289,7 @@
             this.BtnMoveFiles.Location = new System.Drawing.Point(628, 21);
             this.BtnMoveFiles.Name = "BtnMoveFiles";
             this.BtnMoveFiles.Size = new System.Drawing.Size(142, 44);
-            this.BtnMoveFiles.TabIndex = 13;
+            this.BtnMoveFiles.TabIndex = 12;
             this.BtnMoveFiles.Text = "Move Files";
             this.BtnMoveFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnMoveFiles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -306,7 +306,7 @@
             this.pgsFileManagement.Location = new System.Drawing.Point(20, 180);
             this.pgsFileManagement.Name = "pgsFileManagement";
             this.pgsFileManagement.Size = new System.Drawing.Size(690, 29);
-            this.pgsFileManagement.TabIndex = 7;
+            this.pgsFileManagement.TabIndex = 15;
             // 
             // lblProgressPercent
             // 
@@ -320,7 +320,7 @@
             this.lblProgressPercent.Location = new System.Drawing.Point(716, 186);
             this.lblProgressPercent.Name = "lblProgressPercent";
             this.lblProgressPercent.Size = new System.Drawing.Size(40, 16);
-            this.lblProgressPercent.TabIndex = 8;
+            this.lblProgressPercent.TabIndex = 16;
             this.lblProgressPercent.Text = "100%";
             // 
             // txtLogProcess
@@ -338,7 +338,8 @@
             this.txtLogProcess.ReadOnly = true;
             this.txtLogProcess.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtLogProcess.Size = new System.Drawing.Size(750, 334);
-            this.txtLogProcess.TabIndex = 16;
+            this.txtLogProcess.TabIndex = 17;
+            this.txtLogProcess.TabStop = false;
             this.txtLogProcess.Text = "";
             // 
             // FileManagement
