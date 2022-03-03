@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -261,6 +262,14 @@ namespace Teste
 
         private void Main_Resize(object sender, EventArgs e) {
             AdjustForm();
+        }
+
+        private void lblCreator_Click(object sender, EventArgs e) {
+            ProcessStartInfo psi = new ProcessStartInfo {
+                UseShellExecute = true,
+                FileName = "https://github.com/Neerosh"
+            };
+            Process.Start(psi);
         }
     }
 }

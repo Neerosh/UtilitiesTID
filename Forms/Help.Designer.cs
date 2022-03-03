@@ -27,7 +27,6 @@ namespace Utilities {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Help));
             this.txtFunctionality = new System.Windows.Forms.RichTextBox();
             this.txtSqlServerInstall = new System.Windows.Forms.RichTextBox();
-            this.linkCreator = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // txtFunctionality
@@ -42,7 +41,7 @@ namespace Utilities {
             this.txtFunctionality.Name = "txtFunctionality";
             this.txtFunctionality.ReadOnly = true;
             this.txtFunctionality.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtFunctionality.Size = new System.Drawing.Size(370, 499);
+            this.txtFunctionality.Size = new System.Drawing.Size(370, 519);
             this.txtFunctionality.TabIndex = 0;
             this.txtFunctionality.Text = "";
             // 
@@ -59,26 +58,10 @@ namespace Utilities {
             this.txtSqlServerInstall.Name = "txtSqlServerInstall";
             this.txtSqlServerInstall.ReadOnly = true;
             this.txtSqlServerInstall.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtSqlServerInstall.Size = new System.Drawing.Size(370, 499);
+            this.txtSqlServerInstall.Size = new System.Drawing.Size(370, 519);
             this.txtSqlServerInstall.TabIndex = 1;
             this.txtSqlServerInstall.Text = "";
             this.txtSqlServerInstall.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.txtSqlServerInstall_LinkClicked);
-            // 
-            // linkCreator
-            // 
-            this.linkCreator.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(138)))), ((int)(((byte)(0)))));
-            this.linkCreator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.linkCreator.AutoSize = true;
-            this.linkCreator.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.linkCreator.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(228)))), ((int)(((byte)(0)))));
-            this.linkCreator.Location = new System.Drawing.Point(20, 535);
-            this.linkCreator.Name = "linkCreator";
-            this.linkCreator.Size = new System.Drawing.Size(117, 15);
-            this.linkCreator.TabIndex = 2;
-            this.linkCreator.TabStop = true;
-            this.linkCreator.Text = "Created by Nerrosh";
-            this.linkCreator.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(157)))), ((int)(((byte)(0)))));
-            this.linkCreator.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCreator_LinkClicked);
             // 
             // Help
             // 
@@ -86,7 +69,6 @@ namespace Utilities {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
-            this.Controls.Add(this.linkCreator);
             this.Controls.Add(this.txtSqlServerInstall);
             this.Controls.Add(this.txtFunctionality);
             this.DoubleBuffered = true;
@@ -100,7 +82,6 @@ namespace Utilities {
             this.Text = "Help";
             this.Load += new System.EventHandler(this.Notes_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -108,6 +89,5 @@ namespace Utilities {
 
         private System.Windows.Forms.RichTextBox txtFunctionality;
         private System.Windows.Forms.RichTextBox txtSqlServerInstall;
-        private System.Windows.Forms.LinkLabel linkCreator;
     }
 }

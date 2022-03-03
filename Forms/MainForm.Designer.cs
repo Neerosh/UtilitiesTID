@@ -31,6 +31,7 @@ namespace Teste
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.lblCreator = new System.Windows.Forms.Label();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnScriptWriter = new System.Windows.Forms.Button();
             this.btnProcessManagement = new System.Windows.Forms.Button();
@@ -65,6 +66,7 @@ namespace Teste
             // panelSideMenu
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.panelSideMenu.Controls.Add(this.lblCreator);
             this.panelSideMenu.Controls.Add(this.btnHelp);
             this.panelSideMenu.Controls.Add(this.btnScriptWriter);
             this.panelSideMenu.Controls.Add(this.btnProcessManagement);
@@ -82,6 +84,20 @@ namespace Teste
             this.panelSideMenu.Size = new System.Drawing.Size(206, 611);
             this.panelSideMenu.TabIndex = 19;
             this.panelSideMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
+            // 
+            // lblCreator
+            // 
+            this.lblCreator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblCreator.AutoSize = true;
+            this.lblCreator.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.lblCreator.Font = new System.Drawing.Font("Arial", 2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCreator.ForeColor = System.Drawing.Color.White;
+            this.lblCreator.Location = new System.Drawing.Point(16, 588);
+            this.lblCreator.Name = "lblCreator";
+            this.lblCreator.Size = new System.Drawing.Size(166, 12);
+            this.lblCreator.TabIndex = 4;
+            this.lblCreator.Text = resources.GetString("lblCreator.Text");
+            this.lblCreator.Click += new System.EventHandler(this.lblCreator_Click);
             // 
             // btnHelp
             // 
@@ -518,6 +534,7 @@ namespace Teste
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.panelSideMenu.ResumeLayout(false);
+            this.panelSideMenu.PerformLayout();
             this.panelSubMenuFiles.ResumeLayout(false);
             this.panelSubMenuCodes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -553,6 +570,7 @@ namespace Teste
         private System.Windows.Forms.Button btnCodes;
         private System.Windows.Forms.Button btnFiles;
         private System.Windows.Forms.Button btnFileWatcher;
+        private System.Windows.Forms.Label lblCreator;
     }
 }
 
