@@ -164,7 +164,6 @@
             this.txtChecksumFileHash.HideSelection = false;
             this.txtChecksumFileHash.Location = new System.Drawing.Point(118, 88);
             this.txtChecksumFileHash.Name = "txtChecksumFileHash";
-            this.txtChecksumFileHash.ReadOnly = true;
             this.txtChecksumFileHash.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtChecksumFileHash.Size = new System.Drawing.Size(487, 50);
             this.txtChecksumFileHash.TabIndex = 6;
