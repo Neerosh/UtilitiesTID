@@ -12,29 +12,38 @@ namespace Utilities.Classes
     {
         private SqliteConnection connection = new SqliteConnection("Data Source=UtilitiesTID.db");
         private SqliteCommand command = new SqliteCommand();
+        private SqliteDataReader reader;
+        private CustomMessage customMessage = new CustomMessage();
 
         public SQLite() {
         }
 
         #region Code
-        public CustomMessage InsertCode(Code code) {
-            CustomMessage customMessage = new CustomMessage();
-            if (code == null) { return customMessage; }
+        public Code InsertCode(Code code, Form parent) {
+
+            if (code == null) { return code; }
 
             connection.Open();
             command.Connection = connection;
             try {
                 command.CommandText = "INSERT INTO Codes(Name,Code,Type) VALUES ('" + code.Name + "','" + code.CodeText + "','" + code.Type + "')";
-                command.ExecuteNonQuery();
+                command.ExecuteScalar(); // using ExecuteNonQuery can't return last_insert_rowid()
+                command.CommandText = "SELECT Id,Name,Code,Type FROM Codes WHERE rowid = last_insert_rowid();";
+                reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    code = new Code(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
+                }
+                reader.Close();
                 customMessage = new CustomMessage("Code sucessfuly registred.", "Success", "success");
             } catch (Exception ex) {
                 customMessage = new CustomMessage("Error registering:\n" + ex.Message, "Error", "error");
             }
+            CustomDialog.ShowCustomDialog(customMessage, parent);
             connection.Close();
-            return customMessage;
+            return code;
         }
         public CustomMessage UpdateCode(Code code) {
-            CustomMessage customMessage = new CustomMessage();
+
             if (code == null) { return customMessage; }
             connection.Open();
             command.Connection = connection;
@@ -50,7 +59,7 @@ namespace Utilities.Classes
             return customMessage;
         }
         public CustomMessage DeleteCode(Code code) {
-            CustomMessage customMessage = new CustomMessage();
+
             if (code == null) { return customMessage; }
             connection.Open();
             command.Connection = connection;
@@ -67,7 +76,7 @@ namespace Utilities.Classes
         }
         public CustomMessage DeleteAllCodes() {
             connection.Open();
-            CustomMessage customMessage = new CustomMessage();
+
             command.Connection = connection;
             try {
                 command.CommandText = "DELETE FROM Codes";
@@ -82,7 +91,7 @@ namespace Utilities.Classes
         }
 
         public DataTable SelectAllCodes(string filterType) {
-            SqliteDataReader reader;
+
             DataTable dt = new DataTable();
             dt.Columns.Add("ID");
             dt.Columns.Add("Name");
@@ -115,7 +124,7 @@ namespace Utilities.Classes
             return dt;
         }
         public DataTable SelectAllCodeTypes() {
-            SqliteDataReader reader;
+
             DataTable dt = new DataTable();
             dt.Columns.Add("Type");
 
@@ -139,30 +148,37 @@ namespace Utilities.Classes
         #endregion
 
         #region FileFilters
-        public CustomMessage InsertFileFilter(FileFilter fileFilter) {
-            CustomMessage customMessage = new CustomMessage();
-            if (fileFilter == null) { return customMessage; }
+        public FileFilter InsertFileFilter(FileFilter fileFilter, Form parent) {
+
+            if (fileFilter == null) { return fileFilter; }
 
             connection.Open();
             command.Connection = connection;
             try {
-                command.CommandText = "INSERT INTO FileFilters(Name,Notes) VALUES ('" + fileFilter.Name + "','" + fileFilter.Notes + "')";
-                command.ExecuteNonQuery();
+                command.CommandText = "INSERT INTO FileFilters(Name,Notes) VALUES ('" + fileFilter.Name + "','" + fileFilter.Notes + "');";
+                command.ExecuteScalar(); // using ExecuteNonQuery can't return last_insert_rowid()
+                command.CommandText = "SELECT Id,Name,Notes FROM FileFilters WHERE rowid = last_insert_rowid();";
+                reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    fileFilter = new FileFilter(Convert.ToInt32(reader.GetString(0)), reader.GetString(1), reader.GetString(2));
+                }
+                reader.Close();
                 customMessage = new CustomMessage("File Filter sucessfuly registred.", "Success", "success");
             } catch (Exception ex) {
                 customMessage = new CustomMessage("Error registering:\n" + ex.Message, "Error", "error");
             }
+            CustomDialog.ShowCustomDialog(customMessage, parent);
             connection.Close();
-            return customMessage;
+            return fileFilter;
         }
         public CustomMessage UpdateFileFilter(FileFilter fileFilter) {
-            CustomMessage customMessage = new CustomMessage();
+
             if (fileFilter == null) { return customMessage; }
             connection.Open();
             command.Connection = connection;
             try {
                 command.CommandText = "UPDATE FileFilter SET Name = '" + fileFilter.Name + "'" +
-                                      " WHERE ID  = " + fileFilter.Id;
+                                      " WHERE ID  = " + fileFilter.ID;
                 command.ExecuteNonQuery();
                 customMessage = new CustomMessage("File Filter sucessfuly updated.", "Sucess", "sucess");
             } catch (Exception ex) {
@@ -172,14 +188,14 @@ namespace Utilities.Classes
             return customMessage;
         }
         public CustomMessage DeleteFileFilter(FileFilter fileFilter) {
-            CustomMessage customMessage = new CustomMessage();
+
             if (fileFilter == null) { return customMessage; }
             connection.Open();
             command.Connection = connection;
             try {
-                command.CommandText = "DELETE FROM FileFilterConditions WHERE id_FileFilter = " + fileFilter.Id;
+                command.CommandText = "DELETE FROM FileFilterConditions WHERE id_FileFilter = " + fileFilter.ID;
                 command.ExecuteNonQuery();
-                command.CommandText = "DELETE FROM FileFilters WHERE id = " + fileFilter.Id;
+                command.CommandText = "DELETE FROM FileFilters WHERE id = " + fileFilter.ID;
                 command.ExecuteNonQuery();
                 customMessage = new CustomMessage("File Filter sucessfuly deleted.", "Sucess", "success");
             } catch (Exception ex) {
@@ -189,9 +205,8 @@ namespace Utilities.Classes
             return customMessage;
         }
 
-        public CustomMessage InsertFileFilterCondition(FileFilterCondition fileFilterCondition) {
-            CustomMessage customMessage = new CustomMessage();
-            if (fileFilterCondition == null) { return customMessage; }
+        public FileFilterCondition InsertFileFilterCondition(FileFilterCondition fileFilterCondition, Form parent) {
+            if (fileFilterCondition == null) { return fileFilterCondition; }
 
             connection.Open();
             command.Connection = connection;
@@ -199,21 +214,28 @@ namespace Utilities.Classes
                 command.CommandText = String.Format("INSERT INTO FileFilterConditions(id_FileFilter,Type,Condition) " +
                                       "VALUES ({0},'{1}','{2}')", fileFilterCondition.IdFileFilter, fileFilterCondition.Type, fileFilterCondition.Condition);
                 command.ExecuteNonQuery();
+                command.CommandText = "SELECT Id,id_FileFilter,Type,Condition FROM FileFilterConditions WHERE rowid = = last_insert_rowid();";
+                reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    fileFilterCondition = new FileFilterCondition(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3));
+                }
+                reader.Close();
                 customMessage = new CustomMessage("File Filter Condition sucessfuly registred.", "Success", "success");
             } catch (Exception ex) {
                 customMessage = new CustomMessage("Error registering:\n" + ex.Message, "Error", "error");
             }
+            CustomDialog.ShowCustomDialog(customMessage, parent);
             connection.Close();
-            return customMessage;
+            return fileFilterCondition;
         }
         public CustomMessage UpdateFileFilterCondition(FileFilterCondition fileFilterCondition) {
-            CustomMessage customMessage = new CustomMessage();
+
             if (fileFilterCondition == null) { return customMessage; }
             connection.Open();
             command.Connection = connection;
             try {
                 command.CommandText = String.Format("UPDATE FileFilterConditions SET Condition = '{0}', Type = '{1}' " +
-                                      "WHERE ID  = {2}", fileFilterCondition.Condition, fileFilterCondition.Type, fileFilterCondition.Id);
+                                      "WHERE ID  = {2}", fileFilterCondition.Condition, fileFilterCondition.Type, fileFilterCondition.ID);
                 command.ExecuteNonQuery();
                 customMessage = new CustomMessage("File Filter Condition sucessfuly updated.", "Sucess", "sucess");
             } catch (Exception ex) {
@@ -223,12 +245,12 @@ namespace Utilities.Classes
             return customMessage;
         }
         public CustomMessage DeleteFileFilterCondition(FileFilterCondition fileFilterCondition) {
-            CustomMessage customMessage = new CustomMessage();
+
             if (fileFilterCondition == null) { return customMessage; }
             connection.Open();
             command.Connection = connection;
             try {
-                command.CommandText = "DELETE FROM FileFilterConditions WHERE id = " + fileFilterCondition.Id;
+                command.CommandText = "DELETE FROM FileFilterConditions WHERE id = " + fileFilterCondition.ID;
                 command.ExecuteNonQuery();
                 customMessage = new CustomMessage("File Filter Condition sucessfuly deleted.", "Sucess", "success");
             } catch (Exception ex) {
@@ -240,7 +262,7 @@ namespace Utilities.Classes
 
 
         public DataTable SelectAllFileFilters() {
-            SqliteDataReader reader;
+
             DataTable dt = new DataTable();
             dt.Columns.Add("ID");
             dt.Columns.Add("Name");
@@ -254,7 +276,7 @@ namespace Utilities.Classes
                 reader = command.ExecuteReader();
                 while (reader.Read()) {
                     FileFilter fileFilter = new FileFilter(reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
-                    dt.Rows.Add(fileFilter.Id, fileFilter.Name, fileFilter.Notes);
+                    dt.Rows.Add(fileFilter.ID, fileFilter.Name, fileFilter.Notes);
                 }
                 reader.Close();
             } catch (Exception ex) {
@@ -266,7 +288,7 @@ namespace Utilities.Classes
             return dt;
         }
         public DataTable SelectAllFileFilterConditions(int idFileFilter, string conditionType) {
-            SqliteDataReader reader;
+
             DataTable dt = new DataTable();
             dt.Columns.Add("ID");
             dt.Columns.Add("Condition");
@@ -274,11 +296,12 @@ namespace Utilities.Classes
 
             connection.Open();
             command.Connection = connection;
-            command.CommandText = String.Format("SELECT Id,Condition,Type FROM FileFilterConditions WHERE id_FileFilter = {0}", idFileFilter);
-            if (conditionType != null && !conditionType.Equals("")) {
-                command.CommandText += String.Format(" AND Type = '{0}'", conditionType);
-            }
+
             try {
+                command.CommandText = String.Format("SELECT Id,Condition,Type FROM FileFilterConditions WHERE id_FileFilter = {0}", idFileFilter);
+                if (conditionType != null && !conditionType.Equals("")) {
+                    command.CommandText += String.Format(" AND Type = '{0}'", conditionType);
+                }
                 reader = command.ExecuteReader();
                 while (reader.Read()) {
                     dt.Rows.Add(reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
@@ -294,7 +317,7 @@ namespace Utilities.Classes
         }
 
         public List<FileFilterCondition> SelectFileFilterConditions(int idFileFilter, string conditionType) {
-            SqliteDataReader reader;
+
             FileFilterCondition fileFilterCondition;
             List<FileFilterCondition> list = new List<FileFilterCondition>();
 
@@ -323,7 +346,7 @@ namespace Utilities.Classes
         #endregion
 
         public CustomMessage CreateDatabase() {
-            CustomMessage customMessage = new CustomMessage();
+
             connection.Open();
             command.Connection = connection;
             command.CommandText = "CREATE TABLE IF NOT EXISTS Codes (" +
@@ -357,7 +380,7 @@ namespace Utilities.Classes
             return customMessage;
         }
         public CustomMessage AddDefaultCodes() {
-            CustomMessage customMessage = new CustomMessage();
+
             connection.Open();
             command.Connection = connection;
             List<Code> listCodes = LoadDefaultOptionsCode();
@@ -615,6 +638,5 @@ namespace Utilities.Classes
             }
             return array;
         }
-
     }
 }

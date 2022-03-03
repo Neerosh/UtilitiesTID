@@ -114,7 +114,7 @@
             this.btnClearFields.Image = global::Utilities.Properties.Resources.icons8_broom_32;
             this.btnClearFields.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClearFields.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClearFields.Location = new System.Drawing.Point(622, 54);
+            this.btnClearFields.Location = new System.Drawing.Point(622, 22);
             this.btnClearFields.Name = "btnClearFields";
             this.btnClearFields.Size = new System.Drawing.Size(148, 44);
             this.btnClearFields.TabIndex = 8;
@@ -253,7 +253,7 @@
             this.txtCodeText.Location = new System.Drawing.Point(67, 54);
             this.txtCodeText.Name = "txtCodeText";
             this.txtCodeText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtCodeText.Size = new System.Drawing.Size(538, 222);
+            this.txtCodeText.Size = new System.Drawing.Size(538, 226);
             this.txtCodeText.TabIndex = 13;
             this.txtCodeText.Text = "";
             // 

@@ -66,11 +66,10 @@ namespace Utilities.Forms
 
             Code code = new Code(0, txtName.Text, txtType.Text, txtCodeText.Text);
             code.FormatStrings();
-            customMessage = sqlite.InsertCode(code);
-            CustomDialog.ShowCustomDialog(customMessage, this);
+            code = sqlite.InsertCode(code,this);
 
             RefreshCodes();
-            SelectCorrectRow(selectedId);
+            SelectCorrectRow(code.ID);
         }
         private void BtnUpdate_Click(object sender, EventArgs e) {
             CustomMessage customMessage;

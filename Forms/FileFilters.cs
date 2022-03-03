@@ -125,11 +125,10 @@ namespace Utilities.Forms
 
             FileFilterCondition fileFilterCondition = new FileFilterCondition(0, idFileFilter, cboConditionType.SelectedItem.ToString(), txtCondition.Text);
 
-            customMessage = sqlite.InsertFileFilterCondition(fileFilterCondition);
-            CustomDialog.ShowCustomDialog(customMessage, this);
+            fileFilterCondition = sqlite.InsertFileFilterCondition(fileFilterCondition,this);
 
             RefreshFileFilterConditions(idFileFilter);
-            SelectCorrectRowFileCondition(idCondition);
+            SelectCorrectRowFileCondition(fileFilterCondition.ID);
         }
         private void btnUpdateCondition_Click(object sender, EventArgs e) {
             CustomMessage customMessage;
@@ -209,11 +208,10 @@ namespace Utilities.Forms
 
             FileFilter fileFilter = new FileFilter(0, txtFilterName.Text, txtFilterNotes.Text);
 
-            customMessage = sqlite.InsertFileFilter(fileFilter);
-            CustomDialog.ShowCustomDialog(customMessage, this);
-
+            fileFilter = sqlite.InsertFileFilter(fileFilter,this);
             RefreshFileFilters();
-            SelectCorrectRowFileFilter(idFileFilter);
+            MessageBox.Show("fileFilter.Id " + fileFilter.ID);
+            SelectCorrectRowFileFilter(fileFilter.ID);
         }
         private void btnUpdateFileFilter_Click(object sender, EventArgs e) {
             CustomMessage customMessage;

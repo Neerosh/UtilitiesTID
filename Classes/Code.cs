@@ -5,10 +5,10 @@
         private string name, type, codeText;
         private int id;
 
+        public int ID { get => id; }
         public string Name { get => name; set => name = value; }
         public string Type { get => type; set => type = value; }
         public string CodeText { get => codeText; set => codeText = value; }
-        public int ID { get => id; }
 
         public Code(string Name) {
             name = Name;

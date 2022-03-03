@@ -5,7 +5,7 @@
         int id;
         string name, notes;
 
-        public int Id { get => id; }
+        public int ID { get => id; }
         public string Name { get => name; set => name = value; }
         public string Notes { get => notes; set => notes = value; }
 
