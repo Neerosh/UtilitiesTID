@@ -210,7 +210,6 @@ namespace Utilities.Forms
 
             fileFilter = sqlite.InsertFileFilter(fileFilter,this);
             RefreshFileFilters();
-            MessageBox.Show("fileFilter.Id " + fileFilter.ID);
             SelectCorrectRowFileFilter(fileFilter.ID);
         }
         private void btnUpdateFileFilter_Click(object sender, EventArgs e) {
@@ -261,6 +260,39 @@ namespace Utilities.Forms
             dgvFileFilters.Rows.RemoveAt(selectedRow);
             RefreshFileFilters();
             btnClearFields_Click(sender, e);
+        }
+
+        private void FileFilters_KeyDown(object sender, KeyEventArgs e) {
+            switch (e.KeyCode) {
+                case Keys.Enter:
+                    if (txtCondition.Focused || dgvFileFilterConditions.Focused) {
+                        if (dgvFileFilterConditions.GetCellCount(DataGridViewElementStates.Selected) == 0) {
+                            btnInsertCondition_Click(sender, e);
+                        } else {
+                            btnUpdateCondition_Click(sender, e);
+                        }
+                    }
+                    if (txtFilterName.Focused || txtFilterNotes.Focused || dgvFileFilters.Focused ) {
+                        if (dgvFileFilters.GetCellCount(DataGridViewElementStates.Selected) == 0) {
+                            btnInsertFileFilter_Click(sender, e);
+                        } else {
+                            btnUpdateFileFilter_Click(sender, e);
+                        }
+                    }
+                    break;
+                case Keys.Delete:
+                    if (dgvFileFilterConditions.Focused) {
+                        btnDeleteCondition_Click(sender, e);
+                    }
+                    if (dgvFileFilters.Focused) {
+                        btnDeleteFileFilter_Click(sender, e);
+                    }
+
+                    break;
+                case Keys.Escape:
+                    btnClearFields_Click(sender, e);
+                    break;
+            }   
         }
     }
 }

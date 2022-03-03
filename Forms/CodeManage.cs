@@ -54,7 +54,14 @@ namespace Utilities.Forms
             dgvCodes.ClearSelection();
         }
         private void BtnInsert_Click(object sender, EventArgs e) {
-            CustomMessage customMessage = new CustomMessage("Insert new code?", "Confirmation", "confirmation");
+            CustomMessage customMessage;
+            if (txtName.Text.Equals("")) {
+                customMessage = new CustomMessage("Invalid code name.", "Information", "information");
+                CustomDialog.ShowCustomDialog(customMessage, this);
+                return;
+            }
+
+            customMessage = new CustomMessage("Insert new code?", "Confirmation", "confirmation");
             if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }
 
             int selectedId;
@@ -138,6 +145,24 @@ namespace Utilities.Forms
 
             RefreshCodes();
             BtnClearFields_Click(sender, e);
+        }
+
+        private void CodeManage_KeyDown(object sender, KeyEventArgs e) {
+            switch (e.KeyCode) { 
+                case Keys.Enter:
+                    if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) == 0) { 
+                        BtnInsert_Click(sender, e);
+                    } else {
+                        BtnUpdate_Click(sender, e);
+                    }
+                    break;
+                case Keys.Delete:
+                    BtnDelete_Click(sender, e);
+                    break;
+                case Keys.Escape:
+                    BtnClearFields_Click(sender, e);
+                    break;
+            }
         }
     }
 }

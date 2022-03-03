@@ -177,7 +177,7 @@ namespace Utilities.Classes
             connection.Open();
             command.Connection = connection;
             try {
-                command.CommandText = "UPDATE FileFilter SET Name = '" + fileFilter.Name + "'" +
+                command.CommandText = "UPDATE FileFilters SET Name = '" + fileFilter.Name + "'" +
                                       " WHERE ID  = " + fileFilter.ID;
                 command.ExecuteNonQuery();
                 customMessage = new CustomMessage("File Filter sucessfuly updated.", "Sucess", "sucess");
@@ -214,7 +214,7 @@ namespace Utilities.Classes
                 command.CommandText = String.Format("INSERT INTO FileFilterConditions(id_FileFilter,Type,Condition) " +
                                       "VALUES ({0},'{1}','{2}')", fileFilterCondition.IdFileFilter, fileFilterCondition.Type, fileFilterCondition.Condition);
                 command.ExecuteNonQuery();
-                command.CommandText = "SELECT Id,id_FileFilter,Type,Condition FROM FileFilterConditions WHERE rowid = = last_insert_rowid();";
+                command.CommandText = "SELECT Id,id_FileFilter,Type,Condition FROM FileFilterConditions WHERE rowid = last_insert_rowid();";
                 reader = command.ExecuteReader();
                 while (reader.Read()) {
                     fileFilterCondition = new FileFilterCondition(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3));

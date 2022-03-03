@@ -35,8 +35,8 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.panelMessage = new System.Windows.Forms.Panel();
             this.panelConfirmation = new System.Windows.Forms.Panel();
-            this.btnNo = new System.Windows.Forms.Button();
             this.btnYes = new System.Windows.Forms.Button();
+            this.btnNo = new System.Windows.Forms.Button();
             this.panelOk = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picMessage)).BeginInit();
             this.panelTitle.SuspendLayout();
@@ -163,31 +163,13 @@
             // 
             // panelConfirmation
             // 
-            this.panelConfirmation.Controls.Add(this.btnNo);
             this.panelConfirmation.Controls.Add(this.btnYes);
+            this.panelConfirmation.Controls.Add(this.btnNo);
             this.panelConfirmation.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelConfirmation.Location = new System.Drawing.Point(0, 127);
             this.panelConfirmation.Name = "panelConfirmation";
             this.panelConfirmation.Size = new System.Drawing.Size(450, 0);
             this.panelConfirmation.TabIndex = 5;
-            // 
-            // btnNo
-            // 
-            this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnNo.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNo.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnNo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnNo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnNo.Location = new System.Drawing.Point(258, 2);
-            this.btnNo.Name = "btnNo";
-            this.btnNo.Size = new System.Drawing.Size(91, 30);
-            this.btnNo.TabIndex = 5;
-            this.btnNo.Text = "No";
-            this.btnNo.UseVisualStyleBackColor = false;
-            this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             // 
             // btnYes
             // 
@@ -206,6 +188,24 @@
             this.btnYes.Text = "Yes";
             this.btnYes.UseVisualStyleBackColor = false;
             this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
+            // 
+            // btnNo
+            // 
+            this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnNo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNo.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnNo.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnNo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnNo.Location = new System.Drawing.Point(258, 2);
+            this.btnNo.Name = "btnNo";
+            this.btnNo.Size = new System.Drawing.Size(91, 30);
+            this.btnNo.TabIndex = 5;
+            this.btnNo.Text = "No";
+            this.btnNo.UseVisualStyleBackColor = false;
+            this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             // 
             // panelOk
             // 
@@ -228,6 +228,7 @@
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CustomDialogForm";
@@ -236,6 +237,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomMessageBox";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.CustomDialogForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CustomDialogForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.picMessage)).EndInit();
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();

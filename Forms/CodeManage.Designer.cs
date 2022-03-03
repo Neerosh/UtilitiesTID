@@ -307,9 +307,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
+            this.Controls.Add(this.txtCodeText);
             this.Controls.Add(this.btnAddDefaults);
             this.Controls.Add(this.btnDeleteAll);
-            this.Controls.Add(this.txtCodeText);
             this.Controls.Add(this.lblSelection);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtName);
@@ -324,12 +324,14 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "CodeManage";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Codes > Manage";
             this.Load += new System.EventHandler(this.CodeManage_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CodeManage_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCodes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

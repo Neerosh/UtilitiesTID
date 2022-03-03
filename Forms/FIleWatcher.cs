@@ -157,7 +157,7 @@ namespace Utilities.Forms
         }
 
         private void FileWatcher_FormClosing(object sender, FormClosingEventArgs e) {
-            if (!fileWatcher.Path.Equals("")) {
+            if (fileWatcher != null) {
                 StopFileWatcher();
             }
         }

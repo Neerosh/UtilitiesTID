@@ -14,27 +14,43 @@ namespace Utilities.Forms
             Padding = new Padding(2);
             BackColor = Color.FromArgb(50, 50, 50);
             StartPosition = FormStartPosition.CenterParent;
+            panelConfirmation.Visible = false;
+            panelOk.Visible = false;    
+
             lblTitle.Text = customMessage.Title;
             rtbMessage.Text = customMessage.Message;
             switch (customMessage.Type) {
                 case "error":
                     picMessage.Image = Resources.icons8_error_64;
                     panelOk.Height = 40;
+                    panelOk.Visible = true;
                     break;
                 case "success":
                     picMessage.Image = Resources.icons8_info_64;
                     panelOk.Height = 40;
+                    panelOk.Visible = true;
                     break;
                 case "confirmation":
                     picMessage.Image = Resources.icons8_question_64;
                     panelConfirmation.Height = 40;
+                    panelConfirmation.Visible = true;
                     break;
                 default:
                     picMessage.Image = Resources.icons8_info_64;
                     panelOk.Height = 40;
+                    panelOk.Visible = true;
                     break;
             }
 
+        }
+
+
+        private void CustomDialogForm_Load(object sender, EventArgs e) {
+            if (panelOk.Visible) {
+                btnOk.Select();
+            } else {
+                btnYes.Select();
+            }
         }
 
         #region Movable Window
@@ -72,6 +88,14 @@ namespace Utilities.Forms
         private void btnNo_Click(object sender, EventArgs e) {
             DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        private void CustomDialogForm_KeyDown(object sender, KeyEventArgs e) {
+            switch (e.KeyCode) { 
+                case Keys.Escape:
+                    btnClose_Click(sender, e);
+                    break;
+            }
         }
     }
 }
