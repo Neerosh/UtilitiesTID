@@ -385,5 +385,12 @@ namespace Utilities.Properties
             }
         }
 
+        internal static System.Drawing.Bitmap icons8_hash_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_hash_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
     }
 }

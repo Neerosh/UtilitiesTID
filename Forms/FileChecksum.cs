@@ -90,19 +90,36 @@ namespace Utilities.Forms
 
         private async void BtnChecksum_Click(object sender, EventArgs e) {
             if (task == null || task.IsCompleted) {
+                lblValidateStatus.Visible = false;
                 task = GenerateFileHash();
                 await task;
-                if (!txtChecksumExpectedHash.Text.Equals("") && !txtChecksumFileHash.Text.Equals("")) {
-                    string formatedExpectedHash = txtChecksumExpectedHash.Text.Replace("-", "").ToUpper();
-                    if (formatedExpectedHash.Equals(txtChecksumFileHash.Text)) {
-                        txtChecksumExpectedHash.ForeColor = Color.FromArgb(68, 204, 0);
-                    } else {
-                        txtChecksumExpectedHash.ForeColor = Color.Yellow;
-                    }
-                }
                 return;
             }
 
+        }
+
+        private void btnValidateFileHash_Click(object sender, EventArgs e) {
+            CustomMessage customMessage;
+            if (txtChecksumFileHash.Text.Equals("")) { 
+                customMessage = new CustomMessage("Type or generate a file hash first.","Information","information");
+                CustomDialog.ShowCustomDialog(customMessage, this);
+                return;
+            }
+            if (txtChecksumExpectedHash.Text.Equals("")) {
+                customMessage = new CustomMessage("Type the expected hash first.", "Information", "information");
+                CustomDialog.ShowCustomDialog(customMessage, this);
+                return;
+            }
+
+            string formatedExpectedHash = txtChecksumExpectedHash.Text.Replace("-", "").ToUpper();
+            if (formatedExpectedHash.Equals(txtChecksumFileHash.Text)) {
+                lblValidateStatus.Text = "Validation Result: Success";
+                lblValidateStatus.ForeColor = Color.FromArgb(68, 204, 0);
+            } else {
+                lblValidateStatus.Text = "Validation Result: Failed";
+                lblValidateStatus.ForeColor = Color.Yellow;
+            }
+            lblValidateStatus.Visible = true;
         }
     }
 }

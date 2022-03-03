@@ -25,12 +25,12 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblFileFilters = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.txtFilterName = new System.Windows.Forms.TextBox();
@@ -87,7 +87,7 @@
             this.txtFilterName.ForeColor = System.Drawing.Color.White;
             this.txtFilterName.Location = new System.Drawing.Point(96, 17);
             this.txtFilterName.Name = "txtFilterName";
-            this.txtFilterName.Size = new System.Drawing.Size(501, 22);
+            this.txtFilterName.Size = new System.Drawing.Size(515, 22);
             this.txtFilterName.TabIndex = 1;
             // 
             // dgvFileFilters
@@ -102,16 +102,16 @@
             this.dgvFileFilters.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.dgvFileFilters.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFileFilters.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvFileFilters.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvFileFilters.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFileFilters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFileFilters.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFileFilters.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFileFilters.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvFileFilters.GridColor = System.Drawing.Color.White;
             this.dgvFileFilters.Location = new System.Drawing.Point(12, 407);
@@ -119,14 +119,14 @@
             this.dgvFileFilters.Name = "dgvFileFilters";
             this.dgvFileFilters.ReadOnly = true;
             this.dgvFileFilters.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvFileFilters.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvFileFilters.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFileFilters.RowHeadersVisible = false;
             this.dgvFileFilters.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvFileFilters.RowTemplate.Height = 25;
             this.dgvFileFilters.RowTemplate.ReadOnly = true;
             this.dgvFileFilters.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvFileFilters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFileFilters.Size = new System.Drawing.Size(585, 146);
+            this.dgvFileFilters.Size = new System.Drawing.Size(599, 146);
             this.dgvFileFilters.TabIndex = 18;
             this.dgvFileFilters.SelectionChanged += new System.EventHandler(this.dgvFileFilters_SelectionChanged);
             // 
@@ -153,7 +153,7 @@
             this.btnUpdateCondition.ForeColor = System.Drawing.SystemColors.Control;
             this.btnUpdateCondition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnUpdateCondition.Location = new System.Drawing.Point(480, 333);
+            this.btnUpdateCondition.Location = new System.Drawing.Point(494, 333);
             this.btnUpdateCondition.Name = "btnUpdateCondition";
             this.btnUpdateCondition.Size = new System.Drawing.Size(117, 24);
             this.btnUpdateCondition.TabIndex = 15;
@@ -175,11 +175,11 @@
             this.btnDeleteFileFilter.Image = global::Utilities.Properties.Resources.icons8_delete_clipboard_32;
             this.btnDeleteFileFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteFileFilter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteFileFilter.Location = new System.Drawing.Point(615, 509);
+            this.btnDeleteFileFilter.Location = new System.Drawing.Point(628, 509);
             this.btnDeleteFileFilter.Name = "btnDeleteFileFilter";
-            this.btnDeleteFileFilter.Size = new System.Drawing.Size(155, 44);
+            this.btnDeleteFileFilter.Size = new System.Drawing.Size(138, 44);
             this.btnDeleteFileFilter.TabIndex = 7;
-            this.btnDeleteFileFilter.Text = "Delete Selected";
+            this.btnDeleteFileFilter.Text = "Delete Filter";
             this.btnDeleteFileFilter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteFileFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteFileFilter.UseVisualStyleBackColor = false;
@@ -197,11 +197,11 @@
             this.btnUpdateFileFilter.Image = global::Utilities.Properties.Resources.icons8_update_clipboard_32;
             this.btnUpdateFileFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateFileFilter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnUpdateFileFilter.Location = new System.Drawing.Point(615, 459);
+            this.btnUpdateFileFilter.Location = new System.Drawing.Point(628, 459);
             this.btnUpdateFileFilter.Name = "btnUpdateFileFilter";
-            this.btnUpdateFileFilter.Size = new System.Drawing.Size(155, 44);
+            this.btnUpdateFileFilter.Size = new System.Drawing.Size(138, 44);
             this.btnUpdateFileFilter.TabIndex = 6;
-            this.btnUpdateFileFilter.Text = "Update Selected";
+            this.btnUpdateFileFilter.Text = "Update Filter";
             this.btnUpdateFileFilter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateFileFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdateFileFilter.UseVisualStyleBackColor = false;
@@ -219,11 +219,11 @@
             this.btnInsertFileFilter.Image = global::Utilities.Properties.Resources.icons8_add_clipboard_32;
             this.btnInsertFileFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsertFileFilter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnInsertFileFilter.Location = new System.Drawing.Point(615, 407);
+            this.btnInsertFileFilter.Location = new System.Drawing.Point(628, 407);
             this.btnInsertFileFilter.Name = "btnInsertFileFilter";
-            this.btnInsertFileFilter.Size = new System.Drawing.Size(155, 44);
+            this.btnInsertFileFilter.Size = new System.Drawing.Size(138, 44);
             this.btnInsertFileFilter.TabIndex = 5;
-            this.btnInsertFileFilter.Text = "Add New Filter";
+            this.btnInsertFileFilter.Text = "Insert Filter";
             this.btnInsertFileFilter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsertFileFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInsertFileFilter.UseVisualStyleBackColor = false;
@@ -250,7 +250,7 @@
             this.txtCondition.ForeColor = System.Drawing.Color.White;
             this.txtCondition.Location = new System.Drawing.Point(167, 303);
             this.txtCondition.Name = "txtCondition";
-            this.txtCondition.Size = new System.Drawing.Size(307, 22);
+            this.txtCondition.Size = new System.Drawing.Size(321, 22);
             this.txtCondition.TabIndex = 11;
             // 
             // btnInsertCondition
@@ -264,11 +264,11 @@
             this.btnInsertCondition.ForeColor = System.Drawing.SystemColors.Control;
             this.btnInsertCondition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsertCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnInsertCondition.Location = new System.Drawing.Point(480, 303);
+            this.btnInsertCondition.Location = new System.Drawing.Point(494, 302);
             this.btnInsertCondition.Name = "btnInsertCondition";
             this.btnInsertCondition.Size = new System.Drawing.Size(117, 24);
             this.btnInsertCondition.TabIndex = 14;
-            this.btnInsertCondition.Text = "Add Condition";
+            this.btnInsertCondition.Text = "Insert Condition";
             this.btnInsertCondition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsertCondition.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInsertCondition.UseVisualStyleBackColor = false;
@@ -285,7 +285,7 @@
             this.btnDeleteCondition.ForeColor = System.Drawing.SystemColors.Control;
             this.btnDeleteCondition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteCondition.Location = new System.Drawing.Point(480, 363);
+            this.btnDeleteCondition.Location = new System.Drawing.Point(494, 363);
             this.btnDeleteCondition.Name = "btnDeleteCondition";
             this.btnDeleteCondition.Size = new System.Drawing.Size(117, 24);
             this.btnDeleteCondition.TabIndex = 16;
@@ -307,9 +307,9 @@
             this.btnClearFields.Image = global::Utilities.Properties.Resources.icons8_broom_32;
             this.btnClearFields.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClearFields.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClearFields.Location = new System.Drawing.Point(615, 17);
+            this.btnClearFields.Location = new System.Drawing.Point(628, 17);
             this.btnClearFields.Name = "btnClearFields";
-            this.btnClearFields.Size = new System.Drawing.Size(155, 44);
+            this.btnClearFields.Size = new System.Drawing.Size(138, 44);
             this.btnClearFields.TabIndex = 4;
             this.btnClearFields.Text = "Clear Fields";
             this.btnClearFields.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -328,7 +328,7 @@
             this.txtFilterNotes.Location = new System.Drawing.Point(96, 45);
             this.txtFilterNotes.Name = "txtFilterNotes";
             this.txtFilterNotes.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtFilterNotes.Size = new System.Drawing.Size(501, 98);
+            this.txtFilterNotes.Size = new System.Drawing.Size(515, 98);
             this.txtFilterNotes.TabIndex = 3;
             this.txtFilterNotes.Text = "";
             // 
@@ -367,16 +367,16 @@
             this.dgvFileFilterConditions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.dgvFileFilterConditions.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFileFilterConditions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvFileFilterConditions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvFileFilterConditions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvFileFilterConditions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFileFilterConditions.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFileFilterConditions.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvFileFilterConditions.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvFileFilterConditions.GridColor = System.Drawing.Color.White;
             this.dgvFileFilterConditions.Location = new System.Drawing.Point(96, 149);
@@ -384,14 +384,14 @@
             this.dgvFileFilterConditions.Name = "dgvFileFilterConditions";
             this.dgvFileFilterConditions.ReadOnly = true;
             this.dgvFileFilterConditions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvFileFilterConditions.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvFileFilterConditions.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvFileFilterConditions.RowHeadersVisible = false;
             this.dgvFileFilterConditions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvFileFilterConditions.RowTemplate.Height = 25;
             this.dgvFileFilterConditions.RowTemplate.ReadOnly = true;
             this.dgvFileFilterConditions.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvFileFilterConditions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFileFilterConditions.Size = new System.Drawing.Size(501, 146);
+            this.dgvFileFilterConditions.Size = new System.Drawing.Size(515, 146);
             this.dgvFileFilterConditions.TabIndex = 9;
             this.dgvFileFilterConditions.SelectionChanged += new System.EventHandler(this.dgvFileFilterConditions_SelectionChanged);
             // 

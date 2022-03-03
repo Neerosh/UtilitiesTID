@@ -99,7 +99,7 @@
             this.txtType.ForeColor = System.Drawing.Color.White;
             this.txtType.Location = new System.Drawing.Point(426, 22);
             this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(179, 22);
+            this.txtType.Size = new System.Drawing.Size(186, 22);
             this.txtType.TabIndex = 4;
             // 
             // btnClearFields
@@ -114,9 +114,9 @@
             this.btnClearFields.Image = global::Utilities.Properties.Resources.icons8_broom_32;
             this.btnClearFields.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClearFields.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClearFields.Location = new System.Drawing.Point(622, 22);
+            this.btnClearFields.Location = new System.Drawing.Point(628, 22);
             this.btnClearFields.Name = "btnClearFields";
-            this.btnClearFields.Size = new System.Drawing.Size(148, 44);
+            this.btnClearFields.Size = new System.Drawing.Size(138, 44);
             this.btnClearFields.TabIndex = 8;
             this.btnClearFields.Text = "Clear Fields";
             this.btnClearFields.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -136,11 +136,11 @@
             this.btnInsert.Image = global::Utilities.Properties.Resources.icons8_add_clipboard_32;
             this.btnInsert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsert.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnInsert.Location = new System.Drawing.Point(622, 136);
+            this.btnInsert.Location = new System.Drawing.Point(628, 136);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(148, 44);
+            this.btnInsert.Size = new System.Drawing.Size(138, 44);
             this.btnInsert.TabIndex = 9;
-            this.btnInsert.Text = "Add New Code";
+            this.btnInsert.Text = "Insert Code";
             this.btnInsert.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsert.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInsert.UseVisualStyleBackColor = false;
@@ -158,11 +158,11 @@
             this.btnUpdate.Image = global::Utilities.Properties.Resources.icons8_update_clipboard_32;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnUpdate.Location = new System.Drawing.Point(622, 186);
+            this.btnUpdate.Location = new System.Drawing.Point(628, 186);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(148, 44);
+            this.btnUpdate.Size = new System.Drawing.Size(138, 44);
             this.btnUpdate.TabIndex = 10;
-            this.btnUpdate.Text = "Update Selected";
+            this.btnUpdate.Text = "Update Code";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -180,11 +180,11 @@
             this.btnDelete.Image = global::Utilities.Properties.Resources.icons8_delete_clipboard_32;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDelete.Location = new System.Drawing.Point(622, 236);
+            this.btnDelete.Location = new System.Drawing.Point(628, 236);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(148, 44);
+            this.btnDelete.Size = new System.Drawing.Size(138, 44);
             this.btnDelete.TabIndex = 11;
-            this.btnDelete.Text = "Delete Selected";
+            this.btnDelete.Text = "Delete Code";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -226,7 +226,7 @@
             this.dgvCodes.RowTemplate.ReadOnly = true;
             this.dgvCodes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvCodes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCodes.Size = new System.Drawing.Size(585, 248);
+            this.dgvCodes.Size = new System.Drawing.Size(592, 248);
             this.dgvCodes.TabIndex = 14;
             this.dgvCodes.SelectionChanged += new System.EventHandler(this.DgvCodes_SelectionChanged);
             // 
@@ -253,7 +253,7 @@
             this.txtCodeText.Location = new System.Drawing.Point(67, 54);
             this.txtCodeText.Name = "txtCodeText";
             this.txtCodeText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtCodeText.Size = new System.Drawing.Size(538, 226);
+            this.txtCodeText.Size = new System.Drawing.Size(545, 226);
             this.txtCodeText.TabIndex = 6;
             this.txtCodeText.Text = "";
             // 
@@ -269,9 +269,9 @@
             this.btnDeleteAll.Image = global::Utilities.Properties.Resources.icons8_delete_database_32;
             this.btnDeleteAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteAll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteAll.Location = new System.Drawing.Point(622, 514);
+            this.btnDeleteAll.Location = new System.Drawing.Point(628, 514);
             this.btnDeleteAll.Name = "btnDeleteAll";
-            this.btnDeleteAll.Size = new System.Drawing.Size(148, 44);
+            this.btnDeleteAll.Size = new System.Drawing.Size(138, 44);
             this.btnDeleteAll.TabIndex = 13;
             this.btnDeleteAll.Text = "Delete All Codes";
             this.btnDeleteAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -291,9 +291,9 @@
             this.btnAddDefaults.Image = global::Utilities.Properties.Resources.icons8_add_database_32;
             this.btnAddDefaults.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddDefaults.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAddDefaults.Location = new System.Drawing.Point(622, 464);
+            this.btnAddDefaults.Location = new System.Drawing.Point(628, 464);
             this.btnAddDefaults.Name = "btnAddDefaults";
-            this.btnAddDefaults.Size = new System.Drawing.Size(148, 44);
+            this.btnAddDefaults.Size = new System.Drawing.Size(138, 44);
             this.btnAddDefaults.TabIndex = 12;
             this.btnAddDefaults.Text = "Add Default Codes";
             this.btnAddDefaults.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
