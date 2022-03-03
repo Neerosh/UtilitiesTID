@@ -28,7 +28,7 @@
             this.lblChecksumFile = new System.Windows.Forms.Label();
             this.txtChecksumFile = new System.Windows.Forms.TextBox();
             this.btnChecksumFileBrowser = new System.Windows.Forms.Button();
-            this.BtnChecksum = new System.Windows.Forms.Button();
+            this.btnGenerateFileHash = new System.Windows.Forms.Button();
             this.lblChecksumAlgorithm = new System.Windows.Forms.Label();
             this.cboChecksumAlgorithm = new System.Windows.Forms.ComboBox();
             this.lblChecksumFileHash = new System.Windows.Forms.Label();
@@ -84,27 +84,27 @@
             this.btnChecksumFileBrowser.UseVisualStyleBackColor = false;
             this.btnChecksumFileBrowser.Click += new System.EventHandler(this.btnChecksumFileBrowser_Click);
             // 
-            // BtnChecksum
+            // btnGenerateFileHash
             // 
-            this.BtnChecksum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnChecksum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.BtnChecksum.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.BtnChecksum.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.BtnChecksum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnChecksum.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnChecksum.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnChecksum.Image = global::Utilities.Properties.Resources.icons8_hash_32;
-            this.BtnChecksum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnChecksum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnChecksum.Location = new System.Drawing.Point(616, 21);
-            this.BtnChecksum.Name = "BtnChecksum";
-            this.BtnChecksum.Size = new System.Drawing.Size(156, 44);
-            this.BtnChecksum.TabIndex = 9;
-            this.BtnChecksum.Text = "Generate File Hash";
-            this.BtnChecksum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnChecksum.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnChecksum.UseVisualStyleBackColor = false;
-            this.BtnChecksum.Click += new System.EventHandler(this.BtnChecksum_Click);
+            this.btnGenerateFileHash.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGenerateFileHash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnGenerateFileHash.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGenerateFileHash.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnGenerateFileHash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateFileHash.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnGenerateFileHash.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnGenerateFileHash.Image = global::Utilities.Properties.Resources.icons8_hash_32;
+            this.btnGenerateFileHash.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerateFileHash.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnGenerateFileHash.Location = new System.Drawing.Point(616, 21);
+            this.btnGenerateFileHash.Name = "btnGenerateFileHash";
+            this.btnGenerateFileHash.Size = new System.Drawing.Size(156, 44);
+            this.btnGenerateFileHash.TabIndex = 9;
+            this.btnGenerateFileHash.Text = "Generate File Hash";
+            this.btnGenerateFileHash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerateFileHash.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGenerateFileHash.UseVisualStyleBackColor = false;
+            this.btnGenerateFileHash.Click += new System.EventHandler(this.BtnGenerateFileHash_Click);
             // 
             // lblChecksumAlgorithm
             // 
@@ -264,7 +264,7 @@
             this.Controls.Add(this.lblChecksumFile);
             this.Controls.Add(this.txtChecksumFile);
             this.Controls.Add(this.btnChecksumFileBrowser);
-            this.Controls.Add(this.BtnChecksum);
+            this.Controls.Add(this.btnGenerateFileHash);
             this.Controls.Add(this.lblChecksumAlgorithm);
             this.Controls.Add(this.cboChecksumAlgorithm);
             this.DoubleBuffered = true;
@@ -282,7 +282,7 @@
         private System.Windows.Forms.Label lblChecksumFile;
         private System.Windows.Forms.TextBox txtChecksumFile;
         private System.Windows.Forms.Button btnChecksumFileBrowser;
-        private System.Windows.Forms.Button BtnChecksum;
+        private System.Windows.Forms.Button btnGenerateFileHash;
         private System.Windows.Forms.Label lblChecksumAlgorithm;
         private System.Windows.Forms.ComboBox cboChecksumAlgorithm;
         private System.Windows.Forms.Label lblChecksumFileHash;

@@ -11,7 +11,7 @@
 <li>Files,</li>
 	<ul>
 	<li>Checksum - generate or validade the hash of files.</li>
-	<li>Watcher - track actions on file or folders in a specific folder.</li>
+	<li>Watcher - track actions on files or folders in a specific folder.</li>
 	<li>Manage Files - move, copy or delete duplicated files in a specific folder.</li>
 	<li>Manage File Filters - create, change or delete file filters and conditions on sqlite database.</li>
 	</ul>
