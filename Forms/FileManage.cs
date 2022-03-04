@@ -11,11 +11,10 @@ using Utilities.Classes;
 
 namespace Utilities.Forms
 {
-    public partial class FileManagement : Form
+    public partial class FileManage : Form
     {
-        public FileManagement() {
+        public FileManage() {
             InitializeComponent();
-            folderPicker.InputPath = @"C:\";
             cboOrderBy.SelectedItem = "Descending";
             cboOrderField.SelectedItem = "Filename";
             lblProgressPercent.Text = "0%";

@@ -29,11 +29,15 @@ namespace Utilities
                             "\r\n   Regular Script:" +
                             "\r\n       Generate an sql script it contains 3 procedures (DetachTID, AttachTID and RestoreTID) that check and execute the determined operation. " +
                             "\r\n" +
-                            "\r\nFile Management:" +
+                            "\r\nWatcher:" +
+                            "\r\n   To track Creation and Deletion of files mark the checkbox File Name, to do the same with directories mark Directory Name. "+
+                            "\r\n" +
+                            "\r\nManage Files:" +
                             "\r\n   Delete Duplicates:" +
                             "\r\n       Group files by hash, then delete the files with repeated hashs. Leave the first file found in each hash group. " +
                             "\r\n       Check Subfolders: adds subfolders files to the same group of the main folder. So if a copy of a main folder file appears on a subfolder it will be deleted. " +
                             "\r\n       EXCEPTION: if a file name has one of these characters combinations it will be deleted in the process:\r\n     ";
+                            
             foreach (string str in arrayDeleteDuplicates) {
                 functionality += "\"" + str + "\"  ";
             }

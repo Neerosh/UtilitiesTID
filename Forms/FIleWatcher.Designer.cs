@@ -141,7 +141,7 @@
             this.dgvWatchHistory.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvWatchHistory.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvWatchHistory.GridColor = System.Drawing.Color.White;
-            this.dgvWatchHistory.Location = new System.Drawing.Point(20, 170);
+            this.dgvWatchHistory.Location = new System.Drawing.Point(20, 165);
             this.dgvWatchHistory.MultiSelect = false;
             this.dgvWatchHistory.Name = "dgvWatchHistory";
             this.dgvWatchHistory.ReadOnly = true;
@@ -153,7 +153,7 @@
             this.dgvWatchHistory.RowTemplate.ReadOnly = true;
             this.dgvWatchHistory.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvWatchHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWatchHistory.Size = new System.Drawing.Size(749, 375);
+            this.dgvWatchHistory.Size = new System.Drawing.Size(749, 380);
             this.dgvWatchHistory.TabIndex = 18;
             // 
             // chkSubdirectories
@@ -224,7 +224,7 @@
             this.lblHistory.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblHistory.ForeColor = System.Drawing.SystemColors.Control;
             this.lblHistory.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblHistory.Location = new System.Drawing.Point(20, 151);
+            this.lblHistory.Location = new System.Drawing.Point(20, 146);
             this.lblHistory.Name = "lblHistory";
             this.lblHistory.Size = new System.Drawing.Size(105, 16);
             this.lblHistory.TabIndex = 17;

@@ -226,7 +226,7 @@ namespace Teste
             ShowHideSubMenus(panelSubMenuFiles);
         }
         private void BtnFileManagement_Click(object sender, EventArgs e) {
-            OpenChildForm(new FileManagement());
+            OpenChildForm(new FileManage());
             PaintSelectedMenuItem(btnFileManagement);
         }
         private void BtnFileFilters_Click(object sender, EventArgs e) {
@@ -247,7 +247,7 @@ namespace Teste
             PaintSelectedMenuItem(btnHelp);
         }
         private void btnProcessManagement_Click(object sender, EventArgs e) {
-            OpenChildForm(new ProcessManagement());
+            OpenChildForm(new ProcessManage());
             PaintSelectedMenuItem(btnProcessManagement);
         }
         private void BtnFileChecksum_Click(object sender, EventArgs e) {

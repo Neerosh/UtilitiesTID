@@ -10,9 +10,9 @@ using static Utilities.Classes.NativeMembers;
 
 namespace Utilities.Forms
 {
-    public partial class ProcessManagement : Form
+    public partial class ProcessManage : Form
     {
-        public ProcessManagement() {
+        public ProcessManage() {
             InitializeComponent();
         }
         private void ProcessManagement_Load(object sender, EventArgs e) {
