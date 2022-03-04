@@ -1,6 +1,6 @@
 ﻿namespace Utilities.Forms
 {
-    partial class FileManage
+    partial class FileManager
     {
         /// <summary>
         /// Required designer variable.

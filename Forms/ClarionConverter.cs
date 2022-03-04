@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace Utilities.Forms
 {
-    public partial class ClarionConversion : Form
+    public partial class ClarionConverter : Form
     {
-        public ClarionConversion() {
+        public ClarionConverter() {
             InitializeComponent();
             cboDateFormat.Items.Add("dd/MM/yyyy");
             cboDateFormat.Items.Add("MM/dd/yyyy");

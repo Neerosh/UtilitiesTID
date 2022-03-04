@@ -1,6 +1,6 @@
 ﻿namespace Utilities.Forms
 {
-    partial class ClarionConversion
+    partial class ClarionConverter
     {
         /// <summary>
         /// Required designer variable.

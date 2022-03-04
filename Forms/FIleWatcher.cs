@@ -41,6 +41,7 @@ namespace Utilities.Forms
         private void LoadDataGridViewWatcher() {
             dtWatcherHistory = new DataTable();
             dtWatcherHistory.Columns.Add("ID");
+            dtWatcherHistory.Columns.Add("Time");
             dtWatcherHistory.Columns.Add("File/Folder Path");
             dtWatcherHistory.Columns.Add("Action");
             dtWatcherHistory.Columns.Add("Renamed File/Folder Path");
@@ -49,7 +50,8 @@ namespace Utilities.Forms
             dgvWatchHistory.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvWatchHistory.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvWatchHistory.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvWatchHistory.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvWatchHistory.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvWatchHistory.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void LoadFileFilterSelection() {
             SQLite sqlite = new SQLite();
@@ -137,11 +139,11 @@ namespace Utilities.Forms
         }
 
         private void FileWatcherOnCreated_Changed_Deleted(object sender, FileSystemEventArgs e) {
-            dtWatcherHistory.Rows.Add(dgvWatchHistory.Rows.Count + 1, e.FullPath, e.ChangeType, "");
+            dtWatcherHistory.Rows.Add(dgvWatchHistory.Rows.Count + 1,DateTime.Now.ToString("G"), e.FullPath, e.ChangeType, "");
             dgvWatchHistory.Invoke(new Action(() => { RefreshWatcherHistory(); }));
         }
         private void FileWatcherOnRenamed(object sender, RenamedEventArgs e) {
-            dtWatcherHistory.Rows.Add(dgvWatchHistory.Rows.Count + 1, e.OldFullPath, e.ChangeType, e.FullPath);
+            dtWatcherHistory.Rows.Add(dgvWatchHistory.Rows.Count + 1, DateTime.Now.ToString("G"), e.OldFullPath, e.ChangeType, e.FullPath);
             dgvWatchHistory.Invoke(new Action(() => { RefreshWatcherHistory(); }));
         }
         #endregion File Watcher

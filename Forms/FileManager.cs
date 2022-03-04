@@ -11,9 +11,9 @@ using Utilities.Classes;
 
 namespace Utilities.Forms
 {
-    public partial class FileManage : Form
+    public partial class FileManager : Form
     {
-        public FileManage() {
+        public FileManager() {
             InitializeComponent();
             cboOrderBy.SelectedItem = "Descending";
             cboOrderField.SelectedItem = "Filename";

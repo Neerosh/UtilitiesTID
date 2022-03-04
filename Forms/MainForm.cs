@@ -217,7 +217,7 @@ namespace Teste
             PaintSelectedMenuItem(btnCodeToClipboard);
         }
         private void BtnCodesManage_Click(object sender, EventArgs e) {
-            OpenChildForm(new CodeManage());
+            OpenChildForm(new CodeManager());
             PaintSelectedMenuItem(btnCodesManage);
         }
 
@@ -226,7 +226,7 @@ namespace Teste
             ShowHideSubMenus(panelSubMenuFiles);
         }
         private void BtnFileManagement_Click(object sender, EventArgs e) {
-            OpenChildForm(new FileManage());
+            OpenChildForm(new FileManager());
             PaintSelectedMenuItem(btnFileManagement);
         }
         private void BtnFileFilters_Click(object sender, EventArgs e) {
@@ -239,7 +239,7 @@ namespace Teste
             PaintSelectedMenuItem(btnScriptWriter);
         }
         private void BtnConvertClarion_Click(object sender, EventArgs e) {
-            OpenChildForm(new ClarionConversion());
+            OpenChildForm(new ClarionConverter());
             PaintSelectedMenuItem(btnConvertClarion);
         }
         private void BtnHelp_Click(object sender, EventArgs e) {
@@ -247,7 +247,7 @@ namespace Teste
             PaintSelectedMenuItem(btnHelp);
         }
         private void btnProcessManagement_Click(object sender, EventArgs e) {
-            OpenChildForm(new ProcessManage());
+            OpenChildForm(new ProcessManager());
             PaintSelectedMenuItem(btnProcessManagement);
         }
         private void BtnFileChecksum_Click(object sender, EventArgs e) {

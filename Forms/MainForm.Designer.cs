@@ -380,7 +380,7 @@ namespace Teste
             this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnConvertClarion.Size = new System.Drawing.Size(206, 40);
             this.btnConvertClarion.TabIndex = 1;
-            this.btnConvertClarion.Text = "Clarion Conversion";
+            this.btnConvertClarion.Text = "Clarion Converter";
             this.btnConvertClarion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConvertClarion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConvertClarion.UseVisualStyleBackColor = false;

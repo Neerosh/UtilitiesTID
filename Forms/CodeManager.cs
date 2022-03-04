@@ -5,11 +5,11 @@ using Utilities.Classes;
 
 namespace Utilities.Forms
 {
-    public partial class CodeManage : Form
+    public partial class CodeManager : Form
     {
         private SQLite sqlite;
 
-        public CodeManage() {
+        public CodeManager() {
             InitializeComponent();
             sqlite = new SQLite();
         }
