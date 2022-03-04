@@ -56,7 +56,7 @@ namespace Utilities
         }
 
         private void txtSqlServerInstall_LinkClicked(object sender, LinkClickedEventArgs e) {
-            var psi = new ProcessStartInfo();
+            ProcessStartInfo psi = new ProcessStartInfo();
             psi.UseShellExecute = true;
             psi.FileName = e.LinkText;
             Process.Start(psi);
