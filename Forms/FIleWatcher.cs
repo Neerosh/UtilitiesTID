@@ -40,11 +40,14 @@ namespace Utilities.Forms
 
         private void LoadDataGridViewWatcher() {
             dtWatcherHistory = new DataTable();
+
             dtWatcherHistory.Columns.Add("ID");
             dtWatcherHistory.Columns.Add("Time");
             dtWatcherHistory.Columns.Add("File/Folder Path");
             dtWatcherHistory.Columns.Add("Action");
             dtWatcherHistory.Columns.Add("Renamed File/Folder Path");
+            dtWatcherHistory.Columns["ID"].DataType = Type.GetType("System.Int32");
+            dtWatcherHistory.Columns["Time"].DataType = Type.GetType("System.DateTime");
 
             dgvWatchHistory.DataSource = dtWatcherHistory;
             dgvWatchHistory.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -139,11 +142,11 @@ namespace Utilities.Forms
         }
 
         private void FileWatcherOnCreated_Changed_Deleted(object sender, FileSystemEventArgs e) {
-            dtWatcherHistory.Rows.Add(dgvWatchHistory.Rows.Count + 1,DateTime.Now.ToString("G"), e.FullPath, e.ChangeType, "");
+            dtWatcherHistory.Rows.Add(dgvWatchHistory.Rows.Count + 1,DateTime.Now.ToString("g"), e.FullPath, e.ChangeType, "");
             dgvWatchHistory.Invoke(new Action(() => { RefreshWatcherHistory(); }));
         }
         private void FileWatcherOnRenamed(object sender, RenamedEventArgs e) {
-            dtWatcherHistory.Rows.Add(dgvWatchHistory.Rows.Count + 1, DateTime.Now.ToString("G"), e.OldFullPath, e.ChangeType, e.FullPath);
+            dtWatcherHistory.Rows.Add(dgvWatchHistory.Rows.Count + 1, DateTime.Now.ToString("g"), e.OldFullPath, e.ChangeType, e.FullPath);
             dgvWatchHistory.Invoke(new Action(() => { RefreshWatcherHistory(); }));
         }
         #endregion File Watcher
