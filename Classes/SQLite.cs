@@ -96,6 +96,7 @@ namespace Utilities.Classes
             dt.Columns.Add("Name");
             dt.Columns.Add("Type");
             dt.Columns.Add("Code");
+            dt.Columns["ID"].DataType = Type.GetType("System.Int32");
 
             connection.Open();
             command.Connection = connection;
@@ -266,6 +267,7 @@ namespace Utilities.Classes
             dt.Columns.Add("ID");
             dt.Columns.Add("Name");
             dt.Columns.Add("Notes");
+            dt.Columns["ID"].DataType = Type.GetType("System.Int32");
 
             connection.Open();
             command.Connection = connection;
@@ -292,6 +294,7 @@ namespace Utilities.Classes
             dt.Columns.Add("ID");
             dt.Columns.Add("Condition");
             dt.Columns.Add("Type");
+            dt.Columns["ID"].DataType = Type.GetType("System.Int32");
 
             connection.Open();
             command.Connection = connection;

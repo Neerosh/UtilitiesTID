@@ -38,7 +38,6 @@ namespace Utilities.Forms {
             this.txtFolderSQL = new System.Windows.Forms.TextBox();
             this.btnScriptUnified = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtFunctionality = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // btnScriptRegular
@@ -240,31 +239,12 @@ namespace Utilities.Forms {
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtFunctionality
-            // 
-            this.txtFunctionality.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFunctionality.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.txtFunctionality.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFunctionality.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtFunctionality.ForeColor = System.Drawing.Color.White;
-            this.txtFunctionality.Location = new System.Drawing.Point(20, 174);
-            this.txtFunctionality.Name = "txtFunctionality";
-            this.txtFunctionality.ReadOnly = true;
-            this.txtFunctionality.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtFunctionality.Size = new System.Drawing.Size(750, 109);
-            this.txtFunctionality.TabIndex = 10;
-            this.txtFunctionality.TabStop = false;
-            this.txtFunctionality.Text = "";
-            // 
             // ScriptWriter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
-            this.Controls.Add(this.txtFunctionality);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnScriptRegular);
             this.Controls.Add(this.txtProcedureName);
@@ -309,6 +289,5 @@ namespace Utilities.Forms {
         private System.Windows.Forms.TextBox txtFolderSQL;
         private System.Windows.Forms.Button btnScriptUnified;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox txtFunctionality;
     }
 }

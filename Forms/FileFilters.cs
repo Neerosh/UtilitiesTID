@@ -23,6 +23,8 @@ namespace Utilities.Forms
 
         private void RefreshFileFilters() {
             DataTable dataTableFileFilters = sqlite.SelectAllFileFilters();
+            dataTableFileFilters.DefaultView.Sort = "ID";
+
             dgvFileFilters.DataSource = dataTableFileFilters;
             dgvFileFilters.Columns[0].Visible = false;//ID
             dgvFileFilters.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -40,14 +42,18 @@ namespace Utilities.Forms
         }
         private void RefreshFileFilterConditions(int idFileFilter) {
             DataTable dataTableConditions = sqlite.SelectAllFileFilterConditions(idFileFilter, "");
+            dataTableConditions.DefaultView.Sort = "ID";
+
             dgvFileFilterConditions.DataSource = dataTableConditions;
             dgvFileFilterConditions.Columns[0].Visible = false;//ID
             dgvFileFilterConditions.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvFileFilterConditions.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void SelectCorrectRowFileFilter(int? selectedId) {
-            if (selectedId == null || selectedId == 0) { return; }
             dgvFileFilters.ClearSelection();
+            txtFilterName.Text = "";
+            txtFilterNotes.Text = "";
+            if (selectedId == null || selectedId == 0) { return; }
             //returns to updated/included row
             foreach (DataGridViewRow row in dgvFileFilters.Rows) {
                 if (selectedId == Convert.ToInt32(row.Cells[0].Value)) {
@@ -58,8 +64,10 @@ namespace Utilities.Forms
             }
         }
         private void SelectCorrectRowFileCondition(int? selectedId) {
-            if (selectedId == null || selectedId == 0) { return; }
             dgvFileFilterConditions.ClearSelection();
+            txtCondition.Text = "";
+            cboConditionType.SelectedIndex = 0;
+            if (selectedId == null || selectedId == 0) { return; }
             //returns to updated/included row
             foreach (DataGridViewRow row in dgvFileFilterConditions.Rows) {
                 if (selectedId == Convert.ToInt32(row.Cells[0].Value)) {
@@ -74,7 +82,9 @@ namespace Utilities.Forms
             txtFilterName.Text = "";
             txtFilterNotes.Text = "";
             txtCondition.Text = "";
+            cboConditionType.SelectedIndex = 0;
             dgvFileFilters.ClearSelection();
+            dgvFileFilterConditions.ClearSelection();
         }
         private void dgvFileFilters_SelectionChanged(object sender, EventArgs e) {
             if (dgvFileFilters.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
@@ -211,6 +221,7 @@ namespace Utilities.Forms
             fileFilter = sqlite.InsertFileFilter(fileFilter,this);
             RefreshFileFilters();
             SelectCorrectRowFileFilter(fileFilter.ID);
+            SelectCorrectRowFileCondition(0);
         }
         private void btnUpdateFileFilter_Click(object sender, EventArgs e) {
             CustomMessage customMessage;

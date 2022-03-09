@@ -23,16 +23,10 @@ namespace Utilities
                             "\r\nCommon:" +
                             "\r\n   Mouse Hover = When the mouse stops over a button it will hide options that the button won't use." +
                             "\r\n" +
-                            "\r\nSQL Scripts:" +
-                            "\r\n   Unified Script:" +
-                            "\r\n       Generate an sql script that check and execute the suitable operation. Operation order detach>attach>restore." +
-                            "\r\n   Regular Script:" +
-                            "\r\n       Generate an sql script it contains 3 procedures (DetachTID, AttachTID and RestoreTID) that check and execute the determined operation. " +
-                            "\r\n" +
-                            "\r\nWatcher:" +
+                            "\r\nFiles -> Watcher:" +
                             "\r\n   To track Creation and Deletion of files mark the checkbox File Name, to do the same with directories mark Directory Name. "+
                             "\r\n" +
-                            "\r\nManage Files:" +
+                            "\r\nFiles ->Manage Files:" +
                             "\r\n   Delete Duplicates:" +
                             "\r\n       Group files by hash, then delete the files with repeated hashs. Leave the first file found in each hash group. " +
                             "\r\n       Check Subfolders: adds subfolders files to the same group of the main folder. So if a copy of a main folder file appears on a subfolder it will be deleted. " +
@@ -41,8 +35,18 @@ namespace Utilities
             foreach (string str in arrayDeleteDuplicates) {
                 functionality += "\"" + str + "\"  ";
             }
+            functionality += "\r\n" +
+                             "\r\nScript Writer:" +
+                             "\r\n   Unified Script:" +
+                             "\r\n       Generate an sql script that check and execute the suitable operation. Operation order detach>attach>restore." +
+                             "\r\n   Regular Script:" +
+                             "\r\n       Generate an sql script it contains 3 procedures (DetachTID, AttachTID and RestoreTID) that check and execute the determined operation. "+
+                             "\r\nManage Processes:"+
+                             "\r\n   Process information:" +
+                             "\r\n       By default you can see your on processes and information your user have the right's to see. To list all processes and avaliable information about them you can run this program as Administrator. ";
 
-            sqlInstallGuide = "SQL SERVER Install Guide:" +
+
+        sqlInstallGuide = "SQL SERVER Install Guide:" +
                             "\r\n1) Go to Microsoft website and download the developer edition: SQLServer2019-SSEI-Dev.exe" +
                             "\r\n2) Run, select Custom then Install" +
                             "\r\n3) Once the download is complete. A new window with the SQL Server Installation Center will open" +

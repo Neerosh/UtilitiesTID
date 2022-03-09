@@ -20,6 +20,7 @@ namespace Utilities.Forms
 
         private void RefreshCodes() {
             DataTable dtCodes = sqlite.SelectAllCodes("");
+            dtCodes.DefaultView.Sort = "ID";
             dgvCodes.DataSource = dtCodes;
             dgvCodes.Columns[0].Visible = false;//ID
             dgvCodes.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
