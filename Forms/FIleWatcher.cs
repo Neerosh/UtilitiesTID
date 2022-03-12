@@ -146,7 +146,7 @@ namespace Utilities.Forms
             dgvWatchHistory.Invoke(new Action(() => { RefreshWatcherHistory(); }));
         }
         private void FileWatcherOnRenamed(object sender, RenamedEventArgs e) {
-            dtWatcherHistory.Rows.Add(dgvWatchHistory.Rows.Count + 1, DateTime.Now.ToString("g"), e.OldFullPath, e.ChangeType, e.FullPath);
+            dtWatcherHistory.Rows.Add(dgvWatchHistory.Rows.Count + 1, DateTime.Now.ToString("g"), e.FullPath, e.ChangeType, e.OldFullPath);
             dgvWatchHistory.Invoke(new Action(() => { RefreshWatcherHistory(); }));
         }
         #endregion File Watcher

@@ -136,7 +136,6 @@ namespace Utilities.Forms
             sqlite.AddDefaultCodes();
             RefreshCodes();
         }
-
         private void btnDeleteAll_Click(object sender, EventArgs e) {
             CustomMessage customMessage = new CustomMessage("Delete all registered codes?", "Confirmation", "confirmation");
             if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }

@@ -89,7 +89,6 @@ namespace Teste
             // 
             this.lblCreator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCreator.AutoSize = true;
-            this.lblCreator.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lblCreator.Font = new System.Drawing.Font("Arial", 2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCreator.ForeColor = System.Drawing.Color.White;
             this.lblCreator.Location = new System.Drawing.Point(16, 588);
@@ -102,7 +101,6 @@ namespace Teste
             // btnHelp
             // 
             this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnHelp.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnHelp.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHelp.FlatAppearance.BorderSize = 0;
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -124,7 +122,6 @@ namespace Teste
             // btnScriptWriter
             // 
             this.btnScriptWriter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnScriptWriter.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnScriptWriter.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnScriptWriter.FlatAppearance.BorderSize = 0;
             this.btnScriptWriter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -146,7 +143,6 @@ namespace Teste
             // btnProcessManagement
             // 
             this.btnProcessManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnProcessManagement.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnProcessManagement.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProcessManagement.FlatAppearance.BorderSize = 0;
             this.btnProcessManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -180,7 +176,6 @@ namespace Teste
             // btnFileFilters
             // 
             this.btnFileFilters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnFileFilters.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnFileFilters.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnFileFilters.FlatAppearance.BorderSize = 0;
             this.btnFileFilters.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -203,7 +198,6 @@ namespace Teste
             // 
             this.btnFileManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnFileManagement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnFileManagement.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnFileManagement.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnFileManagement.FlatAppearance.BorderSize = 0;
             this.btnFileManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -225,7 +219,6 @@ namespace Teste
             // btnFileWatcher
             // 
             this.btnFileWatcher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnFileWatcher.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnFileWatcher.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnFileWatcher.FlatAppearance.BorderSize = 0;
             this.btnFileWatcher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -247,7 +240,6 @@ namespace Teste
             // btnFileChecksum
             // 
             this.btnFileChecksum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnFileChecksum.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnFileChecksum.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnFileChecksum.FlatAppearance.BorderSize = 0;
             this.btnFileChecksum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -269,7 +261,6 @@ namespace Teste
             // btnFiles
             // 
             this.btnFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnFiles.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnFiles.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnFiles.FlatAppearance.BorderSize = 0;
             this.btnFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -301,7 +292,6 @@ namespace Teste
             // btnCodesManage
             // 
             this.btnCodesManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCodesManage.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnCodesManage.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCodesManage.FlatAppearance.BorderSize = 0;
             this.btnCodesManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -323,7 +313,6 @@ namespace Teste
             // btnCodeToClipboard
             // 
             this.btnCodeToClipboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCodeToClipboard.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnCodeToClipboard.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCodeToClipboard.FlatAppearance.BorderSize = 0;
             this.btnCodeToClipboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -345,7 +334,6 @@ namespace Teste
             // btnCodes
             // 
             this.btnCodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCodes.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnCodes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCodes.FlatAppearance.BorderSize = 0;
             this.btnCodes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -367,7 +355,6 @@ namespace Teste
             // btnConvertClarion
             // 
             this.btnConvertClarion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnConvertClarion.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnConvertClarion.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnConvertClarion.FlatAppearance.BorderSize = 0;
             this.btnConvertClarion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -389,7 +376,6 @@ namespace Teste
             // btnMenu
             // 
             this.btnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenu.FlatAppearance.BorderSize = 0;
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
