@@ -113,11 +113,9 @@ namespace Utilities.Forms
                 } else {
                     timeFormat += ":" + timeMinutes.ToString();
                 }
-
                 txtTime.Text = timeFormat;
             }
         }
-
         private String GetWeekDay(int clarionDate) {
             int day;
             String weekDay = "";

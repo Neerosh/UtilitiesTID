@@ -70,7 +70,7 @@ namespace Utilities.Forms
             folderSQL = txtFolderSQL.Text;
 
             string directoryScript = folderScript.Substring(0, folderScript.LastIndexOf('\\'));
-            Form form = this;
+
 
             await Task.Run(() => {
                 try {
@@ -85,24 +85,23 @@ namespace Utilities.Forms
                         if (txtScriptName.Text.Equals("")) {
                             folderScript = txtScriptFolder.Text + "\\RegularScript.sql";
                         }
-                        GenerateRegularScript(folderSQL, folderScript, form);
+                        GenerateRegularScript(folderSQL, folderScript);
                         return;
                     }
-
                     if (txtProcedureName.Text.Equals("")) {
                         procedureName = "UnifiedScript";
                     }
                     if (txtScriptName.Text.Equals("")) {
                         folderScript = txtScriptFolder.Text + "\\UnifiedScript.sql";
                     }
-                    GenerateUnifiedScript(folderSQL, folderScript, procedureName, form);
+                    GenerateUnifiedScript(folderSQL, folderScript, procedureName);
                 } catch (Exception ex) {
                     customMessage = new CustomMessage(ex.Message, "Error", "error");
-                    CustomDialog.ShowCustomDialog(customMessage, form);
+                    CustomDialog.ShowCustomDialog(customMessage, null);
                 }
             });
         }
-        private void GenerateUnifiedScript(string folderSQL, string folderScript, string procedureName, Form form) {
+        private void GenerateUnifiedScript(string folderSQL, string folderScript, string procedureName) {
             Byte[] line;
             string scriptText;
             CustomMessage customMessage;
@@ -180,7 +179,7 @@ namespace Utilities.Forms
 
             }
             customMessage = new CustomMessage("Unified Script generated successfully: \n" + folderScript, "Success", "success");
-            CustomDialog.ShowCustomDialog(customMessage, this);
+            CustomDialog.ShowCustomDialog(customMessage, null);
 
         }
         private void WriteUnifiedCode(string database, FileStream fileStream, string folderSQL) {
@@ -291,7 +290,7 @@ namespace Utilities.Forms
             }
         }
 
-        private void GenerateUnifiedScript_test(string folderSQL, string folderScript, string procedureName, Form form) {
+        private void GenerateUnifiedScript_test(string folderSQL, string folderScript, string procedureName) {
             Byte[] line;
             string scriptText;
             CustomMessage customMessage;
@@ -346,7 +345,7 @@ namespace Utilities.Forms
 
             }
             customMessage = new CustomMessage("Unified Script generated successfully: " + folderScript, "Success", "success");
-            CustomDialog.ShowCustomDialog(customMessage, this);
+            CustomDialog.ShowCustomDialog(customMessage, null);
         }
         private void WriteUnifiedScript_test(FileStream fileStream, string procedureName, string database) {
             Byte[] line;
@@ -470,7 +469,7 @@ namespace Utilities.Forms
 
         }
 
-        private void GenerateRegularScript(string folderSQL, string folderScript, Form form) {
+        private void GenerateRegularScript(string folderSQL, string folderScript) {
             Byte[] line;
             String[] procedures = { "AttachTID", "DetachTID", "RestoreTID" };
             CustomMessage customMessage;
@@ -543,7 +542,7 @@ namespace Utilities.Forms
                 }
             }
             customMessage = new CustomMessage("Regular Script generated successfully: \n" + folderScript, "Success", "success");
-            CustomDialog.ShowCustomDialog(customMessage, this);
+            CustomDialog.ShowCustomDialog(customMessage, null);
         }
         private void WriteRegularCode(string database, string folderSQL, FileStream fileStream, string action) {
             string fileText = "";
@@ -692,7 +691,7 @@ namespace Utilities.Forms
             if (procedureName.Equals("")) {
                 procedureName = "test";
             }
-            GenerateUnifiedScript_test(folderSQL, folderScript, procedureName, this);
+            GenerateUnifiedScript_test(folderSQL, folderScript, procedureName);
         }
 
         

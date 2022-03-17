@@ -37,10 +37,13 @@
   <ItemGroup>
     <Compile Remove="packages\**" />
     <Compile Remove="Properties\DataSources\**" />
+    <Compile Remove="Publish\**" />
     <EmbeddedResource Remove="packages\**" />
     <EmbeddedResource Remove="Properties\DataSources\**" />
+    <EmbeddedResource Remove="Publish\**" />
     <None Remove="packages\**" />
     <None Remove="Properties\DataSources\**" />
+    <None Remove="Publish\**" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\icons8_maintenance.ico" />
