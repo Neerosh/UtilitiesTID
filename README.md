@@ -11,11 +11,12 @@
 <li>Files,</li>
 	<ul>
 	<li>Checksum - generate or validade the hash of files.</li>
+	<li>Locks - check for files in use on active processes or shared folders. </li>
 	<li>Watcher - track actions on files or folders in a specific folder.</li>
 	<li>Manage Files - move, copy or delete duplicated files in a specific folder.</li>
 	<li>Manage File Filters - create, change or delete file filters and conditions on sqlite database.</li>
 	</ul>
-<li>Manage Processes - list all running processes with owners with option to check if a file is in use,</li>
+<li>Manage Processes - list all running processes with owners,</li>
 <li>Script Writer - Pre-Defined script generation with selected folder paths,</li>
 <li>Help - More information about how this software do specific tasks.</li>
 </ul>
