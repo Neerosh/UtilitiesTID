@@ -46,6 +46,9 @@
     <None Remove="Publish\**" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Forms\FileLocks.Designer.cs~RFbe11c6.TMP" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Resources\icons8_maintenance.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -61,10 +64,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.3" />
     <PackageReference Include="System.Management" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Forms\FileLocks.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>

@@ -331,6 +331,7 @@
             this.txtFilterNotes.Size = new System.Drawing.Size(515, 98);
             this.txtFilterNotes.TabIndex = 3;
             this.txtFilterNotes.Text = "";
+            this.txtFilterNotes.TextChanged += new System.EventHandler(this.txtFilterNotes_TextChanged);
             // 
             // lblNotes
             // 

@@ -305,5 +305,9 @@ namespace Utilities.Forms
                     break;
             }   
         }
+
+        private void txtFilterNotes_TextChanged(object sender, EventArgs e) {
+
+        }
     }
 }
