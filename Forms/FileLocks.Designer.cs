@@ -41,6 +41,8 @@
             this.btnEndSelectedProcess = new System.Windows.Forms.Button();
             this.dgvSharedFiles = new System.Windows.Forms.DataGridView();
             this.BtnCheckSharedFiles = new System.Windows.Forms.Button();
+            this.lblProcesses = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcess)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSharedFiles)).BeginInit();
             this.SuspendLayout();
@@ -49,8 +51,7 @@
             // 
             this.dgvProcess.AllowUserToAddRows = false;
             this.dgvProcess.AllowUserToDeleteRows = false;
-            this.dgvProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvProcess.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProcess.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
             this.dgvProcess.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
@@ -69,7 +70,7 @@
             this.dgvProcess.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProcess.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvProcess.GridColor = System.Drawing.Color.White;
-            this.dgvProcess.Location = new System.Drawing.Point(24, 86);
+            this.dgvProcess.Location = new System.Drawing.Point(24, 111);
             this.dgvProcess.MultiSelect = false;
             this.dgvProcess.Name = "dgvProcess";
             this.dgvProcess.ReadOnly = true;
@@ -81,7 +82,7 @@
             this.dgvProcess.RowTemplate.ReadOnly = true;
             this.dgvProcess.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProcess.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProcess.Size = new System.Drawing.Size(576, 225);
+            this.dgvProcess.Size = new System.Drawing.Size(560, 200);
             this.dgvProcess.TabIndex = 7;
             // 
             // lblFromMoveFiles
@@ -107,7 +108,7 @@
             this.txtLockedFilePath.ForeColor = System.Drawing.Color.White;
             this.txtLockedFilePath.Location = new System.Drawing.Point(108, 32);
             this.txtLockedFilePath.Name = "txtLockedFilePath";
-            this.txtLockedFilePath.Size = new System.Drawing.Size(456, 22);
+            this.txtLockedFilePath.Size = new System.Drawing.Size(440, 22);
             this.txtLockedFilePath.TabIndex = 1;
             // 
             // btnLockedFileBrowser
@@ -120,7 +121,7 @@
             this.btnLockedFileBrowser.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLockedFileBrowser.ForeColor = System.Drawing.Color.White;
             this.btnLockedFileBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnLockedFileBrowser.Location = new System.Drawing.Point(570, 31);
+            this.btnLockedFileBrowser.Location = new System.Drawing.Point(554, 31);
             this.btnLockedFileBrowser.Name = "btnLockedFileBrowser";
             this.btnLockedFileBrowser.Size = new System.Drawing.Size(30, 25);
             this.btnLockedFileBrowser.TabIndex = 2;
@@ -165,7 +166,7 @@
             // 
             // btnEndSelectedProcess
             // 
-            this.btnEndSelectedProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEndSelectedProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEndSelectedProcess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnEndSelectedProcess.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEndSelectedProcess.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -209,7 +210,7 @@
             this.dgvSharedFiles.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvSharedFiles.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvSharedFiles.GridColor = System.Drawing.Color.White;
-            this.dgvSharedFiles.Location = new System.Drawing.Point(24, 317);
+            this.dgvSharedFiles.Location = new System.Drawing.Point(24, 342);
             this.dgvSharedFiles.MultiSelect = false;
             this.dgvSharedFiles.Name = "dgvSharedFiles";
             this.dgvSharedFiles.ReadOnly = true;
@@ -221,12 +222,12 @@
             this.dgvSharedFiles.RowTemplate.ReadOnly = true;
             this.dgvSharedFiles.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvSharedFiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSharedFiles.Size = new System.Drawing.Size(576, 229);
+            this.dgvSharedFiles.Size = new System.Drawing.Size(560, 200);
             this.dgvSharedFiles.TabIndex = 8;
             // 
             // BtnCheckSharedFiles
             // 
-            this.BtnCheckSharedFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCheckSharedFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnCheckSharedFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.BtnCheckSharedFiles.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.BtnCheckSharedFiles.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -236,7 +237,7 @@
             this.BtnCheckSharedFiles.Image = global::Utilities.Properties.Resources.icons8_help_32;
             this.BtnCheckSharedFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCheckSharedFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnCheckSharedFiles.Location = new System.Drawing.Point(606, 411);
+            this.BtnCheckSharedFiles.Location = new System.Drawing.Point(606, 342);
             this.BtnCheckSharedFiles.Name = "BtnCheckSharedFiles";
             this.BtnCheckSharedFiles.Size = new System.Drawing.Size(155, 44);
             this.BtnCheckSharedFiles.TabIndex = 9;
@@ -246,12 +247,42 @@
             this.BtnCheckSharedFiles.UseVisualStyleBackColor = false;
             this.BtnCheckSharedFiles.Click += new System.EventHandler(this.BtnCheckSharedFiles_Click);
             // 
+            // lblProcesses
+            // 
+            this.lblProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblProcesses.AutoSize = true;
+            this.lblProcesses.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblProcesses.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblProcesses.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblProcesses.Location = new System.Drawing.Point(24, 92);
+            this.lblProcesses.Name = "lblProcesses";
+            this.lblProcesses.Size = new System.Drawing.Size(73, 16);
+            this.lblProcesses.TabIndex = 10;
+            this.lblProcesses.Text = "Processes:";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(24, 323);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 16);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Shared Files:";
+            // 
             // FileLocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblProcesses);
             this.Controls.Add(this.BtnCheckSharedFiles);
             this.Controls.Add(this.dgvSharedFiles);
             this.Controls.Add(this.btnEndSelectedProcess);
@@ -285,5 +316,7 @@
         private System.Windows.Forms.Button btnEndSelectedProcess;
         private System.Windows.Forms.DataGridView dgvSharedFiles;
         private System.Windows.Forms.Button BtnCheckSharedFiles;
+        private System.Windows.Forms.Label lblProcesses;
+        private System.Windows.Forms.Label label1;
     }
 }

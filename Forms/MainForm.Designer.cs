@@ -39,6 +39,7 @@ namespace Teste
             this.btnFileFilters = new System.Windows.Forms.Button();
             this.btnFileManagement = new System.Windows.Forms.Button();
             this.btnFileWatcher = new System.Windows.Forms.Button();
+            this.btnFileLocks = new System.Windows.Forms.Button();
             this.btnFileChecksum = new System.Windows.Forms.Button();
             this.btnFiles = new System.Windows.Forms.Button();
             this.panelSubMenuCodes = new System.Windows.Forms.Panel();
@@ -81,7 +82,7 @@ namespace Teste
             this.panelSideMenu.ForeColor = System.Drawing.Color.White;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(206, 611);
+            this.panelSideMenu.Size = new System.Drawing.Size(206, 661);
             this.panelSideMenu.TabIndex = 19;
             this.panelSideMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
@@ -91,7 +92,7 @@ namespace Teste
             this.lblCreator.AutoSize = true;
             this.lblCreator.Font = new System.Drawing.Font("Arial", 2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCreator.ForeColor = System.Drawing.Color.White;
-            this.lblCreator.Location = new System.Drawing.Point(16, 588);
+            this.lblCreator.Location = new System.Drawing.Point(16, 638);
             this.lblCreator.Name = "lblCreator";
             this.lblCreator.Size = new System.Drawing.Size(166, 12);
             this.lblCreator.TabIndex = 4;
@@ -108,7 +109,7 @@ namespace Teste
             this.btnHelp.ForeColor = System.Drawing.Color.White;
             this.btnHelp.Image = global::Utilities.Properties.Resources.icons8_help_32;
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 544);
+            this.btnHelp.Location = new System.Drawing.Point(0, 584);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnHelp.Size = new System.Drawing.Size(206, 40);
@@ -129,7 +130,7 @@ namespace Teste
             this.btnScriptWriter.ForeColor = System.Drawing.Color.White;
             this.btnScriptWriter.Image = global::Utilities.Properties.Resources.icons8_scroll_32;
             this.btnScriptWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnScriptWriter.Location = new System.Drawing.Point(0, 504);
+            this.btnScriptWriter.Location = new System.Drawing.Point(0, 544);
             this.btnScriptWriter.Name = "btnScriptWriter";
             this.btnScriptWriter.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnScriptWriter.Size = new System.Drawing.Size(206, 40);
@@ -150,7 +151,7 @@ namespace Teste
             this.btnProcessManagement.ForeColor = System.Drawing.Color.White;
             this.btnProcessManagement.Image = global::Utilities.Properties.Resources.icons8_processes_32;
             this.btnProcessManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProcessManagement.Location = new System.Drawing.Point(0, 464);
+            this.btnProcessManagement.Location = new System.Drawing.Point(0, 504);
             this.btnProcessManagement.Name = "btnProcessManagement";
             this.btnProcessManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnProcessManagement.Size = new System.Drawing.Size(206, 40);
@@ -166,11 +167,12 @@ namespace Teste
             this.panelSubMenuFiles.Controls.Add(this.btnFileFilters);
             this.panelSubMenuFiles.Controls.Add(this.btnFileManagement);
             this.panelSubMenuFiles.Controls.Add(this.btnFileWatcher);
+            this.panelSubMenuFiles.Controls.Add(this.btnFileLocks);
             this.panelSubMenuFiles.Controls.Add(this.btnFileChecksum);
             this.panelSubMenuFiles.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuFiles.Location = new System.Drawing.Point(0, 304);
             this.panelSubMenuFiles.Name = "panelSubMenuFiles";
-            this.panelSubMenuFiles.Size = new System.Drawing.Size(206, 160);
+            this.panelSubMenuFiles.Size = new System.Drawing.Size(206, 200);
             this.panelSubMenuFiles.TabIndex = 4;
             // 
             // btnFileFilters
@@ -183,7 +185,7 @@ namespace Teste
             this.btnFileFilters.ForeColor = System.Drawing.Color.White;
             this.btnFileFilters.Image = global::Utilities.Properties.Resources.icons8_filter_file_32;
             this.btnFileFilters.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileFilters.Location = new System.Drawing.Point(0, 120);
+            this.btnFileFilters.Location = new System.Drawing.Point(0, 160);
             this.btnFileFilters.Name = "btnFileFilters";
             this.btnFileFilters.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnFileFilters.Size = new System.Drawing.Size(206, 40);
@@ -205,7 +207,7 @@ namespace Teste
             this.btnFileManagement.ForeColor = System.Drawing.Color.White;
             this.btnFileManagement.Image = global::Utilities.Properties.Resources.icons8_manage_file_32;
             this.btnFileManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileManagement.Location = new System.Drawing.Point(0, 80);
+            this.btnFileManagement.Location = new System.Drawing.Point(0, 120);
             this.btnFileManagement.Name = "btnFileManagement";
             this.btnFileManagement.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnFileManagement.Size = new System.Drawing.Size(206, 40);
@@ -226,7 +228,7 @@ namespace Teste
             this.btnFileWatcher.ForeColor = System.Drawing.Color.White;
             this.btnFileWatcher.Image = global::Utilities.Properties.Resources.icons8_watch_file_32;
             this.btnFileWatcher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileWatcher.Location = new System.Drawing.Point(0, 40);
+            this.btnFileWatcher.Location = new System.Drawing.Point(0, 80);
             this.btnFileWatcher.Name = "btnFileWatcher";
             this.btnFileWatcher.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnFileWatcher.Size = new System.Drawing.Size(206, 40);
@@ -236,6 +238,28 @@ namespace Teste
             this.btnFileWatcher.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFileWatcher.UseVisualStyleBackColor = false;
             this.btnFileWatcher.Click += new System.EventHandler(this.btnFileWatcher_Click);
+            // 
+            // btnFileLocks
+            // 
+            this.btnFileLocks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnFileLocks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnFileLocks.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFileLocks.FlatAppearance.BorderSize = 0;
+            this.btnFileLocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFileLocks.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnFileLocks.ForeColor = System.Drawing.Color.White;
+            this.btnFileLocks.Image = global::Utilities.Properties.Resources.icons8_lock_file_32;
+            this.btnFileLocks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileLocks.Location = new System.Drawing.Point(0, 40);
+            this.btnFileLocks.Name = "btnFileLocks";
+            this.btnFileLocks.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnFileLocks.Size = new System.Drawing.Size(206, 40);
+            this.btnFileLocks.TabIndex = 10;
+            this.btnFileLocks.Text = "Locks";
+            this.btnFileLocks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileLocks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileLocks.UseVisualStyleBackColor = false;
+            this.btnFileLocks.Click += new System.EventHandler(this.btnFileLocks_Click);
             // 
             // btnFileChecksum
             // 
@@ -438,7 +462,7 @@ namespace Teste
             this.panelChildForm.Location = new System.Drawing.Point(206, 26);
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Padding = new System.Windows.Forms.Padding(2);
-            this.panelChildForm.Size = new System.Drawing.Size(798, 585);
+            this.panelChildForm.Size = new System.Drawing.Size(778, 635);
             this.panelChildForm.TabIndex = 18;
             // 
             // panelBar
@@ -450,7 +474,7 @@ namespace Teste
             this.panelBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBar.Location = new System.Drawing.Point(206, 0);
             this.panelBar.Name = "panelBar";
-            this.panelBar.Size = new System.Drawing.Size(798, 26);
+            this.panelBar.Size = new System.Drawing.Size(778, 26);
             this.panelBar.TabIndex = 17;
             this.panelBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
@@ -462,7 +486,7 @@ namespace Teste
             this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Image = global::Utilities.Properties.Resources.icons8_minimize_window_32;
-            this.btnMinimize.Location = new System.Drawing.Point(714, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(694, 0);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(28, 26);
             this.btnMinimize.TabIndex = 13;
@@ -477,7 +501,7 @@ namespace Teste
             this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Image = global::Utilities.Properties.Resources.icons8_maximize_window_32;
-            this.btnMaximize.Location = new System.Drawing.Point(742, 0);
+            this.btnMaximize.Location = new System.Drawing.Point(722, 0);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(28, 26);
             this.btnMaximize.TabIndex = 14;
@@ -492,7 +516,7 @@ namespace Teste
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::Utilities.Properties.Resources.icons8_close_window_32;
-            this.btnClose.Location = new System.Drawing.Point(770, 0);
+            this.btnClose.Location = new System.Drawing.Point(750, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(28, 26);
             this.btnClose.TabIndex = 15;
@@ -504,14 +528,14 @@ namespace Teste
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(1004, 611);
+            this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelBar);
             this.Controls.Add(this.panelSideMenu);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1020, 650);
+            this.MinimumSize = new System.Drawing.Size(1000, 700);
             this.Name = "Main";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -557,6 +581,7 @@ namespace Teste
         private System.Windows.Forms.Button btnFiles;
         private System.Windows.Forms.Button btnFileWatcher;
         private System.Windows.Forms.Label lblCreator;
+        private System.Windows.Forms.Button btnFileLocks;
     }
 }
 

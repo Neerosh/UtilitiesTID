@@ -225,6 +225,10 @@ namespace Teste
             PaintSelectedMenuItem(btnFiles);
             ShowHideSubMenus(panelSubMenuFiles);
         }
+        private void btnFileLocks_Click(object sender, EventArgs e) {
+            OpenChildForm(new FileLocks());
+            PaintSelectedMenuItem(btnFileLocks);
+        }
         private void BtnFileManagement_Click(object sender, EventArgs e) {
             OpenChildForm(new FileManager());
             PaintSelectedMenuItem(btnFileManagement);

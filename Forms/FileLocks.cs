@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilities.Classes;
 using static Utilities.Classes.NativeMembers;
+using static Utilities.Classes.NativeMethods;
 
 namespace Utilities.Forms
 {
@@ -17,6 +18,7 @@ namespace Utilities.Forms
         }
         private void ProcessManagement_Load(object sender, EventArgs e) {
             RefreshProcessList(GetProcessGridDataTable());
+            RefreshSharedFilesList(GetSharedFilesGridDataTable());
         }
 
         private Task task;
@@ -29,6 +31,22 @@ namespace Utilities.Forms
             dataTable.Columns["ID"].DataType = Type.GetType("System.Int32");
             return dataTable;
         }
+
+        private DataTable GetSharedFilesGridDataTable() {
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("Host");
+            dataTable.Columns.Add("Identification");
+            dataTable.Columns.Add("Accessed By");
+            dataTable.Columns.Add("Type");
+            dataTable.Columns.Add("Locks");
+            dataTable.Columns.Add("Access Type");
+            dataTable.Columns.Add("File Path");
+            dataTable.Columns["Identification"].DataType = Type.GetType("System.Int32");
+            dataTable.Columns["Locks"].DataType = Type.GetType("System.Int32");
+            return dataTable;
+        }
+
+
         private void RefreshProcessList(DataTable dataTable) {
             Invoke(new MethodInvoker(delegate {
                 dataTable.DefaultView.Sort = "ID";
@@ -38,6 +56,17 @@ namespace Utilities.Forms
                 dgvProcess.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dgvProcess.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }));
+        }
+
+        private void RefreshSharedFilesList(DataTable dataTable) {
+            dgvSharedFiles.DataSource = dataTable;
+            dgvSharedFiles.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSharedFiles.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSharedFiles.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSharedFiles.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSharedFiles.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSharedFiles.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSharedFiles.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private static string GetProcessUser(Process process) {
 
@@ -56,44 +85,6 @@ namespace Utilities.Forms
             }
         }
 
-        private static RM_PROCESS_INFO[] FindLockedFileProcesses(string path) {
-            int handle;
-            if (NativeMethods.RmStartSession(out handle, 0, strSessionKey: Guid.NewGuid().ToString()) != RmResult.ERROR_SUCCESS)
-                throw new Exception("Could not begin session. Unable to determine file lockers.");
-
-            try {
-                string[] resources = { path }; // Just checking on one resource.
-
-                if (NativeMethods.RmRegisterResources(handle, (uint)resources.LongLength, resources, 0, null, 0, null) != RmResult.ERROR_SUCCESS)
-                    throw new Exception("Could not register resource.");
-
-                // The first try is done expecting at most ten processes to lock the file.
-                uint arraySize = 10;
-                RmResult result;
-                do {
-                    var array = new RM_PROCESS_INFO[arraySize];
-                    uint arrayCount;
-                    RM_REBOOT_REASON lpdwRebootReasons;
-                    result = NativeMethods.RmGetList(handle, out arrayCount, ref arraySize, array, out lpdwRebootReasons);
-                    if (result == RmResult.ERROR_SUCCESS) {
-                        // Adjust the array length to fit the actual count.
-
-                        Array.Resize(ref array, (int)arrayCount);
-                        return array;
-                    } else if (result == RmResult.ERROR_MORE_DATA) {
-                        // We need to initialize a bigger array. We only set the size, and do another iteration.
-                        // (the out parameter arrayCount contains the expected value for the next try)
-                        arraySize = arrayCount;
-                    } else {
-                        throw new Exception("Could not list processes locking resource. Failed to get size of result.");
-                    }
-                } while (result != RmResult.ERROR_SUCCESS);
-            } finally {
-                NativeMethods.RmEndSession(handle);
-            }
-            return new RM_PROCESS_INFO[0];
-        }
-
         private void InvokeMessage(CustomMessage customMessage) {
             Invoke(new Action(() => {
                 CustomDialog.ShowCustomDialog(customMessage, this);
@@ -101,19 +92,10 @@ namespace Utilities.Forms
         }
 
         private DataTable OpenFilesSearch(string? filePath) {
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("Host");
-            dataTable.Columns.Add("Identification");
-            dataTable.Columns.Add("Accessed By");
-            dataTable.Columns.Add("Type");
-            dataTable.Columns.Add("Locks");
-            dataTable.Columns.Add("Access Type");
-            dataTable.Columns.Add("File Path");
-            dataTable.Columns["Identification"].DataType = Type.GetType("System.Int32");
-            dataTable.Columns["Locks"].DataType = Type.GetType("System.Int32");
+            DataTable dataTable = GetSharedFilesGridDataTable();
+            CustomMessage customMessage = null;
 
             Process process = new Process();
-            MessageBox.Show(Environment.SystemDirectory + "\\openfiles.exe");
             process.StartInfo.FileName = Environment.SystemDirectory + "\\openfiles.exe";
             process.StartInfo.Arguments = " /query /FO CSV /v";
             if (filePath != null && filePath != "") {
@@ -125,35 +107,31 @@ namespace Utilities.Forms
             process.StartInfo.RedirectStandardError = true;
             try {
                 process.Start();
-                //This string is used to contain what openfiles program returns
                 string output = String.Empty;
                 string errorOutput = String.Empty;
                 output = process.StandardOutput.ReadToEnd();
                 errorOutput = process.StandardError.ReadToEnd();
-                MessageBox.Show("Waiting for Exit");
                 process.WaitForExit();
-                MessageBox.Show("Exited");
                 if (output.Contains("\"")) {
                     output = output.Substring(output.IndexOf("\"")).Replace("\"", "");
                 } else {
                     output = "Error";
-                    return dataTable;
+                    throw new Exception("");
                 }
-
                 string[] outputLines;
 
                 outputLines = output.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (string line in outputLines) {
+                    if (line.Equals(outputLines[0])) { continue; }
                     string[] lineItems = line.Split(",");
-                    if (lineItems.Length < 7) { continue; }
-                    dataTable.Rows.Add(lineItems[0],lineItems[1],lineItems[2],
-                                       lineItems[3],lineItems[4],lineItems[5],
+                    if (lineItems.Length < 6) { continue; }
+                    dataTable.Rows.Add(lineItems[0],Convert.ToInt64(lineItems[1]),lineItems[2],
+                                       lineItems[3], Convert.ToInt64(lineItems[4]),lineItems[5],
                                        lineItems[6]);
                 }
-
-
             } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
+                customMessage = new CustomMessage("Error listing open shared files, action cancelled.\n" + ex.Message, "Error", "error");
+                CustomDialog.ShowCustomDialog(customMessage, this);
             }
             return dataTable;
         }
@@ -233,6 +211,7 @@ namespace Utilities.Forms
         private async void BtnCheckLockedFile_Click(object sender, EventArgs e) {
             if (task == null || task.IsCompleted) {
                 task = GetLockedFileProcesses();
+                RefreshSharedFilesList(OpenFilesSearch(txtLockedFilePath.Text));
                 await task;
                 return;
             }
@@ -262,16 +241,14 @@ namespace Utilities.Forms
                 return;
             }
         }
-
         private void BtnCheckSharedFiles_Click(object sender, EventArgs e) {
-            dgvSharedFiles.DataSource = OpenFilesSearch(null);
-            dgvSharedFiles.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvSharedFiles.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvSharedFiles.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvSharedFiles.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvSharedFiles.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvSharedFiles.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvSharedFiles.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            if (!IsAdministrator()) {
+                CustomMessage customMessage = new CustomMessage("Aplication not running as Administrator." +
+                                "\nTo use this action run this aplication as Administrator.", "Information", "information");
+                CustomDialog.ShowCustomDialog(customMessage, this);
+                return;
+            }
+            RefreshSharedFilesList(OpenFilesSearch(null));
         }
     }
 }
