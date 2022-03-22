@@ -1,5 +1,5 @@
 # UtilitiesTID
-<p>Required .NET Desktop Runtime 6.0 or SDK 6.0</p>
+<p>Required .NET Desktop Runtime 6.0.3 or SDK 6.0.3 </p>
 <p>Useful tools I use every day:</p>
 <ul>
 <li>Clarion Conversion - Clarion Time and Date Conversion,</li>

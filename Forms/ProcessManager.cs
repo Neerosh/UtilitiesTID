@@ -41,22 +41,6 @@ namespace Utilities.Forms
                 dgvProcess.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }));
         }
-        private static string GetProcessUser(Process process) {
-
-            IntPtr processHandle = IntPtr.Zero;
-            try {
-                NativeMethods.OpenProcessToken(process.Handle, 8, out processHandle);
-                WindowsIdentity wi = new WindowsIdentity(processHandle);
-                string user = wi.Name;
-                return user.Contains(@"\") ? user.Substring(user.IndexOf(@"\") + 1) : user;
-            } catch {
-                return "";
-            } finally {
-                if (processHandle != IntPtr.Zero) {
-                    NativeMethods.CloseHandle(processHandle);
-                }
-            }
-        }
 
         private void InvokeMessage(CustomMessage customMessage) {
             Invoke(new Action(() => {

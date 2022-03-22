@@ -40,9 +40,10 @@
             this.chkShowUnknownUsers = new System.Windows.Forms.CheckBox();
             this.btnEndSelectedProcess = new System.Windows.Forms.Button();
             this.dgvSharedFiles = new System.Windows.Forms.DataGridView();
-            this.BtnCheckSharedFiles = new System.Windows.Forms.Button();
+            this.BtnListAllSharedFiles = new System.Windows.Forms.Button();
             this.lblProcesses = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnDisconnectSelectedFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcess)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSharedFiles)).BeginInit();
             this.SuspendLayout();
@@ -184,7 +185,7 @@
             this.btnEndSelectedProcess.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEndSelectedProcess.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEndSelectedProcess.UseVisualStyleBackColor = false;
-            this.btnEndSelectedProcess.Click += new System.EventHandler(this.btnEndSelectedProcess_Click);
+            this.btnEndSelectedProcess.Click += new System.EventHandler(this.BtnEndSelectedProcess_Click);
             // 
             // dgvSharedFiles
             // 
@@ -225,27 +226,27 @@
             this.dgvSharedFiles.Size = new System.Drawing.Size(560, 200);
             this.dgvSharedFiles.TabIndex = 8;
             // 
-            // BtnCheckSharedFiles
+            // BtnListAllSharedFiles
             // 
-            this.BtnCheckSharedFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnCheckSharedFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.BtnCheckSharedFiles.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.BtnCheckSharedFiles.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnCheckSharedFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCheckSharedFiles.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnCheckSharedFiles.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnCheckSharedFiles.Image = global::Utilities.Properties.Resources.icons8_help_32;
-            this.BtnCheckSharedFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCheckSharedFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnCheckSharedFiles.Location = new System.Drawing.Point(606, 342);
-            this.BtnCheckSharedFiles.Name = "BtnCheckSharedFiles";
-            this.BtnCheckSharedFiles.Size = new System.Drawing.Size(155, 44);
-            this.BtnCheckSharedFiles.TabIndex = 9;
-            this.BtnCheckSharedFiles.Text = "Check Shared Files";
-            this.BtnCheckSharedFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCheckSharedFiles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCheckSharedFiles.UseVisualStyleBackColor = false;
-            this.BtnCheckSharedFiles.Click += new System.EventHandler(this.BtnCheckSharedFiles_Click);
+            this.BtnListAllSharedFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnListAllSharedFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.BtnListAllSharedFiles.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.BtnListAllSharedFiles.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnListAllSharedFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnListAllSharedFiles.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnListAllSharedFiles.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnListAllSharedFiles.Image = global::Utilities.Properties.Resources.icons8_help_32;
+            this.BtnListAllSharedFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnListAllSharedFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.BtnListAllSharedFiles.Location = new System.Drawing.Point(606, 342);
+            this.BtnListAllSharedFiles.Name = "BtnListAllSharedFiles";
+            this.BtnListAllSharedFiles.Size = new System.Drawing.Size(155, 44);
+            this.BtnListAllSharedFiles.TabIndex = 9;
+            this.BtnListAllSharedFiles.Text = "List All Shared Files Open";
+            this.BtnListAllSharedFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnListAllSharedFiles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnListAllSharedFiles.UseVisualStyleBackColor = false;
+            this.BtnListAllSharedFiles.Click += new System.EventHandler(this.BtnListAllSharedFiles_Click);
             // 
             // lblProcesses
             // 
@@ -275,15 +276,38 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Shared Files:";
             // 
+            // btnDisconnectSelectedFile
+            // 
+            this.btnDisconnectSelectedFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDisconnectSelectedFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnDisconnectSelectedFile.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDisconnectSelectedFile.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnDisconnectSelectedFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDisconnectSelectedFile.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDisconnectSelectedFile.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDisconnectSelectedFile.Image = global::Utilities.Properties.Resources.icons8_delete_process_32;
+            this.btnDisconnectSelectedFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDisconnectSelectedFile.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnDisconnectSelectedFile.Location = new System.Drawing.Point(606, 498);
+            this.btnDisconnectSelectedFile.Name = "btnDisconnectSelectedFile";
+            this.btnDisconnectSelectedFile.Size = new System.Drawing.Size(155, 44);
+            this.btnDisconnectSelectedFile.TabIndex = 12;
+            this.btnDisconnectSelectedFile.Text = "Disconnect Selected File";
+            this.btnDisconnectSelectedFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDisconnectSelectedFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDisconnectSelectedFile.UseVisualStyleBackColor = false;
+            this.btnDisconnectSelectedFile.Click += new System.EventHandler(this.BtnDisconnectSelectedFile_Click);
+            // 
             // FileLocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
+            this.Controls.Add(this.btnDisconnectSelectedFile);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblProcesses);
-            this.Controls.Add(this.BtnCheckSharedFiles);
+            this.Controls.Add(this.BtnListAllSharedFiles);
             this.Controls.Add(this.dgvSharedFiles);
             this.Controls.Add(this.btnEndSelectedProcess);
             this.Controls.Add(this.chkShowUnknownUsers);
@@ -315,8 +339,9 @@
         private System.Windows.Forms.CheckBox chkShowUnknownUsers;
         private System.Windows.Forms.Button btnEndSelectedProcess;
         private System.Windows.Forms.DataGridView dgvSharedFiles;
-        private System.Windows.Forms.Button BtnCheckSharedFiles;
+        private System.Windows.Forms.Button BtnListAllSharedFiles;
         private System.Windows.Forms.Label lblProcesses;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnDisconnectSelectedFile;
     }
 }

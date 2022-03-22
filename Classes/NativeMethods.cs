@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using static Utilities.Classes.NativeMembers;
@@ -128,7 +129,22 @@ namespace Utilities.Classes
             return new RM_PROCESS_INFO[0];
         }
 
+        public static string GetProcessUser(Process process) {
 
+            IntPtr processHandle = IntPtr.Zero;
+            try {
+                NativeMethods.OpenProcessToken(process.Handle, 8, out processHandle);
+                WindowsIdentity wi = new WindowsIdentity(processHandle);
+                string user = wi.Name;
+                return user.Contains(@"\") ? user.Substring(user.IndexOf(@"\") + 1) : user;
+            } catch {
+                return "";
+            } finally {
+                if (processHandle != IntPtr.Zero) {
+                    NativeMethods.CloseHandle(processHandle);
+                }
+            }
+        }
         public static bool IsAdministrator() {
             return (new WindowsPrincipal(WindowsIdentity.GetCurrent()))
                       .IsInRole(WindowsBuiltInRole.Administrator);
