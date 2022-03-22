@@ -394,5 +394,30 @@ namespace Utilities.Properties
             }
         }
 
+        internal static System.Drawing.Bitmap icons8_share_file_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_share_file_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap icons8_disconnect_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_disconnect_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap icons8_process_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_process_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap icons8_search_process_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_search_process_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

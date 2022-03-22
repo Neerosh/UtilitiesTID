@@ -3,10 +3,10 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Principal;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilities.Classes;
-using static Utilities.Classes.NativeMembers;
 using static Utilities.Classes.NativeMethods;
 
 namespace Utilities.Forms
@@ -17,13 +17,18 @@ namespace Utilities.Forms
             InitializeComponent();
         }
         private void ProcessManagement_Load(object sender, EventArgs e) {
-            RefreshProcessList(GetGridDataTable());
-            lblListProgress.Visible = false;
+            RefreshProcessList(GetProcessesDataTable());
+            cboWhereField.SelectedIndex = 0;
+            if (!IsAdministrator()) {
+                CustomMessage customMessage = new CustomMessage("Aplication not running as Administrator. Some restrictions are activated:" +
+                                "\nNot all processes may appear.", "Information", "information");
+                CustomDialog.ShowCustomDialog(customMessage, this);
+            }
         }
 
         private Task task;
 
-        private DataTable GetGridDataTable() {
+        private DataTable GetProcessesDataTable() {
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("ID");
             dataTable.Columns.Add("Name");
@@ -41,53 +46,43 @@ namespace Utilities.Forms
                 dgvProcess.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }));
         }
-
         private void InvokeMessage(CustomMessage customMessage) {
             Invoke(new Action(() => {
                 CustomDialog.ShowCustomDialog(customMessage, this);
             }));
         }
 
-        private async Task GetLockedFileProcesses() {
-            string lockedFile = txtLockedFilePath.Text;
-            if (lockedFile == null || lockedFile.Length == 0) {
-                CustomDialog.ShowCustomDialog(new CustomMessage("Select a file", "Error", "error"), this);
-                return;
-            }
-
-            await Task.Run(() => {
-                RM_PROCESS_INFO[] rm = null;
-                Process process = null;
-                DataTable dataTable = GetGridDataTable();
-                string owner = "";
-                try {
-                    rm = FindLockedFileProcesses(lockedFile);
-                    rm.OrderBy(rm => rm.Process.dwProcessId);
-                    for (int i = 0; i < rm.Count(); i++) {
-                        process = Process.GetProcessById(rm[i].Process.dwProcessId);
-                        owner = GetProcessUser(process);
-                        if (owner == null || owner.Equals("")) {
-                            owner = "Unknown";
-                        }
-                        dataTable.Rows.Add(process.Id, process.ProcessName, owner);
-                    }
-                    RefreshProcessList(dataTable);
-                } catch (Exception ex) {
-                    InvokeMessage(new CustomMessage("Error getting processes :\n" + ex.Message, "Error", "error"));
-                }
-
-            });
-        }
-        private async Task ListAllProcesses() {
-            lblListProgress.Visible = true;
+        private async Task ListProcesses(bool useFilters) {
             bool showUnknownUsers = chkShowUnknownUsers.Checked;
+            string conditionField = String.Empty;
+            string conditionValue = String.Empty;
+            if (useFilters) {
+                conditionField = cboWhereField.SelectedItem.ToString();
+                conditionValue = txtWhereValue.Text;
+                if (conditionField.Equals("") || conditionValue.Equals("")) {
+                    InvokeMessage(new CustomMessage("Error condition cannot have empty fields.", "Error", "error"));
+                    return;
+                }
+            }
+            lblListProgress.Visible = true;
             await Task.Run(() => {
-                DataTable dataTable = GetGridDataTable();
+                Thread.Sleep(1000);
+                DataTable dataTable = GetProcessesDataTable();
                 string owner = "Unknown";
                 try {
-                    if (!OperatingSystem.IsWindows()) { throw new Exception("Operating System is not Windows"); }
+                    Process[] processes;
+                    switch (conditionField) {
+                        case "ID":
+                            Process process = Process.GetProcessById(Convert.ToInt32(conditionValue));
+                            processes = new Process[1] { process };
+                            break;
+                        case "Name":
+                            processes = Process.GetProcessesByName(conditionValue);
+                            break;
+                        default: processes = Process.GetProcesses(".");
+                            break;
+                    }
 
-                    Process[] processes = Process.GetProcesses(".");
                     foreach (Process process in processes) {
                         owner = GetProcessUser(process);
                         if (owner.Equals("")) {
@@ -108,7 +103,6 @@ namespace Utilities.Forms
         private async Task KillProcess(int processId) {
             await Task.Run(() => {
                 try {
-                    if (!OperatingSystem.IsWindows()) { throw new Exception("Operating System is not Windows"); }
                     Process process = Process.GetProcessById(processId);
                     process.Kill();
                     Invoke(new Action(() => {
@@ -123,22 +117,17 @@ namespace Utilities.Forms
 
         private async void BtnCheckLockedFile_Click(object sender, EventArgs e) {
             if (task == null || task.IsCompleted) {
-                task = GetLockedFileProcesses();
+                task = ListProcesses(true);
                 await task;
                 return;
             }
         }
         private async void btnListProcesses_Click(object sender, EventArgs e) {
             if (task == null || task.IsCompleted) {
-                task = ListAllProcesses();
+                task = ListProcesses(false);
                 await task;
                 return;
             }
-        }
-        private void btnLockedFileBrowser_Click(object sender, EventArgs e) {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.ShowDialog(this);
-            txtLockedFilePath.Text = openFileDialog.FileName;
         }
         private async void btnEndSelectedProcess_Click(object sender, EventArgs e) {
             if (dgvProcess.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }

@@ -119,13 +119,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
             this.rtbMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbMessage.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rtbMessage.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rtbMessage.ForeColor = System.Drawing.Color.White;
             this.rtbMessage.Location = new System.Drawing.Point(68, 18);
             this.rtbMessage.Name = "rtbMessage";
             this.rtbMessage.ReadOnly = true;
-            this.rtbMessage.Size = new System.Drawing.Size(360, 61);
+            this.rtbMessage.Size = new System.Drawing.Size(360, 71);
             this.rtbMessage.TabIndex = 3;
             this.rtbMessage.Text = "";
             // 
@@ -158,7 +157,7 @@
             this.panelMessage.ForeColor = System.Drawing.Color.White;
             this.panelMessage.Location = new System.Drawing.Point(0, 23);
             this.panelMessage.Name = "panelMessage";
-            this.panelMessage.Size = new System.Drawing.Size(450, 127);
+            this.panelMessage.Size = new System.Drawing.Size(450, 137);
             this.panelMessage.TabIndex = 4;
             // 
             // panelConfirmation
@@ -166,7 +165,7 @@
             this.panelConfirmation.Controls.Add(this.btnYes);
             this.panelConfirmation.Controls.Add(this.btnNo);
             this.panelConfirmation.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelConfirmation.Location = new System.Drawing.Point(0, 127);
+            this.panelConfirmation.Location = new System.Drawing.Point(0, 137);
             this.panelConfirmation.Name = "panelConfirmation";
             this.panelConfirmation.Size = new System.Drawing.Size(450, 0);
             this.panelConfirmation.TabIndex = 1;
@@ -211,7 +210,7 @@
             // 
             this.panelOk.Controls.Add(this.btnOk);
             this.panelOk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelOk.Location = new System.Drawing.Point(0, 127);
+            this.panelOk.Location = new System.Drawing.Point(0, 137);
             this.panelOk.Name = "panelOk";
             this.panelOk.Size = new System.Drawing.Size(450, 0);
             this.panelOk.TabIndex = 2;
@@ -222,7 +221,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(450, 150);
+            this.ClientSize = new System.Drawing.Size(450, 160);
             this.Controls.Add(this.panelMessage);
             this.Controls.Add(this.panelTitle);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

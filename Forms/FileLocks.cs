@@ -3,6 +3,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Principal;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilities.Classes;
@@ -16,9 +17,18 @@ namespace Utilities.Forms
         public FileLocks() {
             InitializeComponent();
         }
-        private void ProcessManagement_Load(object sender, EventArgs e) {
+        private void FileLocks_Load(object sender, EventArgs e) {
             RefreshProcessList(GetProcessGridDataTable());
             RefreshSharedFilesList(GetSharedFilesGridDataTable());
+            if (!IsAdministrator()) {
+                btnDisconnectSelectedFile.Enabled = false;
+                btnListAllSharedFiles.Enabled = false;
+                btnDisconnectSelectedFile.BackColor = System.Drawing.Color.DarkGray;
+                btnListAllSharedFiles.BackColor = System.Drawing.Color.DarkGray;
+                CustomMessage customMessage = new CustomMessage("Aplication not running as Administrator. Some restrictions are activated:" +
+                                "\nNot all processes may appear,\nButtons related to Shared Files are disabled.", "Information", "information");
+                CustomDialog.ShowCustomDialog(customMessage, this);
+            }
         }
 
         private Task task;
@@ -78,8 +88,9 @@ namespace Utilities.Forms
                 CustomDialog.ShowCustomDialog(new CustomMessage("Select a file", "Error", "error"), this);
                 return;
             }
-
+            lblSearchLocks.Visible = true;
             await Task.Run(() => {
+                Thread.Sleep(1000);
                 RM_PROCESS_INFO[] rm = null;
                 Process process = null;
                 DataTable dataTable = GetProcessGridDataTable();
@@ -101,6 +112,36 @@ namespace Utilities.Forms
                 }
 
             });
+            lblSearchLocks.Visible = false;
+        }
+
+        private async Task ListAllProcesses() {
+            lblListProcesses.Visible = true;
+            bool showUnknownUsers = chkShowUnknownUsers.Checked;
+            await Task.Run(() => {
+                Thread.Sleep(1000);
+                DataTable dataTable = GetProcessGridDataTable();
+                string owner = "Unknown";
+                try {
+                    if (!OperatingSystem.IsWindows()) { throw new Exception("Operating System is not Windows"); }
+
+                    Process[] processes = Process.GetProcesses(".");
+                    foreach (Process process in processes) {
+                        owner = GetProcessUser(process);
+                        if (owner.Equals("")) {
+                            owner = "Unknown";
+                        }
+                        if (showUnknownUsers == false && owner.Equals("Unknown")) {
+                            continue;
+                        }
+                        dataTable.Rows.Add(process.Id, process.ProcessName, owner);
+                    }
+                    RefreshProcessList(dataTable);
+                } catch (Exception ex) {
+                    InvokeMessage(new CustomMessage("Error listing processes: \n" + ex.Message, "Error", "error"));
+                }
+            });
+            lblListProcesses.Visible = false;
         }
         private async Task KillProcess(int processId) {
             await Task.Run(() => {
@@ -126,10 +167,13 @@ namespace Utilities.Forms
                 return;
             }
         }
-        private void btnLockedFileBrowser_Click(object sender, EventArgs e) {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.ShowDialog(this);
-            txtLockedFilePath.Text = openFileDialog.FileName;
+
+        private async void BtnListAllProcesses_Click(object sender, EventArgs e) {
+            if (task == null || task.IsCompleted) {
+                task = ListAllProcesses();
+                await task;
+                return;
+            }
         }
         private async void BtnEndSelectedProcess_Click(object sender, EventArgs e) {
             if (dgvProcess.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
@@ -152,10 +196,20 @@ namespace Utilities.Forms
             }
         }
 
+        private void btnLockedFileBrowser_Click(object sender, EventArgs e) {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.ShowDialog(this);
+            txtLockedFilePath.Text = openFileDialog.FileName;
+        }
 
         private DataTable OpenFilesSearch(string? filePath) {
             DataTable dataTable = GetSharedFilesGridDataTable();
             CustomMessage customMessage = null;
+
+            if (!IsAdministrator()) {
+                return dataTable;
+            }
+
             Process process = new Process();
             //process.StartInfo.FileName = Environment.SystemDirectory + "\\openfiles.exe";
             process.StartInfo.FileName = Environment.SystemDirectory + "\\cmd.exe";
@@ -200,14 +254,10 @@ namespace Utilities.Forms
             }
             return dataTable;
         }
-
         private void DisconnectOpenFile(Int64 id) {
             if (id == null) { return; }
             CustomMessage customMessage = null;
             if (!IsAdministrator()) {
-                customMessage = new CustomMessage("Aplication not running as Administrator." +
-                                "\nTo use this action run this aplication as Administrator.", "Information", "information");
-                CustomDialog.ShowCustomDialog(customMessage, this);
                 return;
             }
             Process process = new Process();
@@ -252,7 +302,7 @@ namespace Utilities.Forms
                 return;
             }
             DisconnectOpenFile(sharedId);
-            //dgvSharedFiles.Rows.RemoveAt(dgvProcess.SelectedRows[0].Index);
+            dgvSharedFiles.Rows.RemoveAt(dgvSharedFiles.SelectedRows[0].Index);
 
         }
     }
