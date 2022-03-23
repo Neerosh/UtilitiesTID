@@ -193,7 +193,7 @@
             this.lblListProgress.AutoSize = true;
             this.lblListProgress.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblListProgress.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblListProgress.Location = new System.Drawing.Point(623, 86);
+            this.lblListProgress.Location = new System.Drawing.Point(465, 86);
             this.lblListProgress.Name = "lblListProgress";
             this.lblListProgress.Size = new System.Drawing.Size(123, 16);
             this.lblListProgress.TabIndex = 27;

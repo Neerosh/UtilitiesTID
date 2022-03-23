@@ -25,12 +25,12 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileLocks));
             this.dgvProcess = new System.Windows.Forms.DataGridView();
             this.lblFromMoveFiles = new System.Windows.Forms.Label();
@@ -47,6 +47,7 @@
             this.lblListProcesses = new System.Windows.Forms.Label();
             this.btnListAllProcesses = new System.Windows.Forms.Button();
             this.lblSearchLocks = new System.Windows.Forms.Label();
+            this.lblListSharedFiles = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcess)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSharedFiles)).BeginInit();
             this.SuspendLayout();
@@ -62,16 +63,16 @@
             this.dgvProcess.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.dgvProcess.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProcess.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvProcess.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvProcess.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProcess.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProcess.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProcess.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProcess.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvProcess.GridColor = System.Drawing.Color.White;
             this.dgvProcess.Location = new System.Drawing.Point(24, 111);
@@ -79,7 +80,7 @@
             this.dgvProcess.Name = "dgvProcess";
             this.dgvProcess.ReadOnly = true;
             this.dgvProcess.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvProcess.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvProcess.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProcess.RowHeadersVisible = false;
             this.dgvProcess.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvProcess.RowTemplate.Height = 25;
@@ -161,7 +162,7 @@
             this.chkShowUnknownUsers.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkShowUnknownUsers.ForeColor = System.Drawing.Color.White;
             this.chkShowUnknownUsers.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkShowUnknownUsers.Location = new System.Drawing.Point(108, 60);
+            this.chkShowUnknownUsers.Location = new System.Drawing.Point(108, 64);
             this.chkShowUnknownUsers.Name = "chkShowUnknownUsers";
             this.chkShowUnknownUsers.Size = new System.Drawing.Size(250, 20);
             this.chkShowUnknownUsers.TabIndex = 3;
@@ -202,16 +203,16 @@
             this.dgvSharedFiles.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.dgvSharedFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSharedFiles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvSharedFiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvSharedFiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSharedFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSharedFiles.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSharedFiles.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvSharedFiles.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvSharedFiles.GridColor = System.Drawing.Color.White;
             this.dgvSharedFiles.Location = new System.Drawing.Point(24, 342);
@@ -219,7 +220,7 @@
             this.dgvSharedFiles.Name = "dgvSharedFiles";
             this.dgvSharedFiles.ReadOnly = true;
             this.dgvSharedFiles.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvSharedFiles.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvSharedFiles.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvSharedFiles.RowHeadersVisible = false;
             this.dgvSharedFiles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvSharedFiles.RowTemplate.Height = 25;
@@ -307,7 +308,7 @@
             this.lblListProcesses.AutoSize = true;
             this.lblListProcesses.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblListProcesses.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblListProcesses.Location = new System.Drawing.Point(623, 92);
+            this.lblListProcesses.Location = new System.Drawing.Point(467, 92);
             this.lblListProcesses.Name = "lblListProcesses";
             this.lblListProcesses.Size = new System.Drawing.Size(123, 16);
             this.lblListProcesses.TabIndex = 4;
@@ -342,12 +343,25 @@
             this.lblSearchLocks.AutoSize = true;
             this.lblSearchLocks.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSearchLocks.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblSearchLocks.Location = new System.Drawing.Point(623, 68);
+            this.lblSearchLocks.Location = new System.Drawing.Point(434, 57);
             this.lblSearchLocks.Name = "lblSearchLocks";
             this.lblSearchLocks.Size = new System.Drawing.Size(120, 16);
             this.lblSearchLocks.TabIndex = 12;
             this.lblSearchLocks.Text = "Searching Locks ...";
             this.lblSearchLocks.Visible = false;
+            // 
+            // lblListSharedFiles
+            // 
+            this.lblListSharedFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblListSharedFiles.AutoSize = true;
+            this.lblListSharedFiles.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblListSharedFiles.ForeColor = System.Drawing.Color.Chartreuse;
+            this.lblListSharedFiles.Location = new System.Drawing.Point(419, 323);
+            this.lblListSharedFiles.Name = "lblListSharedFiles";
+            this.lblListSharedFiles.Size = new System.Drawing.Size(171, 16);
+            this.lblListSharedFiles.TabIndex = 13;
+            this.lblListSharedFiles.Text = "Listing Open Files/Folders...\r\n";
+            this.lblListSharedFiles.Visible = false;
             // 
             // FileLocks
             // 
@@ -355,6 +369,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
+            this.Controls.Add(this.lblListSharedFiles);
             this.Controls.Add(this.lblSearchLocks);
             this.Controls.Add(this.lblListProcesses);
             this.Controls.Add(this.btnListAllProcesses);
@@ -400,5 +415,6 @@
         private System.Windows.Forms.Label lblListProcesses;
         private System.Windows.Forms.Button btnListAllProcesses;
         private System.Windows.Forms.Label lblSearchLocks;
+        private System.Windows.Forms.Label lblListSharedFiles;
     }
 }

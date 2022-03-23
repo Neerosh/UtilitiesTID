@@ -205,7 +205,7 @@
             this.lblFileHashProgress.AutoSize = true;
             this.lblFileHashProgress.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFileHashProgress.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblFileHashProgress.Location = new System.Drawing.Point(622, 74);
+            this.lblFileHashProgress.Location = new System.Drawing.Point(464, 69);
             this.lblFileHashProgress.Name = "lblFileHashProgress";
             this.lblFileHashProgress.Size = new System.Drawing.Size(141, 16);
             this.lblFileHashProgress.TabIndex = 10;
