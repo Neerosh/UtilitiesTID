@@ -50,7 +50,7 @@ namespace Utilities.Forms
             dataTable.Columns.Add("Locks");
             dataTable.Columns.Add("Access Type");
             dataTable.Columns.Add("File Path");
-            dataTable.Columns["ID"].DataType = Type.GetType("System.Int32");
+            dataTable.Columns["ID"].DataType = Type.GetType("System.Int64");
             dataTable.Columns["Locks"].DataType = Type.GetType("System.Int32");
             return dataTable;
         }
