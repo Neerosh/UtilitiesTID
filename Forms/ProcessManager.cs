@@ -47,6 +47,7 @@ namespace Utilities.Forms
             }));
         }
         private async Task ListProcesses(bool useFilters,CancellationTokenSource cancellationTokenSource) {
+            lblListProgress.Visible = true;
             bool showUnknownUsers = chkShowUnknownUsers.Checked;
             string conditionField = String.Empty;
             string conditionValue = String.Empty;
@@ -58,8 +59,6 @@ namespace Utilities.Forms
                     return;
                 }
             }
-            lblListProgress.Visible = true;
-            btnListProcesses.Text = "Stop Listing Processes";
             await Task.Run(() => {
                 Thread.Sleep(1000);
                 DataTable dataTable = GetProcessesDataTable();
@@ -79,7 +78,7 @@ namespace Utilities.Forms
                             break;
                     }
 
-                    if (cancellationTokenSource.IsCancellationRequested) { throw new TaskCanceledException(); }
+                    cancellationTokenSource.Token.ThrowIfCancellationRequested();
 
                     foreach (Process process in processes) {
                         owner = GetProcessUser(process);
@@ -90,7 +89,7 @@ namespace Utilities.Forms
                             continue;
                         }
                         dataTable.Rows.Add(process.Id, process.ProcessName, owner);
-                        if (cancellationTokenSource.IsCancellationRequested) { throw new TaskCanceledException(); }
+                        cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     }
                     RefreshProcessList(dataTable);
                 } catch (OperationCanceledException) {
@@ -99,22 +98,38 @@ namespace Utilities.Forms
                 }
             }, cancellationTokenSource.Token);
             btnListProcesses.Text = "List Running Processes";
+            btnListFilteredProcesses.Text = "List Filtered Processes";
             lblListProgress.Visible = false;
             cancellationTokenSource.Dispose();
         }
 
         private void BtnListFilteredProcesses_Click(object sender, EventArgs e) {
+            if (btnListFilteredProcesses.Text == "Stop Listing Processes") {
+                ctsListProcesses.Cancel();
+                return;
+            }
             if (taskListProcesses == null || taskListProcesses.IsCompleted) {
+                string conditionField = cboWhereField.SelectedItem.ToString();
+                string conditionValue = txtWhereValue.Text;
+                if (conditionField.Equals("") || conditionValue.Equals("")) {
+                    InvokeMessage(new CustomMessage("Error condition cannot have empty fields.", "Error", "error"));
+                    return;
+                }
+
                 ctsListProcesses = new CancellationTokenSource();
-                taskListProcesses = ListProcesses(false, ctsListProcesses);
+                taskListProcesses = ListProcesses(true, ctsListProcesses);
+                btnListFilteredProcesses.Text = "Stop Listing Processes";
             }
         }
         private void BtnListProcesses_Click(object sender, EventArgs e) {
+            if (btnListProcesses.Text == "Stop Listing Processes") {
+                ctsListProcesses.Cancel();
+                return;
+            }
             if (taskListProcesses == null || taskListProcesses.IsCompleted) {
                 ctsListProcesses = new CancellationTokenSource();
                 taskListProcesses = ListProcesses(false, ctsListProcesses);
-            } else {
-                ctsListProcesses.Cancel();
+                btnListProcesses.Text = "Stop Listing Processes";
             }
         }
         private void BtnEndSelectedProcess_Click(object sender, EventArgs e) {
@@ -138,6 +153,23 @@ namespace Utilities.Forms
             } catch (Exception ex) {
                 CustomDialog.ShowCustomDialog(new CustomMessage("Error ending process: \n" + ex.Message, "Error", "error"), this);
             }
+        }
+
+        private void TxtWhereValue_Validated(object sender, EventArgs e) {
+            string whereField = cboWhereField.SelectedItem.ToString();
+            bool onlyDigits = true;
+            foreach (char character in txtWhereValue.Text) {
+                onlyDigits = char.IsDigit(character);
+                if (onlyDigits == false) { break; }
+            }
+
+            if (whereField.Equals("ID") && onlyDigits == false) {
+                txtWhereValue.Text = "";
+            }
+        }
+
+        private void cboWhereField_SelectionChangeCommitted(object sender, EventArgs e) {
+            TxtWhereValue_Validated(sender, e);
         }
     }
 }

@@ -29,6 +29,12 @@ namespace Utilities.Forms
             fileWatcherFilters.Items.Add(chkFilterSize);
         }
 
+        private void FileWatcher_FormClosing(object sender, FormClosingEventArgs e) {
+            if (fileWatcher != null) {
+                StopFileWatcher();
+            }
+        }
+
         private void UpdateCheckedFilters(CheckBox checkBox) {
             int index = fileWatcherFilters.Items.IndexOf(checkBox);
             if (checkBox.Checked) {
@@ -132,7 +138,6 @@ namespace Utilities.Forms
             fileWatcher.Renamed += FileWatcherOnRenamed;
             fileWatcher.EnableRaisingEvents = true;
         }
-
         private void StopFileWatcher() {
             fileWatcher.EnableRaisingEvents = false;
             lblFileWatcherStatus.Visible = false;
@@ -197,12 +202,6 @@ namespace Utilities.Forms
         }
         private void ChkFilter_CheckStateChanged(object sender, EventArgs e) {
             UpdateCheckedFilters((CheckBox)sender);
-        }
-
-        private void FileWatcher_FormClosing(object sender, FormClosingEventArgs e) {
-            if (fileWatcher != null) {
-                StopFileWatcher();
-            }
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,9 +29,9 @@ namespace Utilities.Forms
             RefreshSharedFilesList(GetSharedFilesGridDataTable());
             if (!IsAdministrator()) {
                 btnDisconnectSelectedFile.Enabled = false;
-                btnListAllSharedFiles.Enabled = false;
+                btnListSharedFiles.Enabled = false;
                 btnDisconnectSelectedFile.BackColor = System.Drawing.Color.DarkGray;
-                btnListAllSharedFiles.BackColor = System.Drawing.Color.DarkGray;
+                btnListSharedFiles.BackColor = System.Drawing.Color.DarkGray;
             }
         }
 
@@ -109,6 +110,12 @@ namespace Utilities.Forms
         private async Task CheckLockedFile(string filePath,CancellationTokenSource cancellationTokenSource) {
             lblCheckLockedFile.Visible = true;
             btnCheckLockedFile.Text = "Stop Checking Locked File";
+            Task taskSharedFiles = null;
+
+            if (IsAdministrator() && !cancellationTokenSource.IsCancellationRequested) {
+                taskSharedFiles = ListOpenSharedFiles(filePath, cancellationTokenSource); 
+            
+            }
             await Task.Run(() => {
                 Thread.Sleep(1000);
                 RM_PROCESS_INFO[] rm = null;
@@ -125,7 +132,6 @@ namespace Utilities.Forms
                             owner = "Unknown";
                         }
                         dataTable.Rows.Add(process.Id, process.ProcessName, owner);
-                        //if (cancellationTokenSource.IsCancellationRequested) { throw new TaskCanceledException(); }
                         cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     }
                     Invoke(new MethodInvoker(delegate {
@@ -137,8 +143,8 @@ namespace Utilities.Forms
                 }
 
             }, cancellationTokenSource.Token);
-
-            if (IsAdministrator() && !cancellationTokenSource.IsCancellationRequested) { await ListOpenSharedFiles(filePath, cancellationTokenSource); }
+            if (taskSharedFiles != null) { await taskSharedFiles; }
+      
             btnCheckLockedFile.Text = "Check Locked File";
             lblCheckLockedFile.Visible = false;
             cancellationTokenSource.Dispose();
@@ -164,7 +170,7 @@ namespace Utilities.Forms
                             continue;
                         }
                         dataTable.Rows.Add(process.Id, process.ProcessName, owner);
-                        if (cancellationTokenSource.IsCancellationRequested) { throw new TaskCanceledException(); }
+                        cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     }
                     Invoke(new MethodInvoker(delegate {
                         RefreshProcessList(dataTable);
@@ -191,7 +197,7 @@ namespace Utilities.Forms
             } else {
                 process.StartInfo.Arguments = "/C openfiles.exe /query /FO CSV /v";
                 lblListSharedFiles.Visible = true;
-                btnListAllSharedFiles.Text = "Stop Listing Shared Files";
+                btnListSharedFiles.Text = "Stop Listing Shared Files";
             }
 
             await Task.Run(() => {
@@ -203,7 +209,7 @@ namespace Utilities.Forms
                     output = process.StandardOutput.ReadToEnd();
                     errorOutput = process.StandardError.ReadToEnd();
 
-                    if (cancellationTokenSource.IsCancellationRequested) { throw new TaskCanceledException(); }
+                    cancellationTokenSource.Token.ThrowIfCancellationRequested();
 
                     process.WaitForExit();
                     if (output.Contains("\"")) {
@@ -221,7 +227,7 @@ namespace Utilities.Forms
 
                         string[] lineItems = line.Split(",");
 
-                        if (cancellationTokenSource.IsCancellationRequested) { throw new TaskCanceledException(); }
+                        cancellationTokenSource.Token.ThrowIfCancellationRequested();
 
                         if (lineItems.Length < 6) { continue; }
 
@@ -239,7 +245,7 @@ namespace Utilities.Forms
                 }
             }, cancellationTokenSource.Token);
             lblListSharedFiles.Visible = false;
-            btnListAllSharedFiles.Text = "List Shared Files";
+            btnListSharedFiles.Text = "List Shared Files";
             cancellationTokenSource.Dispose();
         }
 
@@ -249,6 +255,11 @@ namespace Utilities.Forms
             txtLockedFilePath.Text = openFileDialog.FileName;
         }
         private void BtnCheckLockedFile_Click(object sender, EventArgs e) {
+            if ((taskListOpenSharedFiles != null && !taskListOpenSharedFiles.IsCompleted) ||
+                (taskListProcesses != null && !taskListProcesses.IsCompleted)) {
+                CustomDialog.ShowCustomDialog(new CustomMessage("Wait or stop running actions!", "Information", "information"), this);
+                return;
+            }
             if (taskCheckLockedFile == null || taskCheckLockedFile.IsCompleted) {
                 string lockedFile = txtLockedFilePath.Text;
                 if (lockedFile == null || lockedFile.Length == 0) {
@@ -261,7 +272,11 @@ namespace Utilities.Forms
                 ctsCheckLockedFile.Cancel();
             }
         }
-        private void BtnListAllProcesses_Click(object sender, EventArgs e) {
+        private void BtnListProcesses_Click(object sender, EventArgs e) {
+            if (taskCheckLockedFile != null && !taskCheckLockedFile.IsCompleted) {
+                CustomDialog.ShowCustomDialog(new CustomMessage("Wait or stop locked file check!", "Information", "information"), this);
+                return;
+            }
             if (taskListProcesses == null || taskListProcesses.IsCompleted) {
                 ctsListProcesses = new CancellationTokenSource();
                 taskListProcesses = ListProcesses(ctsListProcesses);
@@ -295,7 +310,11 @@ namespace Utilities.Forms
             return;
 
         }
-        private void BtnListAllSharedFiles_Click(object sender, EventArgs e) {
+        private void BtnListSharedFiles_Click(object sender, EventArgs e) {
+            if (taskCheckLockedFile != null && !taskCheckLockedFile.IsCompleted) {
+                CustomDialog.ShowCustomDialog(new CustomMessage("Wait or stop locked file check!", "Information", "information"), this);
+                return;
+            }
             if (taskListOpenSharedFiles == null || taskListOpenSharedFiles.IsCompleted) {
                 ctsListOpenSharedFiles = new CancellationTokenSource();
                 taskListOpenSharedFiles = ListOpenSharedFiles(null, ctsListOpenSharedFiles);

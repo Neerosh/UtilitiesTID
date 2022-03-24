@@ -646,6 +646,7 @@ namespace Utilities.Forms
             fileStream.Write(line, 0, line.Length);
 
         }
+        #endregion Script Generator
 
         private void BtnPathFolderSQLBrowser_Click(object sender, EventArgs e) {
             if (folderPicker.ShowDialog(this.Handle, false) == true) {
@@ -671,7 +672,6 @@ namespace Utilities.Forms
                 await task;
             }
         }
-        #endregion Script Generator
 
         private void button1_Click(object sender, EventArgs e) {
             string procedureName, folderScript, folderSQL;

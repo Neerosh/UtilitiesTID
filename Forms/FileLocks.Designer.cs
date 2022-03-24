@@ -40,7 +40,7 @@
             this.chkShowUnknownUsers = new System.Windows.Forms.CheckBox();
             this.btnEndSelectedProcess = new System.Windows.Forms.Button();
             this.dgvSharedFiles = new System.Windows.Forms.DataGridView();
-            this.btnListAllSharedFiles = new System.Windows.Forms.Button();
+            this.btnListSharedFiles = new System.Windows.Forms.Button();
             this.lblProcesses = new System.Windows.Forms.Label();
             this.lblSharedFieles = new System.Windows.Forms.Label();
             this.btnDisconnectSelectedFile = new System.Windows.Forms.Button();
@@ -230,27 +230,27 @@
             this.dgvSharedFiles.Size = new System.Drawing.Size(566, 200);
             this.dgvSharedFiles.TabIndex = 10;
             // 
-            // btnListAllSharedFiles
+            // btnListSharedFiles
             // 
-            this.btnListAllSharedFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnListAllSharedFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnListAllSharedFiles.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnListAllSharedFiles.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnListAllSharedFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListAllSharedFiles.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnListAllSharedFiles.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnListAllSharedFiles.Image = global::Utilities.Properties.Resources.icons8_share_file_32;
-            this.btnListAllSharedFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListAllSharedFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnListAllSharedFiles.Location = new System.Drawing.Point(606, 342);
-            this.btnListAllSharedFiles.Name = "btnListAllSharedFiles";
-            this.btnListAllSharedFiles.Size = new System.Drawing.Size(155, 44);
-            this.btnListAllSharedFiles.TabIndex = 7;
-            this.btnListAllSharedFiles.Text = "List Shared Files";
-            this.btnListAllSharedFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListAllSharedFiles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnListAllSharedFiles.UseVisualStyleBackColor = false;
-            this.btnListAllSharedFiles.Click += new System.EventHandler(this.BtnListAllSharedFiles_Click);
+            this.btnListSharedFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnListSharedFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnListSharedFiles.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnListSharedFiles.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnListSharedFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListSharedFiles.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnListSharedFiles.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnListSharedFiles.Image = global::Utilities.Properties.Resources.icons8_share_file_32;
+            this.btnListSharedFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListSharedFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnListSharedFiles.Location = new System.Drawing.Point(606, 342);
+            this.btnListSharedFiles.Name = "btnListSharedFiles";
+            this.btnListSharedFiles.Size = new System.Drawing.Size(155, 44);
+            this.btnListSharedFiles.TabIndex = 7;
+            this.btnListSharedFiles.Text = "List Shared Files";
+            this.btnListSharedFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListSharedFiles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnListSharedFiles.UseVisualStyleBackColor = false;
+            this.btnListSharedFiles.Click += new System.EventHandler(this.BtnListSharedFiles_Click);
             // 
             // lblProcesses
             // 
@@ -308,11 +308,11 @@
             this.lblListProcesses.AutoSize = true;
             this.lblListProcesses.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblListProcesses.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblListProcesses.Location = new System.Drawing.Point(467, 92);
+            this.lblListProcesses.Location = new System.Drawing.Point(416, 92);
             this.lblListProcesses.Name = "lblListProcesses";
-            this.lblListProcesses.Size = new System.Drawing.Size(123, 16);
+            this.lblListProcesses.Size = new System.Drawing.Size(174, 16);
             this.lblListProcesses.TabIndex = 4;
-            this.lblListProcesses.Text = "Listing Processes...";
+            this.lblListProcesses.Text = "Listing Running Processes...";
             this.lblListProcesses.Visible = false;
             // 
             // btnListProcesses
@@ -335,7 +335,7 @@
             this.btnListProcesses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnListProcesses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnListProcesses.UseVisualStyleBackColor = false;
-            this.btnListProcesses.Click += new System.EventHandler(this.BtnListAllProcesses_Click);
+            this.btnListProcesses.Click += new System.EventHandler(this.BtnListProcesses_Click);
             // 
             // lblListSharedFiles
             // 
@@ -343,11 +343,11 @@
             this.lblListSharedFiles.AutoSize = true;
             this.lblListSharedFiles.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblListSharedFiles.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblListSharedFiles.Location = new System.Drawing.Point(419, 323);
+            this.lblListSharedFiles.Location = new System.Drawing.Point(374, 323);
             this.lblListSharedFiles.Name = "lblListSharedFiles";
-            this.lblListSharedFiles.Size = new System.Drawing.Size(171, 16);
+            this.lblListSharedFiles.Size = new System.Drawing.Size(216, 16);
             this.lblListSharedFiles.TabIndex = 13;
-            this.lblListSharedFiles.Text = "Listing Open Files/Folders...\r\n";
+            this.lblListSharedFiles.Text = "Listing Open Shared Files/Folders...\r\n";
             this.lblListSharedFiles.Visible = false;
             // 
             // lblCheckLockedFile
@@ -356,11 +356,11 @@
             this.lblCheckLockedFile.AutoSize = true;
             this.lblCheckLockedFile.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCheckLockedFile.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblCheckLockedFile.Location = new System.Drawing.Point(442, 61);
+            this.lblCheckLockedFile.Location = new System.Drawing.Point(416, 61);
             this.lblCheckLockedFile.Name = "lblCheckLockedFile";
-            this.lblCheckLockedFile.Size = new System.Drawing.Size(112, 16);
+            this.lblCheckLockedFile.Size = new System.Drawing.Size(137, 16);
             this.lblCheckLockedFile.TabIndex = 14;
-            this.lblCheckLockedFile.Text = "Checking Locks...";
+            this.lblCheckLockedFile.Text = "Checking File Locks...";
             this.lblCheckLockedFile.Visible = false;
             // 
             // FileLocks
@@ -376,7 +376,7 @@
             this.Controls.Add(this.btnDisconnectSelectedFile);
             this.Controls.Add(this.lblSharedFieles);
             this.Controls.Add(this.lblProcesses);
-            this.Controls.Add(this.btnListAllSharedFiles);
+            this.Controls.Add(this.btnListSharedFiles);
             this.Controls.Add(this.dgvSharedFiles);
             this.Controls.Add(this.btnEndSelectedProcess);
             this.Controls.Add(this.chkShowUnknownUsers);
@@ -408,7 +408,7 @@
         private System.Windows.Forms.CheckBox chkShowUnknownUsers;
         private System.Windows.Forms.Button btnEndSelectedProcess;
         private System.Windows.Forms.DataGridView dgvSharedFiles;
-        private System.Windows.Forms.Button btnListAllSharedFiles;
+        private System.Windows.Forms.Button btnListSharedFiles;
         private System.Windows.Forms.Label lblProcesses;
         private System.Windows.Forms.Label lblSharedFieles;
         private System.Windows.Forms.Button btnDisconnectSelectedFile;

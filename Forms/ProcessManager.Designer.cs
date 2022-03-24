@@ -129,6 +129,7 @@
             this.txtWhereValue.Name = "txtWhereValue";
             this.txtWhereValue.Size = new System.Drawing.Size(339, 22);
             this.txtWhereValue.TabIndex = 1;
+            this.txtWhereValue.Validated += new System.EventHandler(this.TxtWhereValue_Validated);
             // 
             // btnListFilteredProcesses
             // 
@@ -218,6 +219,7 @@
             this.cboWhereField.Size = new System.Drawing.Size(83, 24);
             this.cboWhereField.Sorted = true;
             this.cboWhereField.TabIndex = 28;
+            this.cboWhereField.SelectionChangeCommitted += new System.EventHandler(this.cboWhereField_SelectionChangeCommitted);
             // 
             // lblProcesses
             // 
