@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Teste
+namespace Utilities
 {
     static class Program
     {

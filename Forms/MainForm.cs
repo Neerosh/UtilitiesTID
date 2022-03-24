@@ -3,11 +3,11 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using Utilities;
 using Utilities.Classes;
 using Utilities.Forms;
+using static Utilities.Classes.NativeMethods;
 
-namespace Teste
+namespace Utilities
 {
     public partial class Main : Form
     {
@@ -18,10 +18,6 @@ namespace Teste
 
         public Main() {
             InitializeComponent();
-            Padding = new Padding(2);
-            BackColor = Color.FromArgb(60, 60, 60);
-            BtnMenu_Click(this, new EventArgs());
-            sqlite = new SQLite();
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
@@ -31,6 +27,15 @@ namespace Teste
             }
             panelSubMenuFiles.Visible = false;
             panelSubMenuCodes.Visible = false;
+            if (!IsAdministrator()) {
+                CustomMessage customMessage = new CustomMessage("Aplication not running as Administrator.\nSome restrictions are activated:" +
+                                "\nNot all processes may appear,\nButtons related to shared folders/files are disabled.", "Information", "information");
+                CustomDialog.ShowCustomDialog(customMessage, this);
+            }
+            Padding = new Padding(2);
+            BackColor = Color.FromArgb(60, 60, 60);
+            BtnMenu_Click(this, new EventArgs());
+            sqlite = new SQLite();
         }
 
         private void btnClose_Click(object sender, EventArgs e) {

@@ -33,21 +33,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileLocks));
             this.dgvProcess = new System.Windows.Forms.DataGridView();
-            this.lblFromMoveFiles = new System.Windows.Forms.Label();
+            this.lblLockedFile = new System.Windows.Forms.Label();
             this.txtLockedFilePath = new System.Windows.Forms.TextBox();
             this.btnLockedFileBrowser = new System.Windows.Forms.Button();
-            this.BtnCheckLockedFile = new System.Windows.Forms.Button();
+            this.btnCheckLockedFile = new System.Windows.Forms.Button();
             this.chkShowUnknownUsers = new System.Windows.Forms.CheckBox();
             this.btnEndSelectedProcess = new System.Windows.Forms.Button();
             this.dgvSharedFiles = new System.Windows.Forms.DataGridView();
             this.btnListAllSharedFiles = new System.Windows.Forms.Button();
             this.lblProcesses = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblSharedFieles = new System.Windows.Forms.Label();
             this.btnDisconnectSelectedFile = new System.Windows.Forms.Button();
             this.lblListProcesses = new System.Windows.Forms.Label();
-            this.btnListAllProcesses = new System.Windows.Forms.Button();
-            this.lblSearchLocks = new System.Windows.Forms.Label();
+            this.btnListProcesses = new System.Windows.Forms.Button();
             this.lblListSharedFiles = new System.Windows.Forms.Label();
+            this.lblCheckLockedFile = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcess)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSharedFiles)).BeginInit();
             this.SuspendLayout();
@@ -90,19 +90,19 @@
             this.dgvProcess.Size = new System.Drawing.Size(566, 200);
             this.dgvProcess.TabIndex = 9;
             // 
-            // lblFromMoveFiles
+            // lblLockedFile
             // 
-            this.lblFromMoveFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblLockedFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFromMoveFiles.AutoSize = true;
-            this.lblFromMoveFiles.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFromMoveFiles.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblFromMoveFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblFromMoveFiles.Location = new System.Drawing.Point(24, 35);
-            this.lblFromMoveFiles.Name = "lblFromMoveFiles";
-            this.lblFromMoveFiles.Size = new System.Drawing.Size(78, 16);
-            this.lblFromMoveFiles.TabIndex = 0;
-            this.lblFromMoveFiles.Text = "Locked File:";
+            this.lblLockedFile.AutoSize = true;
+            this.lblLockedFile.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLockedFile.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblLockedFile.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblLockedFile.Location = new System.Drawing.Point(24, 35);
+            this.lblLockedFile.Name = "lblLockedFile";
+            this.lblLockedFile.Size = new System.Drawing.Size(78, 16);
+            this.lblLockedFile.TabIndex = 0;
+            this.lblLockedFile.Text = "Locked File:";
             // 
             // txtLockedFilePath
             // 
@@ -132,29 +132,29 @@
             this.btnLockedFileBrowser.TabIndex = 2;
             this.btnLockedFileBrowser.Text = "...";
             this.btnLockedFileBrowser.UseVisualStyleBackColor = false;
-            this.btnLockedFileBrowser.Click += new System.EventHandler(this.btnLockedFileBrowser_Click);
+            this.btnLockedFileBrowser.Click += new System.EventHandler(this.BtnLockedFileBrowser_Click);
             // 
-            // BtnCheckLockedFile
+            // btnCheckLockedFile
             // 
-            this.BtnCheckLockedFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnCheckLockedFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.BtnCheckLockedFile.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.BtnCheckLockedFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.BtnCheckLockedFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCheckLockedFile.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnCheckLockedFile.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnCheckLockedFile.Image = global::Utilities.Properties.Resources.icons8_lock_file_32;
-            this.BtnCheckLockedFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCheckLockedFile.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnCheckLockedFile.Location = new System.Drawing.Point(606, 21);
-            this.BtnCheckLockedFile.Name = "BtnCheckLockedFile";
-            this.BtnCheckLockedFile.Size = new System.Drawing.Size(155, 44);
-            this.BtnCheckLockedFile.TabIndex = 4;
-            this.BtnCheckLockedFile.Text = "Check Locked File";
-            this.BtnCheckLockedFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCheckLockedFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCheckLockedFile.UseVisualStyleBackColor = false;
-            this.BtnCheckLockedFile.Click += new System.EventHandler(this.BtnCheckLockedFile_Click);
+            this.btnCheckLockedFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCheckLockedFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnCheckLockedFile.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCheckLockedFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnCheckLockedFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckLockedFile.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCheckLockedFile.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCheckLockedFile.Image = global::Utilities.Properties.Resources.icons8_lock_file_32;
+            this.btnCheckLockedFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckLockedFile.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnCheckLockedFile.Location = new System.Drawing.Point(606, 21);
+            this.btnCheckLockedFile.Name = "btnCheckLockedFile";
+            this.btnCheckLockedFile.Size = new System.Drawing.Size(155, 44);
+            this.btnCheckLockedFile.TabIndex = 4;
+            this.btnCheckLockedFile.Text = "Check Locked File";
+            this.btnCheckLockedFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckLockedFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCheckLockedFile.UseVisualStyleBackColor = false;
+            this.btnCheckLockedFile.Click += new System.EventHandler(this.BtnCheckLockedFile_Click);
             // 
             // chkShowUnknownUsers
             // 
@@ -162,7 +162,7 @@
             this.chkShowUnknownUsers.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkShowUnknownUsers.ForeColor = System.Drawing.Color.White;
             this.chkShowUnknownUsers.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkShowUnknownUsers.Location = new System.Drawing.Point(108, 64);
+            this.chkShowUnknownUsers.Location = new System.Drawing.Point(108, 60);
             this.chkShowUnknownUsers.Name = "chkShowUnknownUsers";
             this.chkShowUnknownUsers.Size = new System.Drawing.Size(250, 20);
             this.chkShowUnknownUsers.TabIndex = 3;
@@ -246,7 +246,7 @@
             this.btnListAllSharedFiles.Name = "btnListAllSharedFiles";
             this.btnListAllSharedFiles.Size = new System.Drawing.Size(155, 44);
             this.btnListAllSharedFiles.TabIndex = 7;
-            this.btnListAllSharedFiles.Text = "List All Shared Files/Folders Open";
+            this.btnListAllSharedFiles.Text = "List Shared Files";
             this.btnListAllSharedFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnListAllSharedFiles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnListAllSharedFiles.UseVisualStyleBackColor = false;
@@ -266,19 +266,19 @@
             this.lblProcesses.TabIndex = 10;
             this.lblProcesses.Text = "Processes:";
             // 
-            // label1
+            // lblSharedFieles
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblSharedFieles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(24, 323);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 16);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Shared Files:";
+            this.lblSharedFieles.AutoSize = true;
+            this.lblSharedFieles.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblSharedFieles.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblSharedFieles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblSharedFieles.Location = new System.Drawing.Point(24, 323);
+            this.lblSharedFieles.Name = "lblSharedFieles";
+            this.lblSharedFieles.Size = new System.Drawing.Size(84, 16);
+            this.lblSharedFieles.TabIndex = 11;
+            this.lblSharedFieles.Text = "Shared Files:";
             // 
             // btnDisconnectSelectedFile
             // 
@@ -315,40 +315,27 @@
             this.lblListProcesses.Text = "Listing Processes...";
             this.lblListProcesses.Visible = false;
             // 
-            // btnListAllProcesses
+            // btnListProcesses
             // 
-            this.btnListAllProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnListAllProcesses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnListAllProcesses.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnListAllProcesses.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnListAllProcesses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListAllProcesses.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnListAllProcesses.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnListAllProcesses.Image = global::Utilities.Properties.Resources.icons8_process_32;
-            this.btnListAllProcesses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListAllProcesses.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnListAllProcesses.Location = new System.Drawing.Point(606, 111);
-            this.btnListAllProcesses.Name = "btnListAllProcesses";
-            this.btnListAllProcesses.Size = new System.Drawing.Size(155, 44);
-            this.btnListAllProcesses.TabIndex = 5;
-            this.btnListAllProcesses.Text = "List All Running Processes";
-            this.btnListAllProcesses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListAllProcesses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnListAllProcesses.UseVisualStyleBackColor = false;
-            this.btnListAllProcesses.Click += new System.EventHandler(this.BtnListAllProcesses_Click);
-            // 
-            // lblSearchLocks
-            // 
-            this.lblSearchLocks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSearchLocks.AutoSize = true;
-            this.lblSearchLocks.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSearchLocks.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblSearchLocks.Location = new System.Drawing.Point(434, 57);
-            this.lblSearchLocks.Name = "lblSearchLocks";
-            this.lblSearchLocks.Size = new System.Drawing.Size(120, 16);
-            this.lblSearchLocks.TabIndex = 12;
-            this.lblSearchLocks.Text = "Searching Locks ...";
-            this.lblSearchLocks.Visible = false;
+            this.btnListProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnListProcesses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnListProcesses.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnListProcesses.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnListProcesses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListProcesses.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnListProcesses.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnListProcesses.Image = global::Utilities.Properties.Resources.icons8_process_32;
+            this.btnListProcesses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListProcesses.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnListProcesses.Location = new System.Drawing.Point(606, 111);
+            this.btnListProcesses.Name = "btnListProcesses";
+            this.btnListProcesses.Size = new System.Drawing.Size(155, 44);
+            this.btnListProcesses.TabIndex = 5;
+            this.btnListProcesses.Text = "List Running Processes";
+            this.btnListProcesses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListProcesses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnListProcesses.UseVisualStyleBackColor = false;
+            this.btnListProcesses.Click += new System.EventHandler(this.BtnListAllProcesses_Click);
             // 
             // lblListSharedFiles
             // 
@@ -363,27 +350,40 @@
             this.lblListSharedFiles.Text = "Listing Open Files/Folders...\r\n";
             this.lblListSharedFiles.Visible = false;
             // 
+            // lblCheckLockedFile
+            // 
+            this.lblCheckLockedFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCheckLockedFile.AutoSize = true;
+            this.lblCheckLockedFile.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCheckLockedFile.ForeColor = System.Drawing.Color.Chartreuse;
+            this.lblCheckLockedFile.Location = new System.Drawing.Point(442, 61);
+            this.lblCheckLockedFile.Name = "lblCheckLockedFile";
+            this.lblCheckLockedFile.Size = new System.Drawing.Size(112, 16);
+            this.lblCheckLockedFile.TabIndex = 14;
+            this.lblCheckLockedFile.Text = "Checking Locks...";
+            this.lblCheckLockedFile.Visible = false;
+            // 
             // FileLocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
+            this.Controls.Add(this.lblCheckLockedFile);
             this.Controls.Add(this.lblListSharedFiles);
-            this.Controls.Add(this.lblSearchLocks);
             this.Controls.Add(this.lblListProcesses);
-            this.Controls.Add(this.btnListAllProcesses);
+            this.Controls.Add(this.btnListProcesses);
             this.Controls.Add(this.btnDisconnectSelectedFile);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblSharedFieles);
             this.Controls.Add(this.lblProcesses);
             this.Controls.Add(this.btnListAllSharedFiles);
             this.Controls.Add(this.dgvSharedFiles);
             this.Controls.Add(this.btnEndSelectedProcess);
             this.Controls.Add(this.chkShowUnknownUsers);
-            this.Controls.Add(this.lblFromMoveFiles);
+            this.Controls.Add(this.lblLockedFile);
             this.Controls.Add(this.txtLockedFilePath);
             this.Controls.Add(this.btnLockedFileBrowser);
-            this.Controls.Add(this.BtnCheckLockedFile);
+            this.Controls.Add(this.btnCheckLockedFile);
             this.Controls.Add(this.dgvProcess);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -401,20 +401,20 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvProcess;
-        private System.Windows.Forms.Label lblFromMoveFiles;
+        private System.Windows.Forms.Label lblLockedFile;
         private System.Windows.Forms.TextBox txtLockedFilePath;
         private System.Windows.Forms.Button btnLockedFileBrowser;
-        private System.Windows.Forms.Button BtnCheckLockedFile;
+        private System.Windows.Forms.Button btnCheckLockedFile;
         private System.Windows.Forms.CheckBox chkShowUnknownUsers;
         private System.Windows.Forms.Button btnEndSelectedProcess;
         private System.Windows.Forms.DataGridView dgvSharedFiles;
         private System.Windows.Forms.Button btnListAllSharedFiles;
         private System.Windows.Forms.Label lblProcesses;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSharedFieles;
         private System.Windows.Forms.Button btnDisconnectSelectedFile;
         private System.Windows.Forms.Label lblListProcesses;
-        private System.Windows.Forms.Button btnListAllProcesses;
-        private System.Windows.Forms.Label lblSearchLocks;
+        private System.Windows.Forms.Button btnListProcesses;
         private System.Windows.Forms.Label lblListSharedFiles;
+        private System.Windows.Forms.Label lblCheckLockedFile;
     }
 }

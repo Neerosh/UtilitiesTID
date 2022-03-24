@@ -33,7 +33,7 @@
             this.btnListProcesses = new System.Windows.Forms.Button();
             this.lblFilters = new System.Windows.Forms.Label();
             this.txtWhereValue = new System.Windows.Forms.TextBox();
-            this.BtnCheckLockedFile = new System.Windows.Forms.Button();
+            this.btnListFilteredProcesses = new System.Windows.Forms.Button();
             this.chkShowUnknownUsers = new System.Windows.Forms.CheckBox();
             this.btnEndSelectedProcess = new System.Windows.Forms.Button();
             this.lblListProgress = new System.Windows.Forms.Label();
@@ -98,11 +98,11 @@
             this.btnListProcesses.Name = "btnListProcesses";
             this.btnListProcesses.Size = new System.Drawing.Size(155, 44);
             this.btnListProcesses.TabIndex = 5;
-            this.btnListProcesses.Text = "List All Processes";
+            this.btnListProcesses.Text = "List Running Processes";
             this.btnListProcesses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnListProcesses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnListProcesses.UseVisualStyleBackColor = false;
-            this.btnListProcesses.Click += new System.EventHandler(this.btnListProcesses_Click);
+            this.btnListProcesses.Click += new System.EventHandler(this.BtnListProcesses_Click);
             // 
             // lblFilters
             // 
@@ -130,27 +130,27 @@
             this.txtWhereValue.Size = new System.Drawing.Size(339, 22);
             this.txtWhereValue.TabIndex = 1;
             // 
-            // BtnCheckLockedFile
+            // btnListFilteredProcesses
             // 
-            this.BtnCheckLockedFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnCheckLockedFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.BtnCheckLockedFile.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.BtnCheckLockedFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.BtnCheckLockedFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCheckLockedFile.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnCheckLockedFile.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnCheckLockedFile.Image = global::Utilities.Properties.Resources.icons8_search_process_32;
-            this.BtnCheckLockedFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCheckLockedFile.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnCheckLockedFile.Location = new System.Drawing.Point(606, 21);
-            this.BtnCheckLockedFile.Name = "BtnCheckLockedFile";
-            this.BtnCheckLockedFile.Size = new System.Drawing.Size(155, 44);
-            this.BtnCheckLockedFile.TabIndex = 4;
-            this.BtnCheckLockedFile.Text = "List Filtered Processes";
-            this.BtnCheckLockedFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCheckLockedFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCheckLockedFile.UseVisualStyleBackColor = false;
-            this.BtnCheckLockedFile.Click += new System.EventHandler(this.BtnCheckLockedFile_Click);
+            this.btnListFilteredProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnListFilteredProcesses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnListFilteredProcesses.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnListFilteredProcesses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.btnListFilteredProcesses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListFilteredProcesses.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnListFilteredProcesses.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnListFilteredProcesses.Image = global::Utilities.Properties.Resources.icons8_search_process_32;
+            this.btnListFilteredProcesses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListFilteredProcesses.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnListFilteredProcesses.Location = new System.Drawing.Point(606, 21);
+            this.btnListFilteredProcesses.Name = "btnListFilteredProcesses";
+            this.btnListFilteredProcesses.Size = new System.Drawing.Size(155, 44);
+            this.btnListFilteredProcesses.TabIndex = 4;
+            this.btnListFilteredProcesses.Text = "List Filtered Processes";
+            this.btnListFilteredProcesses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListFilteredProcesses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnListFilteredProcesses.UseVisualStyleBackColor = false;
+            this.btnListFilteredProcesses.Click += new System.EventHandler(this.BtnListFilteredProcesses_Click);
             // 
             // chkShowUnknownUsers
             // 
@@ -185,7 +185,7 @@
             this.btnEndSelectedProcess.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEndSelectedProcess.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEndSelectedProcess.UseVisualStyleBackColor = false;
-            this.btnEndSelectedProcess.Click += new System.EventHandler(this.btnEndSelectedProcess_Click);
+            this.btnEndSelectedProcess.Click += new System.EventHandler(this.BtnEndSelectedProcess_Click);
             // 
             // lblListProgress
             // 
@@ -261,7 +261,7 @@
             this.Controls.Add(this.chkShowUnknownUsers);
             this.Controls.Add(this.lblFilters);
             this.Controls.Add(this.txtWhereValue);
-            this.Controls.Add(this.BtnCheckLockedFile);
+            this.Controls.Add(this.btnListFilteredProcesses);
             this.Controls.Add(this.btnListProcesses);
             this.Controls.Add(this.dgvProcess);
             this.ForeColor = System.Drawing.Color.White;
@@ -282,7 +282,7 @@
         private System.Windows.Forms.Button btnListProcesses;
         private System.Windows.Forms.Label lblFilters;
         private System.Windows.Forms.TextBox txtWhereValue;
-        private System.Windows.Forms.Button BtnCheckLockedFile;
+        private System.Windows.Forms.Button btnListFilteredProcesses;
         private System.Windows.Forms.CheckBox chkShowUnknownUsers;
         private System.Windows.Forms.Button btnEndSelectedProcess;
         private System.Windows.Forms.Label lblListProgress;

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Diagnostics;
-using System.Linq;
-using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,20 +11,16 @@ namespace Utilities.Forms
 {
     public partial class ProcessManager : Form
     {
+        private Task taskListProcesses;
+        private CancellationTokenSource ctsListProcesses;
+
         public ProcessManager() {
             InitializeComponent();
         }
         private void ProcessManagement_Load(object sender, EventArgs e) {
             RefreshProcessList(GetProcessesDataTable());
             cboWhereField.SelectedIndex = 0;
-            if (!IsAdministrator()) {
-                CustomMessage customMessage = new CustomMessage("Aplication not running as Administrator. Some restrictions are activated:" +
-                                "\nNot all processes may appear.", "Information", "information");
-                CustomDialog.ShowCustomDialog(customMessage, this);
-            }
         }
-
-        private Task task;
 
         private DataTable GetProcessesDataTable() {
             DataTable dataTable = new DataTable();
@@ -46,13 +40,13 @@ namespace Utilities.Forms
                 dgvProcess.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }));
         }
+
         private void InvokeMessage(CustomMessage customMessage) {
             Invoke(new Action(() => {
                 CustomDialog.ShowCustomDialog(customMessage, this);
             }));
         }
-
-        private async Task ListProcesses(bool useFilters) {
+        private async Task ListProcesses(bool useFilters,CancellationTokenSource cancellationTokenSource) {
             bool showUnknownUsers = chkShowUnknownUsers.Checked;
             string conditionField = String.Empty;
             string conditionValue = String.Empty;
@@ -65,6 +59,7 @@ namespace Utilities.Forms
                 }
             }
             lblListProgress.Visible = true;
+            btnListProcesses.Text = "Stop Listing Processes";
             await Task.Run(() => {
                 Thread.Sleep(1000);
                 DataTable dataTable = GetProcessesDataTable();
@@ -79,9 +74,12 @@ namespace Utilities.Forms
                         case "Name":
                             processes = Process.GetProcessesByName(conditionValue);
                             break;
-                        default: processes = Process.GetProcesses(".");
+                        default:
+                            processes = Process.GetProcesses(".");
                             break;
                     }
+
+                    if (cancellationTokenSource.IsCancellationRequested) { throw new TaskCanceledException(); }
 
                     foreach (Process process in processes) {
                         owner = GetProcessUser(process);
@@ -92,44 +90,34 @@ namespace Utilities.Forms
                             continue;
                         }
                         dataTable.Rows.Add(process.Id, process.ProcessName, owner);
+                        if (cancellationTokenSource.IsCancellationRequested) { throw new TaskCanceledException(); }
                     }
                     RefreshProcessList(dataTable);
+                } catch (OperationCanceledException) {
                 } catch (Exception ex) {
                     InvokeMessage(new CustomMessage("Error listing processes: \n" + ex.Message, "Error", "error"));
                 }
-            });
+            }, cancellationTokenSource.Token);
+            btnListProcesses.Text = "List Running Processes";
             lblListProgress.Visible = false;
-        }
-        private async Task KillProcess(int processId) {
-            await Task.Run(() => {
-                try {
-                    Process process = Process.GetProcessById(processId);
-                    process.Kill();
-                    Invoke(new Action(() => {
-                        dgvProcess.Rows.RemoveAt(dgvProcess.SelectedRows[0].Index);
-                    }));
-                } catch (Exception ex) {
-                    InvokeMessage(new CustomMessage("Error ending process: \n" + ex.Message, "Error", "error"));
-                }
-            });
-
+            cancellationTokenSource.Dispose();
         }
 
-        private async void BtnCheckLockedFile_Click(object sender, EventArgs e) {
-            if (task == null || task.IsCompleted) {
-                task = ListProcesses(true);
-                await task;
-                return;
+        private void BtnListFilteredProcesses_Click(object sender, EventArgs e) {
+            if (taskListProcesses == null || taskListProcesses.IsCompleted) {
+                ctsListProcesses = new CancellationTokenSource();
+                taskListProcesses = ListProcesses(false, ctsListProcesses);
             }
         }
-        private async void btnListProcesses_Click(object sender, EventArgs e) {
-            if (task == null || task.IsCompleted) {
-                task = ListProcesses(false);
-                await task;
-                return;
+        private void BtnListProcesses_Click(object sender, EventArgs e) {
+            if (taskListProcesses == null || taskListProcesses.IsCompleted) {
+                ctsListProcesses = new CancellationTokenSource();
+                taskListProcesses = ListProcesses(false, ctsListProcesses);
+            } else {
+                ctsListProcesses.Cancel();
             }
         }
-        private async void btnEndSelectedProcess_Click(object sender, EventArgs e) {
+        private void BtnEndSelectedProcess_Click(object sender, EventArgs e) {
             if (dgvProcess.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
 
             int processId = Int32.Parse(dgvProcess.SelectedRows[0].Cells[0].Value.ToString());
@@ -137,16 +125,18 @@ namespace Utilities.Forms
             string processOwner = dgvProcess.SelectedRows[0].Cells[2].Value.ToString();
 
             CustomMessage customMessage = new CustomMessage("You are about to end this process:\nID: " +
-                                          processId + "  Name: "+ processName + "  Owner: "+ processOwner + "\nAre you sure?", "Confirmation", "confirmation");
+                                            processId + "  Name: " + processName + "  Owner: " + processOwner + "\nAre you sure?", "Confirmation", "confirmation");
             DialogResult result = CustomDialog.ShowCustomDialog(customMessage, this);
             if (result == DialogResult.Cancel) {
                 return;
             }
 
-            if (task == null || task.IsCompleted) {
-                task = KillProcess(processId);
-                await task;
-                return;
+            try {
+                Process process = Process.GetProcessById(processId);
+                process.Kill();
+                dgvProcess.Rows.RemoveAt(dgvProcess.SelectedRows[0].Index);
+            } catch (Exception ex) {
+                CustomDialog.ShowCustomDialog(new CustomMessage("Error ending process: \n" + ex.Message, "Error", "error"), this);
             }
         }
     }

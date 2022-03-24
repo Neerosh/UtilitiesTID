@@ -2,7 +2,6 @@
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
-using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +13,13 @@ namespace Utilities.Forms
 {
     public partial class FileLocks : Form
     {
+        private Task taskListProcesses;
+        private CancellationTokenSource ctsListProcesses;
+        private Task taskListOpenSharedFiles;
+        private CancellationTokenSource ctsListOpenSharedFiles;
+        private Task taskCheckLockedFile;
+        private CancellationTokenSource ctsCheckLockedFile;
+
         public FileLocks() {
             InitializeComponent();
         }
@@ -25,13 +31,8 @@ namespace Utilities.Forms
                 btnListAllSharedFiles.Enabled = false;
                 btnDisconnectSelectedFile.BackColor = System.Drawing.Color.DarkGray;
                 btnListAllSharedFiles.BackColor = System.Drawing.Color.DarkGray;
-                CustomMessage customMessage = new CustomMessage("Aplication not running as Administrator. Some restrictions are activated:" +
-                                "\nNot all processes may appear,\nButtons related to Shared Files are disabled.", "Information", "information");
-                CustomDialog.ShowCustomDialog(customMessage, this);
             }
         }
-
-        private Task task;
 
         private DataTable GetProcessGridDataTable() {
             DataTable dataTable = new DataTable();
@@ -73,19 +74,41 @@ namespace Utilities.Forms
             dgvSharedFiles.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvSharedFiles.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
+        private void DisconnectOpenFile(Int64? id, int selectedRow) {
+            if (id == null) { return; }
+            Process process = new Process();
+            process.StartInfo.FileName = Environment.SystemDirectory + "\\cmd.exe";
+            process.StartInfo.Arguments = "/C openfiles.exe /disconnect /id " + id;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = true;
 
+            try {
+                process.Start();
+                string output = String.Empty;
+                string errorOutput = String.Empty;
+                output = process.StandardOutput.ReadToEnd();
+                errorOutput = process.StandardError.ReadToEnd();
+                process.WaitForExit();
+                if (errorOutput.Length > 0) {
+                    throw new Exception(errorOutput);
+                }
+                dgvSharedFiles.Rows.RemoveAt(selectedRow);
+                InvokeMessage(new CustomMessage("Selected shared file disconnected.\n" + output, "Success", "success"));
+            } catch (Exception ex) {
+                InvokeMessage(new CustomMessage("Error disconnecting shared file, action cancelled.\n" + ex.Message, "Error", "error"));
+            }
+        }
         private void InvokeMessage(CustomMessage customMessage) {
             Invoke(new Action(() => {
                 CustomDialog.ShowCustomDialog(customMessage, this);
             }));
         }
-        private async Task GetLockedFileProcesses() {
-            string lockedFile = txtLockedFilePath.Text;
-            if (lockedFile == null || lockedFile.Length == 0) {
-                CustomDialog.ShowCustomDialog(new CustomMessage("Select a file", "Error", "error"), this);
-                return;
-            }
-            lblListProcesses.Visible = true;
+
+        private async Task CheckLockedFile(string filePath,CancellationTokenSource cancellationTokenSource) {
+            lblCheckLockedFile.Visible = true;
+            btnCheckLockedFile.Text = "Stop Checking Locked File";
             await Task.Run(() => {
                 Thread.Sleep(1000);
                 RM_PROCESS_INFO[] rm = null;
@@ -93,7 +116,7 @@ namespace Utilities.Forms
                 DataTable dataTable = GetProcessGridDataTable();
                 string owner = "";
                 try {
-                    rm = FindLockedFileProcesses(lockedFile);
+                    rm = FindLockedFileProcesses(filePath);
                     rm.OrderBy(rm => rm.Process.dwProcessId);
                     for (int i = 0; i < rm.Count(); i++) {
                         process = Process.GetProcessById(rm[i].Process.dwProcessId);
@@ -102,18 +125,27 @@ namespace Utilities.Forms
                             owner = "Unknown";
                         }
                         dataTable.Rows.Add(process.Id, process.ProcessName, owner);
+                        //if (cancellationTokenSource.IsCancellationRequested) { throw new TaskCanceledException(); }
+                        cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     }
-                    RefreshProcessList(dataTable);
+                    Invoke(new MethodInvoker(delegate {
+                        RefreshProcessList(dataTable);
+                    }));
+                } catch (OperationCanceledException) {
                 } catch (Exception ex) {
-                    InvokeMessage(new CustomMessage("Error getting processes :\n" + ex.Message, "Error", "error"));
+                    InvokeMessage(new CustomMessage("Error getting locked file processes :\n" + ex.Message, "Error", "error"));
                 }
 
-            });
-            lblListProcesses.Visible = false;
-        }
+            }, cancellationTokenSource.Token);
 
-        private async Task ListAllProcesses() {
+            if (IsAdministrator() && !cancellationTokenSource.IsCancellationRequested) { await ListOpenSharedFiles(filePath, cancellationTokenSource); }
+            btnCheckLockedFile.Text = "Check Locked File";
+            lblCheckLockedFile.Visible = false;
+            cancellationTokenSource.Dispose();
+        }
+        private async Task ListProcesses(CancellationTokenSource cancellationTokenSource) {
             lblListProcesses.Visible = true;
+            btnListProcesses.Text = "Stop Listing Processes";
             bool showUnknownUsers = chkShowUnknownUsers.Checked;
             await Task.Run(() => {
                 Thread.Sleep(1000);
@@ -132,45 +164,35 @@ namespace Utilities.Forms
                             continue;
                         }
                         dataTable.Rows.Add(process.Id, process.ProcessName, owner);
+                        if (cancellationTokenSource.IsCancellationRequested) { throw new TaskCanceledException(); }
                     }
                     Invoke(new MethodInvoker(delegate {
                         RefreshProcessList(dataTable);
                     }));
+                } catch (OperationCanceledException) {
                 } catch (Exception ex) {
                     InvokeMessage(new CustomMessage("Error listing processes: \n" + ex.Message, "Error", "error"));
                 }
-            });
+            }, cancellationTokenSource.Token);
+            btnListProcesses.Text = "List Processes";
             lblListProcesses.Visible = false;
+            cancellationTokenSource.Dispose();
         }
-        private async Task KillProcess(int processId,int selectedRow) {
-            await Task.Run(() => {
-                try {
-                    if (!OperatingSystem.IsWindows()) { throw new Exception("Operating System is not Windows"); }
-                    Process process = Process.GetProcessById(processId);
-                    process.Kill();
-                    Invoke(new Action(() => {
-                        dgvProcess.Rows.RemoveAt(selectedRow);
-                    }));
-                } catch (Exception ex) {
-                    InvokeMessage(new CustomMessage("Error ending process: \n" + ex.Message, "Error", "error"));
-                }
-            });
-
-        }
-
-        private async Task OpenFilesSearch(string? filePath) {
+        private async Task ListOpenSharedFiles(string? filePath, CancellationTokenSource cancellationTokenSource) {
             DataTable dataTable = GetSharedFilesGridDataTable();
-            lblListSharedFiles.Visible = true;
             Process process = new Process();
-            process.StartInfo.FileName = Environment.SystemDirectory + "\\cmd.exe";
-            process.StartInfo.Arguments = "/C openfiles.exe /query /FO CSV /v";
-            if (filePath != null) {
-                process.StartInfo.Arguments = "/C openfiles.exe /query /FO CSV /v | findstr /i /c:\"" + filePath + "\"";
-            }
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.CreateNoWindow = true;
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.FileName = Environment.SystemDirectory + "\\cmd.exe";
+            if (filePath != null) {
+                process.StartInfo.Arguments = "/C openfiles.exe /query /FO CSV /v | findstr /i /c:\"" + filePath + "\"";
+            } else {
+                process.StartInfo.Arguments = "/C openfiles.exe /query /FO CSV /v";
+                lblListSharedFiles.Visible = true;
+                btnListAllSharedFiles.Text = "Stop Listing Shared Files";
+            }
 
             await Task.Run(() => {
                 Thread.Sleep(1000);
@@ -180,6 +202,9 @@ namespace Utilities.Forms
                     string errorOutput = String.Empty;
                     output = process.StandardOutput.ReadToEnd();
                     errorOutput = process.StandardError.ReadToEnd();
+
+                    if (cancellationTokenSource.IsCancellationRequested) { throw new TaskCanceledException(); }
+
                     process.WaitForExit();
                     if (output.Contains("\"")) {
                         output = output.Substring(output.IndexOf("\"")).Replace("\"", "");
@@ -193,77 +218,58 @@ namespace Utilities.Forms
                     outputLines = output.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
                     foreach (string line in outputLines) {
                         if (line.Equals(outputLines[0]) && filePath == null) { continue; }
+
                         string[] lineItems = line.Split(",");
+
+                        if (cancellationTokenSource.IsCancellationRequested) { throw new TaskCanceledException(); }
+
                         if (lineItems.Length < 6) { continue; }
+
                         dataTable.Rows.Add(lineItems[0], Convert.ToInt64(lineItems[1]), lineItems[2],
                                            lineItems[3], Convert.ToInt64(lineItems[4]), lineItems[5],
                                            lineItems[6]);
+
                     }
                     Invoke(new MethodInvoker(delegate {
                         RefreshSharedFilesList(dataTable);
                     }));
+                } catch (OperationCanceledException) {
                 } catch (Exception ex) {
                     InvokeMessage(new CustomMessage("Error listing open shared files, action cancelled.\n" + ex.Message, "Error", "error"));
                 }
-            });
+            }, cancellationTokenSource.Token);
             lblListSharedFiles.Visible = false;
-        }
-        private async Task DisconnectOpenFile(Int64 id, int selectedRow) {
-            if (id == null) { return; }
-            Process process = new Process();
-            process.StartInfo.FileName = Environment.SystemDirectory + "\\cmd.exe";
-            process.StartInfo.Arguments = "/C openfiles.exe /disconnect /id " + id;
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.RedirectStandardError = true;
-            await Task.Run(() => {
-                Thread.Sleep(1000);
-                try {
-                    process.Start();
-                    string output = String.Empty;
-                    string errorOutput = String.Empty;
-                    output = process.StandardOutput.ReadToEnd();
-                    errorOutput = process.StandardError.ReadToEnd();
-                    process.WaitForExit();
-                    if (errorOutput.Length > 0) {
-                        throw new Exception(errorOutput);
-                    }
-                    Invoke(new Action(() => {
-                        dgvSharedFiles.Rows.RemoveAt(selectedRow);
-                    }));
-                    InvokeMessage(new CustomMessage("Selected shared file disconnected.\n" + output, "Success", "success"));
-                } catch (Exception ex) {
-                    InvokeMessage(new CustomMessage("Error disconnecting shared file, action cancelled.\n" + ex.Message, "Error", "error"));
-                }
-            });
+            btnListAllSharedFiles.Text = "List Shared Files";
+            cancellationTokenSource.Dispose();
         }
 
-        private void btnLockedFileBrowser_Click(object sender, EventArgs e) {
+        private void BtnLockedFileBrowser_Click(object sender, EventArgs e) {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.ShowDialog(this);
             txtLockedFilePath.Text = openFileDialog.FileName;
         }
-        private async void BtnCheckLockedFile_Click(object sender, EventArgs e) {
-            if (task == null || task.IsCompleted) {
-                lblSearchLocks.Visible = true;
-                task = GetLockedFileProcesses();
-                await task;
-                task = OpenFilesSearch(txtLockedFilePath.Text);
-                await task;
-                lblSearchLocks.Visible = false;
-                return;
+        private void BtnCheckLockedFile_Click(object sender, EventArgs e) {
+            if (taskCheckLockedFile == null || taskCheckLockedFile.IsCompleted) {
+                string lockedFile = txtLockedFilePath.Text;
+                if (lockedFile == null || lockedFile.Length == 0) {
+                    CustomDialog.ShowCustomDialog(new CustomMessage("Select a file", "Error", "error"), this);
+                    return;
+                }
+                ctsCheckLockedFile = new CancellationTokenSource();
+                taskCheckLockedFile = CheckLockedFile(lockedFile, ctsCheckLockedFile);
+            } else {
+                ctsCheckLockedFile.Cancel();
             }
         }
-
-        private async void BtnListAllProcesses_Click(object sender, EventArgs e) {
-            if (task == null || task.IsCompleted) {
-                task = ListAllProcesses();
-                await task;
-                return;
+        private void BtnListAllProcesses_Click(object sender, EventArgs e) {
+            if (taskListProcesses == null || taskListProcesses.IsCompleted) {
+                ctsListProcesses = new CancellationTokenSource();
+                taskListProcesses = ListProcesses(ctsListProcesses);
+            } else {
+                ctsListProcesses.Cancel();
             }
         }
-        private async void BtnEndSelectedProcess_Click(object sender, EventArgs e) {
+        private void BtnEndSelectedProcess_Click(object sender, EventArgs e) {
             if (dgvProcess.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
 
             int processId = Int32.Parse(dgvProcess.SelectedRows[0].Cells[0].Value.ToString());
@@ -271,45 +277,46 @@ namespace Utilities.Forms
             string processName = dgvProcess.SelectedRows[0].Cells[1].Value.ToString();
             string processOwner = dgvProcess.SelectedRows[0].Cells[2].Value.ToString();
 
-            if (task == null || task.IsCompleted) {
-                CustomMessage customMessage = new CustomMessage("You are about to end this process:\nID: " +
-                              processId + "  Name: " + processName + "  Owner: " + processOwner + "\nAre you sure?", "Confirmation", "confirmation");
-                DialogResult result = CustomDialog.ShowCustomDialog(customMessage, this);
-                if (result == DialogResult.Cancel) {
-                    return;
-                }
-                task = KillProcess(processId, selectedRow);
-                await task;
+            CustomMessage customMessage = new CustomMessage("You are about to end this process:\nID: " +
+                            processId + "  Name: " + processName + "  Owner: " + processOwner + "\nAre you sure?", "Confirmation", "confirmation");
+            DialogResult result = CustomDialog.ShowCustomDialog(customMessage, this);
+            if (result == DialogResult.Cancel) {
                 return;
             }
-        }
 
-        private async void BtnListAllSharedFiles_Click(object sender, EventArgs e) {
-            if (task == null || task.IsCompleted) {
-                task = OpenFilesSearch(null);
-                await task;
-                return;
+            try {
+                if (!OperatingSystem.IsWindows()) { throw new Exception("Operating System is not Windows"); }
+                Process process = Process.GetProcessById(processId);
+                process.Kill();
+                dgvProcess.Rows.RemoveAt(selectedRow);
+            } catch (Exception ex) {
+                InvokeMessage(new CustomMessage("Error ending process: \n" + ex.Message, "Error", "error"));
+            }
+            return;
+
+        }
+        private void BtnListAllSharedFiles_Click(object sender, EventArgs e) {
+            if (taskListOpenSharedFiles == null || taskListOpenSharedFiles.IsCompleted) {
+                ctsListOpenSharedFiles = new CancellationTokenSource();
+                taskListOpenSharedFiles = ListOpenSharedFiles(null, ctsListOpenSharedFiles);
+            } else {
+                ctsListOpenSharedFiles.Cancel();
             }
         }
-        private async void BtnDisconnectSelectedFile_Click(object sender, EventArgs e) {
+        private void BtnDisconnectSelectedFile_Click(object sender, EventArgs e) {
             if (dgvSharedFiles.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
 
             int sharedId = Int32.Parse(dgvSharedFiles.SelectedRows[0].Cells[1].Value.ToString());
             int selectedRow = dgvSharedFiles.SelectedRows[0].Index;
             string filePath = dgvSharedFiles.SelectedRows[0].Cells[6].Value.ToString();
 
-            if (task == null || task.IsCompleted) {
-                CustomMessage customMessage = new CustomMessage("You are about to diconnect this file:\nID: " +
-                                              sharedId + "  Name: " + filePath + "\nAre you sure?", "Confirmation", "confirmation");
-                DialogResult result = CustomDialog.ShowCustomDialog(customMessage, this);
-                if (result == DialogResult.Cancel) {
-                    return;
-                }
-                task = DisconnectOpenFile(sharedId,selectedRow);
-                await task;
+            CustomMessage customMessage = new CustomMessage("You are about to diconnect this file:\nID: " +
+                                            sharedId + "  Name: " + filePath + "\nAre you sure?", "Confirmation", "confirmation");
+            DialogResult result = CustomDialog.ShowCustomDialog(customMessage, this);
+            if (result == DialogResult.Cancel) {
                 return;
             }
-
+            DisconnectOpenFile(sharedId,selectedRow);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-namespace Teste
+namespace Utilities
 {
     partial class Main
     {
