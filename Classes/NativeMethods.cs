@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
@@ -8,6 +9,7 @@ namespace Utilities.Classes
 {
     internal class NativeMethods
     {
+        #region Get Process Owner
         /// <summary>
         /// Registers resources to a Restart Manager session.
         /// The Restart Manager uses the list of resources registered with the session to determine which applications
@@ -24,7 +26,7 @@ namespace Utilities.Classes
         /// <param name="rgsServiceNames">An array of null-terminated strings of service short names. This parameter can be NULL if nServices is 0.</param>
         /// <returns>This is the most recent error received. The function can return one of the system error codes that are defined in Winerror.h.</returns>
         [DllImport("rstrtmgr.dll", CharSet = CharSet.Unicode)]
-        public static extern RmResult RmRegisterResources(
+        private static extern RmResult RmRegisterResources(
             int dwSessionHandle,
             uint nFiles,
             string[] rgsFilenames,
@@ -49,7 +51,7 @@ namespace Utilities.Classes
         /// </param>
         /// <returns>This is the most recent error received. The function can return one of the system error codes that are defined in Winerror.h.</returns>
         [DllImport("rstrtmgr.dll", CharSet = CharSet.Auto)]
-        public static extern RmResult RmStartSession(out int pSessionHandle, int dwSessionFlags, string strSessionKey);
+        private static extern RmResult RmStartSession(out int pSessionHandle, int dwSessionFlags, string strSessionKey);
 
         /// <summary>
         /// Ends the Restart Manager session.
@@ -60,7 +62,7 @@ namespace Utilities.Classes
         /// <param name="dwSessionHandle">A handle to an existing Restart Manager session.</param>
         /// <returns>This is the most recent error received. The function can return one of the system error codes that are defined in Winerror.h.</returns>
         [DllImport("rstrtmgr.dll")]
-        public static extern RmResult RmEndSession(int dwSessionHandle);
+        private static extern RmResult RmEndSession(int dwSessionHandle);
 
         /// <summary>
         /// Gets a list of all applications and services that are currently using resources that have been registered with the Restart Manager session.
@@ -78,7 +80,7 @@ namespace Utilities.Classes
         /// </param>
         /// <returns>This is the most recent error received. The function can return one of the system error codes that are defined in Winerror.h.</returns>
         [DllImport("rstrtmgr.dll")]
-        public static extern RmResult RmGetList(
+        private static extern RmResult RmGetList(
             int dwSessionHandle,
             out uint pnProcInfoNeeded,
             ref uint pnProcInfo,
@@ -86,20 +88,49 @@ namespace Utilities.Classes
             out RM_REBOOT_REASON lpdwRebootReasons);
 
         [DllImport("advapi32.dll", SetLastError = true)]
-        public static extern bool OpenProcessToken(IntPtr ProcessHandle, uint DesiredAccess, out IntPtr TokenHandle);
+        private static extern bool OpenProcessToken(IntPtr ProcessHandle, uint DesiredAccess, out IntPtr TokenHandle);
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool CloseHandle(IntPtr hObject);
+        private static extern bool CloseHandle(IntPtr hObject);
+        #endregion
 
+        #region List User Status
+        [DllImport("wtsapi32.dll")]
+        static extern IntPtr WTSOpenServer([MarshalAs(UnmanagedType.LPStr)] string pServerName);
+
+        [DllImport("wtsapi32.dll")]
+        static extern void WTSCloseServer(IntPtr hServer);
+
+        [DllImport("wtsapi32.dll")]
+        static extern Int32 WTSEnumerateSessions(
+            IntPtr hServer,
+            [MarshalAs(UnmanagedType.U4)] Int32 Reserved,
+            [MarshalAs(UnmanagedType.U4)] Int32 Version,
+            ref IntPtr ppSessionInfo,
+            [MarshalAs(UnmanagedType.U4)] ref Int32 pCount);
+
+        [DllImport("wtsapi32.dll")]
+        static extern void WTSFreeMemory(IntPtr pMemory);
+
+        [DllImport("wtsapi32.dll")]
+        static extern bool WTSQuerySessionInformation(
+            IntPtr hServer, int sessionId, WTS_INFO_CLASS wtsInfoClass, out IntPtr ppBuffer, out uint pBytesReturned);
+        #endregion
+
+
+        #region Public Methods
+        public static bool IsAdministrator() {
+            return new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
+        }
         public static RM_PROCESS_INFO[] FindLockedFileProcesses(string path) {
             int handle;
-            if (NativeMethods.RmStartSession(out handle, 0, strSessionKey: Guid.NewGuid().ToString()) != RmResult.ERROR_SUCCESS)
+            if (RmStartSession(out handle, 0, strSessionKey: Guid.NewGuid().ToString()) != RmResult.ERROR_SUCCESS)
                 throw new Exception("Could not begin session. Unable to determine file lockers.");
 
             try {
                 string[] resources = { path }; // Just checking on one resource.
 
-                if (NativeMethods.RmRegisterResources(handle, (uint)resources.LongLength, resources, 0, null, 0, null) != RmResult.ERROR_SUCCESS)
+                if (RmRegisterResources(handle, (uint)resources.LongLength, resources, 0, null, 0, null) != RmResult.ERROR_SUCCESS)
                     throw new Exception("Could not register resource.");
 
                 // The first try is done expecting at most ten processes to lock the file.
@@ -109,7 +140,7 @@ namespace Utilities.Classes
                     var array = new RM_PROCESS_INFO[arraySize];
                     uint arrayCount;
                     RM_REBOOT_REASON lpdwRebootReasons;
-                    result = NativeMethods.RmGetList(handle, out arrayCount, ref arraySize, array, out lpdwRebootReasons);
+                    result = RmGetList(handle, out arrayCount, ref arraySize, array, out lpdwRebootReasons);
                     if (result == RmResult.ERROR_SUCCESS) {
                         // Adjust the array length to fit the actual count.
 
@@ -124,16 +155,15 @@ namespace Utilities.Classes
                     }
                 } while (result != RmResult.ERROR_SUCCESS);
             } finally {
-                NativeMethods.RmEndSession(handle);
+                RmEndSession(handle);
             }
             return new RM_PROCESS_INFO[0];
         }
-
         public static string GetProcessUser(Process process) {
 
             IntPtr processHandle = IntPtr.Zero;
             try {
-                NativeMethods.OpenProcessToken(process.Handle, 8, out processHandle);
+                OpenProcessToken(process.Handle, 8, out processHandle);
                 WindowsIdentity wi = new WindowsIdentity(processHandle);
                 string user = wi.Name;
                 return user.Contains(@"\") ? user.Substring(user.IndexOf(@"\") + 1) : user;
@@ -141,13 +171,63 @@ namespace Utilities.Classes
                 return "";
             } finally {
                 if (processHandle != IntPtr.Zero) {
-                    NativeMethods.CloseHandle(processHandle);
+                    CloseHandle(processHandle);
                 }
             }
         }
-        public static bool IsAdministrator() {
-            return (new WindowsPrincipal(WindowsIdentity.GetCurrent()))
-                      .IsInRole(WindowsBuiltInRole.Administrator);
+        public static List<User> ListUsersWithStatus() {
+            IntPtr serverHandle = IntPtr.Zero;
+            List<User> resultList = new List<User>();
+            serverHandle = WTSOpenServer(Environment.MachineName);
+
+            try {
+                IntPtr sessionInfoPtr = IntPtr.Zero;
+                IntPtr userPtr = IntPtr.Zero;
+                IntPtr connectStatePtr = IntPtr.Zero;
+                Int32 sessionCount = 0;
+                Int32 retVal = WTSEnumerateSessions(serverHandle, 0, 1, ref sessionInfoPtr, ref sessionCount);
+                Int32 dataSize = Marshal.SizeOf(typeof(WTS_SESSION_INFO));
+                IntPtr currentSession = sessionInfoPtr;
+                uint bytes = 0;
+                string userConnectionStatus = "";
+
+                if (retVal != 0) {
+                    for (int i = 0; i < sessionCount; i++) {
+                        WTS_SESSION_INFO si = (WTS_SESSION_INFO)Marshal.PtrToStructure((System.IntPtr)currentSession, typeof(WTS_SESSION_INFO));
+                        currentSession += dataSize;
+
+                        WTSQuerySessionInformation(serverHandle, si.SessionID, WTS_INFO_CLASS.WTSUserName, out userPtr, out bytes);
+                        WTSQuerySessionInformation(serverHandle, si.SessionID, WTS_INFO_CLASS.WTSConnectState, out connectStatePtr, out bytes);
+
+                        userConnectionStatus = Marshal.ReadInt32(connectStatePtr) switch {
+                            0 => "Active",
+                            1 => "Connected",
+                            2 => "Connect Query",
+                            3 => "Shadow",
+                            4 => "Disconnected",
+                            5 => "Idle",
+                            6 => "Listen",
+                            7 => "Reset",
+                            8 => "Down",
+                            9 => "Init",
+                            _ => "Unknown",
+                        };
+                        if (Marshal.PtrToStringAnsi(userPtr) != null && !Marshal.PtrToStringAnsi(userPtr).Equals("")) {
+                            resultList.Add(new User(Marshal.PtrToStringAnsi(userPtr),userConnectionStatus));
+                        }
+                        Console.WriteLine(userConnectionStatus);
+                        WTSFreeMemory(userPtr);
+                        WTSFreeMemory(connectStatePtr);
+                    }
+
+                    WTSFreeMemory(sessionInfoPtr);
+                }
+            } finally {
+                WTSCloseServer(serverHandle);
+            }
+            return resultList;
+
         }
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
@@ -38,32 +39,32 @@ namespace Utilities.Forms
         private DataTable GetProcessGridDataTable() {
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Name");
             dataTable.Columns.Add("User");
+            dataTable.Columns.Add("User Status");
+            dataTable.Columns.Add("Process Name");
             dataTable.Columns["ID"].DataType = Type.GetType("System.Int32");
             return dataTable;
         }
         private DataTable GetSharedFilesGridDataTable() {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("Host");
             dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Accessed By");
-            dataTable.Columns.Add("Type");
-            dataTable.Columns.Add("Locks");
+            dataTable.Columns.Add("Host");
+            dataTable.Columns.Add("User");
+            dataTable.Columns.Add("User Status");
             dataTable.Columns.Add("Access Type");
             dataTable.Columns.Add("File Path");
             dataTable.Columns["ID"].DataType = Type.GetType("System.Int64");
-            dataTable.Columns["Locks"].DataType = Type.GetType("System.Int32");
             return dataTable;
         }
 
         private void RefreshProcessList(DataTable dataTable) {
-                dataTable.DefaultView.Sort = "ID";
-                dgvProcess.DataSource = dataTable;
-                //dgvProcess.Sort(dgvProcess.Columns[0],System.ComponentModel.ListSortDirection.Ascending);
-                dgvProcess.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dgvProcess.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dgvProcess.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataTable.DefaultView.Sort = "ID";
+            dgvProcess.DataSource = dataTable;
+            //dgvProcess.Sort(dgvProcess.Columns[0],System.ComponentModel.ListSortDirection.Ascending);
+            dgvProcess.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvProcess.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvProcess.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvProcess.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void RefreshSharedFilesList(DataTable dataTable) {
             dgvSharedFiles.DataSource = dataTable;
@@ -72,8 +73,7 @@ namespace Utilities.Forms
             dgvSharedFiles.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvSharedFiles.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvSharedFiles.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvSharedFiles.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvSharedFiles.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvSharedFiles.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void DisconnectOpenFile(Int64? id, int selectedRow) {
             if (id == null) { return; }
@@ -118,25 +118,38 @@ namespace Utilities.Forms
             }
             await Task.Run(() => {
                 Thread.Sleep(1000);
+
                 RM_PROCESS_INFO[] rm = null;
                 Process process = null;
                 DataTable dataTable = GetProcessGridDataTable();
+                List<User> listUsersStatus = NativeMethods.ListUsersWithStatus();
+                User user;
+                string status = String.Empty;
                 string owner = "";
+
                 try {
                     rm = FindLockedFileProcesses(filePath);
                     rm.OrderBy(rm => rm.Process.dwProcessId);
+
                     for (int i = 0; i < rm.Count(); i++) {
+                        status = "Unknown";
                         process = Process.GetProcessById(rm[i].Process.dwProcessId);
                         owner = GetProcessUser(process);
-                        if (owner == null || owner.Equals("")) {
-                            owner = "Unknown";
+
+                        if (owner == null || owner.Equals("")) { owner = "Unknown"; }
+
+                        if (!owner.Equals("Unknown")) {
+                            user = listUsersStatus.FirstOrDefault(user => string.Equals(user.Name, owner, StringComparison.InvariantCultureIgnoreCase));
+                            if (user != null) { status = user.Status; }
                         }
-                        dataTable.Rows.Add(process.Id, process.ProcessName, owner);
+
+                        dataTable.Rows.Add(process.Id, owner, status, process.ProcessName);
                         cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     }
                     Invoke(new MethodInvoker(delegate {
                         RefreshProcessList(dataTable);
                     }));
+
                 } catch (OperationCanceledException) {
                 } catch (Exception ex) {
                     InvokeMessage(new CustomMessage("Error getting locked file processes :\n" + ex.Message, "Error", "error"));
@@ -153,28 +166,39 @@ namespace Utilities.Forms
             lblListProcesses.Visible = true;
             btnListProcesses.Text = "Stop Listing Processes";
             bool showUnknownUsers = chkShowUnknownUsers.Checked;
+
             await Task.Run(() => {
                 Thread.Sleep(1000);
-                DataTable dataTable = GetProcessGridDataTable();
-                string owner = "Unknown";
-                try {
-                    if (!OperatingSystem.IsWindows()) { throw new Exception("Operating System is not Windows"); }
 
+                DataTable dataTable = GetProcessGridDataTable();
+                List<User> listUsersStatus = NativeMethods.ListUsersWithStatus();
+                User user;
+                string status = String.Empty;
+                string owner = "Unknown";
+
+                try {
                     Process[] processes = Process.GetProcesses(".");
+
                     foreach (Process process in processes) {
+                        status = "Unknown";
                         owner = GetProcessUser(process);
-                        if (owner.Equals("")) {
-                            owner = "Unknown";
+
+                        if (owner.Equals("")) { owner = "Unknown"; }
+
+                        if (showUnknownUsers == false && owner.Equals("Unknown")) { continue; }
+
+                        if (!owner.Equals("Unknown")) {
+                            user = listUsersStatus.FirstOrDefault(user => string.Equals(user.Name, owner, StringComparison.InvariantCultureIgnoreCase));
+                            if (user != null) { status = user.Status; }
                         }
-                        if (showUnknownUsers == false && owner.Equals("Unknown")) {
-                            continue;
-                        }
-                        dataTable.Rows.Add(process.Id, process.ProcessName, owner);
+
+                        dataTable.Rows.Add(process.Id, owner, status, process.ProcessName);
                         cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     }
                     Invoke(new MethodInvoker(delegate {
                         RefreshProcessList(dataTable);
                     }));
+
                 } catch (OperationCanceledException) {
                 } catch (Exception ex) {
                     InvokeMessage(new CustomMessage("Error listing processes: \n" + ex.Message, "Error", "error"));
@@ -192,6 +216,7 @@ namespace Utilities.Forms
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = true;
             process.StartInfo.FileName = Environment.SystemDirectory + "\\cmd.exe";
+
             if (filePath != null) {
                 process.StartInfo.Arguments = "/C openfiles.exe /query /FO CSV /v | findstr /i /c:\"" + filePath + "\"";
             } else {
@@ -202,13 +227,18 @@ namespace Utilities.Forms
 
             await Task.Run(() => {
                 Thread.Sleep(1000);
+
                 try {
                     process.Start();
                     string output = String.Empty;
                     string errorOutput = String.Empty;
+                    string status = String.Empty;
+                    string[] outputLines;
+                    string[] lineItems;
+                    List <User> listUsersStatus = NativeMethods.ListUsersWithStatus();
+                    User user;
                     output = process.StandardOutput.ReadToEnd();
                     errorOutput = process.StandardError.ReadToEnd();
-
                     cancellationTokenSource.Token.ThrowIfCancellationRequested();
 
                     process.WaitForExit();
@@ -219,26 +249,34 @@ namespace Utilities.Forms
                             throw new Exception(errorOutput);
                         }
                     }
-                    string[] outputLines;
 
                     outputLines = output.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
                     foreach (string line in outputLines) {
                         if (line.Equals(outputLines[0]) && filePath == null) { continue; }
-
-                        string[] lineItems = line.Split(",");
-
-                        cancellationTokenSource.Token.ThrowIfCancellationRequested();
-
+                        status = "Unknown";
+                        lineItems = line.Split(",");
                         if (lineItems.Length < 6) { continue; }
+                        SharedItem sharedItem = new SharedItem(lineItems[0],
+                                                                Convert.ToInt64(lineItems[1]),
+                                                                lineItems[2],
+                                                                lineItems[3],
+                                                                Convert.ToInt32(lineItems[4]),
+                                                                lineItems[5],
+                                                                lineItems[6]);
 
-                        dataTable.Rows.Add(lineItems[0], Convert.ToInt64(lineItems[1]), lineItems[2],
-                                           lineItems[3], Convert.ToInt64(lineItems[4]), lineItems[5],
-                                           lineItems[6]);
+                        user = listUsersStatus.FirstOrDefault(user => string.Equals(user.Name, sharedItem.AccessedBy, StringComparison.InvariantCultureIgnoreCase));
+                        
+                        if (user != null) { status = user.Status; }
 
+                        dataTable.Rows.Add(sharedItem.Id,sharedItem.Host,sharedItem.AccessedBy, status, sharedItem.AccessType,sharedItem.ItemPath) ;
+                        cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     }
+
                     Invoke(new MethodInvoker(delegate {
                         RefreshSharedFilesList(dataTable);
                     }));
+
                 } catch (OperationCanceledException) {
                 } catch (Exception ex) {
                     InvokeMessage(new CustomMessage("Error listing open shared files, action cancelled.\n" + ex.Message, "Error", "error"));

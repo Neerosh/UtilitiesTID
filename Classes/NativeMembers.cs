@@ -6,6 +6,7 @@ namespace Utilities.Classes
 {
     public class NativeMembers
     {
+        #region Get ProcessOwner
         public enum RM_APP_TYPE
         {
             /// <summary>
@@ -225,5 +226,53 @@ namespace Utilities.Classes
             [MarshalAs(UnmanagedType.Bool)]
             public bool bRestartable;
         }
+        #endregion
+
+        #region List Users Status
+        [StructLayout(LayoutKind.Sequential)]
+        public struct WTS_SESSION_INFO
+        {
+            public Int32 SessionID;
+
+            [MarshalAs(UnmanagedType.LPStr)]
+            public string pWinStationName;
+
+            public WTS_CONNECTSTATE_CLASS State;
+        }
+        public enum WTS_INFO_CLASS
+        {
+            WTSInitialProgram,
+            WTSApplicationName,
+            WTSWorkingDirectory,
+            WTSOEMId,
+            WTSSessionId,
+            WTSUserName,
+            WTSWinStationName,
+            WTSDomainName,
+            WTSConnectState,
+            WTSClientBuildNumber,
+            WTSClientName,
+            WTSClientDirectory,
+            WTSClientProductId,
+            WTSClientHardwareId,
+            WTSClientAddress,
+            WTSClientDisplay,
+            WTSClientProtocolType
+        }
+        public enum WTS_CONNECTSTATE_CLASS
+        {
+            WTSActive,
+            WTSConnected,
+            WTSConnectQuery,
+            WTSShadow,
+            WTSDisconnected,
+            WTSIdle,
+            WTSListen,
+            WTSReset,
+            WTSDown,
+            WTSInit
+        }
+        #endregion
+
     }
 }

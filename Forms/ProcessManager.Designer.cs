@@ -219,7 +219,7 @@
             this.cboWhereField.Size = new System.Drawing.Size(83, 24);
             this.cboWhereField.Sorted = true;
             this.cboWhereField.TabIndex = 28;
-            this.cboWhereField.SelectionChangeCommitted += new System.EventHandler(this.cboWhereField_SelectionChangeCommitted);
+            this.cboWhereField.SelectionChangeCommitted += new System.EventHandler(this.CboWhereField_SelectionChangeCommitted);
             // 
             // lblProcesses
             // 

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,8 +27,9 @@ namespace Utilities.Forms
         private DataTable GetProcessesDataTable() {
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Name");
             dataTable.Columns.Add("User");
+            dataTable.Columns.Add("User Status");
+            dataTable.Columns.Add("Process Name");
             dataTable.Columns["ID"].DataType = Type.GetType("System.Int32");
             return dataTable;
         }
@@ -37,7 +40,8 @@ namespace Utilities.Forms
                 //dgvProcess.Sort(dgvProcess.Columns[0],System.ComponentModel.ListSortDirection.Ascending);
                 dgvProcess.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dgvProcess.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dgvProcess.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvProcess.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvProcess.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }));
         }
 
@@ -61,8 +65,11 @@ namespace Utilities.Forms
             }
             await Task.Run(() => {
                 Thread.Sleep(1000);
+                List<User> listUsersStatus = NativeMethods.ListUsersWithStatus();
                 DataTable dataTable = GetProcessesDataTable();
                 string owner = "Unknown";
+                string status = String.Empty;
+                User user;
                 try {
                     Process[] processes;
                     switch (conditionField) {
@@ -82,13 +89,15 @@ namespace Utilities.Forms
 
                     foreach (Process process in processes) {
                         owner = GetProcessUser(process);
-                        if (owner.Equals("")) {
-                            owner = "Unknown";
+                        status = "Unknown";
+                        if (owner.Equals("")) { owner = "Unknown"; }
+                        if (showUnknownUsers == false && owner.Equals("Unknown")) { continue; }
+                        if (!owner.Equals("Unknown")) {
+                            user = listUsersStatus.FirstOrDefault(user => string.Equals(user.Name,owner,StringComparison.InvariantCultureIgnoreCase));
+                            if (user != null) { status = user.Status; }
                         }
-                        if (showUnknownUsers == false && owner.Equals("Unknown")) {
-                            continue;
-                        }
-                        dataTable.Rows.Add(process.Id, process.ProcessName, owner);
+
+                        dataTable.Rows.Add(process.Id, owner, status, process.ProcessName);
                         cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     }
                     RefreshProcessList(dataTable);
@@ -167,8 +176,7 @@ namespace Utilities.Forms
                 txtWhereValue.Text = "";
             }
         }
-
-        private void cboWhereField_SelectionChangeCommitted(object sender, EventArgs e) {
+        private void CboWhereField_SelectionChangeCommitted(object sender, EventArgs e) {
             TxtWhereValue_Validated(sender, e);
         }
     }
