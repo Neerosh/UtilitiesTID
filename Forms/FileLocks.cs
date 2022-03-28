@@ -67,6 +67,7 @@ namespace Utilities.Forms
             dgvProcess.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void RefreshSharedFilesList(DataTable dataTable) {
+            dataTable.DefaultView.Sort = "ID";
             dgvSharedFiles.DataSource = dataTable;
             dgvSharedFiles.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvSharedFiles.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;

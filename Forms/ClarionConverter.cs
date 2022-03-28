@@ -39,7 +39,7 @@ namespace Utilities.Forms
                     dateField = DateTime.ParseExact("01/01/1801", dateFormat, CultureInfo.InvariantCulture);
                 }
 
-                if (Int32.Parse(date.Substring(6, 4)) <= 1801) {
+                if (Int32.Parse(date.Substring(6, 4)) < 1801) {
                     txtClarionDate.Text = "0000004";
                     txtDate.Text = "01/01/1801";
                 } else {
