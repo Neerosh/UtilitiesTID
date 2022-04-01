@@ -419,5 +419,11 @@ namespace Utilities.Properties
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        internal static System.Drawing.Bitmap icons8_github {
+            get {
+                object obj = ResourceManager.GetObject("icons8_github", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

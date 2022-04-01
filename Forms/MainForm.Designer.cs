@@ -106,7 +106,7 @@ namespace Utilities
             // picGitHub
             // 
             this.picGitHub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.picGitHub.Image = ((System.Drawing.Image)(resources.GetObject("picGitHub.Image")));
+            this.picGitHub.Image = global::Utilities.Properties.Resources.icons8_github;
             this.picGitHub.Location = new System.Drawing.Point(3, 3);
             this.picGitHub.Name = "picGitHub";
             this.picGitHub.Size = new System.Drawing.Size(30, 30);
