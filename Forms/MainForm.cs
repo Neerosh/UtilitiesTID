@@ -28,8 +28,8 @@ namespace Utilities
             panelSubMenuFiles.Visible = false;
             panelSubMenuCodes.Visible = false;
             if (!IsAdministrator()) {
-                CustomMessage customMessage = new CustomMessage("Aplication not running as Administrator.\nSome restrictions are activated:" +
-                                "\nNot all processes may appear,\nButtons related to shared folders/files are disabled.", "Information", "information");
+                CustomMessage customMessage = new CustomMessage("Aplication not running as Administrator. Some restrictions are in place :" +
+                                "\n-Not all processes may appear,\n-Buttons related to shared folders/files are disabled.", "Warning", "information");
                 CustomDialog.ShowCustomDialog(customMessage, this);
             }
             Padding = new Padding(2);
@@ -273,12 +273,22 @@ namespace Utilities
             AdjustForm();
         }
 
-        private void lblCreator_Click(object sender, EventArgs e) {
+        private void OpenCreatorLink(object sender, EventArgs e) {
             ProcessStartInfo psi = new ProcessStartInfo {
                 UseShellExecute = true,
                 FileName = "https://github.com/Neerosh"
             };
             Process.Start(psi);
+        }
+        private void CreatorLink_MouseEnter(object sender, EventArgs e) { 
+            panelCreatorLinks.BackColor = Color.FromArgb(60, 60, 60);
+            picGitHub.BackColor = Color.FromArgb(60, 60, 60);
+            lblCreator.BackColor = Color.FromArgb(60, 60, 60);
+        }
+        private void CreatorLink_MouseLeave(object sender, EventArgs e) {
+            panelCreatorLinks.BackColor = Color.FromArgb(35, 35, 35);
+            picGitHub.BackColor = Color.FromArgb(35, 35, 35);
+            lblCreator.BackColor = Color.FromArgb(35, 35, 35);
         }
     }
 }

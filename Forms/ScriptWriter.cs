@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilities.Classes;
 
 namespace Utilities.Forms
 {
-    public partial class ScriptWriter : Form
-    {
+    public partial class ScriptWriter : Form {
 
         private readonly FolderPicker folderPicker = new FolderPicker();
-        private Task task;
+        private Task taskRegularScript,taskUnifiedScript;
 
         public ScriptWriter() {
             InitializeComponent();
@@ -48,66 +48,84 @@ namespace Utilities.Forms
         #endregion
 
         #region Script Writer
-        private async Task TaskGenerateSQL(string scriptType) {
+        private bool AreFoldersValid() {
             CustomMessage customMessage = new CustomMessage();
-
-            if (!scriptType.Equals("Unified") && !scriptType.Equals("Regular")) { return; }
             if (txtScriptFolder.Text.Equals("")) {
                 customMessage = new CustomMessage("Script folder not selected", "Error Checking folders", "error");
                 CustomDialog.ShowCustomDialog(customMessage, this);
-                return;
+                return false;
             }
             if (txtFolderSQL.Text.Equals("")) {
                 customMessage = new CustomMessage("SQL folder not selected", "Error Checking folders", "error");
                 CustomDialog.ShowCustomDialog(customMessage, this);
-                return;
+                return false;
             }
+            return true;
+        }
 
-            string procedureName, folderScript, folderSQL;
+        private async Task GenerateUnifiedScript() {
+            CustomMessage customMessage = new CustomMessage();
+
+            if (!AreFoldersValid()) { return; }
+
+            string procedureName, folderScript, folderSQL, directoryScript;
 
             procedureName = txtProcedureName.Text;
             folderScript = txtScriptFolder.Text + "\\" + txtScriptName.Text + ".sql";
             folderSQL = txtFolderSQL.Text;
+            directoryScript = folderScript.Substring(0, folderScript.LastIndexOf('\\'));
 
-            string directoryScript = folderScript.Substring(0, folderScript.LastIndexOf('\\'));
+            if (txtProcedureName.Text.Equals("")) { 
+                procedureName = "UnifiedScript"; 
+            }
+            if (txtScriptName.Text.Equals("")) { 
+                folderScript = txtScriptFolder.Text + "\\UnifiedScript.sql";
+            }
 
+            lblGeneratingUnifiedScript.Visible = true;
+            await Task.Run(() => {
+                Thread.Sleep(1000);
+                if (Directory.Exists(directoryScript) == false) { Directory.CreateDirectory(directoryScript); }
+                if (File.Exists(folderScript)) { File.Delete(folderScript); }
+
+                WriteUnifiedScript(folderSQL, folderScript, procedureName);
+            });
+            lblGeneratingUnifiedScript.Visible = false;
+        }
+        private async Task GenerateRegularScript() {
+            CustomMessage customMessage = new CustomMessage();
+
+            if (!AreFoldersValid()) { return; }
+
+            string folderScript, folderSQL, directoryScript;
+
+            folderScript = txtScriptFolder.Text + "\\" + txtScriptName.Text + ".sql";
+            folderSQL = txtFolderSQL.Text;
+            directoryScript = folderScript.Substring(0, folderScript.LastIndexOf('\\'));
+
+            if (txtScriptName.Text.Equals("")) {
+                folderScript = txtScriptFolder.Text + "\\RegularScript.sql";
+            }
+
+            lblGeneratingRegularScript.Visible = true;
 
             await Task.Run(() => {
-                try {
-                    if (Directory.Exists(directoryScript) == false) {
-                        Directory.CreateDirectory(directoryScript);
-                    }
-                    if (File.Exists(folderScript)) {
-                        File.Delete(folderScript);
-                    }
+                Thread.Sleep(1000);
+                if (Directory.Exists(directoryScript) == false) { Directory.CreateDirectory(directoryScript); }
+                if (File.Exists(folderScript)) { File.Delete(folderScript); }
 
-                    if (scriptType.Equals("Regular")) {
-                        if (txtScriptName.Text.Equals("")) {
-                            folderScript = txtScriptFolder.Text + "\\RegularScript.sql";
-                        }
-                        GenerateRegularScript(folderSQL, folderScript);
-                        return;
-                    }
-                    if (txtProcedureName.Text.Equals("")) {
-                        procedureName = "UnifiedScript";
-                    }
-                    if (txtScriptName.Text.Equals("")) {
-                        folderScript = txtScriptFolder.Text + "\\UnifiedScript.sql";
-                    }
-                    GenerateUnifiedScript(folderSQL, folderScript, procedureName);
-                } catch (Exception ex) {
-                    customMessage = new CustomMessage(ex.Message, "Error", "error");
-                    CustomDialog.ShowCustomDialog(customMessage, null);
-                }
+                WriteRegularScript(folderSQL, folderScript);
             });
+
+            lblGeneratingRegularScript.Visible = false;
         }
-        private void GenerateUnifiedScript(string folderSQL, string folderScript, string procedureName) {
+
+        private void WriteUnifiedScript(string folderSQL, string folderScript, string procedureName) {
             Byte[] line;
             string scriptText;
             CustomMessage customMessage;
 
             using (FileStream fileStream = File.Create(folderScript)) {
-
                 scriptText = "\r\n IF EXISTS (SELECT 1 FROM sys.procedures WHERE name = '" + procedureName + "')" +
                             "\r\n BEGIN" +
                             "\r\n    DROP PROCEDURE [" + procedureName + "]" +
@@ -149,27 +167,27 @@ namespace Utilities.Forms
 
                 for (int c = 1; c <= 30; c++) {
                     if (c < 10) {
-                        WriteUnifiedCode("TID_EMP0" + c, fileStream, folderSQL);
+                        WriteUnifiedScriptDatabase("TID_EMP0" + c, fileStream, folderSQL);
                         continue;
                     }
-                    WriteUnifiedCode("TID_EMP" + c, fileStream, folderSQL);
+                    WriteUnifiedScriptDatabase("TID_EMP" + c, fileStream, folderSQL);
                 }
 
-                WriteUnifiedCode("PORTALVENDAS", fileStream, folderSQL);
-                WriteUnifiedCode("TID_AUDITORIA", fileStream, folderSQL);
-                WriteUnifiedCode("TID_ATUALIZACAO", fileStream, folderSQL);
-                WriteUnifiedCode("TID_ECOMMERCE", fileStream, folderSQL);
-                WriteUnifiedCode("TID_EXETPS", fileStream, folderSQL);
-                WriteUnifiedCode("TID_NUVEMSHOP", fileStream, folderSQL);
-                WriteUnifiedCode("TID_WEB", fileStream, folderSQL);
-                WriteUnifiedCode("TID_TEMP", fileStream, folderSQL);
-                WriteUnifiedCode("TIDDF", fileStream, folderSQL);
-                WriteUnifiedCode("TIDMOBILE", fileStream, folderSQL);
-                WriteUnifiedCode("TIDMOBILE_DEACO", fileStream, folderSQL);
-                WriteUnifiedCode("TIDVENDAS", fileStream, folderSQL);
-                WriteUnifiedCode("TIDWEB", fileStream, folderSQL);
-                WriteUnifiedCode("WEBCENTER", fileStream, folderSQL);
-                WriteUnifiedCode("WEBCENTER_BRUTAL", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("PORTALVENDAS", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("TID_AUDITORIA", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("TID_ATUALIZACAO", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("TID_ECOMMERCE", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("TID_EXETPS", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("TID_NUVEMSHOP", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("TID_WEB", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("TID_TEMP", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("TIDDF", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("TIDMOBILE", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("TIDMOBILE_DEACO", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("TIDVENDAS", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("TIDWEB", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("WEBCENTER", fileStream, folderSQL);
+                WriteUnifiedScriptDatabase("WEBCENTER_BRUTAL", fileStream, folderSQL);
 
                 scriptText = "\r\n SET NOCOUNT OFF" +
                             "\r\n END" +
@@ -182,7 +200,7 @@ namespace Utilities.Forms
             CustomDialog.ShowCustomDialog(customMessage, null);
 
         }
-        private void WriteUnifiedCode(string database, FileStream fileStream, string folderSQL) {
+        private void WriteUnifiedScriptDatabase(string database, FileStream fileStream, string folderSQL) {
             string fileText;
             Byte[] line;
             fileText = "\r\n SET @detach = 0;" +
@@ -290,186 +308,7 @@ namespace Utilities.Forms
             }
         }
 
-        private void GenerateUnifiedScript_test(string folderSQL, string folderScript, string procedureName) {
-            Byte[] line;
-            string scriptText;
-            CustomMessage customMessage;
-
-            using (FileStream fileStream = File.Create(folderScript)) {
-
-                WriteUnifiedSubProcedure(fileStream, folderSQL, procedureName);
-
-                scriptText = "\r\n IF EXISTS (SELECT 1 FROM sys.procedures WHERE name = '" + procedureName + "')" +
-                            "\r\n BEGIN" +
-                            "\r\n    DROP PROCEDURE [" + procedureName + "]" +
-                            "\r\n END" +
-                            "\r\n" +
-                            "\r\n USE [master]" +
-                            "\r\n GO" +
-                            "\r\n CREATE PROCEDURE [dbo].[" + procedureName + "]" +
-                            "\r\n AS BEGIN " +
-                            "\r\n DECLARE @out int;";
-
-                line = new UTF8Encoding(true).GetBytes(scriptText);
-                fileStream.Write(line, 0, line.Length);
-
-                for (int c = 1; c <= 30; c++) {
-                    if (c < 10) {
-                        WriteUnifiedScript_test(fileStream, procedureName, "TID_EMP0" + c);
-                        continue;
-                    }
-                    WriteUnifiedScript_test(fileStream, procedureName, "TID_EMP" + c);
-                }
-
-                WriteUnifiedScript_test(fileStream, procedureName, "PORTALVENDAS");
-                WriteUnifiedScript_test(fileStream, procedureName, "TID_AUDITORIA");
-                WriteUnifiedScript_test(fileStream, procedureName, "TID_ATUALIZACAO");
-                WriteUnifiedScript_test(fileStream, procedureName, "TID_ECOMMERCE");
-                WriteUnifiedScript_test(fileStream, procedureName, "TID_EXETPS");
-                WriteUnifiedScript_test(fileStream, procedureName, "TID_NUVEMSHOP");
-                WriteUnifiedScript_test(fileStream, procedureName, "TID_WEB");
-                WriteUnifiedScript_test(fileStream, procedureName, "TID_TEMP");
-                WriteUnifiedScript_test(fileStream, procedureName, "TIDDF");
-                WriteUnifiedScript_test(fileStream, procedureName, "TIDMOBILE");
-                WriteUnifiedScript_test(fileStream, procedureName, "TIDMOBILE_DEACO");
-                WriteUnifiedScript_test(fileStream, procedureName, "TIDVENDAS");
-                WriteUnifiedScript_test(fileStream, procedureName, "TIDWEB");
-                WriteUnifiedScript_test(fileStream, procedureName, "WEBCENTER");
-                WriteUnifiedScript_test(fileStream, procedureName, "WEBCENTER_BRUTAL");
-
-                scriptText = "\r\n SET NOCOUNT OFF" +
-                            "\r\n END" +
-                            "\r\n GO";
-                line = new UTF8Encoding(true).GetBytes(scriptText);
-                fileStream.Write(line, 0, line.Length);
-
-            }
-            customMessage = new CustomMessage("Unified Script generated successfully: " + folderScript, "Success", "success");
-            CustomDialog.ShowCustomDialog(customMessage, null);
-        }
-        private void WriteUnifiedScript_test(FileStream fileStream, string procedureName, string database) {
-            Byte[] line;
-            string scriptText;
-
-            scriptText = "\r\n EXEC " + procedureName + "Sub @database ='" + database + "', @output = @out OUTPUT" +
-                         "\r\n";
-
-            line = new UTF8Encoding(true).GetBytes(scriptText);
-            fileStream.Write(line, 0, line.Length);
-        }
-        private void WriteUnifiedSubProcedure(FileStream fileStream, string folderSQL, string procedureName) {
-            Byte[] line;
-            string scriptText;
-            procedureName = procedureName + "Sub";
-
-            scriptText = "\r\n IF EXISTS (SELECT 1 FROM sys.procedures WHERE name = '" + procedureName + "')" +
-                        "\r\n BEGIN" +
-                        "\r\n    DROP PROCEDURE [" + procedureName + "]" +
-                        "\r\n END" +
-                        "\r\n" +
-                        "\r\n USE [master]" +
-                        "\r\n GO" +
-                        "\r\n CREATE PROCEDURE [dbo].[" + procedureName + "]  @dbname nvarchar(100), @output int OUTPUT" +
-                        "\r\n AS BEGIN " +
-                        "\r\n SET NOCOUNT ON" +
-                        "\r\n" +
-                        "\r\n DECLARE @detach int ," +
-                        "\r\n @mdfExist int ," +
-                        "\r\n @ldfExist int ," +
-                        "\r\n @bakExist int ;" +
-                        "\r\n" +
-                        "\r\n DECLARE @sql nvarchar(1000)," +
-                        "\r\n @fileMDF nvarchar(1000)," +
-                        "\r\n @fileLDF nvarchar(1000)," +
-                        "\r\n @fileBAK nvarchar(1000);" +
-                        "\r\n" +
-                        "\r\n SET @fileMDF = N'" + folderSQL + "\\'+@dbname+'_log.mdf' ;" +
-                        "\r\n SET @fileLDF = N'" + folderSQL + "\\'+@dbname+'_log.ldf' ;" +
-                        "\r\n SET @fileBAK = N'" + folderSQL + "\\'+@dbname+'.bak';" +
-                        "\r\n" +
-                        "\r\n IF EXISTS(SELECT name FROM master.sys.databases WHERE name = @dbname)" +
-                        "\r\n BEGIN" +
-                        "\r\n    SET @sql = 'ALTER DATABASE [' + @dbname + '] SET OFFLINE'" +
-                        "\r\n    EXEC(@sql)" +
-                        "\r\n    SET @sql = 'EXEC master.dbo.sp_detach_db @dbname = ' + @dbname" +
-                        "\r\n    EXEC(@sql)" +
-                        "\r\n    SET @detach = 1;" +
-                        "\r\n END" +
-                        "\r\n ELSE" +
-                        "\r\n BEGIN" +
-                        "\r\n    Exec master..xp_fileexist @fileMDF,@mdfExist OUT" +
-                        "\r\n    IF @mdfExist = 1" +
-                        "\r\n    BEGIN" +
-                        "\r\n       PRINT 'Rename the file: ' + @fileMDF" +
-                        "\r\n       PRINT 'and execute the procedure again'" +
-                        "\r\n       SET @mdfExist = 0;" +
-                        "\r\n    END" +
-                        "\r\n    Exec master..xp_fileexist @fileLDF,@ldfExist OUT" +
-                        "\r\n    IF @ldfExist = 1" +
-                        "\r\n    BEGIN" +
-                        "\r\n       PRINT 'Rename the file: ' + @fileLDF" +
-                        "\r\n       PRINT 'and execute the procedure again'" +
-                        "\r\n       SET @ldfExist = 0;" +
-                        "\r\n    END" +
-                        "\r\n    ELSE" +
-                        "\r\n    BEGIN" +
-                        "\r\n       SET @fileMDF = N'" + folderSQL + "\\'+@dbname+'.mdf' ;" +
-                        "\r\n       SET @fileLDF = N'" + folderSQL + "\\'+@dbname+'.ldf' ;" +
-                        "\r\n" +
-                        "\r\n       Exec master..xp_fileexist @fileMDF,@mdfExist OUT" +
-                        "\r\n       IF @mdfExist = 1" +
-                        "\r\n       BEGIN" +
-                        "\r\n          Exec master..xp_fileexist @fileLDF,@ldfExist OUT" +
-                        "\r\n          IF @ldfExist = 1" +
-                        "\r\n          BEGIN" +
-                        "\r\n          SET @sql = N'CREATE DATABASE [' + @dbname + '] ON' +" +
-                        "\r\n            '  ( FILENAME = N''' + @fileMDF + '''),' +" +
-                        "\r\n            '  ( FILENAME = N''' + @fileLDF + ''')' +" +
-                        "\r\n            '  FOR ATTACH';" +
-                        "\r\n          EXEC(@sql)" +
-                        "\r\n          SET @sql = 'ALTER DATABASE [' + @dbname + '] SET ONLINE';" +
-                        "\r\n          EXEC(@sql)" +
-                        "\r\n          END" +
-                        "\r\n       END" +
-                        "\r\n       ELSE" +
-                        "\r\n       BEGIN" +
-                        "\r\n          Exec master..xp_fileexist @fileBAK,@bakExist OUT" +
-                        "\r\n          IF @bakExist = 1" +
-                        "\r\n          BEGIN" +
-                        "\r\n             SET @sql = 'RESTORE DATABASE [' + @dbname + '] FROM ' +" +
-                        "\r\n               '  DISK = N''' + @fileBAK + ''' WITH FILE = 1,' +" +
-                        "\r\n               '  MOVE ' + @dbname + '' +" +
-                        "\r\n               '  TO N''' + @fileMDF + ''',' +" +
-                        "\r\n               '  MOVE N''' + @dbname + '_log'' ' +" +
-                        "\r\n               '  TO N''' + @fileLDF + ''',' +" +
-                        "\r\n               '  NOUNLOAD, REPLACE, STATS = 100';" +
-                        "\r\n             EXEC(@sql)" +
-                        "\r\n             SET @sql = 'ALTER DATABASE [' + @dbname + '] SET ONLINE';" +
-                        "\r\n             EXEC(@sql)" +
-                        "\r\n          END" +
-                        "\r\n       END" +
-                        "\r\n    END" +
-                        "\r\n END" +
-                        "\r\n SET NOCOUNT OFF" +
-                        "\r\n IF @detach = 1" +
-                        "\r\n BEGIN" +
-                        "\r\n     PRINT 'Database ' + @dbname + ' detached'" +
-                        "\r\n END" +
-                        "\r\n IF @bakExist = 1" +
-                        "\r\n BEGIN" +
-                        "\r\n     PRINT 'Database ' + @dbname + ' restored'" +
-                        "\r\n END" +
-                        "\r\n IF @mdfExist = 1 AND @ldfExist = 1" +
-                        "\r\n BEGIN" +
-                        "\r\n     PRINT 'Database ' + @dbname + ' attached'" +
-                        "\r\n END";
-
-            line = new UTF8Encoding(true).GetBytes(scriptText);
-            fileStream.Write(line, 0, line.Length);
-
-        }
-
-        private void GenerateRegularScript(string folderSQL, string folderScript) {
+        private void WriteRegularScript(string folderSQL, string folderScript) {
             Byte[] line;
             String[] procedures = { "AttachTID", "DetachTID", "RestoreTID" };
             CustomMessage customMessage;
@@ -510,27 +349,27 @@ namespace Utilities.Forms
                     fileStream.Write(line, 0, line.Length);
                     procedures[i] = procedures[i].Substring(0, procedures[i].Length - 3);
 
-                    WriteRegularCode("PORTALVENDAS", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("TID_ATUALIZACAO", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("TID_AUDITORIA", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("TID_ECOMMERCE", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("TID_EXETPS", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("TID_NUVEMSHOP", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("TID_WEB", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("TID_TEMP", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("TIDDF", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("TIDMOBILE", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("TIDMOBILE_DEACO", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("TIDVENDAS", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("TIDWEB", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("WEBCENTER", folderSQL, fileStream, procedures[i]);
-                    WriteRegularCode("WEBCENTER_BRUTAL", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("PORTALVENDAS", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("TID_ATUALIZACAO", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("TID_AUDITORIA", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("TID_ECOMMERCE", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("TID_EXETPS", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("TID_NUVEMSHOP", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("TID_WEB", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("TID_TEMP", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("TIDDF", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("TIDMOBILE", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("TIDMOBILE_DEACO", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("TIDVENDAS", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("TIDWEB", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("WEBCENTER", folderSQL, fileStream, procedures[i]);
+                    WriteRegularScriptDatabase("WEBCENTER_BRUTAL", folderSQL, fileStream, procedures[i]);
 
                     for (int c = 1; c <= 30; c++) {
                         if (c < 10) {
-                            WriteRegularCode("TID_EMP0" + c, folderSQL, fileStream, procedures[i]);
+                            WriteRegularScriptDatabase("TID_EMP0" + c, folderSQL, fileStream, procedures[i]);
                         } else {
-                            WriteRegularCode("TID_EMP" + c, folderSQL, fileStream, procedures[i]);
+                            WriteRegularScriptDatabase("TID_EMP" + c, folderSQL, fileStream, procedures[i]);
                         }
                     }
                     scriptText = "\r\n SET NOCOUNT OFF" +
@@ -544,7 +383,7 @@ namespace Utilities.Forms
             customMessage = new CustomMessage("Regular Script generated successfully: \n" + folderScript, "Success", "success");
             CustomDialog.ShowCustomDialog(customMessage, null);
         }
-        private void WriteRegularCode(string database, string folderSQL, FileStream fileStream, string action) {
+        private void WriteRegularScriptDatabase(string database, string folderSQL, FileStream fileStream, string action) {
             string fileText = "";
             Byte[] line;
             switch (action) {
@@ -659,41 +498,16 @@ namespace Utilities.Forms
             }
         }
 
-        private async void BtnScriptUnified_Click(object sender, EventArgs e) {
-            if (task == null || task.IsCompleted) {
-                task = TaskGenerateSQL("Unified");
-                await task;
-                return;
+        private void BtnScriptUnified_Click(object sender, EventArgs e) {
+            if (taskUnifiedScript == null || taskUnifiedScript.IsCompleted) {
+                taskUnifiedScript = GenerateUnifiedScript();
             }
         }
-        private async void BtnScriptRegular_Click(object sender, EventArgs e) {
-            if (task == null || task.IsCompleted) {
-                task = TaskGenerateSQL("Regular");
-                await task;
+        private void BtnScriptRegular_Click(object sender, EventArgs e) {
+            if (taskRegularScript == null || taskRegularScript.IsCompleted) {
+                taskRegularScript = GenerateRegularScript();
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-            string procedureName, folderScript, folderSQL;
-
-            procedureName = txtProcedureName.Text;
-            folderScript = txtScriptFolder.Text + "\\" + txtScriptName.Text + ".sql";
-            folderSQL = txtFolderSQL.Text;
-
-            string directoryScript = folderScript.Substring(0, folderScript.LastIndexOf('\\'));
-
-            if (Directory.Exists(directoryScript) == false && !directoryScript.Equals("")) {
-                Directory.CreateDirectory(directoryScript);
-            }
-            if (File.Exists(folderScript)) {
-                File.Delete(folderScript);
-            }
-            if (procedureName.Equals("")) {
-                procedureName = "test";
-            }
-            GenerateUnifiedScript_test(folderSQL, folderScript, procedureName);
-        }
-
-        
     }
 }

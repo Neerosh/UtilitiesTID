@@ -37,7 +37,8 @@ namespace Utilities.Forms {
             this.lblSQLFolder = new System.Windows.Forms.Label();
             this.txtFolderSQL = new System.Windows.Forms.TextBox();
             this.btnScriptUnified = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lblGeneratingRegularScript = new System.Windows.Forms.Label();
+            this.lblGeneratingUnifiedScript = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnScriptRegular
@@ -216,28 +217,31 @@ namespace Utilities.Forms {
             this.btnScriptUnified.UseVisualStyleBackColor = false;
             this.btnScriptUnified.Click += new System.EventHandler(this.BtnScriptUnified_Click);
             // 
-            // button1
+            // lblGeneratingRegularScript
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Image = global::Utilities.Properties.Resources.icons8_compose_32;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(620, 124);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 44);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Generate Unified Script test\r\n";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.lblGeneratingRegularScript.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGeneratingRegularScript.AutoSize = true;
+            this.lblGeneratingRegularScript.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblGeneratingRegularScript.ForeColor = System.Drawing.Color.Chartreuse;
+            this.lblGeneratingRegularScript.Location = new System.Drawing.Point(451, 92);
+            this.lblGeneratingRegularScript.Name = "lblGeneratingRegularScript";
+            this.lblGeneratingRegularScript.Size = new System.Drawing.Size(168, 16);
+            this.lblGeneratingRegularScript.TabIndex = 15;
+            this.lblGeneratingRegularScript.Text = "Generating Regular Script...";
+            this.lblGeneratingRegularScript.Visible = false;
+            // 
+            // lblGeneratingUnifiedScript
+            // 
+            this.lblGeneratingUnifiedScript.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGeneratingUnifiedScript.AutoSize = true;
+            this.lblGeneratingUnifiedScript.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblGeneratingUnifiedScript.ForeColor = System.Drawing.Color.Chartreuse;
+            this.lblGeneratingUnifiedScript.Location = new System.Drawing.Point(451, 124);
+            this.lblGeneratingUnifiedScript.Name = "lblGeneratingUnifiedScript";
+            this.lblGeneratingUnifiedScript.Size = new System.Drawing.Size(163, 16);
+            this.lblGeneratingUnifiedScript.TabIndex = 16;
+            this.lblGeneratingUnifiedScript.Text = "Generating Unified Script...";
+            this.lblGeneratingUnifiedScript.Visible = false;
             // 
             // ScriptWriter
             // 
@@ -245,7 +249,8 @@ namespace Utilities.Forms {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(790, 570);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblGeneratingUnifiedScript);
+            this.Controls.Add(this.lblGeneratingRegularScript);
             this.Controls.Add(this.btnScriptRegular);
             this.Controls.Add(this.txtProcedureName);
             this.Controls.Add(this.lblSQLFolder);
@@ -288,6 +293,7 @@ namespace Utilities.Forms {
         private System.Windows.Forms.Label lblSQLFolder;
         private System.Windows.Forms.TextBox txtFolderSQL;
         private System.Windows.Forms.Button btnScriptUnified;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblGeneratingRegularScript;
+        private System.Windows.Forms.Label lblGeneratingUnifiedScript;
     }
 }

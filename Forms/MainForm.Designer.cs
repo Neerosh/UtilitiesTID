@@ -31,6 +31,8 @@ namespace Utilities
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.panelCreatorLinks = new System.Windows.Forms.Panel();
+            this.picGitHub = new System.Windows.Forms.PictureBox();
             this.lblCreator = new System.Windows.Forms.Label();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnScriptWriter = new System.Windows.Forms.Button();
@@ -57,6 +59,8 @@ namespace Utilities
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
+            this.panelCreatorLinks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picGitHub)).BeginInit();
             this.panelSubMenuFiles.SuspendLayout();
             this.panelSubMenuCodes.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -67,7 +71,7 @@ namespace Utilities
             // panelSideMenu
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.panelSideMenu.Controls.Add(this.lblCreator);
+            this.panelSideMenu.Controls.Add(this.panelCreatorLinks);
             this.panelSideMenu.Controls.Add(this.btnHelp);
             this.panelSideMenu.Controls.Add(this.btnScriptWriter);
             this.panelSideMenu.Controls.Add(this.btnProcessManagement);
@@ -86,18 +90,49 @@ namespace Utilities
             this.panelSideMenu.TabIndex = 19;
             this.panelSideMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
+            // panelCreatorLinks
+            // 
+            this.panelCreatorLinks.Controls.Add(this.picGitHub);
+            this.panelCreatorLinks.Controls.Add(this.lblCreator);
+            this.panelCreatorLinks.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelCreatorLinks.Location = new System.Drawing.Point(0, 621);
+            this.panelCreatorLinks.Name = "panelCreatorLinks";
+            this.panelCreatorLinks.Size = new System.Drawing.Size(206, 40);
+            this.panelCreatorLinks.TabIndex = 21;
+            this.panelCreatorLinks.Click += new System.EventHandler(this.OpenCreatorLink);
+            this.panelCreatorLinks.MouseEnter += new System.EventHandler(this.CreatorLink_MouseEnter);
+            this.panelCreatorLinks.MouseLeave += new System.EventHandler(this.CreatorLink_MouseLeave);
+            // 
+            // picGitHub
+            // 
+            this.picGitHub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.picGitHub.Image = ((System.Drawing.Image)(resources.GetObject("picGitHub.Image")));
+            this.picGitHub.Location = new System.Drawing.Point(3, 3);
+            this.picGitHub.Name = "picGitHub";
+            this.picGitHub.Size = new System.Drawing.Size(30, 30);
+            this.picGitHub.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picGitHub.TabIndex = 5;
+            this.picGitHub.TabStop = false;
+            this.picGitHub.Click += new System.EventHandler(this.OpenCreatorLink);
+            this.picGitHub.MouseEnter += new System.EventHandler(this.CreatorLink_MouseEnter);
+            this.picGitHub.MouseLeave += new System.EventHandler(this.CreatorLink_MouseLeave);
+            // 
             // lblCreator
             // 
             this.lblCreator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCreator.AutoSize = true;
-            this.lblCreator.Font = new System.Drawing.Font("Arial", 2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCreator.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCreator.ForeColor = System.Drawing.Color.White;
-            this.lblCreator.Location = new System.Drawing.Point(16, 638);
+            this.lblCreator.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCreator.Location = new System.Drawing.Point(35, 10);
             this.lblCreator.Name = "lblCreator";
-            this.lblCreator.Size = new System.Drawing.Size(166, 12);
+            this.lblCreator.Size = new System.Drawing.Size(99, 16);
             this.lblCreator.TabIndex = 4;
-            this.lblCreator.Text = resources.GetString("lblCreator.Text");
-            this.lblCreator.Click += new System.EventHandler(this.lblCreator_Click);
+            this.lblCreator.Text = "Creator Page";
+            this.lblCreator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCreator.Click += new System.EventHandler(this.OpenCreatorLink);
+            this.lblCreator.MouseEnter += new System.EventHandler(this.CreatorLink_MouseEnter);
+            this.lblCreator.MouseLeave += new System.EventHandler(this.CreatorLink_MouseLeave);
             // 
             // btnHelp
             // 
@@ -109,7 +144,7 @@ namespace Utilities
             this.btnHelp.ForeColor = System.Drawing.Color.White;
             this.btnHelp.Image = global::Utilities.Properties.Resources.icons8_help_32;
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 584);
+            this.btnHelp.Location = new System.Drawing.Point(0, 580);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnHelp.Size = new System.Drawing.Size(206, 40);
@@ -130,7 +165,7 @@ namespace Utilities
             this.btnScriptWriter.ForeColor = System.Drawing.Color.White;
             this.btnScriptWriter.Image = global::Utilities.Properties.Resources.icons8_scroll_32;
             this.btnScriptWriter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnScriptWriter.Location = new System.Drawing.Point(0, 544);
+            this.btnScriptWriter.Location = new System.Drawing.Point(0, 540);
             this.btnScriptWriter.Name = "btnScriptWriter";
             this.btnScriptWriter.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnScriptWriter.Size = new System.Drawing.Size(206, 40);
@@ -151,7 +186,7 @@ namespace Utilities
             this.btnProcessManagement.ForeColor = System.Drawing.Color.White;
             this.btnProcessManagement.Image = global::Utilities.Properties.Resources.icons8_processes_32;
             this.btnProcessManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProcessManagement.Location = new System.Drawing.Point(0, 504);
+            this.btnProcessManagement.Location = new System.Drawing.Point(0, 500);
             this.btnProcessManagement.Name = "btnProcessManagement";
             this.btnProcessManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnProcessManagement.Size = new System.Drawing.Size(206, 40);
@@ -170,7 +205,7 @@ namespace Utilities
             this.panelSubMenuFiles.Controls.Add(this.btnFileLocks);
             this.panelSubMenuFiles.Controls.Add(this.btnFileChecksum);
             this.panelSubMenuFiles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuFiles.Location = new System.Drawing.Point(0, 304);
+            this.panelSubMenuFiles.Location = new System.Drawing.Point(0, 300);
             this.panelSubMenuFiles.Name = "panelSubMenuFiles";
             this.panelSubMenuFiles.Size = new System.Drawing.Size(206, 200);
             this.panelSubMenuFiles.TabIndex = 4;
@@ -292,7 +327,7 @@ namespace Utilities
             this.btnFiles.ForeColor = System.Drawing.Color.White;
             this.btnFiles.Image = global::Utilities.Properties.Resources.icons8_file_32;
             this.btnFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFiles.Location = new System.Drawing.Point(0, 264);
+            this.btnFiles.Location = new System.Drawing.Point(0, 260);
             this.btnFiles.Name = "btnFiles";
             this.btnFiles.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnFiles.Size = new System.Drawing.Size(206, 40);
@@ -308,7 +343,7 @@ namespace Utilities
             this.panelSubMenuCodes.Controls.Add(this.btnCodesManage);
             this.panelSubMenuCodes.Controls.Add(this.btnCodeToClipboard);
             this.panelSubMenuCodes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 184);
+            this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 180);
             this.panelSubMenuCodes.Name = "panelSubMenuCodes";
             this.panelSubMenuCodes.Size = new System.Drawing.Size(206, 80);
             this.panelSubMenuCodes.TabIndex = 3;
@@ -365,7 +400,7 @@ namespace Utilities
             this.btnCodes.ForeColor = System.Drawing.Color.White;
             this.btnCodes.Image = global::Utilities.Properties.Resources.icons8_code_32;
             this.btnCodes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCodes.Location = new System.Drawing.Point(0, 144);
+            this.btnCodes.Location = new System.Drawing.Point(0, 140);
             this.btnCodes.Name = "btnCodes";
             this.btnCodes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnCodes.Size = new System.Drawing.Size(206, 40);
@@ -386,7 +421,7 @@ namespace Utilities
             this.btnConvertClarion.ForeColor = System.Drawing.Color.White;
             this.btnConvertClarion.Image = global::Utilities.Properties.Resources.icons8_convert_32;
             this.btnConvertClarion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertClarion.Location = new System.Drawing.Point(0, 104);
+            this.btnConvertClarion.Location = new System.Drawing.Point(0, 100);
             this.btnConvertClarion.Name = "btnConvertClarion";
             this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnConvertClarion.Size = new System.Drawing.Size(206, 40);
@@ -407,7 +442,7 @@ namespace Utilities
             this.btnMenu.ForeColor = System.Drawing.Color.White;
             this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
             this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenu.Location = new System.Drawing.Point(0, 64);
+            this.btnMenu.Location = new System.Drawing.Point(0, 60);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnMenu.Size = new System.Drawing.Size(206, 40);
@@ -425,7 +460,7 @@ namespace Utilities
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 64);
+            this.panel1.Size = new System.Drawing.Size(206, 60);
             this.panel1.TabIndex = 20;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
@@ -544,7 +579,9 @@ namespace Utilities
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.panelSideMenu.ResumeLayout(false);
-            this.panelSideMenu.PerformLayout();
+            this.panelCreatorLinks.ResumeLayout(false);
+            this.panelCreatorLinks.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picGitHub)).EndInit();
             this.panelSubMenuFiles.ResumeLayout(false);
             this.panelSubMenuCodes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -582,6 +619,8 @@ namespace Utilities
         private System.Windows.Forms.Button btnFileWatcher;
         private System.Windows.Forms.Label lblCreator;
         private System.Windows.Forms.Button btnFileLocks;
+        private System.Windows.Forms.PictureBox picGitHub;
+        private System.Windows.Forms.Panel panelCreatorLinks;
     }
 }
 

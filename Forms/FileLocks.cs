@@ -372,9 +372,9 @@ namespace Utilities.Forms
         private void BtnDisconnectSelectedFile_Click(object sender, EventArgs e) {
             if (dgvSharedFiles.GetCellCount(DataGridViewElementStates.Selected) <= 0) { return; }
 
-            int sharedId = Int32.Parse(dgvSharedFiles.SelectedRows[0].Cells[1].Value.ToString());
+            int sharedId = Int32.Parse(dgvSharedFiles.SelectedRows[0].Cells[0].Value.ToString());
             int selectedRow = dgvSharedFiles.SelectedRows[0].Index;
-            string filePath = dgvSharedFiles.SelectedRows[0].Cells[6].Value.ToString();
+            string filePath = dgvSharedFiles.SelectedRows[0].Cells[5].Value.ToString();
 
             CustomMessage customMessage = new CustomMessage("You are about to diconnect this file:\nID: " +
                                             sharedId + "  Name: " + filePath + "\nAre you sure?", "Confirmation", "confirmation");
