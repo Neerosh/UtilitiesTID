@@ -63,7 +63,7 @@
             this.txtChecksumFile.ForeColor = System.Drawing.Color.White;
             this.txtChecksumFile.Location = new System.Drawing.Point(118, 22);
             this.txtChecksumFile.Name = "txtChecksumFile";
-            this.txtChecksumFile.Size = new System.Drawing.Size(451, 22);
+            this.txtChecksumFile.Size = new System.Drawing.Size(339, 22);
             this.txtChecksumFile.TabIndex = 1;
             // 
             // btnChecksumFileBrowser
@@ -76,7 +76,7 @@
             this.btnChecksumFileBrowser.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnChecksumFileBrowser.ForeColor = System.Drawing.Color.White;
             this.btnChecksumFileBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnChecksumFileBrowser.Location = new System.Drawing.Point(575, 21);
+            this.btnChecksumFileBrowser.Location = new System.Drawing.Point(463, 21);
             this.btnChecksumFileBrowser.Name = "btnChecksumFileBrowser";
             this.btnChecksumFileBrowser.Size = new System.Drawing.Size(30, 25);
             this.btnChecksumFileBrowser.TabIndex = 2;
@@ -96,7 +96,7 @@
             this.btnGenerateFileHash.Image = global::Utilities.Properties.Resources.icons8_hash_32;
             this.btnGenerateFileHash.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGenerateFileHash.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnGenerateFileHash.Location = new System.Drawing.Point(616, 21);
+            this.btnGenerateFileHash.Location = new System.Drawing.Point(504, 21);
             this.btnGenerateFileHash.Name = "btnGenerateFileHash";
             this.btnGenerateFileHash.Size = new System.Drawing.Size(156, 44);
             this.btnGenerateFileHash.TabIndex = 9;
@@ -165,7 +165,7 @@
             this.txtChecksumFileHash.Location = new System.Drawing.Point(118, 88);
             this.txtChecksumFileHash.Name = "txtChecksumFileHash";
             this.txtChecksumFileHash.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtChecksumFileHash.Size = new System.Drawing.Size(487, 50);
+            this.txtChecksumFileHash.Size = new System.Drawing.Size(375, 58);
             this.txtChecksumFileHash.TabIndex = 6;
             this.txtChecksumFileHash.Text = "";
             // 
@@ -177,7 +177,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(12, 152);
+            this.label1.Location = new System.Drawing.Point(12, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 16);
             this.label1.TabIndex = 7;
@@ -192,10 +192,10 @@
             this.txtChecksumExpectedHash.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtChecksumExpectedHash.ForeColor = System.Drawing.Color.White;
             this.txtChecksumExpectedHash.HideSelection = false;
-            this.txtChecksumExpectedHash.Location = new System.Drawing.Point(118, 150);
+            this.txtChecksumExpectedHash.Location = new System.Drawing.Point(118, 156);
             this.txtChecksumExpectedHash.Name = "txtChecksumExpectedHash";
             this.txtChecksumExpectedHash.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtChecksumExpectedHash.Size = new System.Drawing.Size(487, 50);
+            this.txtChecksumExpectedHash.Size = new System.Drawing.Size(375, 57);
             this.txtChecksumExpectedHash.TabIndex = 8;
             this.txtChecksumExpectedHash.Text = "";
             // 
@@ -205,7 +205,7 @@
             this.lblFileHashProgress.AutoSize = true;
             this.lblFileHashProgress.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFileHashProgress.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblFileHashProgress.Location = new System.Drawing.Point(464, 69);
+            this.lblFileHashProgress.Location = new System.Drawing.Point(352, 69);
             this.lblFileHashProgress.Name = "lblFileHashProgress";
             this.lblFileHashProgress.Size = new System.Drawing.Size(141, 16);
             this.lblFileHashProgress.TabIndex = 10;
@@ -224,7 +224,7 @@
             this.btnValidateFileHash.Image = global::Utilities.Properties.Resources.icons8_check_file_32;
             this.btnValidateFileHash.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnValidateFileHash.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnValidateFileHash.Location = new System.Drawing.Point(616, 156);
+            this.btnValidateFileHash.Location = new System.Drawing.Point(504, 156);
             this.btnValidateFileHash.Name = "btnValidateFileHash";
             this.btnValidateFileHash.Size = new System.Drawing.Size(156, 44);
             this.btnValidateFileHash.TabIndex = 11;
@@ -240,7 +240,7 @@
             this.lblValidateStatus.AutoSize = true;
             this.lblValidateStatus.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblValidateStatus.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblValidateStatus.Location = new System.Drawing.Point(614, 130);
+            this.lblValidateStatus.Location = new System.Drawing.Point(502, 130);
             this.lblValidateStatus.Name = "lblValidateStatus";
             this.lblValidateStatus.Size = new System.Drawing.Size(163, 16);
             this.lblValidateStatus.TabIndex = 12;
@@ -252,7 +252,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(790, 570);
+            this.ClientSize = new System.Drawing.Size(678, 535);
             this.Controls.Add(this.lblValidateStatus);
             this.Controls.Add(this.btnValidateFileHash);
             this.Controls.Add(this.lblFileHashProgress);

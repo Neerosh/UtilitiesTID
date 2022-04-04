@@ -52,7 +52,7 @@
             this.lblCodeText.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCodeText.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCodeText.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblCodeText.Location = new System.Drawing.Point(24, 57);
+            this.lblCodeText.Location = new System.Drawing.Point(20, 80);
             this.lblCodeText.Name = "lblCodeText";
             this.lblCodeText.Size = new System.Drawing.Size(41, 16);
             this.lblCodeText.TabIndex = 5;
@@ -64,7 +64,7 @@
             this.lblName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblName.ForeColor = System.Drawing.SystemColors.Control;
             this.lblName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblName.Location = new System.Drawing.Point(20, 25);
+            this.lblName.Location = new System.Drawing.Point(16, 25);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(45, 16);
             this.lblName.TabIndex = 1;
@@ -77,7 +77,7 @@
             this.txtName.ForeColor = System.Drawing.Color.White;
             this.txtName.Location = new System.Drawing.Point(67, 22);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(300, 22);
+            this.txtName.Size = new System.Drawing.Size(433, 22);
             this.txtName.TabIndex = 2;
             // 
             // lblType
@@ -86,7 +86,7 @@
             this.lblType.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblType.ForeColor = System.Drawing.SystemColors.Control;
             this.lblType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblType.Location = new System.Drawing.Point(382, 25);
+            this.lblType.Location = new System.Drawing.Point(23, 53);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(38, 16);
             this.lblType.TabIndex = 3;
@@ -97,9 +97,9 @@
             this.txtType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtType.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtType.ForeColor = System.Drawing.Color.White;
-            this.txtType.Location = new System.Drawing.Point(426, 22);
+            this.txtType.Location = new System.Drawing.Point(67, 50);
             this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(186, 22);
+            this.txtType.Size = new System.Drawing.Size(210, 22);
             this.txtType.TabIndex = 4;
             // 
             // btnClearFields
@@ -114,7 +114,7 @@
             this.btnClearFields.Image = global::Utilities.Properties.Resources.icons8_broom_32;
             this.btnClearFields.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClearFields.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClearFields.Location = new System.Drawing.Point(628, 22);
+            this.btnClearFields.Location = new System.Drawing.Point(516, 22);
             this.btnClearFields.Name = "btnClearFields";
             this.btnClearFields.Size = new System.Drawing.Size(138, 44);
             this.btnClearFields.TabIndex = 8;
@@ -136,7 +136,7 @@
             this.btnInsert.Image = global::Utilities.Properties.Resources.icons8_add_clipboard_32;
             this.btnInsert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsert.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnInsert.Location = new System.Drawing.Point(628, 136);
+            this.btnInsert.Location = new System.Drawing.Point(516, 136);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(138, 44);
             this.btnInsert.TabIndex = 9;
@@ -158,7 +158,7 @@
             this.btnUpdate.Image = global::Utilities.Properties.Resources.icons8_update_clipboard_32;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnUpdate.Location = new System.Drawing.Point(628, 186);
+            this.btnUpdate.Location = new System.Drawing.Point(516, 186);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(138, 44);
             this.btnUpdate.TabIndex = 10;
@@ -180,7 +180,7 @@
             this.btnDelete.Image = global::Utilities.Properties.Resources.icons8_delete_clipboard_32;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDelete.Location = new System.Drawing.Point(628, 236);
+            this.btnDelete.Location = new System.Drawing.Point(516, 236);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(138, 44);
             this.btnDelete.TabIndex = 11;
@@ -226,7 +226,7 @@
             this.dgvCodes.RowTemplate.ReadOnly = true;
             this.dgvCodes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvCodes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCodes.Size = new System.Drawing.Size(592, 248);
+            this.dgvCodes.Size = new System.Drawing.Size(480, 213);
             this.dgvCodes.TabIndex = 14;
             this.dgvCodes.SelectionChanged += new System.EventHandler(this.DgvCodes_SelectionChanged);
             // 
@@ -250,10 +250,10 @@
             this.txtCodeText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCodeText.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtCodeText.ForeColor = System.Drawing.Color.White;
-            this.txtCodeText.Location = new System.Drawing.Point(67, 54);
+            this.txtCodeText.Location = new System.Drawing.Point(67, 78);
             this.txtCodeText.Name = "txtCodeText";
             this.txtCodeText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtCodeText.Size = new System.Drawing.Size(545, 226);
+            this.txtCodeText.Size = new System.Drawing.Size(433, 202);
             this.txtCodeText.TabIndex = 6;
             this.txtCodeText.Text = "";
             // 
@@ -269,7 +269,7 @@
             this.btnDeleteAll.Image = global::Utilities.Properties.Resources.icons8_delete_database_32;
             this.btnDeleteAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteAll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteAll.Location = new System.Drawing.Point(628, 514);
+            this.btnDeleteAll.Location = new System.Drawing.Point(516, 479);
             this.btnDeleteAll.Name = "btnDeleteAll";
             this.btnDeleteAll.Size = new System.Drawing.Size(138, 44);
             this.btnDeleteAll.TabIndex = 13;
@@ -291,7 +291,7 @@
             this.btnAddDefaults.Image = global::Utilities.Properties.Resources.icons8_add_database_32;
             this.btnAddDefaults.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddDefaults.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAddDefaults.Location = new System.Drawing.Point(628, 464);
+            this.btnAddDefaults.Location = new System.Drawing.Point(516, 429);
             this.btnAddDefaults.Name = "btnAddDefaults";
             this.btnAddDefaults.Size = new System.Drawing.Size(138, 44);
             this.btnAddDefaults.TabIndex = 12;
@@ -301,12 +301,12 @@
             this.btnAddDefaults.UseVisualStyleBackColor = false;
             this.btnAddDefaults.Click += new System.EventHandler(this.btnAddDefaults_Click);
             // 
-            // CodeManage
+            // CodeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(790, 570);
+            this.ClientSize = new System.Drawing.Size(678, 535);
             this.Controls.Add(this.txtCodeText);
             this.Controls.Add(this.btnAddDefaults);
             this.Controls.Add(this.btnDeleteAll);
@@ -326,7 +326,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.Name = "CodeManage";
+            this.Name = "CodeManager";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Codes > Manage";

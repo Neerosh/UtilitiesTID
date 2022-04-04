@@ -60,7 +60,7 @@
             this.lblFileFilters.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFileFilters.ForeColor = System.Drawing.SystemColors.Control;
             this.lblFileFilters.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblFileFilters.Location = new System.Drawing.Point(12, 388);
+            this.lblFileFilters.Location = new System.Drawing.Point(12, 353);
             this.lblFileFilters.Name = "lblFileFilters";
             this.lblFileFilters.Size = new System.Drawing.Size(72, 16);
             this.lblFileFilters.TabIndex = 17;
@@ -87,7 +87,7 @@
             this.txtFilterName.ForeColor = System.Drawing.Color.White;
             this.txtFilterName.Location = new System.Drawing.Point(96, 17);
             this.txtFilterName.Name = "txtFilterName";
-            this.txtFilterName.Size = new System.Drawing.Size(515, 22);
+            this.txtFilterName.Size = new System.Drawing.Size(403, 22);
             this.txtFilterName.TabIndex = 1;
             // 
             // dgvFileFilters
@@ -114,7 +114,7 @@
             this.dgvFileFilters.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFileFilters.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvFileFilters.GridColor = System.Drawing.Color.White;
-            this.dgvFileFilters.Location = new System.Drawing.Point(12, 407);
+            this.dgvFileFilters.Location = new System.Drawing.Point(12, 372);
             this.dgvFileFilters.MultiSelect = false;
             this.dgvFileFilters.Name = "dgvFileFilters";
             this.dgvFileFilters.ReadOnly = true;
@@ -126,7 +126,7 @@
             this.dgvFileFilters.RowTemplate.ReadOnly = true;
             this.dgvFileFilters.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvFileFilters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFileFilters.Size = new System.Drawing.Size(599, 146);
+            this.dgvFileFilters.Size = new System.Drawing.Size(487, 146);
             this.dgvFileFilters.TabIndex = 18;
             this.dgvFileFilters.SelectionChanged += new System.EventHandler(this.dgvFileFilters_SelectionChanged);
             // 
@@ -153,7 +153,7 @@
             this.btnUpdateCondition.ForeColor = System.Drawing.SystemColors.Control;
             this.btnUpdateCondition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnUpdateCondition.Location = new System.Drawing.Point(494, 333);
+            this.btnUpdateCondition.Location = new System.Drawing.Point(382, 295);
             this.btnUpdateCondition.Name = "btnUpdateCondition";
             this.btnUpdateCondition.Size = new System.Drawing.Size(117, 24);
             this.btnUpdateCondition.TabIndex = 15;
@@ -175,7 +175,7 @@
             this.btnDeleteFileFilter.Image = global::Utilities.Properties.Resources.icons8_delete_clipboard_32;
             this.btnDeleteFileFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteFileFilter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteFileFilter.Location = new System.Drawing.Point(628, 509);
+            this.btnDeleteFileFilter.Location = new System.Drawing.Point(516, 474);
             this.btnDeleteFileFilter.Name = "btnDeleteFileFilter";
             this.btnDeleteFileFilter.Size = new System.Drawing.Size(138, 44);
             this.btnDeleteFileFilter.TabIndex = 7;
@@ -197,7 +197,7 @@
             this.btnUpdateFileFilter.Image = global::Utilities.Properties.Resources.icons8_update_clipboard_32;
             this.btnUpdateFileFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateFileFilter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnUpdateFileFilter.Location = new System.Drawing.Point(628, 459);
+            this.btnUpdateFileFilter.Location = new System.Drawing.Point(516, 424);
             this.btnUpdateFileFilter.Name = "btnUpdateFileFilter";
             this.btnUpdateFileFilter.Size = new System.Drawing.Size(138, 44);
             this.btnUpdateFileFilter.TabIndex = 6;
@@ -219,7 +219,7 @@
             this.btnInsertFileFilter.Image = global::Utilities.Properties.Resources.icons8_add_clipboard_32;
             this.btnInsertFileFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsertFileFilter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnInsertFileFilter.Location = new System.Drawing.Point(628, 407);
+            this.btnInsertFileFilter.Location = new System.Drawing.Point(516, 372);
             this.btnInsertFileFilter.Name = "btnInsertFileFilter";
             this.btnInsertFileFilter.Size = new System.Drawing.Size(138, 44);
             this.btnInsertFileFilter.TabIndex = 5;
@@ -235,7 +235,7 @@
             this.lblCondition.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCondition.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblCondition.Location = new System.Drawing.Point(96, 306);
+            this.lblCondition.Location = new System.Drawing.Point(96, 267);
             this.lblCondition.Name = "lblCondition";
             this.lblCondition.Size = new System.Drawing.Size(65, 16);
             this.lblCondition.TabIndex = 10;
@@ -248,9 +248,9 @@
             this.txtCondition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtCondition.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtCondition.ForeColor = System.Drawing.Color.White;
-            this.txtCondition.Location = new System.Drawing.Point(167, 303);
+            this.txtCondition.Location = new System.Drawing.Point(167, 264);
             this.txtCondition.Name = "txtCondition";
-            this.txtCondition.Size = new System.Drawing.Size(321, 22);
+            this.txtCondition.Size = new System.Drawing.Size(209, 22);
             this.txtCondition.TabIndex = 11;
             // 
             // btnInsertCondition
@@ -264,7 +264,7 @@
             this.btnInsertCondition.ForeColor = System.Drawing.SystemColors.Control;
             this.btnInsertCondition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInsertCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnInsertCondition.Location = new System.Drawing.Point(494, 302);
+            this.btnInsertCondition.Location = new System.Drawing.Point(382, 264);
             this.btnInsertCondition.Name = "btnInsertCondition";
             this.btnInsertCondition.Size = new System.Drawing.Size(117, 24);
             this.btnInsertCondition.TabIndex = 14;
@@ -285,7 +285,7 @@
             this.btnDeleteCondition.ForeColor = System.Drawing.SystemColors.Control;
             this.btnDeleteCondition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteCondition.Location = new System.Drawing.Point(494, 363);
+            this.btnDeleteCondition.Location = new System.Drawing.Point(382, 325);
             this.btnDeleteCondition.Name = "btnDeleteCondition";
             this.btnDeleteCondition.Size = new System.Drawing.Size(117, 24);
             this.btnDeleteCondition.TabIndex = 16;
@@ -307,7 +307,7 @@
             this.btnClearFields.Image = global::Utilities.Properties.Resources.icons8_broom_32;
             this.btnClearFields.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClearFields.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClearFields.Location = new System.Drawing.Point(628, 17);
+            this.btnClearFields.Location = new System.Drawing.Point(516, 17);
             this.btnClearFields.Name = "btnClearFields";
             this.btnClearFields.Size = new System.Drawing.Size(138, 44);
             this.btnClearFields.TabIndex = 4;
@@ -328,7 +328,7 @@
             this.txtFilterNotes.Location = new System.Drawing.Point(96, 45);
             this.txtFilterNotes.Name = "txtFilterNotes";
             this.txtFilterNotes.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtFilterNotes.Size = new System.Drawing.Size(515, 98);
+            this.txtFilterNotes.Size = new System.Drawing.Size(403, 98);
             this.txtFilterNotes.TabIndex = 3;
             this.txtFilterNotes.Text = "";
             this.txtFilterNotes.TextChanged += new System.EventHandler(this.txtFilterNotes_TextChanged);
@@ -351,7 +351,7 @@
             this.lblType.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblType.ForeColor = System.Drawing.SystemColors.Control;
             this.lblType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblType.Location = new System.Drawing.Point(123, 334);
+            this.lblType.Location = new System.Drawing.Point(123, 295);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(38, 16);
             this.lblType.TabIndex = 12;
@@ -392,7 +392,7 @@
             this.dgvFileFilterConditions.RowTemplate.ReadOnly = true;
             this.dgvFileFilterConditions.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvFileFilterConditions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFileFilterConditions.Size = new System.Drawing.Size(515, 146);
+            this.dgvFileFilterConditions.Size = new System.Drawing.Size(403, 109);
             this.dgvFileFilterConditions.TabIndex = 9;
             this.dgvFileFilterConditions.SelectionChanged += new System.EventHandler(this.dgvFileFilterConditions_SelectionChanged);
             // 
@@ -410,7 +410,7 @@
             "Name Contains",
             "Name Ends With",
             "Name is Exactly"});
-            this.cboConditionType.Location = new System.Drawing.Point(167, 331);
+            this.cboConditionType.Location = new System.Drawing.Point(167, 292);
             this.cboConditionType.Name = "cboConditionType";
             this.cboConditionType.Size = new System.Drawing.Size(170, 24);
             this.cboConditionType.Sorted = true;
@@ -421,7 +421,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(790, 570);
+            this.ClientSize = new System.Drawing.Size(678, 535);
             this.Controls.Add(this.dgvFileFilters);
             this.Controls.Add(this.lblFileFilters);
             this.Controls.Add(this.btnDeleteFileFilter);

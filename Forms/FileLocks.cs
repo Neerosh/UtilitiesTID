@@ -118,7 +118,7 @@ namespace Utilities.Forms
                 ctsSharedFilesLockedFile = new CancellationTokenSource();
                 taskSharedFiles = ListOpenSharedFiles(filePath, ctsSharedFilesLockedFile); 
             }
-            await Task.Run(() => {
+            await Task.Run(async () => {
                 Thread.Sleep(1000);
 
                 RM_PROCESS_INFO[] rm = null;
@@ -149,6 +149,7 @@ namespace Utilities.Forms
                         if (cancellationTokenSource.IsCancellationRequested) {
                             if (taskSharedFiles != null) {
                                 ctsSharedFilesLockedFile.Cancel();
+                                await taskSharedFiles;
                                 ctsSharedFilesLockedFile.Dispose();
                             }
                             cancellationTokenSource.Token.ThrowIfCancellationRequested();

@@ -74,7 +74,7 @@
             this.txtWatcherFolder.ForeColor = System.Drawing.Color.White;
             this.txtWatcherFolder.Location = new System.Drawing.Point(91, 22);
             this.txtWatcherFolder.Name = "txtWatcherFolder";
-            this.txtWatcherFolder.Size = new System.Drawing.Size(468, 22);
+            this.txtWatcherFolder.Size = new System.Drawing.Size(356, 22);
             this.txtWatcherFolder.TabIndex = 1;
             // 
             // btnFolderBrowser
@@ -87,7 +87,7 @@
             this.btnFolderBrowser.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnFolderBrowser.ForeColor = System.Drawing.Color.White;
             this.btnFolderBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnFolderBrowser.Location = new System.Drawing.Point(565, 21);
+            this.btnFolderBrowser.Location = new System.Drawing.Point(453, 21);
             this.btnFolderBrowser.Name = "btnFolderBrowser";
             this.btnFolderBrowser.Size = new System.Drawing.Size(30, 25);
             this.btnFolderBrowser.TabIndex = 2;
@@ -107,7 +107,7 @@
             this.BtnWatcher.Image = global::Utilities.Properties.Resources.icons8_watch_file_32;
             this.BtnWatcher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnWatcher.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnWatcher.Location = new System.Drawing.Point(611, 21);
+            this.BtnWatcher.Location = new System.Drawing.Point(499, 21);
             this.BtnWatcher.Name = "BtnWatcher";
             this.BtnWatcher.Size = new System.Drawing.Size(158, 44);
             this.BtnWatcher.TabIndex = 15;
@@ -129,11 +129,12 @@
             this.dgvWatchHistory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.dgvWatchHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvWatchHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dgvWatchHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvWatchHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
@@ -141,11 +142,12 @@
             this.dgvWatchHistory.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvWatchHistory.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvWatchHistory.GridColor = System.Drawing.Color.White;
-            this.dgvWatchHistory.Location = new System.Drawing.Point(20, 165);
+            this.dgvWatchHistory.Location = new System.Drawing.Point(20, 201);
             this.dgvWatchHistory.MultiSelect = false;
             this.dgvWatchHistory.Name = "dgvWatchHistory";
             this.dgvWatchHistory.ReadOnly = true;
             this.dgvWatchHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dgvWatchHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvWatchHistory.RowHeadersVisible = false;
             this.dgvWatchHistory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -153,7 +155,7 @@
             this.dgvWatchHistory.RowTemplate.ReadOnly = true;
             this.dgvWatchHistory.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvWatchHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWatchHistory.Size = new System.Drawing.Size(749, 380);
+            this.dgvWatchHistory.Size = new System.Drawing.Size(637, 309);
             this.dgvWatchHistory.TabIndex = 18;
             // 
             // chkSubdirectories
@@ -162,7 +164,7 @@
             this.chkSubdirectories.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkSubdirectories.ForeColor = System.Drawing.Color.White;
             this.chkSubdirectories.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkSubdirectories.Location = new System.Drawing.Point(367, 58);
+            this.chkSubdirectories.Location = new System.Drawing.Point(91, 81);
             this.chkSubdirectories.Name = "chkSubdirectories";
             this.chkSubdirectories.Size = new System.Drawing.Size(154, 20);
             this.chkSubdirectories.TabIndex = 5;
@@ -177,7 +179,7 @@
             this.lblFileFilter.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFileFilter.ForeColor = System.Drawing.SystemColors.Control;
             this.lblFileFilter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblFileFilter.Location = new System.Drawing.Point(20, 59);
+            this.lblFileFilter.Location = new System.Drawing.Point(20, 54);
             this.lblFileFilter.Name = "lblFileFilter";
             this.lblFileFilter.Size = new System.Drawing.Size(65, 16);
             this.lblFileFilter.TabIndex = 3;
@@ -198,9 +200,9 @@
             "*.tps",
             "All Extensions",
             "TID"});
-            this.cboFileFilter.Location = new System.Drawing.Point(91, 56);
+            this.cboFileFilter.Location = new System.Drawing.Point(91, 51);
             this.cboFileFilter.Name = "cboFileFilter";
-            this.cboFileFilter.Size = new System.Drawing.Size(261, 24);
+            this.cboFileFilter.Size = new System.Drawing.Size(268, 24);
             this.cboFileFilter.TabIndex = 4;
             // 
             // lblFileWatcherStatus
@@ -209,7 +211,7 @@
             this.lblFileWatcherStatus.AutoSize = true;
             this.lblFileWatcherStatus.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFileWatcherStatus.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblFileWatcherStatus.Location = new System.Drawing.Point(631, 72);
+            this.lblFileWatcherStatus.Location = new System.Drawing.Point(364, 182);
             this.lblFileWatcherStatus.Name = "lblFileWatcherStatus";
             this.lblFileWatcherStatus.Size = new System.Drawing.Size(119, 16);
             this.lblFileWatcherStatus.TabIndex = 100;
@@ -224,7 +226,7 @@
             this.lblHistory.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblHistory.ForeColor = System.Drawing.SystemColors.Control;
             this.lblHistory.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblHistory.Location = new System.Drawing.Point(20, 146);
+            this.lblHistory.Location = new System.Drawing.Point(20, 179);
             this.lblHistory.Name = "lblHistory";
             this.lblHistory.Size = new System.Drawing.Size(105, 16);
             this.lblHistory.TabIndex = 17;
@@ -238,7 +240,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(20, 94);
+            this.label1.Location = new System.Drawing.Point(20, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 16);
             this.label1.TabIndex = 6;
@@ -250,7 +252,7 @@
             this.chkFilterCreationTime.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkFilterCreationTime.ForeColor = System.Drawing.Color.White;
             this.chkFilterCreationTime.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkFilterCreationTime.Location = new System.Drawing.Point(250, 93);
+            this.chkFilterCreationTime.Location = new System.Drawing.Point(146, 133);
             this.chkFilterCreationTime.Name = "chkFilterCreationTime";
             this.chkFilterCreationTime.Size = new System.Drawing.Size(106, 20);
             this.chkFilterCreationTime.TabIndex = 8;
@@ -264,7 +266,7 @@
             this.chkFilterDirectoryName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkFilterDirectoryName.ForeColor = System.Drawing.Color.White;
             this.chkFilterDirectoryName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkFilterDirectoryName.Location = new System.Drawing.Point(367, 93);
+            this.chkFilterDirectoryName.Location = new System.Drawing.Point(146, 159);
             this.chkFilterDirectoryName.Name = "chkFilterDirectoryName";
             this.chkFilterDirectoryName.Size = new System.Drawing.Size(116, 20);
             this.chkFilterDirectoryName.TabIndex = 9;
@@ -278,7 +280,7 @@
             this.chkFilterFileName.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkFilterFileName.ForeColor = System.Drawing.Color.White;
             this.chkFilterFileName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkFilterFileName.Location = new System.Drawing.Point(510, 93);
+            this.chkFilterFileName.Location = new System.Drawing.Point(274, 107);
             this.chkFilterFileName.Name = "chkFilterFileName";
             this.chkFilterFileName.Size = new System.Drawing.Size(85, 20);
             this.chkFilterFileName.TabIndex = 10;
@@ -292,7 +294,7 @@
             this.chkFilterLastAccess.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkFilterLastAccess.ForeColor = System.Drawing.Color.White;
             this.chkFilterLastAccess.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkFilterLastAccess.Location = new System.Drawing.Point(146, 119);
+            this.chkFilterLastAccess.Location = new System.Drawing.Point(274, 133);
             this.chkFilterLastAccess.Name = "chkFilterLastAccess";
             this.chkFilterLastAccess.Size = new System.Drawing.Size(102, 20);
             this.chkFilterLastAccess.TabIndex = 11;
@@ -306,7 +308,7 @@
             this.chkFilterLastWrite.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkFilterLastWrite.ForeColor = System.Drawing.Color.White;
             this.chkFilterLastWrite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkFilterLastWrite.Location = new System.Drawing.Point(250, 119);
+            this.chkFilterLastWrite.Location = new System.Drawing.Point(274, 159);
             this.chkFilterLastWrite.Name = "chkFilterLastWrite";
             this.chkFilterLastWrite.Size = new System.Drawing.Size(86, 20);
             this.chkFilterLastWrite.TabIndex = 12;
@@ -320,7 +322,7 @@
             this.chkFilterSecurity.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkFilterSecurity.ForeColor = System.Drawing.Color.White;
             this.chkFilterSecurity.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkFilterSecurity.Location = new System.Drawing.Point(367, 119);
+            this.chkFilterSecurity.Location = new System.Drawing.Point(382, 107);
             this.chkFilterSecurity.Name = "chkFilterSecurity";
             this.chkFilterSecurity.Size = new System.Drawing.Size(137, 20);
             this.chkFilterSecurity.TabIndex = 13;
@@ -334,7 +336,7 @@
             this.chkFilterSize.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkFilterSize.ForeColor = System.Drawing.Color.White;
             this.chkFilterSize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkFilterSize.Location = new System.Drawing.Point(510, 119);
+            this.chkFilterSize.Location = new System.Drawing.Point(382, 133);
             this.chkFilterSize.Name = "chkFilterSize";
             this.chkFilterSize.Size = new System.Drawing.Size(52, 20);
             this.chkFilterSize.TabIndex = 14;
@@ -348,7 +350,7 @@
             this.chkFilterAttributes.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkFilterAttributes.ForeColor = System.Drawing.Color.White;
             this.chkFilterAttributes.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkFilterAttributes.Location = new System.Drawing.Point(146, 93);
+            this.chkFilterAttributes.Location = new System.Drawing.Point(146, 108);
             this.chkFilterAttributes.Name = "chkFilterAttributes";
             this.chkFilterAttributes.Size = new System.Drawing.Size(82, 20);
             this.chkFilterAttributes.TabIndex = 7;
@@ -368,7 +370,7 @@
             this.btnClearHistory.Image = global::Utilities.Properties.Resources.icons8_broom_32;
             this.btnClearHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClearHistory.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClearHistory.Location = new System.Drawing.Point(611, 106);
+            this.btnClearHistory.Location = new System.Drawing.Point(499, 151);
             this.btnClearHistory.Name = "btnClearHistory";
             this.btnClearHistory.Size = new System.Drawing.Size(158, 44);
             this.btnClearHistory.TabIndex = 16;
@@ -383,7 +385,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(790, 570);
+            this.ClientSize = new System.Drawing.Size(678, 535);
             this.Controls.Add(this.btnClearHistory);
             this.Controls.Add(this.chkFilterAttributes);
             this.Controls.Add(this.chkFilterSize);

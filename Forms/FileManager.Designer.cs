@@ -68,7 +68,7 @@
             this.txtFromFolder.ForeColor = System.Drawing.Color.White;
             this.txtFromFolder.Location = new System.Drawing.Point(105, 22);
             this.txtFromFolder.Name = "txtFromFolder";
-            this.txtFromFolder.Size = new System.Drawing.Size(472, 22);
+            this.txtFromFolder.Size = new System.Drawing.Size(360, 22);
             this.txtFromFolder.TabIndex = 1;
             // 
             // btnFromBrowser
@@ -81,7 +81,7 @@
             this.btnFromBrowser.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnFromBrowser.ForeColor = System.Drawing.Color.White;
             this.btnFromBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnFromBrowser.Location = new System.Drawing.Point(583, 21);
+            this.btnFromBrowser.Location = new System.Drawing.Point(471, 21);
             this.btnFromBrowser.Name = "btnFromBrowser";
             this.btnFromBrowser.Size = new System.Drawing.Size(30, 25);
             this.btnFromBrowser.TabIndex = 2;
@@ -112,7 +112,7 @@
             this.txtToFolder.ForeColor = System.Drawing.Color.White;
             this.txtToFolder.Location = new System.Drawing.Point(105, 53);
             this.txtToFolder.Name = "txtToFolder";
-            this.txtToFolder.Size = new System.Drawing.Size(472, 22);
+            this.txtToFolder.Size = new System.Drawing.Size(360, 22);
             this.txtToFolder.TabIndex = 4;
             // 
             // btnToBrowser
@@ -125,7 +125,7 @@
             this.btnToBrowser.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnToBrowser.ForeColor = System.Drawing.Color.White;
             this.btnToBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnToBrowser.Location = new System.Drawing.Point(583, 51);
+            this.btnToBrowser.Location = new System.Drawing.Point(471, 51);
             this.btnToBrowser.Name = "btnToBrowser";
             this.btnToBrowser.Size = new System.Drawing.Size(30, 25);
             this.btnToBrowser.TabIndex = 5;
@@ -219,7 +219,7 @@
             this.chkSubdirectories.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkSubdirectories.ForeColor = System.Drawing.Color.White;
             this.chkSubdirectories.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkSubdirectories.Location = new System.Drawing.Point(385, 88);
+            this.chkSubdirectories.Location = new System.Drawing.Point(105, 151);
             this.chkSubdirectories.Name = "chkSubdirectories";
             this.chkSubdirectories.Size = new System.Drawing.Size(154, 20);
             this.chkSubdirectories.TabIndex = 9;
@@ -238,7 +238,7 @@
             this.btnCopyFiles.Image = global::Utilities.Properties.Resources.icons8_copy_32;
             this.btnCopyFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCopyFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCopyFiles.Location = new System.Drawing.Point(628, 71);
+            this.btnCopyFiles.Location = new System.Drawing.Point(516, 71);
             this.btnCopyFiles.Name = "btnCopyFiles";
             this.btnCopyFiles.Size = new System.Drawing.Size(142, 44);
             this.btnCopyFiles.TabIndex = 13;
@@ -262,7 +262,7 @@
             this.btnDeleteDuplicate.Image = global::Utilities.Properties.Resources.icons8_delete_file2_32;
             this.btnDeleteDuplicate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteDuplicate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteDuplicate.Location = new System.Drawing.Point(628, 121);
+            this.btnDeleteDuplicate.Location = new System.Drawing.Point(516, 121);
             this.btnDeleteDuplicate.Name = "btnDeleteDuplicate";
             this.btnDeleteDuplicate.Size = new System.Drawing.Size(142, 44);
             this.btnDeleteDuplicate.TabIndex = 14;
@@ -286,7 +286,7 @@
             this.BtnMoveFiles.Image = global::Utilities.Properties.Resources.icons8_move_file_32;
             this.BtnMoveFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnMoveFiles.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnMoveFiles.Location = new System.Drawing.Point(628, 21);
+            this.BtnMoveFiles.Location = new System.Drawing.Point(516, 21);
             this.BtnMoveFiles.Name = "BtnMoveFiles";
             this.BtnMoveFiles.Size = new System.Drawing.Size(142, 44);
             this.BtnMoveFiles.TabIndex = 12;
@@ -305,7 +305,7 @@
             this.pgsFileManagement.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pgsFileManagement.Location = new System.Drawing.Point(20, 180);
             this.pgsFileManagement.Name = "pgsFileManagement";
-            this.pgsFileManagement.Size = new System.Drawing.Size(690, 29);
+            this.pgsFileManagement.Size = new System.Drawing.Size(578, 29);
             this.pgsFileManagement.TabIndex = 15;
             // 
             // lblProgressPercent
@@ -317,7 +317,7 @@
             this.lblProgressPercent.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblProgressPercent.ForeColor = System.Drawing.SystemColors.Control;
             this.lblProgressPercent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblProgressPercent.Location = new System.Drawing.Point(716, 186);
+            this.lblProgressPercent.Location = new System.Drawing.Point(604, 186);
             this.lblProgressPercent.Name = "lblProgressPercent";
             this.lblProgressPercent.Size = new System.Drawing.Size(40, 16);
             this.lblProgressPercent.TabIndex = 16;
@@ -337,17 +337,17 @@
             this.txtLogProcess.Name = "txtLogProcess";
             this.txtLogProcess.ReadOnly = true;
             this.txtLogProcess.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtLogProcess.Size = new System.Drawing.Size(750, 334);
+            this.txtLogProcess.Size = new System.Drawing.Size(638, 299);
             this.txtLogProcess.TabIndex = 17;
             this.txtLogProcess.TabStop = false;
             this.txtLogProcess.Text = "";
             // 
-            // FileManagement
+            // FileManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(790, 570);
+            this.ClientSize = new System.Drawing.Size(678, 535);
             this.Controls.Add(this.txtLogProcess);
             this.Controls.Add(this.lblFromMoveFiles);
             this.Controls.Add(this.txtFromFolder);
@@ -368,7 +368,7 @@
             this.Controls.Add(this.cboFileFilter);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FileManagement";
+            this.Name = "FileManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "File Management";
             this.ResumeLayout(false);

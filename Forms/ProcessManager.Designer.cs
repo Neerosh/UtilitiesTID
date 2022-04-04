@@ -79,7 +79,7 @@
             this.dgvProcess.RowTemplate.ReadOnly = true;
             this.dgvProcess.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProcess.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProcess.Size = new System.Drawing.Size(564, 444);
+            this.dgvProcess.Size = new System.Drawing.Size(452, 409);
             this.dgvProcess.TabIndex = 7;
             // 
             // btnListProcesses
@@ -94,7 +94,7 @@
             this.btnListProcesses.Image = global::Utilities.Properties.Resources.icons8_process_32;
             this.btnListProcesses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnListProcesses.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnListProcesses.Location = new System.Drawing.Point(606, 105);
+            this.btnListProcesses.Location = new System.Drawing.Point(494, 105);
             this.btnListProcesses.Name = "btnListProcesses";
             this.btnListProcesses.Size = new System.Drawing.Size(155, 44);
             this.btnListProcesses.TabIndex = 5;
@@ -112,7 +112,7 @@
             this.lblFilters.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFilters.ForeColor = System.Drawing.SystemColors.Control;
             this.lblFilters.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblFilters.Location = new System.Drawing.Point(24, 35);
+            this.lblFilters.Location = new System.Drawing.Point(24, 24);
             this.lblFilters.Name = "lblFilters";
             this.lblFilters.Size = new System.Drawing.Size(49, 16);
             this.lblFilters.TabIndex = 0;
@@ -125,9 +125,9 @@
             this.txtWhereValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.txtWhereValue.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtWhereValue.ForeColor = System.Drawing.Color.White;
-            this.txtWhereValue.Location = new System.Drawing.Point(249, 32);
+            this.txtWhereValue.Location = new System.Drawing.Point(249, 21);
             this.txtWhereValue.Name = "txtWhereValue";
-            this.txtWhereValue.Size = new System.Drawing.Size(339, 22);
+            this.txtWhereValue.Size = new System.Drawing.Size(227, 22);
             this.txtWhereValue.TabIndex = 1;
             this.txtWhereValue.Validated += new System.EventHandler(this.TxtWhereValue_Validated);
             // 
@@ -143,7 +143,7 @@
             this.btnListFilteredProcesses.Image = global::Utilities.Properties.Resources.icons8_search_process_32;
             this.btnListFilteredProcesses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnListFilteredProcesses.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnListFilteredProcesses.Location = new System.Drawing.Point(606, 21);
+            this.btnListFilteredProcesses.Location = new System.Drawing.Point(494, 21);
             this.btnListFilteredProcesses.Name = "btnListFilteredProcesses";
             this.btnListFilteredProcesses.Size = new System.Drawing.Size(155, 44);
             this.btnListFilteredProcesses.TabIndex = 4;
@@ -159,7 +159,7 @@
             this.chkShowUnknownUsers.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkShowUnknownUsers.ForeColor = System.Drawing.Color.White;
             this.chkShowUnknownUsers.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkShowUnknownUsers.Location = new System.Drawing.Point(79, 63);
+            this.chkShowUnknownUsers.Location = new System.Drawing.Point(79, 51);
             this.chkShowUnknownUsers.Name = "chkShowUnknownUsers";
             this.chkShowUnknownUsers.Size = new System.Drawing.Size(250, 20);
             this.chkShowUnknownUsers.TabIndex = 3;
@@ -178,7 +178,7 @@
             this.btnEndSelectedProcess.Image = global::Utilities.Properties.Resources.icons8_delete_process_32;
             this.btnEndSelectedProcess.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEndSelectedProcess.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnEndSelectedProcess.Location = new System.Drawing.Point(606, 505);
+            this.btnEndSelectedProcess.Location = new System.Drawing.Point(494, 470);
             this.btnEndSelectedProcess.Name = "btnEndSelectedProcess";
             this.btnEndSelectedProcess.Size = new System.Drawing.Size(155, 44);
             this.btnEndSelectedProcess.TabIndex = 6;
@@ -194,7 +194,7 @@
             this.lblListProgress.AutoSize = true;
             this.lblListProgress.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblListProgress.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblListProgress.Location = new System.Drawing.Point(465, 86);
+            this.lblListProgress.Location = new System.Drawing.Point(353, 86);
             this.lblListProgress.Name = "lblListProgress";
             this.lblListProgress.Size = new System.Drawing.Size(123, 16);
             this.lblListProgress.TabIndex = 27;
@@ -214,7 +214,7 @@
             this.cboWhereField.Items.AddRange(new object[] {
             "ID",
             "Name"});
-            this.cboWhereField.Location = new System.Drawing.Point(79, 32);
+            this.cboWhereField.Location = new System.Drawing.Point(79, 21);
             this.cboWhereField.Name = "cboWhereField";
             this.cboWhereField.Size = new System.Drawing.Size(83, 24);
             this.cboWhereField.Sorted = true;
@@ -243,7 +243,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(174, 35);
+            this.label1.Location = new System.Drawing.Point(174, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 16);
             this.label1.TabIndex = 31;
@@ -254,7 +254,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(790, 570);
+            this.ClientSize = new System.Drawing.Size(678, 535);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblProcesses);
             this.Controls.Add(this.cboWhereField);

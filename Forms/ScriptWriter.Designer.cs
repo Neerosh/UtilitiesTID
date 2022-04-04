@@ -53,7 +53,7 @@ namespace Utilities.Forms {
             this.btnScriptRegular.Image = global::Utilities.Properties.Resources.icons8_inscription_32;
             this.btnScriptRegular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnScriptRegular.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnScriptRegular.Location = new System.Drawing.Point(634, 24);
+            this.btnScriptRegular.Location = new System.Drawing.Point(522, 24);
             this.btnScriptRegular.Name = "btnScriptRegular";
             this.btnScriptRegular.Size = new System.Drawing.Size(136, 44);
             this.btnScriptRegular.TabIndex = 11;
@@ -121,7 +121,7 @@ namespace Utilities.Forms {
             this.btnScriptFolderBrowser.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnScriptFolderBrowser.ForeColor = System.Drawing.Color.White;
             this.btnScriptFolderBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnScriptFolderBrowser.Location = new System.Drawing.Point(589, 56);
+            this.btnScriptFolderBrowser.Location = new System.Drawing.Point(477, 56);
             this.btnScriptFolderBrowser.Name = "btnScriptFolderBrowser";
             this.btnScriptFolderBrowser.Size = new System.Drawing.Size(30, 25);
             this.btnScriptFolderBrowser.TabIndex = 5;
@@ -139,7 +139,7 @@ namespace Utilities.Forms {
             this.btnFolderSQLBrowser.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnFolderSQLBrowser.ForeColor = System.Drawing.Color.White;
             this.btnFolderSQLBrowser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnFolderSQLBrowser.Location = new System.Drawing.Point(589, 24);
+            this.btnFolderSQLBrowser.Location = new System.Drawing.Point(477, 24);
             this.btnFolderSQLBrowser.Name = "btnFolderSQLBrowser";
             this.btnFolderSQLBrowser.Size = new System.Drawing.Size(30, 25);
             this.btnFolderSQLBrowser.TabIndex = 2;
@@ -168,7 +168,7 @@ namespace Utilities.Forms {
             this.txtScriptFolder.ForeColor = System.Drawing.Color.White;
             this.txtScriptFolder.Location = new System.Drawing.Point(111, 57);
             this.txtScriptFolder.Name = "txtScriptFolder";
-            this.txtScriptFolder.Size = new System.Drawing.Size(472, 22);
+            this.txtScriptFolder.Size = new System.Drawing.Size(360, 22);
             this.txtScriptFolder.TabIndex = 4;
             // 
             // lblSQLFolder
@@ -192,7 +192,7 @@ namespace Utilities.Forms {
             this.txtFolderSQL.ForeColor = System.Drawing.Color.White;
             this.txtFolderSQL.Location = new System.Drawing.Point(111, 25);
             this.txtFolderSQL.Name = "txtFolderSQL";
-            this.txtFolderSQL.Size = new System.Drawing.Size(472, 22);
+            this.txtFolderSQL.Size = new System.Drawing.Size(360, 22);
             this.txtFolderSQL.TabIndex = 1;
             // 
             // btnScriptUnified
@@ -207,7 +207,7 @@ namespace Utilities.Forms {
             this.btnScriptUnified.Image = global::Utilities.Properties.Resources.icons8_compose_32;
             this.btnScriptUnified.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnScriptUnified.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnScriptUnified.Location = new System.Drawing.Point(634, 74);
+            this.btnScriptUnified.Location = new System.Drawing.Point(522, 74);
             this.btnScriptUnified.Name = "btnScriptUnified";
             this.btnScriptUnified.Size = new System.Drawing.Size(136, 44);
             this.btnScriptUnified.TabIndex = 12;
@@ -223,7 +223,7 @@ namespace Utilities.Forms {
             this.lblGeneratingRegularScript.AutoSize = true;
             this.lblGeneratingRegularScript.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblGeneratingRegularScript.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblGeneratingRegularScript.Location = new System.Drawing.Point(451, 92);
+            this.lblGeneratingRegularScript.Location = new System.Drawing.Point(339, 92);
             this.lblGeneratingRegularScript.Name = "lblGeneratingRegularScript";
             this.lblGeneratingRegularScript.Size = new System.Drawing.Size(168, 16);
             this.lblGeneratingRegularScript.TabIndex = 15;
@@ -236,7 +236,7 @@ namespace Utilities.Forms {
             this.lblGeneratingUnifiedScript.AutoSize = true;
             this.lblGeneratingUnifiedScript.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblGeneratingUnifiedScript.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblGeneratingUnifiedScript.Location = new System.Drawing.Point(451, 124);
+            this.lblGeneratingUnifiedScript.Location = new System.Drawing.Point(339, 124);
             this.lblGeneratingUnifiedScript.Name = "lblGeneratingUnifiedScript";
             this.lblGeneratingUnifiedScript.Size = new System.Drawing.Size(163, 16);
             this.lblGeneratingUnifiedScript.TabIndex = 16;
@@ -248,7 +248,7 @@ namespace Utilities.Forms {
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(790, 570);
+            this.ClientSize = new System.Drawing.Size(678, 535);
             this.Controls.Add(this.lblGeneratingUnifiedScript);
             this.Controls.Add(this.lblGeneratingRegularScript);
             this.Controls.Add(this.btnScriptRegular);
