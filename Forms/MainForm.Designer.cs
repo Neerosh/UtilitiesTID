@@ -109,7 +109,7 @@ namespace Utilities
             // 
             this.picGitHub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.picGitHub.Image = global::Utilities.Properties.Resources.icons8_github;
-            this.picGitHub.Location = new System.Drawing.Point(3, 3);
+            this.picGitHub.Location = new System.Drawing.Point(10, 3);
             this.picGitHub.Name = "picGitHub";
             this.picGitHub.Size = new System.Drawing.Size(30, 30);
             this.picGitHub.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -123,12 +123,12 @@ namespace Utilities
             // 
             this.lblCreator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCreator.AutoSize = true;
-            this.lblCreator.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCreator.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCreator.ForeColor = System.Drawing.Color.White;
             this.lblCreator.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblCreator.Location = new System.Drawing.Point(35, 10);
+            this.lblCreator.Location = new System.Drawing.Point(40, 10);
             this.lblCreator.Name = "lblCreator";
-            this.lblCreator.Size = new System.Drawing.Size(99, 16);
+            this.lblCreator.Size = new System.Drawing.Size(91, 16);
             this.lblCreator.TabIndex = 4;
             this.lblCreator.Text = "Creator Page";
             this.lblCreator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
