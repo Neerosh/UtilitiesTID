@@ -32,8 +32,7 @@ namespace Utilities
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panelCreatorLinks = new System.Windows.Forms.Panel();
-            this.picGitHub = new System.Windows.Forms.PictureBox();
-            this.lblCreator = new System.Windows.Forms.Label();
+            this.btnCreatorPage = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnScriptWriter = new System.Windows.Forms.Button();
             this.btnProcessManagement = new System.Windows.Forms.Button();
@@ -61,7 +60,6 @@ namespace Utilities
             this.btnClose = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelCreatorLinks.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picGitHub)).BeginInit();
             this.panelSubMenuFiles.SuspendLayout();
             this.panelSubMenuCodes.SuspendLayout();
             this.panelSide.SuspendLayout();
@@ -94,47 +92,35 @@ namespace Utilities
             // 
             // panelCreatorLinks
             // 
-            this.panelCreatorLinks.Controls.Add(this.picGitHub);
-            this.panelCreatorLinks.Controls.Add(this.lblCreator);
+            this.panelCreatorLinks.Controls.Add(this.btnCreatorPage);
             this.panelCreatorLinks.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelCreatorLinks.Location = new System.Drawing.Point(0, 561);
             this.panelCreatorLinks.Name = "panelCreatorLinks";
             this.panelCreatorLinks.Size = new System.Drawing.Size(206, 40);
             this.panelCreatorLinks.TabIndex = 21;
-            this.panelCreatorLinks.Click += new System.EventHandler(this.OpenCreatorLink);
-            this.panelCreatorLinks.MouseEnter += new System.EventHandler(this.CreatorLink_MouseEnter);
-            this.panelCreatorLinks.MouseLeave += new System.EventHandler(this.CreatorLink_MouseLeave);
             // 
-            // picGitHub
+            // btnCreatorPage
             // 
-            this.picGitHub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.picGitHub.Image = global::Utilities.Properties.Resources.icons8_github;
-            this.picGitHub.Location = new System.Drawing.Point(10, 3);
-            this.picGitHub.Name = "picGitHub";
-            this.picGitHub.Size = new System.Drawing.Size(30, 30);
-            this.picGitHub.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picGitHub.TabIndex = 5;
-            this.picGitHub.TabStop = false;
-            this.picGitHub.Click += new System.EventHandler(this.OpenCreatorLink);
-            this.picGitHub.MouseEnter += new System.EventHandler(this.CreatorLink_MouseEnter);
-            this.picGitHub.MouseLeave += new System.EventHandler(this.CreatorLink_MouseLeave);
-            // 
-            // lblCreator
-            // 
-            this.lblCreator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblCreator.AutoSize = true;
-            this.lblCreator.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCreator.ForeColor = System.Drawing.Color.White;
-            this.lblCreator.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblCreator.Location = new System.Drawing.Point(40, 10);
-            this.lblCreator.Name = "lblCreator";
-            this.lblCreator.Size = new System.Drawing.Size(91, 16);
-            this.lblCreator.TabIndex = 4;
-            this.lblCreator.Text = "Creator Page";
-            this.lblCreator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCreator.Click += new System.EventHandler(this.OpenCreatorLink);
-            this.lblCreator.MouseEnter += new System.EventHandler(this.CreatorLink_MouseEnter);
-            this.lblCreator.MouseLeave += new System.EventHandler(this.CreatorLink_MouseLeave);
+            this.btnCreatorPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnCreatorPage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCreatorPage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnCreatorPage.FlatAppearance.BorderSize = 0;
+            this.btnCreatorPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btnCreatorPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreatorPage.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCreatorPage.ForeColor = System.Drawing.Color.White;
+            this.btnCreatorPage.Image = global::Utilities.Properties.Resources.icons8_github;
+            this.btnCreatorPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreatorPage.Location = new System.Drawing.Point(0, 0);
+            this.btnCreatorPage.Name = "btnCreatorPage";
+            this.btnCreatorPage.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnCreatorPage.Size = new System.Drawing.Size(206, 40);
+            this.btnCreatorPage.TabIndex = 13;
+            this.btnCreatorPage.Text = "Creator Page";
+            this.btnCreatorPage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreatorPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCreatorPage.UseVisualStyleBackColor = false;
+            this.btnCreatorPage.Click += new System.EventHandler(this.OpenCreatorLink);
             // 
             // btnHelp
             // 
@@ -594,8 +580,6 @@ namespace Utilities
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.panelSideMenu.ResumeLayout(false);
             this.panelCreatorLinks.ResumeLayout(false);
-            this.panelCreatorLinks.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picGitHub)).EndInit();
             this.panelSubMenuFiles.ResumeLayout(false);
             this.panelSubMenuCodes.ResumeLayout(false);
             this.panelSide.ResumeLayout(false);
@@ -632,11 +616,10 @@ namespace Utilities
         private System.Windows.Forms.Button btnCodes;
         private System.Windows.Forms.Button btnFiles;
         private System.Windows.Forms.Button btnFileWatcher;
-        private System.Windows.Forms.Label lblCreator;
         private System.Windows.Forms.Button btnFileLocks;
-        private System.Windows.Forms.PictureBox picGitHub;
         private System.Windows.Forms.Panel panelCreatorLinks;
         private System.Windows.Forms.Panel panelSide;
+        private System.Windows.Forms.Button btnCreatorPage;
     }
 }
 

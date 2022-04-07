@@ -53,6 +53,9 @@ namespace Utilities
         private void btnMinimize_Click(object sender, EventArgs e) {
             WindowState = FormWindowState.Minimized;
         }
+        private void Main_Resize(object sender, EventArgs e) {
+            AdjustForm();
+        }
 
         #region Movable AND Resizable Window
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -149,7 +152,7 @@ namespace Utilities
         private void AdjustForm() {
             switch (this.WindowState) {
                 case FormWindowState.Maximized: //Maximized form (After)
-                    this.Padding = new Padding(8, 8, 8, 0);
+                    this.Padding = new Padding(9, 9, 9, 9);
                     break;
                 case FormWindowState.Normal: //Restored form (After)
                     if (this.Padding.Top != 2)
@@ -182,6 +185,7 @@ namespace Utilities
                     }
                 }
             }
+            btnCreatorPage.BackColor = Color.FromArgb(30, 30, 30);
         }
 
         private void OpenChildForm(Form childForm) {
@@ -269,26 +273,12 @@ namespace Utilities
         }
         #endregion
 
-        private void Main_Resize(object sender, EventArgs e) {
-            AdjustForm();
-        }
-
         private void OpenCreatorLink(object sender, EventArgs e) {
             ProcessStartInfo psi = new ProcessStartInfo {
                 UseShellExecute = true,
                 FileName = "https://github.com/Neerosh"
             };
             Process.Start(psi);
-        }
-        private void CreatorLink_MouseEnter(object sender, EventArgs e) { 
-            panelCreatorLinks.BackColor = Color.FromArgb(60, 60, 60);
-            picGitHub.BackColor = Color.FromArgb(60, 60, 60);
-            lblCreator.BackColor = Color.FromArgb(60, 60, 60);
-        }
-        private void CreatorLink_MouseLeave(object sender, EventArgs e) {
-            panelCreatorLinks.BackColor = Color.FromArgb(35, 35, 35);
-            picGitHub.BackColor = Color.FromArgb(35, 35, 35);
-            lblCreator.BackColor = Color.FromArgb(35, 35, 35);
         }
     }
 }
