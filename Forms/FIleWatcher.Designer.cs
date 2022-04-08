@@ -211,7 +211,7 @@
             this.lblFileWatcherStatus.AutoSize = true;
             this.lblFileWatcherStatus.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFileWatcherStatus.ForeColor = System.Drawing.Color.Chartreuse;
-            this.lblFileWatcherStatus.Location = new System.Drawing.Point(364, 182);
+            this.lblFileWatcherStatus.Location = new System.Drawing.Point(374, 179);
             this.lblFileWatcherStatus.Name = "lblFileWatcherStatus";
             this.lblFileWatcherStatus.Size = new System.Drawing.Size(119, 16);
             this.lblFileWatcherStatus.TabIndex = 100;

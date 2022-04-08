@@ -1,9 +1,9 @@
 ﻿
+using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
-using Microsoft.Data.Sqlite;
 
 namespace Utilities.Classes
 {

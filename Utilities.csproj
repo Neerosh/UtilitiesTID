@@ -66,7 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.3" />
-    <PackageReference Include="System.Management" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Forms\FileLocks.cs">

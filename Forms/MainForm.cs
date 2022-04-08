@@ -11,7 +11,7 @@ namespace Utilities
 {
     public partial class Main : Form
     {
-        private SQLite sqlite;
+        private SQLite sqlite = new SQLite();
         public readonly string[] arrayForbiddenCombinations = new string[] { ").", "_.", "_03.", "old.", "old--.", "copia.", "copy." };
         private Form activeForm = null;
         private Size formSize;
