@@ -94,7 +94,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cboCodeType.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="lblCodeType.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -127,7 +127,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblCodeType.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="lblCodeName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -160,7 +160,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblCodeName.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="cboCodeName.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -190,7 +190,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cboCodeName.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="btnCopyClipboard.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -235,7 +235,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnCopyClipboard.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="txtCodePreview.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -268,6 +268,42 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtCodePreview.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblCopyToClipboard.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="lblCopyToClipboard.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblCopyToClipboard.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.5pt</value>
+  </data>
+  <data name="lblCopyToClipboard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>457, 73</value>
+  </data>
+  <data name="lblCopyToClipboard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 16</value>
+  </data>
+  <data name="lblCopyToClipboard.TabIndex" type="System.Int32, mscorlib">
+    <value>101</value>
+  </data>
+  <data name="lblCopyToClipboard.Text" xml:space="preserve">
+    <value>Copied to Clipboard Successfully.</value>
+  </data>
+  <data name="lblCopyToClipboard.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblCopyToClipboard.Name" xml:space="preserve">
+    <value>lblCopyToClipboard</value>
+  </data>
+  <data name="&gt;&gt;lblCopyToClipboard.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCopyToClipboard.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblCopyToClipboard.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

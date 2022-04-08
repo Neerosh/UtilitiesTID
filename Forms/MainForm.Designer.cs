@@ -86,7 +86,7 @@ namespace Utilities
             this.panelSideMenu.ForeColor = System.Drawing.Color.White;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 60);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(206, 601);
+            this.panelSideMenu.Size = new System.Drawing.Size(206, 501);
             this.panelSideMenu.TabIndex = 19;
             this.panelSideMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
@@ -94,9 +94,9 @@ namespace Utilities
             // 
             this.panelCreatorLinks.Controls.Add(this.btnCreatorPage);
             this.panelCreatorLinks.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelCreatorLinks.Location = new System.Drawing.Point(0, 561);
+            this.panelCreatorLinks.Location = new System.Drawing.Point(0, 560);
             this.panelCreatorLinks.Name = "panelCreatorLinks";
-            this.panelCreatorLinks.Size = new System.Drawing.Size(206, 40);
+            this.panelCreatorLinks.Size = new System.Drawing.Size(189, 40);
             this.panelCreatorLinks.TabIndex = 21;
             // 
             // btnCreatorPage
@@ -114,7 +114,7 @@ namespace Utilities
             this.btnCreatorPage.Location = new System.Drawing.Point(0, 0);
             this.btnCreatorPage.Name = "btnCreatorPage";
             this.btnCreatorPage.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnCreatorPage.Size = new System.Drawing.Size(206, 40);
+            this.btnCreatorPage.Size = new System.Drawing.Size(189, 40);
             this.btnCreatorPage.TabIndex = 13;
             this.btnCreatorPage.Text = "Creator Page";
             this.btnCreatorPage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -135,7 +135,7 @@ namespace Utilities
             this.btnHelp.Location = new System.Drawing.Point(0, 520);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnHelp.Size = new System.Drawing.Size(206, 40);
+            this.btnHelp.Size = new System.Drawing.Size(189, 40);
             this.btnHelp.TabIndex = 12;
             this.btnHelp.Text = "Help";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -156,7 +156,7 @@ namespace Utilities
             this.btnScriptWriter.Location = new System.Drawing.Point(0, 480);
             this.btnScriptWriter.Name = "btnScriptWriter";
             this.btnScriptWriter.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnScriptWriter.Size = new System.Drawing.Size(206, 40);
+            this.btnScriptWriter.Size = new System.Drawing.Size(189, 40);
             this.btnScriptWriter.TabIndex = 11;
             this.btnScriptWriter.Text = "Script Writer";
             this.btnScriptWriter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -177,7 +177,7 @@ namespace Utilities
             this.btnProcessManagement.Location = new System.Drawing.Point(0, 440);
             this.btnProcessManagement.Name = "btnProcessManagement";
             this.btnProcessManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnProcessManagement.Size = new System.Drawing.Size(206, 40);
+            this.btnProcessManagement.Size = new System.Drawing.Size(189, 40);
             this.btnProcessManagement.TabIndex = 10;
             this.btnProcessManagement.Text = "Manage Processes";
             this.btnProcessManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -195,7 +195,7 @@ namespace Utilities
             this.panelSubMenuFiles.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuFiles.Location = new System.Drawing.Point(0, 240);
             this.panelSubMenuFiles.Name = "panelSubMenuFiles";
-            this.panelSubMenuFiles.Size = new System.Drawing.Size(206, 200);
+            this.panelSubMenuFiles.Size = new System.Drawing.Size(189, 200);
             this.panelSubMenuFiles.TabIndex = 4;
             // 
             // btnFileFilters
@@ -211,7 +211,7 @@ namespace Utilities
             this.btnFileFilters.Location = new System.Drawing.Point(0, 160);
             this.btnFileFilters.Name = "btnFileFilters";
             this.btnFileFilters.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnFileFilters.Size = new System.Drawing.Size(206, 40);
+            this.btnFileFilters.Size = new System.Drawing.Size(189, 40);
             this.btnFileFilters.TabIndex = 9;
             this.btnFileFilters.Text = "Manage Filters";
             this.btnFileFilters.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -233,7 +233,7 @@ namespace Utilities
             this.btnFileManagement.Location = new System.Drawing.Point(0, 120);
             this.btnFileManagement.Name = "btnFileManagement";
             this.btnFileManagement.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnFileManagement.Size = new System.Drawing.Size(206, 40);
+            this.btnFileManagement.Size = new System.Drawing.Size(189, 40);
             this.btnFileManagement.TabIndex = 8;
             this.btnFileManagement.Text = "Manage Files";
             this.btnFileManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -254,7 +254,7 @@ namespace Utilities
             this.btnFileWatcher.Location = new System.Drawing.Point(0, 80);
             this.btnFileWatcher.Name = "btnFileWatcher";
             this.btnFileWatcher.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnFileWatcher.Size = new System.Drawing.Size(206, 40);
+            this.btnFileWatcher.Size = new System.Drawing.Size(189, 40);
             this.btnFileWatcher.TabIndex = 7;
             this.btnFileWatcher.Text = "Watcher";
             this.btnFileWatcher.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -276,7 +276,7 @@ namespace Utilities
             this.btnFileLocks.Location = new System.Drawing.Point(0, 40);
             this.btnFileLocks.Name = "btnFileLocks";
             this.btnFileLocks.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnFileLocks.Size = new System.Drawing.Size(206, 40);
+            this.btnFileLocks.Size = new System.Drawing.Size(189, 40);
             this.btnFileLocks.TabIndex = 10;
             this.btnFileLocks.Text = "Locks";
             this.btnFileLocks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -297,7 +297,7 @@ namespace Utilities
             this.btnFileChecksum.Location = new System.Drawing.Point(0, 0);
             this.btnFileChecksum.Name = "btnFileChecksum";
             this.btnFileChecksum.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnFileChecksum.Size = new System.Drawing.Size(206, 40);
+            this.btnFileChecksum.Size = new System.Drawing.Size(189, 40);
             this.btnFileChecksum.TabIndex = 6;
             this.btnFileChecksum.Text = "Checksum";
             this.btnFileChecksum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -318,7 +318,7 @@ namespace Utilities
             this.btnFiles.Location = new System.Drawing.Point(0, 200);
             this.btnFiles.Name = "btnFiles";
             this.btnFiles.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnFiles.Size = new System.Drawing.Size(206, 40);
+            this.btnFiles.Size = new System.Drawing.Size(189, 40);
             this.btnFiles.TabIndex = 5;
             this.btnFiles.Text = "Files";
             this.btnFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -333,7 +333,7 @@ namespace Utilities
             this.panelSubMenuCodes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuCodes.Location = new System.Drawing.Point(0, 120);
             this.panelSubMenuCodes.Name = "panelSubMenuCodes";
-            this.panelSubMenuCodes.Size = new System.Drawing.Size(206, 80);
+            this.panelSubMenuCodes.Size = new System.Drawing.Size(189, 80);
             this.panelSubMenuCodes.TabIndex = 3;
             // 
             // btnCodesManage
@@ -349,7 +349,7 @@ namespace Utilities
             this.btnCodesManage.Location = new System.Drawing.Point(0, 40);
             this.btnCodesManage.Name = "btnCodesManage";
             this.btnCodesManage.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnCodesManage.Size = new System.Drawing.Size(206, 40);
+            this.btnCodesManage.Size = new System.Drawing.Size(189, 40);
             this.btnCodesManage.TabIndex = 4;
             this.btnCodesManage.Text = "Manage Codes";
             this.btnCodesManage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -370,7 +370,7 @@ namespace Utilities
             this.btnCodeToClipboard.Location = new System.Drawing.Point(0, 0);
             this.btnCodeToClipboard.Name = "btnCodeToClipboard";
             this.btnCodeToClipboard.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnCodeToClipboard.Size = new System.Drawing.Size(206, 40);
+            this.btnCodeToClipboard.Size = new System.Drawing.Size(189, 40);
             this.btnCodeToClipboard.TabIndex = 3;
             this.btnCodeToClipboard.Text = "Copy To Clipboard";
             this.btnCodeToClipboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -391,7 +391,7 @@ namespace Utilities
             this.btnCodes.Location = new System.Drawing.Point(0, 80);
             this.btnCodes.Name = "btnCodes";
             this.btnCodes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnCodes.Size = new System.Drawing.Size(206, 40);
+            this.btnCodes.Size = new System.Drawing.Size(189, 40);
             this.btnCodes.TabIndex = 2;
             this.btnCodes.Text = "Codes";
             this.btnCodes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -412,7 +412,7 @@ namespace Utilities
             this.btnConvertClarion.Location = new System.Drawing.Point(0, 40);
             this.btnConvertClarion.Name = "btnConvertClarion";
             this.btnConvertClarion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnConvertClarion.Size = new System.Drawing.Size(206, 40);
+            this.btnConvertClarion.Size = new System.Drawing.Size(189, 40);
             this.btnConvertClarion.TabIndex = 1;
             this.btnConvertClarion.Text = "Clarion Converter";
             this.btnConvertClarion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -433,7 +433,7 @@ namespace Utilities
             this.btnMenu.Location = new System.Drawing.Point(0, 0);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnMenu.Size = new System.Drawing.Size(206, 40);
+            this.btnMenu.Size = new System.Drawing.Size(189, 40);
             this.btnMenu.TabIndex = 0;
             this.btnMenu.Text = "Menu";
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -449,7 +449,7 @@ namespace Utilities
             this.panelSide.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSide.Location = new System.Drawing.Point(0, 0);
             this.panelSide.Name = "panelSide";
-            this.panelSide.Size = new System.Drawing.Size(206, 661);
+            this.panelSide.Size = new System.Drawing.Size(206, 561);
             this.panelSide.TabIndex = 0;
             // 
             // panelTitle
@@ -497,7 +497,7 @@ namespace Utilities
             this.panelChildForm.Location = new System.Drawing.Point(206, 26);
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Padding = new System.Windows.Forms.Padding(2);
-            this.panelChildForm.Size = new System.Drawing.Size(678, 635);
+            this.panelChildForm.Size = new System.Drawing.Size(678, 535);
             this.panelChildForm.TabIndex = 18;
             // 
             // panelBar
@@ -563,7 +563,7 @@ namespace Utilities
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(884, 661);
+            this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelBar);
             this.Controls.Add(this.panelSide);

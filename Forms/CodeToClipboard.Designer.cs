@@ -36,6 +36,7 @@ namespace Utilities
             this.cboCodeName = new System.Windows.Forms.ComboBox();
             this.btnCopyClipboard = new System.Windows.Forms.Button();
             this.txtCodePreview = new System.Windows.Forms.RichTextBox();
+            this.lblCopyToClipboard = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cboCodeType
@@ -95,11 +96,18 @@ namespace Utilities
             this.txtCodePreview.Name = "txtCodePreview";
             this.txtCodePreview.ReadOnly = true;
             // 
+            // lblCopyToClipboard
+            // 
+            resources.ApplyResources(this.lblCopyToClipboard, "lblCopyToClipboard");
+            this.lblCopyToClipboard.ForeColor = System.Drawing.Color.Chartreuse;
+            this.lblCopyToClipboard.Name = "lblCopyToClipboard";
+            // 
             // CodeToClipboard
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Controls.Add(this.lblCopyToClipboard);
             this.Controls.Add(this.txtCodePreview);
             this.Controls.Add(this.cboCodeType);
             this.Controls.Add(this.lblCodeName);
@@ -124,5 +132,6 @@ namespace Utilities
         private System.Windows.Forms.Label lblCodeType;
         private System.Windows.Forms.ComboBox cboCodeType;
         private System.Windows.Forms.RichTextBox txtCodePreview;
+        private System.Windows.Forms.Label lblCopyToClipboard;
     }
 }

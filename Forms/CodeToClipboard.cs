@@ -8,10 +8,13 @@ namespace Utilities
     public partial class CodeToClipboard : Form
     {
         private SQLite sqlite;
-
+        private Timer timerLabelClipboard;
         public CodeToClipboard() {
             InitializeComponent();
             sqlite = new SQLite();
+            timerLabelClipboard = new Timer();
+            timerLabelClipboard.Interval = 10000;
+            timerLabelClipboard.Tick += (source, e) => { lblCopyToClipboard.Visible = false; timerLabelClipboard.Stop(); };
         }
         private void CodeToClipboard_Load(object sender, EventArgs e) {
             RefreshCodeTypes();
@@ -41,19 +44,22 @@ namespace Utilities
         private void BtnCopyClipboard_Click(object sender, EventArgs e) {
             if (cboCodeName.SelectedItem != null) {
                 Clipboard.SetText(cboCodeName.SelectedValue.ToString());
-                txtCodePreview.Text = cboCodeName.Text + "\r\nCopied to clipboard successfully."+
-                    "\r\n-------------------------------------------------------------------\r\n" +
-                     cboCodeName.SelectedValue.ToString();
+                lblCopyToClipboard.Visible = true;
+                timerLabelClipboard.Start();
             }
         }
         private void CboCodeName_SelectedValueChanged(object sender, EventArgs e) {
             if (cboCodeName.SelectedItem != null) {
                 txtCodePreview.Text = "Preview: \r\n" + cboCodeName.SelectedValue.ToString();
+                timerLabelClipboard.Stop();
+                lblCopyToClipboard.Visible = false;
             }
         }
         private void cboCodeType_SelectedValueChanged(object sender, EventArgs e) {
             if (cboCodeType.SelectedItem != null) {
                 RefreshCodeNames();
+                timerLabelClipboard.Stop();
+                lblCopyToClipboard.Visible = false;
             }
         }
     }
