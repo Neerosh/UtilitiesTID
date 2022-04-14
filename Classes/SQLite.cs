@@ -193,8 +193,8 @@ namespace Utilities.Classes
             connection.Open();
             command.Connection = connection;
             try {
-                command.CommandText = "DELETE FROM FileFilterConditions WHERE id_FileFilter = " + fileFilter.ID;
-                command.ExecuteNonQuery();
+                //command.CommandText = "DELETE FROM FileFilterConditions WHERE id_FileFilter = " + fileFilter.ID;
+                //command.ExecuteNonQuery();
                 command.CommandText = "DELETE FROM FileFilters WHERE id = " + fileFilter.ID;
                 command.ExecuteNonQuery();
                 customMessage = new CustomMessage("File Filter sucessfuly deleted.", "Sucess", "success");
@@ -370,7 +370,7 @@ namespace Utilities.Classes
                                     "Type Varchar(30) NOT NULL," +
                                     "Condition Varchar(1000) NOT NULL," +
                                     "UNIQUE (id_FileFilter,Type,Condition)," +
-                                    "FOREIGN KEY(id_FileFilter) REFERENCES FileFilters(id)" +
+                                    "FOREIGN KEY(id_FileFilter) REFERENCES FileFilters(id) ON DELETE CASCADE" +
                                   ");";
 
             try {
