@@ -276,6 +276,7 @@ namespace Utilities.Forms
         private void FileFilters_KeyDown(object sender, KeyEventArgs e) {
             switch (e.KeyCode) {
                 case Keys.Enter:
+                    if (txtFilterNotes.Focused) { return; }
                     if (txtCondition.Focused || dgvFileFilterConditions.Focused) {
                         if (dgvFileFilterConditions.GetCellCount(DataGridViewElementStates.Selected) == 0) {
                             btnInsertCondition_Click(sender, e);

@@ -150,6 +150,7 @@ namespace Utilities.Forms
         private void CodeManage_KeyDown(object sender, KeyEventArgs e) {
             switch (e.KeyCode) { 
                 case Keys.Enter:
+                    if (txtCodeText.Focused) { return; }
                     if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) == 0) { 
                         BtnInsert_Click(sender, e);
                     } else {

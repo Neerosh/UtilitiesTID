@@ -50,7 +50,6 @@ namespace Utilities
             this.cboCodeType.Items.AddRange(new object[] {
             resources.GetString("cboCodeType.Items")});
             this.cboCodeType.Name = "cboCodeType";
-            this.cboCodeType.Sorted = true;
             this.cboCodeType.SelectedValueChanged += new System.EventHandler(this.cboCodeType_SelectedValueChanged);
             // 
             // lblCodeType
@@ -72,7 +71,6 @@ namespace Utilities
             resources.ApplyResources(this.cboCodeName, "cboCodeName");
             this.cboCodeName.ForeColor = System.Drawing.Color.White;
             this.cboCodeName.Name = "cboCodeName";
-            this.cboCodeName.Sorted = true;
             this.cboCodeName.SelectedValueChanged += new System.EventHandler(this.CboCodeName_SelectedValueChanged);
             // 
             // btnCopyClipboard

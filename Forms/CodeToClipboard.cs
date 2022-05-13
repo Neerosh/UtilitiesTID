@@ -28,6 +28,7 @@ namespace Utilities
             } else {
                 dt = sqlite.SelectAllCodes("");
             }
+            dt.DefaultView.Sort = "Name ASC";
             cboCodeName.DataSource = dt;
             cboCodeName.DisplayMember = "Name";
             cboCodeName.ValueMember = "Code";
@@ -35,6 +36,7 @@ namespace Utilities
         }
         private void RefreshCodeTypes() {
             DataTable dt = sqlite.SelectAllCodeTypes();
+            dt.DefaultView.Sort = "Type ASC";
             cboCodeType.DataSource = dt;
             cboCodeType.DisplayMember = "Type";
             cboCodeType.ValueMember = "Type";
