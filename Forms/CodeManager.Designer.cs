@@ -43,6 +43,7 @@
             this.txtCodeText = new System.Windows.Forms.RichTextBox();
             this.btnDeleteAll = new System.Windows.Forms.Button();
             this.btnAddDefaults = new System.Windows.Forms.Button();
+            this.btnExportCodes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCodes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -301,12 +302,35 @@
             this.btnAddDefaults.UseVisualStyleBackColor = false;
             this.btnAddDefaults.Click += new System.EventHandler(this.btnAddDefaults_Click);
             // 
+            // btnExportCodes
+            // 
+            this.btnExportCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportCodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnExportCodes.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExportCodes.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnExportCodes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportCodes.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnExportCodes.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnExportCodes.Image = global::Utilities.Properties.Resources.icons8_inscription_32;
+            this.btnExportCodes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportCodes.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnExportCodes.Location = new System.Drawing.Point(516, 310);
+            this.btnExportCodes.Name = "btnExportCodes";
+            this.btnExportCodes.Size = new System.Drawing.Size(138, 44);
+            this.btnExportCodes.TabIndex = 15;
+            this.btnExportCodes.Text = "Export Codes";
+            this.btnExportCodes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportCodes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExportCodes.UseVisualStyleBackColor = false;
+            this.btnExportCodes.Click += new System.EventHandler(this.btnExportCodes_Click);
+            // 
             // CodeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(678, 535);
+            this.Controls.Add(this.btnExportCodes);
             this.Controls.Add(this.txtCodeText);
             this.Controls.Add(this.btnAddDefaults);
             this.Controls.Add(this.btnDeleteAll);
@@ -354,5 +378,6 @@
         private System.Windows.Forms.RichTextBox txtCodeText;
         private System.Windows.Forms.Button btnDeleteAll;
         private System.Windows.Forms.Button btnAddDefaults;
+        private System.Windows.Forms.Button btnExportCodes;
     }
 }

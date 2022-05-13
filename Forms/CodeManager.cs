@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
 using Utilities.Classes;
 
@@ -146,6 +148,42 @@ namespace Utilities.Forms
             RefreshCodes();
             BtnClearFields_Click(sender, e);
         }
+        private void btnExportCodes_Click(object sender, EventArgs e) {
+            string fileText = "", type = string.Empty;
+            string name, codeText,filepath;
+            int id;
+            Byte[] line;
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.CheckFileExists = false;
+            if (openFileDialog.ShowDialog(this) != DialogResult.OK) { return; }
+            if (File.Exists(openFileDialog.FileName)) { 
+                File.Delete(openFileDialog.FileName);
+            }
+
+            using (FileStream fileStream = File.Create(openFileDialog.FileName)) {
+                DataTable dtCodes = sqlite.SelectAllCodes("");
+                dtCodes.DefaultView.Sort = "Type";
+                foreach (DataRowView row in dtCodes.DefaultView) {
+                    if (!type.Equals(row[2].ToString())) {
+                        type = row[2].ToString();
+                        fileText = "----------------------------------" + type.ToUpper() + "----------------------------------\r\n";
+
+                        line = new UTF8Encoding(true).GetBytes(fileText);
+                        fileStream.Write(line, 0, line.Length);
+                    }
+
+                    id = Int32.Parse(row[0].ToString());
+                    name = row[1].ToString();
+                    codeText = row[3].ToString();
+                    fileText = "\r\nName: " + name+ "\r\n"+ codeText+ "\r\n";
+
+                    line = new UTF8Encoding(true).GetBytes(fileText);
+                    fileStream.Write(line, 0, line.Length);
+                }
+
+            }
+        }
 
         private void CodeManage_KeyDown(object sender, KeyEventArgs e) {
             switch (e.KeyCode) { 
@@ -165,5 +203,6 @@ namespace Utilities.Forms
                     break;
             }
         }
+
     }
 }
