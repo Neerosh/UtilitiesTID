@@ -304,7 +304,7 @@
             // 
             // btnExportCodes
             // 
-            this.btnExportCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportCodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnExportCodes.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnExportCodes.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;

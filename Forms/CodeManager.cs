@@ -58,6 +58,8 @@ namespace Utilities.Forms
         }
         private void BtnInsert_Click(object sender, EventArgs e) {
             CustomMessage customMessage;
+            int selectedId;
+
             if (txtName.Text.Equals("")) {
                 customMessage = new CustomMessage("Invalid code name.", "Information", "information");
                 CustomDialog.ShowCustomDialog(customMessage, this);
@@ -67,7 +69,6 @@ namespace Utilities.Forms
             customMessage = new CustomMessage("Insert new code?", "Confirmation", "confirmation");
             if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }
 
-            int selectedId;
             if (dgvCodes.GetCellCount(DataGridViewElementStates.Selected) <= 0) {
                 selectedId = 0;
             } else {
@@ -153,36 +154,53 @@ namespace Utilities.Forms
             string name, codeText,filepath;
             int id;
             Byte[] line;
+            CustomMessage customMessage;
 
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.CheckFileExists = false;
-            if (openFileDialog.ShowDialog(this) != DialogResult.OK) { return; }
-            if (File.Exists(openFileDialog.FileName)) { 
-                File.Delete(openFileDialog.FileName);
+            DataTable dtCodes = sqlite.SelectAllCodes("");
+            if (dtCodes.DefaultView.Count == 0) {
+                customMessage = new CustomMessage("Insert at least one code on the table.", "Information", "Information");
+                CustomDialog.ShowCustomDialog(customMessage, this);
+                return;
             }
 
-            using (FileStream fileStream = File.Create(openFileDialog.FileName)) {
-                DataTable dtCodes = sqlite.SelectAllCodes("");
-                dtCodes.DefaultView.Sort = "Type";
-                foreach (DataRowView row in dtCodes.DefaultView) {
-                    if (!type.Equals(row[2].ToString())) {
-                        type = row[2].ToString();
-                        fileText = "----------------------------------" + type.ToUpper() + "----------------------------------\r\n";
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.CheckFileExists = false;
+            saveFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog.FilterIndex = 2;
+
+            if (saveFileDialog.ShowDialog(this) != DialogResult.OK) { return; }
+
+            customMessage = new CustomMessage(
+                "Export codes to selected file?\nPath: " + saveFileDialog.FileName,
+                "Confirmation", "confirmation");
+            if (CustomDialog.ShowCustomDialog(customMessage, this) == DialogResult.Cancel) { return; }
+
+            try {
+                using (FileStream fileStream = File.Create(saveFileDialog.FileName)) {
+                    dtCodes.DefaultView.Sort = "Type";
+                    foreach (DataRowView row in dtCodes.DefaultView) {
+                        if (!type.Equals(row[2].ToString())) {
+                            type = row[2].ToString();
+                            fileText = "----------------------------------" + type.ToUpper() + "----------------------------------\r\n";
+
+                            line = new UTF8Encoding(true).GetBytes(fileText);
+                            fileStream.Write(line, 0, line.Length);
+                        }
+
+                        id = Int32.Parse(row[0].ToString());
+                        name = row[1].ToString();
+                        codeText = row[3].ToString();
+                        fileText = "\r\nName: " + name + "\r\n" + codeText + "\r\n";
 
                         line = new UTF8Encoding(true).GetBytes(fileText);
                         fileStream.Write(line, 0, line.Length);
                     }
-
-                    id = Int32.Parse(row[0].ToString());
-                    name = row[1].ToString();
-                    codeText = row[3].ToString();
-                    fileText = "\r\nName: " + name+ "\r\n"+ codeText+ "\r\n";
-
-                    line = new UTF8Encoding(true).GetBytes(fileText);
-                    fileStream.Write(line, 0, line.Length);
+                    customMessage = new CustomMessage("Codes sucessfuly exported.", "Sucess", "success");
                 }
-
+            } catch (Exception ex) {
+                customMessage = new CustomMessage("Error exporting: "+ex.Message, "Error", "error");
             }
+            CustomDialog.ShowCustomDialog(customMessage, this);
         }
 
         private void CodeManage_KeyDown(object sender, KeyEventArgs e) {
