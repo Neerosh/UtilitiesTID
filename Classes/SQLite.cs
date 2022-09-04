@@ -177,7 +177,7 @@ namespace Utilities.Classes
             connection.Open();
             command.Connection = connection;
             try {
-                command.CommandText = "UPDATE FileFilters SET Name = '" + fileFilter.Name + "'" +
+                command.CommandText = "UPDATE FileFilters SET Name = '" + fileFilter.Name + "', Notes  = '" + fileFilter.Notes + "'" +
                                       " WHERE ID  = " + fileFilter.ID;
                 command.ExecuteNonQuery();
                 customMessage = new CustomMessage("File Filter sucessfuly updated.", "Sucess", "sucess");
